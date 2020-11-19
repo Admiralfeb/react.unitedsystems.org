@@ -5,7 +5,7 @@ This page will assist in finding a possible location to expand to for massacre m
 It will return a list of systems where:
 
 - An anarchy faction is present (unknown if they are local)
-- Has a Gas Giant
+- Has rings
 - Has populated systems with stations within 10 LY
 
 ## Available Scripts
