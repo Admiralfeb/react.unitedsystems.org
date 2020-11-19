@@ -7,18 +7,17 @@ const apiURL = 'https://www.edsm.net/api-system-v1/factions';
  * @param systemName default Arugbal
  */
 const getFactionsinSystem = async (systemName: string = 'Arugbal') => {
-    try {
-        const response = await axios.get(apiURL, {
-            params: {
-                systemName,
-            }
-        })
+  try {
+    const response = await axios.get(apiURL, {
+      params: {
+        systemName,
+      },
+    });
 
-        return response;
-    }
-    catch (err) {
-        throw err;
-    }
-}
+    return response;
+  } catch (err) {
+    throw err;
+  }
+};
 
 export { getFactionsinSystem };
