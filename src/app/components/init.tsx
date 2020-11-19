@@ -1,5 +1,5 @@
 import React from 'react';
-import { getFactionsinSystem, getSystemsinSphere } from '../hooks';
+import { getFactionsinSystem, getSystemsinSphere } from '../functions';
 
 const Init = () => {
   const handleSphere = async () => {
