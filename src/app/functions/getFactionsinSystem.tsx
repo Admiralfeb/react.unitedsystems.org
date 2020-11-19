@@ -3,7 +3,7 @@ import axios from 'axios';
 const apiURL = 'https://www.edsm.net/api-system-v1/factions';
 
 /**
- * Gets systems in a sphere radius
+ * Gets factions within a system
  * @param systemName default Arugbal
  */
 const getFactionsinSystem = async (systemName: string = 'Arugbal') => {

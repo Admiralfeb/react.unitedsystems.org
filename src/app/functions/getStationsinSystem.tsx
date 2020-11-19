@@ -3,7 +3,7 @@ import axios from 'axios';
 const apiURL = 'https://www.edsm.net/api-system-v1/stations';
 
 /**
- * Gets systems in a sphere radius
+ * Gets stations within a system
  * @param systemName default Arugbal
  */
 const getStationsinSystem = async (systemName: string = 'Arugbal') => {
