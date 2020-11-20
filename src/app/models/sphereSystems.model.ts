@@ -1,10 +1,10 @@
-export interface ISystem {
+export interface ISphereSystem {
     distance: number;
     bodyCount: number;
     name: string;
     coords: ICoords;
     coordsLocked: boolean;
-    information: Information;
+    information: ISysInfo;
     primaryStar: IPrimaryStar;
 }
 
@@ -14,12 +14,12 @@ export interface ICoords {
     z: number;
 }
 
-export interface Information {
+export interface ISysInfo {
     allegiance?: null | string;
     government?: null | string;
     faction?: string;
     factionState?: string;
-    population?: number;
+    population: number;
     security?: string;
     economy?: string;
     secondEconomy?: string;

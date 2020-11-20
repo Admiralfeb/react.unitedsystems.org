@@ -1,4 +1,4 @@
-export interface Welcome {
+export interface ISystemFactionInfo {
     id: number;
     id64: number;
     name: string;
@@ -21,14 +21,10 @@ export interface Faction {
     government: string;
     influence: number;
     state: string;
-    activeStates: ActiveState[];
+    activeStates: string[];
     recoveringStates: any[];
     pendingStates: any[];
     happiness: string;
     isPlayer: boolean;
     lastUpdate: number;
-}
-
-export interface ActiveState {
-    state: string;
 }
