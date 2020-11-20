@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { ISystemFactionInfo } from '../models';
 
 const apiURL = 'https://www.edsm.net/api-system-v1/factions';
 
@@ -8,13 +9,13 @@ const apiURL = 'https://www.edsm.net/api-system-v1/factions';
  */
 const getFactionsinSystem = async (systemName: string = 'Arugbal') => {
   try {
-    const response = await axios.get(apiURL, {
+    const response = await axios.get<ISystemFactionInfo>(apiURL, {
       params: {
         systemName,
       },
     });
 
-    return response;
+    return response.data;
   } catch (err) {
     throw err;
   }

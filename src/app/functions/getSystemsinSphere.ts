@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { ISphereSystem } from '../models';
 
 const apiURL = 'https://www.edsm.net/api-v1/sphere-systems';
 
@@ -12,7 +13,7 @@ const getSystemsinSphere = async (
   distance: number = 50
 ) => {
   try {
-    const response = await axios.get(apiURL, {
+    const response = await axios.get<ISphereSystem[]>(apiURL, {
       params: {
         systemName,
         radius: distance,
@@ -22,7 +23,9 @@ const getSystemsinSphere = async (
       },
     });
 
-    return response;
+    const systemList = response.data.filter(v => v.distance > 0);
+
+    return systemList;
   } catch (err) {
     throw err;
   }
