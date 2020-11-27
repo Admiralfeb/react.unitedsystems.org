@@ -11,8 +11,15 @@ const useStyles = makeStyles({
   root: {
     display: 'grid',
     gridTemplateColumns: '1fr 1fr',
+    gridTemplateRows: 'auto',
   },
   rules: {
+    border: '3px solid white',
+    borderRadius: 10,
+    margin: 5,
+  },
+  consequences: {
+    gridColumn: '1 / 3',
     border: '3px solid white',
     borderRadius: 10,
     margin: 5,
@@ -20,7 +27,10 @@ const useStyles = makeStyles({
   '@media (max-width: 1024px)': {
     root: {
       gridTemplateColumns: '1fr',
-      gridTemplateRows: '1fr 1fr',
+      gridTemplateRows: 'auto',
+    },
+    consequences: {
+      gridColumn: 1,
     },
   },
 });
@@ -50,6 +60,14 @@ export const AboutRules = () => {
               </ListItem>
             ))}
           </List>
+        </div>
+        <div className={classes.consequences}>
+          <Typography>
+            Those found in violation of any of these Discord or Group rules, or
+            found attempting to bypass these rules in any way, will first be
+            subject to a minimum of a warning, further offences will be subject
+            to demotion, expulsion, and/or USC Kill-on-Sight status.
+          </Typography>
         </div>
       </div>
     </div>
