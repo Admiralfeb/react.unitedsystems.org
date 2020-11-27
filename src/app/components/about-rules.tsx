@@ -8,39 +8,51 @@ import {
 import React from 'react';
 
 const useStyles = makeStyles({
+  root: {
+    display: 'grid',
+    gridTemplateColumns: '1fr 1fr',
+  },
   rules: {
     border: '3px solid white',
     borderRadius: 10,
     margin: 5,
+  },
+  '@media (max-width: 1024px)': {
+    root: {
+      gridTemplateColumns: '1fr',
+      gridTemplateRows: '1fr 1fr',
+    },
   },
 });
 
 export const AboutRules = () => {
   const classes = useStyles();
   return (
-    <>
+    <div>
       <Typography variant='h3'>Rules</Typography>
-      <div className={classes.rules}>
-        <Typography variant='h4'>Discord</Typography>
-        <List>
-          {discordRules.map((rule: string, index: number) => (
-            <ListItem>
-              <ListItemText primary={`${index + 1}) ${rule}`} />
-            </ListItem>
-          ))}
-        </List>
+      <div className={classes.root}>
+        <div className={classes.rules}>
+          <Typography variant='h4'>Discord</Typography>
+          <List>
+            {discordRules.map((rule: string, index: number) => (
+              <ListItem>
+                <ListItemText primary={`${index + 1}) ${rule}`} />
+              </ListItem>
+            ))}
+          </List>
+        </div>
+        <div className={classes.rules}>
+          <Typography variant='h4'>Members of USC</Typography>
+          <List>
+            {memberRules.map((rule: string, index: number) => (
+              <ListItem>
+                <ListItemText primary={`${index + 1}) ${rule}`} />
+              </ListItem>
+            ))}
+          </List>
+        </div>
       </div>
-      <div className={classes.rules}>
-        <Typography variant='h4'>Members of USC</Typography>
-        <List>
-          {memberRules.map((rule: string, index: number) => (
-            <ListItem>
-              <ListItemText primary={`${index + 1}) ${rule}`} />
-            </ListItem>
-          ))}
-        </List>
-      </div>
-    </>
+    </div>
   );
 };
 

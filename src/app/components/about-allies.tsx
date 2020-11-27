@@ -20,7 +20,7 @@ const useStyles = makeStyles({
 export const AboutAllies = () => {
   const classes = useStyles();
   return (
-    <>
+    <div>
       <Typography variant='h2' className={classes.header}>
         Allies
       </Typography>
@@ -33,7 +33,7 @@ export const AboutAllies = () => {
           ))}
         </List>
       </div>
-    </>
+    </div>
   );
 };
 

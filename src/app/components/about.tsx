@@ -24,6 +24,16 @@ const useStyles = makeStyles({
     borderRadius: 10,
     margin: 5,
   },
+  setGrid: {
+    display: 'grid',
+    gridTemplateColumns: '1fr 1fr',
+  },
+  '@media (max-width: 1024px)': {
+    setGrid: {
+      gridTemplateColumns: '1fr',
+      gridTemplateRows: '1fr 1fr',
+    },
+  },
 });
 
 export const About = () => {
@@ -35,8 +45,10 @@ export const About = () => {
       </Typography>
       <Paper className={classes.paper}>
         <AboutRules />
-        <AboutHC />
-        <AboutAllies />
+        <div className={classes.setGrid}>
+          <AboutHC />
+          <AboutAllies />
+        </div>
       </Paper>
     </div>
   );

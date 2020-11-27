@@ -1,4 +1,10 @@
-import { makeStyles, Typography } from '@material-ui/core';
+import {
+  List,
+  ListItem,
+  ListItemText,
+  makeStyles,
+  Typography,
+} from '@material-ui/core';
 import React from 'react';
 
 const useStyles = makeStyles({
@@ -14,27 +20,37 @@ const useStyles = makeStyles({
 export const AboutHC = () => {
   const classes = useStyles();
   return (
-    <>
+    <div>
       <Typography variant='h2' className={classes.header}>
-        Meet the High Command
+        High Command
       </Typography>
-      <div id='fleet-admiral' className={classes.rank}>
-        <Typography>NickG2002</Typography>
-        <Typography>Goliath the Second</Typography>
-        <Typography>LOKioo42</Typography>
-        <Typography>Pablok</Typography>
-        <Typography>PracticalHalo</Typography>
-        <Typography>RedFang Culph</Typography>
-        <Typography>UltraNeros</Typography>
-        <Typography>Admiralfeb</Typography>
-        <Typography>Akhaten</Typography>
-        <Typography>Aurelius Publius</Typography>
-        <Typography>Captain Smokeq</Typography>
-        <Typography>Clever Ape</Typography>
-        <Typography>IM2D</Typography>
-        <Typography>Nullyti</Typography>
-        <Typography>Yuting9</Typography>
+      <div className={classes.rank}>
+        <List>
+          {hc.map((rule: string, index: number) => (
+            <ListItem>
+              <ListItemText primary={`${rule}`} />
+            </ListItem>
+          ))}
+        </List>
       </div>
-    </>
+    </div>
   );
 };
+
+const hc = [
+  'NickG2002',
+  'Goliath the Second',
+  'LOKioo42',
+  'Pablok',
+  'PracticalHalo',
+  'RedFang Culph',
+  'UltraNeros',
+  'Admiralfeb',
+  'Akhaten',
+  'Aurelius Publius',
+  'Captain Smokeq',
+  'Clever Ape',
+  'IM2D',
+  'Nullyti',
+  'Yuting9',
+];

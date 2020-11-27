@@ -1,4 +1,10 @@
-import { Link, makeStyles, Paper, Typography } from '@material-ui/core';
+import {
+  Link,
+  makeStyles,
+  Paper,
+  Typography,
+  useMediaQuery,
+} from '@material-ui/core';
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 
@@ -21,14 +27,25 @@ const useStyles = makeStyles({
     width: '100%',
     height: '59vw',
   },
+  step: {
+    display: 'grid',
+    gridTemplate: '1fr / 1fr 1fr',
+  },
+  right: {
+    textAlign: 'right',
+  },
+  left: {
+    textAlign: 'left',
+  },
 });
 
 export const Join = () => {
   const classes = useStyles();
+  const mediaQuery = useMediaQuery('(min-width:950px)');
   return (
     <div className={classes.root}>
       <Typography variant='h2' className={classes.header}>
-        Instructions to Join:
+        Join Us!
       </Typography>
       <Paper className={classes.paper}>
         <Typography>
@@ -38,23 +55,60 @@ export const Join = () => {
           </Link>
           .
         </Typography>
-        <Typography>Step 2: Fill out the form below</Typography>
-        <iframe
-          className={classes.iframe}
-          title='USC Application Form'
-          id='joinFormContainer'
-          src='https://docs.google.com/forms/d/e/1FAIpQLSfw7vIL8FY8ZGTF8YFjn3x-zGdhP5k9J6JALXAjXA7_Mm3-Rw/viewform?embedded=true'>
-          Loading…
-        </iframe>
-        <Typography>Step 3: Join Discord</Typography>
-        <iframe
+        {mediaQuery ? (
+          <Typography>Step 2: Fill out the form below</Typography>
+        ) : (
+          <Typography>
+            Step 2: Fill out the{' '}
+            <Link
+              to='https://docs.google.com/forms/d/e/1FAIpQLSfw7vIL8FY8ZGTF8YFjn3x-zGdhP5k9J6JALXAjXA7_Mm3-Rw/viewform?usp=sf_link'
+              target='_blank'
+              component={NavLink}>
+              USC Join Form
+            </Link>
+          </Typography>
+        )}
+
+        <Typography>
+          Step 3: Join our{' '}
+          <Link
+            to='https://discord.gg/br8Fy2M6cv'
+            target='_blank'
+            component={NavLink}>
+            Discord
+          </Link>
+        </Typography>
+
+        <Typography>
+          Recommended: Find us in-game! (UCPC for PC | UCXB for Xbox | UCPS for
+          PlayStation)
+        </Typography>
+        <Typography>
+          Recommended: Join our{' '}
+          <Link
+            to='https://inara.cz/squadron/7028/'
+            target='_blank'
+            component={NavLink}>
+            Inara Squadron
+          </Link>
+        </Typography>
+        {mediaQuery && (
+          <iframe
+            className={classes.iframe}
+            title='USC Application Form'
+            id='joinFormContainer'
+            src='https://docs.google.com/forms/d/e/1FAIpQLSfw7vIL8FY8ZGTF8YFjn3x-zGdhP5k9J6JALXAjXA7_Mm3-Rw/viewform?embedded=true'>
+            Loading…
+          </iframe>
+        )}
+        {/* <iframe
           className={classes.iframe}
           title='Discord Widget'
           id='embeddedDiscord'
           src='https://discord.com/widget?id=662439414152167434&amp;theme=dark'
           allowTransparency
           frameBorder='0'
-          sandbox='allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts'></iframe>
+          sandbox='allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts'></iframe> */}
       </Paper>
     </div>
   );
