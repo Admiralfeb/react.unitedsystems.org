@@ -45,7 +45,7 @@ export const AboutRules = () => {
           <Typography variant='h4'>Discord</Typography>
           <List>
             {discordRules.map((rule: string, index: number) => (
-              <ListItem>
+              <ListItem key={index}>
                 <ListItemText primary={`${index + 1}) ${rule}`} />
               </ListItem>
             ))}
@@ -55,7 +55,7 @@ export const AboutRules = () => {
           <Typography variant='h4'>Members of USC</Typography>
           <List>
             {memberRules.map((rule: string, index: number) => (
-              <ListItem>
+              <ListItem key={index}>
                 <ListItemText primary={`${index + 1}) ${rule}`} />
               </ListItem>
             ))}

@@ -26,8 +26,8 @@ export const AboutHC = () => {
       </Typography>
       <div className={classes.rank}>
         <List>
-          {hc.map((rule: string, index: number) => (
-            <ListItem>
+          {hc.map((rule: string, i: number) => (
+            <ListItem key={i}>
               <ListItemText primary={`${rule}`} />
             </ListItem>
           ))}

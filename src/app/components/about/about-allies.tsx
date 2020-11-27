@@ -26,8 +26,8 @@ export const AboutAllies = () => {
       </Typography>
       <div className={classes.allies}>
         <List>
-          {allies.map((rule: string) => (
-            <ListItem>
+          {allies.map((rule: string, i: number) => (
+            <ListItem key={i}>
               <ListItemText primary={`${rule}`} />
             </ListItem>
           ))}
