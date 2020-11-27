@@ -1,4 +1,4 @@
-export * from './about';
+export * from './about/about';
 export * from './information/information';
 export * from './home';
 export * from './join';
