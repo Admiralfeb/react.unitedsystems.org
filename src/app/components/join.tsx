@@ -61,9 +61,8 @@ export const Join = () => {
           <Typography>
             Step 2: Fill out the{' '}
             <Link
-              to='https://docs.google.com/forms/d/e/1FAIpQLSfw7vIL8FY8ZGTF8YFjn3x-zGdhP5k9J6JALXAjXA7_Mm3-Rw/viewform?usp=sf_link'
-              target='_blank'
-              component={NavLink}>
+              href='https://docs.google.com/forms/d/e/1FAIpQLSfw7vIL8FY8ZGTF8YFjn3x-zGdhP5k9J6JALXAjXA7_Mm3-Rw/viewform?usp=sf_link'
+              target='_blank'>
               USC Join Form
             </Link>
           </Typography>
@@ -71,10 +70,7 @@ export const Join = () => {
 
         <Typography>
           Step 3: Join our{' '}
-          <Link
-            to='https://discord.gg/br8Fy2M6cv'
-            target='_blank'
-            component={NavLink}>
+          <Link href='https://discord.gg/br8Fy2M6cv' target='_blank'>
             Discord
           </Link>
         </Typography>
@@ -85,10 +81,7 @@ export const Join = () => {
         </Typography>
         <Typography>
           Recommended: Join our{' '}
-          <Link
-            to='https://inara.cz/squadron/7028/'
-            target='_blank'
-            component={NavLink}>
+          <Link href='https://inara.cz/squadron/7028/' target='_blank'>
             Inara Squadron
           </Link>
         </Typography>
