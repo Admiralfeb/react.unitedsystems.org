@@ -1,0 +1,36 @@
+{
+  "files": {
+    "main.css": "/usc-website/static/css/main.4042ae48.chunk.css",
+    "main.js": "/usc-website/static/js/main.21100f6f.chunk.js",
+    "main.js.map": "/usc-website/static/js/main.21100f6f.chunk.js.map",
+    "runtime-main.js": "/usc-website/static/js/runtime-main.2bc55eb3.js",
+    "runtime-main.js.map": "/usc-website/static/js/runtime-main.2bc55eb3.js.map",
+    "static/js/2.f39bd21d.chunk.js": "/usc-website/static/js/2.f39bd21d.chunk.js",
+    "static/js/2.f39bd21d.chunk.js.map": "/usc-website/static/js/2.f39bd21d.chunk.js.map",
+    "static/js/3.fdcfef90.chunk.js": "/usc-website/static/js/3.fdcfef90.chunk.js",
+    "static/js/3.fdcfef90.chunk.js.map": "/usc-website/static/js/3.fdcfef90.chunk.js.map",
+    "static/css/4.9a8f941d.chunk.css": "/usc-website/static/css/4.9a8f941d.chunk.css",
+    "static/js/4.fb7f73d5.chunk.js": "/usc-website/static/js/4.fb7f73d5.chunk.js",
+    "static/js/4.fb7f73d5.chunk.js.map": "/usc-website/static/js/4.fb7f73d5.chunk.js.map",
+    "static/js/5.df2ca3bc.chunk.js": "/usc-website/static/js/5.df2ca3bc.chunk.js",
+    "static/js/5.df2ca3bc.chunk.js.map": "/usc-website/static/js/5.df2ca3bc.chunk.js.map",
+    "index.html": "/usc-website/index.html",
+    "static/css/4.9a8f941d.chunk.css.map": "/usc-website/static/css/4.9a8f941d.chunk.css.map",
+    "static/css/main.4042ae48.chunk.css.map": "/usc-website/static/css/main.4042ae48.chunk.css.map",
+    "static/js/2.f39bd21d.chunk.js.LICENSE.txt": "/usc-website/static/js/2.f39bd21d.chunk.js.LICENSE.txt",
+    "static/js/3.fdcfef90.chunk.js.LICENSE.txt": "/usc-website/static/js/3.fdcfef90.chunk.js.LICENSE.txt",
+    "static/media/404.4be41fe4.jpg": "/usc-website/static/media/404.4be41fe4.jpg",
+    "static/media/Cave Johnson.fe248e5c.png": "/usc-website/static/media/Cave Johnson.fe248e5c.png",
+    "static/media/ED station pad map.66377edc.png": "/usc-website/static/media/ED station pad map.66377edc.png",
+    "static/media/Engineer_icon.f8ffd94f.svg": "/usc-website/static/media/Engineer_icon.f8ffd94f.svg",
+    "static/media/FSS-1.44358e85.jpg": "/usc-website/static/media/FSS-1.44358e85.jpg",
+    "static/media/KBGFoam.37494026.jpg": "/usc-website/static/media/KBGFoam.37494026.jpg",
+    "static/media/index.css": "/usc-website/static/media/USC background pic.7d473b97.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.2bc55eb3.js",
+    "static/js/2.f39bd21d.chunk.js",
+    "static/css/main.4042ae48.chunk.css",
+    "static/js/main.21100f6f.chunk.js"
+  ]
+}
