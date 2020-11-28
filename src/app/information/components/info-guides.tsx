@@ -1,9 +1,11 @@
 import { Button, Paper, Typography } from '@material-ui/core';
 import React from 'react';
-import useStyles from './infoStyles';
+import useStyles from '../infoStyles';
+import { Link, useRouteMatch } from 'react-router-dom';
 
 export const InfoGuides = () => {
   const classes = useStyles();
+  const { url } = useRouteMatch();
   return (
     <Paper id='guides' className={classes.paper}>
       <Typography variant='h4'>Guides</Typography>
@@ -18,7 +20,11 @@ export const InfoGuides = () => {
             <Typography variant='caption'>Created by Pixel Bandits</Typography>
           </div>
         </Button>
-        <Button variant='outlined' color='secondary'>
+        <Button
+          variant='outlined'
+          color='secondary'
+          component={Link}
+          to={`${url}/builds`}>
           <div className={classes.specialButton}>
             <Typography>USC Ship Builds List</Typography>
             <Typography variant='caption'>Created by Admiralfeb</Typography>

@@ -1,0 +1,238 @@
+[
+    {
+        "id": 0,
+        "name": "Sidewinder",
+        "size": 1,
+        "shipImg": "https://edassets.org/static/img/ship-schematics/qohen-leth/sidewinder.svg"
+    },
+    {
+        "id": 1,
+        "name": "Eagle Mk II",
+        "size": 1,
+        "shipImg": "https://edassets.org/static/img/ship-schematics/qohen-leth/eagle-mk-ii.svg"
+    },
+    {
+        "id": 2,
+        "name": "Hauler",
+        "size": 1,
+        "shipImg": "https://edassets.org/static/img/ship-schematics/qohen-leth/hauler.svg"
+    },
+    {
+        "id": 3,
+        "name": "Adder",
+        "size": 1,
+        "shipImg": "https://edassets.org/static/img/ship-schematics/qohen-leth/adder.svg"
+    },
+    {
+        "id": 4,
+        "name": "Imperial Eagle",
+        "size": 1,
+        "shipImg": "https://edassets.org/static/img/ship-schematics/qohen-leth/imperial-eagle.svg"
+    },
+    {
+        "id": 5,
+        "name": "Viper Mk III",
+        "size": 1,
+        "shipImg": "https://edassets.org/static/img/ship-schematics/qohen-leth/viper-mk-iii.svg"
+    },
+    {
+        "id": 6,
+        "name": "Cobra Mk III",
+        "size": 1,
+        "shipImg": "https://edassets.org/static/img/ship-schematics/qohen-leth/cobra-mk-iii.svg"
+    },
+    {
+        "id": 7,
+        "name": "Viper Mk IV",
+        "size": 1,
+        "shipImg": "https://edassets.org/static/img/ship-schematics/qohen-leth/viper-mk-iv.svg"
+    },
+    {
+        "id": 8,
+        "name": "Diamondback Scout",
+        "size": 1,
+        "shipImg": "https://edassets.org/static/img/ship-schematics/qohen-leth/diamondback-scout.svg"
+    },
+    {
+        "id": 9,
+        "name": "Cobra Mk IV",
+        "requires": "Horizons Early Adopter",
+        "size": 1,
+        "shipImg": "https://edassets.org/static/img/ship-schematics/qohen-leth/cobra-mk-iv.svg"
+    },
+    {
+        "id": 10,
+        "name": "Type-6 Transporter",
+        "size": 1,
+        "shipImg": "https://edassets.org/static/img/ship-schematics/qohen-leth/type-6-transporter.svg"
+    },
+    {
+        "id": 11,
+        "name": "Dolphin",
+        "size": 1,
+        "shipImg": "https://edassets.org/static/img/ship-schematics/qohen-leth/dolphin.svg"
+    },
+    {
+        "id": 12,
+        "name": "Diamondback Explorer (DBX)",
+        "size": 1,
+        "shipImg": "https://edassets.org/static/img/ship-schematics/qohen-leth/diamondback-explorer.svg"
+    },
+    {
+        "id": 13,
+        "name": "Imperial Courier",
+        "requires": "Imperial Rank: Master",
+        "size": 1,
+        "shipImg": "https://edassets.org/static/img/ship-schematics/qohen-leth/imperial-courier.svg"
+    },
+    {
+        "id": 14,
+        "name": "Keelback",
+        "size": 2,
+        "shipImg": "https://edassets.org/static/img/ship-schematics/qohen-leth/keelback.svg"
+    },
+    {
+        "id": 15,
+        "name": "Asp Scout",
+        "size": 2,
+        "shipImg": "https://edassets.org/static/img/ship-schematics/qohen-leth/asp-scout.svg"
+    },
+    {
+        "id": 16,
+        "name": "Vulture",
+        "size": 1,
+        "shipImg": "https://edassets.org/static/img/ship-schematics/qohen-leth/vulture.svg"
+    },
+    {
+        "id": 17,
+        "name": "Asp Explorer",
+        "size": 2,
+        "shipImg": "https://edassets.org/static/img/ship-schematics/qohen-leth/asp-explorer.svg"
+    },
+    {
+        "id": 18,
+        "name": "Federal Dropship",
+        "requires": "Federal Rank: Midshipman",
+        "size": 2,
+        "shipImg": "https://edassets.org/static/img/ship-schematics/qohen-leth/federal-dropship.svg"
+    },
+    {
+        "id": 19,
+        "name": "Type-7 Transporter",
+        "size": 2,
+        "shipImg": "https://edassets.org/static/img/ship-schematics/qohen-leth/type-7-transporter.svg"
+    },
+    {
+        "id": 20,
+        "name": "Alliance Chieftain",
+        "size": 2,
+        "shipImg": "https://edassets.org/static/img/ship-schematics/qohen-leth/alliance-chieftain.svg"
+    },
+    {
+        "id": 21,
+        "name": "Federal Assault Ship (FAS)",
+        "requires": "Federal Rank: Chief Petty Officer",
+        "size": 2,
+        "shipImg": "https://edassets.org/static/img/ship-schematics/qohen-leth/federal-assult-ship.svg"
+    },
+    {
+        "id": 22,
+        "name": "Imperial Clipper",
+        "requires": "Imperial Rank: Baron",
+        "size": 3,
+        "shipImg": "https://edassets.org/static/img/ship-schematics/qohen-leth/imperial-clipper.svg"
+    },
+    {
+        "id": 23,
+        "name": "Alliance Crusader",
+        "size": 2,
+        "shipImg": "https://edassets.org/static/img/ship-schematics/qohen-leth/alliance-crusader.svg"
+    },
+    {
+        "id": 24,
+        "name": "Alliance Challenger",
+        "size": 2,
+        "shipImg": "https://edassets.org/static/img/ship-schematics/qohen-leth/alliance-challenger.svg"
+    },
+    {
+        "id": 25,
+        "name": "Federal Gunship",
+        "requires": "Federal Rank: Ensign",
+        "size": 2,
+        "shipImg": "https://edassets.org/static/img/ship-schematics/qohen-leth/federal-gunship.svg"
+    },
+    {
+        "id": 26,
+        "name": "Krait Phantom",
+        "size": 2,
+        "shipImg": "https://edassets.org/static/img/ship-schematics/qohen-leth/krait-phantom.svg"
+    },
+    {
+        "id": 27,
+        "name": "Krait Mk II",
+        "size": 2,
+        "shipImg": "https://edassets.org/static/img/ship-schematics/qohen-leth/krait-mk-ii.svg"
+    },
+    {
+        "id": 28,
+        "name": "Orca",
+        "size": 2,
+        "shipImg": "https://edassets.org/static/img/ship-schematics/qohen-leth/orca.svg"
+    },
+    {
+        "id": 29,
+        "name": "Fer-de-lance",
+        "size": 2,
+        "shipImg": "https://edassets.org/static/img/ship-schematics/qohen-leth/fer-de-lance.svg"
+    },
+    {
+        "id": 30,
+        "name": "Mamba",
+        "size": 2,
+        "shipImg": "https://edassets.org/static/img/ship-schematics/qohen-leth/mamba.svg"
+    },
+    {
+        "id": 31,
+        "name": "Python",
+        "size": 2,
+        "shipImg": "https://edassets.org/static/img/ship-schematics/qohen-leth/python.svg"
+    },
+    {
+        "id": 32,
+        "name": "Type-9 Heavy",
+        "size": 3,
+        "shipImg": "https://edassets.org/static/img/ship-schematics/qohen-leth/type-9-heavy.svg"
+    },
+    {
+        "id": 33,
+        "name": "Beluga Liner",
+        "size": 3,
+        "shipImg": "https://edassets.org/static/img/ship-schematics/qohen-leth/beluga-liner.svg"
+    },
+    {
+        "id": 34,
+        "name": "Type-10 Defender",
+        "size": 3,
+        "shipImg": "https://edassets.org/static/img/ship-schematics/qohen-leth/type-10-defender.svg"
+    },
+    {
+        "id": 35,
+        "name": "Anaconda",
+        "size": 3,
+        "shipImg": "https://edassets.org/static/img/ship-schematics/qohen-leth/anaconda.svg"
+    },
+    {
+        "id": 36,
+        "name": "Federal Corvette",
+        "requires": "Federal Rank: Rear Admiral",
+        "size": 3,
+        "shipImg": "https://edassets.org/static/img/ship-schematics/qohen-leth/federal-corvette.svg"
+    },
+    {
+        "id": 37,
+        "name": "Imperial Cutter",
+        "requires": "Imperial Rank: Duke",
+        "size": 3,
+        "shipImg": "https://edassets.org/static/img/ship-schematics/qohen-leth/imperial-cutter.svg"
+    }
+]

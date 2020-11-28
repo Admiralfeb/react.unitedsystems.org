@@ -1,6 +1,6 @@
 import { Button, Paper, Typography } from '@material-ui/core';
 import React from 'react';
-import useStyles from './infoStyles';
+import useStyles from '../infoStyles';
 
 export const InfoUSCLinks = () => {
   const classes = useStyles();

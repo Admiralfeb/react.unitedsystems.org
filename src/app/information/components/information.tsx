@@ -1,9 +1,12 @@
 import { makeStyles, Typography } from '@material-ui/core';
-import React from 'react';
+import React, { lazy, Suspense } from 'react';
+import { Route, useRouteMatch, Switch } from 'react-router-dom';
 import { InfoDocs } from './info-docs';
 import { InfoGuides } from './info-guides';
 import { InfoTools } from './info-tools';
 import { InfoUSCLinks } from './info-usclinks';
+const ShipBuilds = lazy(() => import('./guides/shipBuilds'));
+// import ShipBuilds from './guides/shipBuilds';
 
 const useStyles = makeStyles({
   root: {
@@ -36,15 +39,26 @@ const useStyles = makeStyles({
 
 export const Information = () => {
   const classes = useStyles();
+  const { path } = useRouteMatch();
+
   return (
     <div className={classes.root}>
-      <Typography variant='h2' className={classes.header}>
-        USC Data Archive
-      </Typography>
-      <InfoUSCLinks />
-      <InfoGuides />
-      <InfoTools />
-      <InfoDocs />
+      <Suspense fallback={<div>Loading...</div>}>
+        <Switch>
+          <Route exact path={path}>
+            <Typography variant='h2' className={classes.header}>
+              USC Data Archive
+            </Typography>
+            <InfoUSCLinks />
+            <InfoGuides />
+            <InfoTools />
+            <InfoDocs />
+          </Route>
+          <Route path={`${path}/builds`}>
+            <ShipBuilds />
+          </Route>
+        </Switch>
+      </Suspense>
     </div>
   );
 };
