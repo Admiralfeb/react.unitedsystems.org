@@ -1,1 +1,1 @@
-export { Selection as default } from '../../../ship-builds/components';
+export { Selection as default } from '../../ship-builds/components';

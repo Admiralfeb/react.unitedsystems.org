@@ -2,7 +2,6 @@ import React from 'react';
 import { Switch, Route, Redirect } from 'react-router-dom';
 import { About, Home, Join, NotFound } from './components';
 import { Information } from './information/components/information';
-import { Selection } from './ship-builds/components';
 
 export const AppRoutes = () => {
   return (
@@ -19,9 +18,6 @@ export const AppRoutes = () => {
       </Route>
       <Route path='/information'>
         <Information />
-      </Route>
-      <Route path='/builds'>
-        <Selection />
       </Route>
       <Route path='*'>
         <NotFound />
