@@ -10,6 +10,7 @@
 }
 h3 {
   margin-top: 5px;
+  text-align: center;
 }
 .shipQuery,
 .otherQuery,
@@ -88,7 +89,7 @@ label > img {
     grid-template: 1fr 1fr 0.1fr / 1fr 0.5fr;
     row-gap: 5px;
     column-gap: 5px;
-    margin: 5px;
+    margin: auto;
   }
   .engineeringQuery {
     grid-column: 2;
