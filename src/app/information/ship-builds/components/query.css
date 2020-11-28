@@ -5,8 +5,9 @@
   display: grid;
   grid-template-rows: auto;
   row-gap: 1px;
-  margin: 5px;
+  margin: auto;
   width: 95%;
+  text-align: center;
 }
 h3 {
   margin-top: 5px;
