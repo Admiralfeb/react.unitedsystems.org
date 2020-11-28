@@ -1,89 +1,51 @@
 import { Button, Paper, Typography } from '@material-ui/core';
 import React from 'react';
+import { Link, useRouteMatch } from 'react-router-dom';
 import useStyles from '../infoStyles';
+import { toolsList } from './info-tools-list';
 
 export const InfoTools = () => {
   const classes = useStyles();
+  const { url } = useRouteMatch();
+
   return (
     <Paper id='tools' className={classes.paper}>
       <Typography variant='h4'>Tools</Typography>
+      <Typography variant='subtitle1'>
+        New Players look to the{' '}
+        <span className={classes.secondary}> blue buttons </span>for helpful
+        tips in getting started.
+      </Typography>
       <div className={classes.flex}>
-        <Typography variant='subtitle1'>
-          New Players look to the blue buttons for helpful tips in getting
-          started.
-        </Typography>
-        <Button variant='outlined' color='secondary'>
-          <div className={classes.specialButton}>
-            <Typography>Ship Builder</Typography>
-            <Typography variant='caption'>Coriolis</Typography>
-          </div>
-        </Button>
-        <Button variant='outlined' color='secondary'>
-          <div className={classes.specialButton}>
-            <Typography>Inara Companion App</Typography>
-            <Typography variant='caption'>Helpful 3rd party tool</Typography>
-          </div>
-        </Button>
-        <Button variant='outlined' color='secondary'>
-          <div className={classes.specialButton}>
-            <Typography>Miner's Tool</Typography>
-            <Typography variant='caption'>Created by CMDR VicTic</Typography>
-          </div>
-        </Button>
-        <Button variant='outlined' color='secondary'>
-          <div className={classes.specialButton}>
-            <Typography>Ship Anatomy</Typography>
-            <Typography variant='caption'>a.teall.info</Typography>
-          </div>
-        </Button>
-        <Button variant='outlined' color='primary'>
-          <div className={classes.specialButton}>
-            <Typography>Massacre Mission Tracker</Typography>
-            <Typography variant='caption'>Created by Clever Ape</Typography>
-          </div>
-        </Button>
-        <Button variant='outlined' color='primary'>
-          <div className={classes.specialButton}>
-            <Typography>Material Finder</Typography>
-            <Typography variant='caption'>EDTutorials</Typography>
-          </div>
-        </Button>
-        <Button variant='outlined' color='primary'>
-          <div className={classes.specialButton}>
-            <Typography>Neutron Star Plotter</Typography>
-            <Typography variant='caption'>Created by Gareth Harper</Typography>
-          </div>
-        </Button>
-        <Button
-          variant='outlined'
-          color='primary'
-          href='https://www.edsm.net/en/galactic-routes/show/id/291/name/The+Hurt+Highway'
-          target='_blank'>
-          <div className={classes.specialButton}>
-            <Typography>The Hurt Highway</Typography>
-            <Typography variant='caption'>Created by EXO</Typography>
-          </div>
-        </Button>
-        <Button
-          variant='outlined'
-          color='primary'
-          href='https://www.edsm.net/en/galactic-routes/show/id/291/name/The+Hurt+Highway'
-          target='_blank'>
-          <div className={classes.specialButton}>
-            <Typography>EDDB Companion App</Typography>
-            <Typography variant='caption'>Alternative to Inara</Typography>
-          </div>
-        </Button>
-        <Button
-          variant='outlined'
-          color='primary'
-          href='https://www.edsm.net/en/galactic-routes/show/id/291/name/The+Hurt+Highway'
-          target='_blank'>
-          <div className={classes.specialButton}>
-            <Typography>Elite Dangerous Star Map</Typography>
-            <Typography variant='caption'>Also known as EDSM</Typography>
-          </div>
-        </Button>
+        {toolsList.map((guide) => {
+          if (guide.local === true) {
+            return (
+              <Button
+                variant='outlined'
+                color={guide.beginner ? 'secondary' : 'primary'}
+                component={Link}
+                to={`${url}${guide.link}`}>
+                <div className={classes.specialButton}>
+                  <Typography>{guide.title}</Typography>
+                  <Typography variant='caption'>{guide.caption}</Typography>
+                </div>
+              </Button>
+            );
+          } else {
+            return (
+              <Button
+                variant='outlined'
+                color={guide.beginner ? 'secondary' : 'primary'}
+                href={guide.link}
+                target='_blank'>
+                <div className={classes.specialButton}>
+                  <Typography>{guide.title}</Typography>
+                  <Typography variant='caption'>{guide.caption}</Typography>
+                </div>
+              </Button>
+            );
+          }
+        })}
       </div>
     </Paper>
   );

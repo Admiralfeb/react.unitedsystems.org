@@ -1,6 +1,6 @@
 import { makeStyles } from "@material-ui/core";
 
-const infoStyles = makeStyles({
+const infoStyles = makeStyles(theme => ({
     paper: {
         textAlign: 'center',
         width: '80%',
@@ -21,6 +21,9 @@ const infoStyles = makeStyles({
             margin: 5,
         },
     },
-});
+    secondary: {
+        color: theme.palette.secondary.main
+    }
+}));
 
 export default infoStyles;

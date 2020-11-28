@@ -1,6 +1,7 @@
 import { makeStyles, Typography } from '@material-ui/core';
 import React, { lazy, Suspense } from 'react';
 import { Route, useRouteMatch, Switch } from 'react-router-dom';
+import { ShipReviews } from './guides/shipReviews';
 import { InfoDocs } from './info-docs';
 import { InfoGuides } from './info-guides';
 import { InfoTools } from './info-tools';
@@ -56,6 +57,9 @@ export const Information = () => {
           </Route>
           <Route path={`${path}/builds`}>
             <ShipBuilds />
+          </Route>
+          <Route path={`${path}/reviews`}>
+            <ShipReviews />
           </Route>
         </Switch>
       </Suspense>
