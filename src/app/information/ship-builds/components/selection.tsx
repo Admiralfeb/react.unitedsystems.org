@@ -22,7 +22,7 @@ export const Selection = () => {
 
   return (
     <section className='selection'>
-      <Typography>Ship Build Archive</Typography>
+      <Typography variant='h3'>Ship Build Archive</Typography>
       <Query queryUpdate={handleQuery} />
       <div ref={buildRef}>
         <Builds buildQuery={query} />
