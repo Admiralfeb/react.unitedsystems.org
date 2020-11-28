@@ -80,7 +80,7 @@ label > img {
   margin-top: 5px;
 }
 .beginner {
-  border: 3px solid var(--edBlue);
+  border: 3px solid #00b3f7;
   border-radius: 5px;
 }
 
