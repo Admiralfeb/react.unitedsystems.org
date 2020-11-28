@@ -1,22 +1,30 @@
 import { Button, Paper, Typography } from '@material-ui/core';
 import React from 'react';
-import useStyles from '../infoStyles';
 import { Link, useRouteMatch } from 'react-router-dom';
-import { guidesList } from './info-guides-list';
+import { IInfoButton } from '../infoButtonModel';
+import useStyles from '../infoStyles';
 
-export const InfoGuides = () => {
+interface ISectionProps {
+  id: string;
+  header: string;
+  buttons: IInfoButton[];
+}
+
+export const InfoSection = (props: ISectionProps) => {
   const classes = useStyles();
   const { url } = useRouteMatch();
+  const { id, header, buttons } = props;
+
   return (
-    <Paper id='guides' className={classes.paper}>
-      <Typography variant='h4'>Guides</Typography>
+    <Paper id={id} className={classes.paper}>
+      <Typography variant='h4'>{header}</Typography>
       <Typography variant='subtitle1'>
         New Players look to the{' '}
         <span className={classes.secondary}> blue buttons </span>for helpful
         tips in getting started.
       </Typography>
       <div className={classes.flex}>
-        {guidesList.map((guide) => {
+        {buttons.map((guide) => {
           if (guide.local === true) {
             return (
               <Button

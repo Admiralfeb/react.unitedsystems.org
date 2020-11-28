@@ -1,7 +1,7 @@
 import React from 'react';
 import { Switch, Route, Redirect } from 'react-router-dom';
 import { About, Home, Join, NotFound } from './components';
-import { Information } from './information/components/information';
+import { Information } from './information/information';
 
 export const AppRoutes = () => {
   return (

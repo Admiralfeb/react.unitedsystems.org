@@ -1,12 +1,14 @@
 import { makeStyles, Typography } from '@material-ui/core';
 import React, { lazy, Suspense } from 'react';
 import { Route, useRouteMatch, Switch } from 'react-router-dom';
-import { ShipReviews } from './guides/shipReviews';
-import { InfoDocs } from './info-docs';
-import { InfoGuides } from './info-guides';
-import { InfoTools } from './info-tools';
-import { InfoUSCLinks } from './info-usclinks';
-const ShipBuilds = lazy(() => import('./guides/shipBuilds'));
+import { ShipReviews } from './components/guides/shipReviews';
+import { docsList } from './components/info-docs-list';
+import { guidesList } from './components/info-guides-list';
+import { InfoSection } from './components/info-section';
+import { toolsList } from './components/info-tools-list';
+import { InfoUSCLinks } from './components/info-usclinks';
+import { Infographic } from './components/infographic';
+const ShipBuilds = lazy(() => import('./components/guides/shipBuilds'));
 // import ShipBuilds from './guides/shipBuilds';
 
 const useStyles = makeStyles({
@@ -51,15 +53,27 @@ export const Information = () => {
               USC Data Archive
             </Typography>
             <InfoUSCLinks />
-            <InfoGuides />
-            <InfoTools />
-            <InfoDocs />
+            <InfoSection id='guides' header='Guides' buttons={guidesList} />
+            <InfoSection id='tools' header='Tools' buttons={toolsList} />
+            <InfoSection id='docs' header='Documentation' buttons={docsList} />
           </Route>
           <Route path={`${path}/builds`}>
             <ShipBuilds />
           </Route>
           <Route path={`${path}/reviews`}>
             <ShipReviews />
+          </Route>
+          <Route path={`${path}/cave`}>
+            <Infographic img='cave-johnson' />
+          </Route>
+          <Route path={`${path}/stationmap`}>
+            <Infographic img='station-map' />
+          </Route>
+          <Route path={`${path}/fss`}>
+            <Infographic img='fss' />
+          </Route>
+          <Route path={`${path}/scoopable`}>
+            <Infographic img='scoopable' />
           </Route>
         </Switch>
       </Suspense>
