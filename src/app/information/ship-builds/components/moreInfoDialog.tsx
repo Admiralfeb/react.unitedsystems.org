@@ -40,8 +40,10 @@ export const MoreInfoDialog = (props: {
           {'More Info About the Build'}
         </DialogTitle>
         <DialogContent>
-          <DialogContentText id='alert-dialog-slide-description'>
-            <div style={{ whiteSpace: 'pre-line' }}>{content}</div>
+          <DialogContentText
+            id='alert-dialog-slide-description'
+            style={{ whiteSpace: 'pre-line' }}>
+            {content}
           </DialogContentText>
         </DialogContent>
         <DialogActions>

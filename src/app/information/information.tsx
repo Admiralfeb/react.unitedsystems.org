@@ -1,6 +1,7 @@
 import { makeStyles, Typography } from '@material-ui/core';
 import React, { lazy, Suspense } from 'react';
 import { Route, useRouteMatch, Switch } from 'react-router-dom';
+import { Loading } from '../components';
 import { ShipReviews } from './components/guides/shipReviews';
 import { docsList } from './components/info-docs-list';
 import { guidesList } from './components/info-guides-list';
@@ -8,9 +9,7 @@ import { InfoSection } from './components/info-section';
 import { toolsList } from './components/info-tools-list';
 import { InfoUSCLinks } from './components/info-usclinks';
 import { Infographic } from './components/infographic';
-import { useShipBuilds } from './ship-builds/graphql/useShipBuilds';
 const ShipBuilds = lazy(() => import('./components/guides/shipBuilds'));
-// import ShipBuilds from './guides/shipBuilds';
 
 const useStyles = makeStyles({
   root: {
@@ -44,21 +43,34 @@ const useStyles = makeStyles({
 export const Information = () => {
   const classes = useStyles();
   const { path } = useRouteMatch();
-  const shipBuilds = useShipBuilds();
-  console.log({ shipBuilds });
 
   return (
     <div className={classes.root}>
-      <Suspense fallback={<div>Loading...</div>}>
+      <Suspense fallback={<Loading />}>
         <Switch>
           <Route exact path={path}>
             <Typography variant='h2' className={classes.header}>
               USC Data Archive
             </Typography>
             <InfoUSCLinks />
-            <InfoSection id='guides' header='Guides' buttons={guidesList} />
-            <InfoSection id='tools' header='Tools' buttons={toolsList} />
-            <InfoSection id='docs' header='Documentation' buttons={docsList} />
+            <InfoSection
+              id='guides'
+              key='guides'
+              header='Guides'
+              buttons={guidesList}
+            />
+            <InfoSection
+              id='tools'
+              key='tools'
+              header='Tools'
+              buttons={toolsList}
+            />
+            <InfoSection
+              id='docs'
+              key='docs'
+              header='Documentation'
+              buttons={docsList}
+            />
           </Route>
           <Route path={`${path}/builds`}>
             <ShipBuilds />

@@ -47,9 +47,9 @@ export const guidesList: IInfoButton[] = [
   },
   {
     title: 'How to Unlock Engineers',
-    caption: "Commander's Toolbox",
+    caption: "Fox's Guide",
     local: false,
-    link: 'https://cmdrs-toolbox.com/guides/engineering-unlock',
+    link: 'https://munkjensen.net/wiki/index.php?title=Fox%27s_step-by-step_Guide_to_Unlocking_Engineers_Quickly',
     beginner: false,
   },
   {
@@ -60,17 +60,10 @@ export const guidesList: IInfoButton[] = [
     beginner: false,
   },
   {
-    title: 'How to Grind Imperial Rank',
-    caption: "Commander's Toolbox",
+    title: 'How to Grind Imperial and Federal Rank',
+    caption: "Reddit",
     local: false,
-    link: 'https://cmdrs-toolbox.com/guides/empire-rank',
-    beginner: false,
-  },
-  {
-    title: 'How to Grind Federal Rank',
-    caption: "Commander's Toolbox",
-    local: false,
-    link: 'https://cmdrs-toolbox.com/guides/fed-rank',
+    link: 'https://www.reddit.com/r/EliteDangerous/comments/g9y56s/psa_grind_how_to_get_federation_empire_rank_in_12/',
     beginner: false,
   },
 ];

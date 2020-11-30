@@ -16,6 +16,7 @@ export const NavbarComponent = () => {
         .then((_) => console.log(realm.currentUser))
         .catch((reason) => console.log(reason));
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
@@ -36,16 +37,25 @@ export const NavbarComponent = () => {
       </Button>
       <Button
         to='/information'
+        exact
         className={classes.navLink}
         activeClassName={classes.active}
         component={NavLink}>
         Information
       </Button>
+      <Button
+        to='/information/Builds'
+        exact
+        className={classes.navLink}
+        activeClassName={classes.active}
+        component={NavLink}>
+        USC Builds
+      </Button>
       <div className={classes.filler} />
       <Button
         to='/join'
-        className={classes.navLink}
-        activeClassName={classes.active}
+        color='secondary'
+        variant='contained'
         component={NavLink}>
         Join
       </Button>

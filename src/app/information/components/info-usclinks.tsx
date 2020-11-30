@@ -20,7 +20,7 @@ export const InfoUSCLinks = () => {
           target='_blank'
           color='primary'
           variant='outlined'>
-          Inara
+          Inara - USC Squadron
         </Button>
         <Button
           href='https://www.patreon.com/usc'

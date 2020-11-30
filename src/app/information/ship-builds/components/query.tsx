@@ -9,7 +9,11 @@ import { QueryShip } from './queryShip';
 import { QueryEngineering } from './queryEngineering';
 import { QueryOther } from './queryOther';
 import { OtherFilters } from '../models/otherFilters';
+import { useLocation } from 'react-router-dom';
 
+const useUrlQuery = () => {
+  return new URLSearchParams(useLocation().search);
+};
 export const Query = (props: { queryUpdate: (query: IQuery) => void }) => {
   const [shipType, setShipType] = useState<number | null>(null);
   const [shipSize, setShipSize] = useState<number | null>(null);
@@ -20,6 +24,15 @@ export const Query = (props: { queryUpdate: (query: IQuery) => void }) => {
     powerplay: null,
     beginner: null,
   });
+  let query = useUrlQuery();
+
+  useEffect(() => {
+    const queryParam = query.get('beginner');
+    if (queryParam === 'true') {
+      setOther({ ...other, beginner: 1 });
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   useEffect(() => {
     const { queryUpdate } = props;

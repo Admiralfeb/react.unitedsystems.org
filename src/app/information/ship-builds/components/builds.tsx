@@ -1,42 +1,46 @@
 import React, { useEffect, useState } from 'react';
+import { Loading } from '../../../components';
 import { filterShipBuilds } from '../functions/filterShipBuilds';
-import { getShipBuilds } from '../functions/getShipBuilds';
+import { useShipBuilds } from '../graphql/useShipBuilds';
 import { IBuildInfo, IQuery } from '../models';
 import { BuildItem } from './buildItem';
 import './builds.css';
 
 export const Builds = (props: { buildQuery: IQuery | undefined }) => {
-  const [builds, setBuilds] = useState<IBuildInfo[]>();
   const [queriedBuilds, setQueriedBuilds] = useState<IBuildInfo[]>();
   const { buildQuery } = props;
+  const { loading, shipBuilds } = useShipBuilds();
 
   useEffect(() => {
-    setBuilds(getShipBuilds());
-  }, []);
-
-  useEffect(() => {
-    setQueriedBuilds(filterShipBuilds(builds, buildQuery));
-  }, [builds, buildQuery]);
+    if (!loading) {
+      setQueriedBuilds(filterShipBuilds(shipBuilds, buildQuery));
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [loading, buildQuery]);
 
   return (
     <div className='builds'>
-      {queriedBuilds?.map((ship) => {
-        return (
-          <BuildItem
-            key={ship.id}
-            id={ship.ship}
-            author={ship.author}
-            specializations={ship.specializations}
-            engLevel={ship.engLevel}
-            description={ship.description}
-            buildLink={ship.buildLink}
-            guardian={ship.guardian}
-            powerplay={ship.powerplay}
-            beginner={ship.beginner}
-            moreInfo={ship.moreInfo}
-          />
-        );
-      })}
+      {loading ? (
+        <Loading />
+      ) : (
+        queriedBuilds?.map((ship) => {
+          return (
+            <BuildItem
+              key={ship.id}
+              id={ship.ship}
+              author={ship.author}
+              specializations={ship.specializations}
+              engLevel={ship.engLevel}
+              description={ship.description}
+              buildLink={ship.buildLink}
+              guardian={ship.guardian}
+              powerplay={ship.powerplay}
+              beginner={ship.beginner}
+              moreInfo={ship.moreInfo}
+            />
+          );
+        })
+      )}
     </div>
   );
 };
