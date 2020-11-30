@@ -739,5 +739,34 @@
         "powerplay": false,
         "beginner": false,
         "author": "Luisqa"
+    },
+    {
+        "id": 51,
+        "ship": 22,
+        "specializations": [
+            "HGE Farming"
+        ],
+        "description": "Clipping HGE Farmer",
+        "buildLink": "https://s.orbis.zone/as8g",
+        "engLevel": 0,
+        "guardian": true,
+        "powerplay": false,
+        "beginner": false,
+        "author": "Admiralfeb"
+    },
+    {
+        "id": 52,
+        "ship": 22,
+        "specializations": [
+            "HGE Farming"
+        ],
+        "description": "Clipper HGE Chaser 2.0",
+        "buildLink": "https://s.orbis.zone/as8g",
+        "engLevel": 3,
+        "guardian": true,
+        "powerplay": true,
+        "beginner": false,
+        "author": "Clever Ape",
+        "moreInfo": "Optionally drop the weapons"
     }
 ]

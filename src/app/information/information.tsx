@@ -8,6 +8,7 @@ import { InfoSection } from './components/info-section';
 import { toolsList } from './components/info-tools-list';
 import { InfoUSCLinks } from './components/info-usclinks';
 import { Infographic } from './components/infographic';
+import { useShipBuilds } from './ship-builds/graphql/useShipBuilds';
 const ShipBuilds = lazy(() => import('./components/guides/shipBuilds'));
 // import ShipBuilds from './guides/shipBuilds';
 
@@ -43,6 +44,8 @@ const useStyles = makeStyles({
 export const Information = () => {
   const classes = useStyles();
   const { path } = useRouteMatch();
+  const shipBuilds = useShipBuilds();
+  console.log({ shipBuilds });
 
   return (
     <div className={classes.root}>
