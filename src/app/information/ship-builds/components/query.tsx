@@ -9,7 +9,7 @@ import { QueryShip } from './queryShip';
 import { QueryEngineering } from './queryEngineering';
 import { QueryOther } from './queryOther';
 import { OtherFilters } from '../models/otherFilters';
-import { useLocation } from 'react-router-dom';
+import { NavLink, useLocation } from 'react-router-dom';
 
 const useUrlQuery = () => {
   return new URLSearchParams(useLocation().search);
@@ -81,6 +81,13 @@ export const Query = (props: { queryUpdate: (query: IQuery) => void }) => {
           variant='outlined'
           className='resetButton'>
           Reset Selections
+        </Button>
+        <Button
+          variant='outlined'
+          color='secondary'
+          component={NavLink}
+          to='/information/builds/add'>
+          Add Build
         </Button>
       </div>
     </Paper>

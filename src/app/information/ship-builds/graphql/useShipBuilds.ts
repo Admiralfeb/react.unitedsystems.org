@@ -12,9 +12,9 @@ export const useShipBuilds = () => {
 }
 
 const useAllShipBuilds = () => {
-    const { data, loading, error } = useQuery<{ shipbuilds: IBuildInfo[] }>(gql`
-        query AllShipbuilds {
-            shipbuilds {
+    const { data, loading, error } = useQuery<{ shipBuilds: IBuildInfo[] }>(gql`
+        query AllShipBuilds {
+            shipBuilds {
                 author
                 beginner
                 buildLink
@@ -32,9 +32,8 @@ const useAllShipBuilds = () => {
         throw new Error(`Failed to fetch ship builds: ${error.message}`);
     }
 
-    let shipBuilds = data?.shipbuilds ?? [];
+    let shipBuilds = data?.shipBuilds ?? [];
     if (!loading) {
-        console.log(data);
         shipBuilds = shipBuilds.map((v) => {
             const shipInfo = getShipInfo(v.ship)!;
             const size = shipInfo?.size;
