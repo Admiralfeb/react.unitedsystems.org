@@ -1,6 +1,6 @@
 import { useQuery } from '@apollo/client';
 import gql from 'graphql-tag';
-import { getShipInfo } from '../functions/getShipInfo';
+import { getShipInfofromID } from '../functions/getShipInfo';
 import { sortItems } from '../functions/sort';
 import { IBuildInfo } from '../models';
 
@@ -35,7 +35,7 @@ const useAllShipBuilds = () => {
     let shipBuilds = data?.shipBuilds ?? [];
     if (!loading) {
         shipBuilds = shipBuilds.map((v) => {
-            const shipInfo = getShipInfo(v.ship)!;
+            const shipInfo = getShipInfofromID(v.ship)!;
             const size = shipInfo?.size;
             const newBuild: IBuildInfo = { ...v, size };
             return newBuild;

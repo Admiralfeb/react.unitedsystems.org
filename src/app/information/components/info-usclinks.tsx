@@ -33,6 +33,13 @@ export const InfoUSCLinks = () => {
           Our Allies
         </Button>
         <Button
+          color='secondary'
+          variant='outlined'
+          to={`${url}/about/fc`}
+          component={NavLink}>
+          Our Fleet Carriers
+        </Button>
+        <Button
           href='https://discord.gg/br8Fy2M6cv'
           target='_blank'
           color='primary'

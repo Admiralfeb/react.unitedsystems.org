@@ -81,5 +81,13 @@ export const toolsList: IInfoButton[] = [
       'https://www.edsm.net/',
     beginner: false,
   },
+  {
+    title: 'Fleet Carrier Calculator',
+    caption: `Commander's Toolbox`,
+    local: false,
+    link:
+      'https://cmdrs-toolbox.com/fleet-carrier-calculator',
+    beginner: false,
+  },
 
 ];

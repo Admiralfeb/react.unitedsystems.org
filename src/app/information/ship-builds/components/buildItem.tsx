@@ -9,7 +9,7 @@ import CardMedia from '@material-ui/core/CardMedia';
 import engineerIcon from '../assets/Engineer_icon.svg';
 import './buildItem.css';
 import { Chip } from '@material-ui/core';
-import { getShipInfo } from '../functions/getShipInfo';
+import { getShipInfofromID } from '../functions/getShipInfo';
 import { IShipInfo } from '../models/shipInfo';
 import { ShipSize } from '../models';
 import { MoreInfoDialog } from './moreInfoDialog';
@@ -31,7 +31,7 @@ export const BuildItem = (props: IBuildItemProps) => {
   const [shipInfo, setShipInfo] = useState<IShipInfo>();
   const [showDialog, setShowDialog] = useState<boolean>(false);
 
-  useEffect(() => setShipInfo(getShipInfo(props.id)), [props.id]);
+  useEffect(() => setShipInfo(getShipInfofromID(props.id)), [props.id]);
 
   const handleShowDialog = () => {
     setShowDialog(true);

@@ -5,6 +5,7 @@ import { Loading, NotFound } from '../components';
 import { AboutAllies } from './components/about/about-allies';
 import { AboutHC } from './components/about/about-hc';
 import { AboutRules } from './components/about/about-rules';
+import { FleetCarriers } from './components/about/fleetCarriers';
 import { ShipReviews } from './components/guides/shipReviews';
 import { docsList } from './components/info-docs-list';
 import { guidesList } from './components/info-guides-list';
@@ -94,6 +95,9 @@ export const Information = () => {
           </Route>
           <Route path={`${path}/about/allies`}>
             <AboutAllies />
+          </Route>
+          <Route path={`${path}/about/fc`}>
+            <FleetCarriers />
           </Route>
           <Route path={`${path}/builds`}>
             <ShipBuilds />

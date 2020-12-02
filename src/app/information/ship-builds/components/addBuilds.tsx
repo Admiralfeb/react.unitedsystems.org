@@ -1,6 +1,10 @@
 import { Button, makeStyles, TextField } from '@material-ui/core';
-import React, { useState } from 'react';
+import React, { ChangeEvent, useState } from 'react';
 import { NavLink } from 'react-router-dom';
+import { processJSONBuild } from '../functions/processJSONBuild';
+import { IBuildInfo } from '../models';
+import { getShipInfofromName } from '../functions/getShipInfo';
+import { ObjectUnsubscribedError } from 'rxjs';
 
 const useStyles = makeStyles({
   root: {
@@ -15,10 +19,36 @@ const useStyles = makeStyles({
 export const AddBuild = () => {
   const classes = useStyles();
   const [jsonBuild, setJsonBuild] = useState('');
+  const [buildInfo, setBuildInfo] = useState<IBuildInfo>();
 
-  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const handleJSONChange = (event: ChangeEvent<HTMLInputElement>) => {
     setJsonBuild(event.target.value);
+    const {
+      buildName,
+      shipName,
+      guardian,
+      powerplay,
+      engineering,
+      url,
+    } = processJSONBuild(event.target.value);
+    const engLevel = engineering ? 1 : 0;
+    const shipInfo = getShipInfofromName(shipName)!;
+    const info: IBuildInfo = {
+      id: 50,
+      description: buildName,
+      guardian,
+      powerplay,
+      buildLink: url,
+      ship: shipInfo.id,
+      size: shipInfo.size,
+      author: '',
+      specializations: [],
+      engLevel,
+      beginner: false,
+    };
+    setBuildInfo(info);
   };
+  const handleDescChange = (event: ChangeEvent<HTMLInputElement>) => {};
 
   return (
     <div className={classes.root}>
@@ -34,10 +64,10 @@ export const AddBuild = () => {
           label='Exported JSON'
           multiline
           value={jsonBuild}
-          onChange={handleChange}
+          onChange={handleJSONChange}
         />
       ) : (
-        <></>
+        <div></div>
       )}
       {/*
       desc
