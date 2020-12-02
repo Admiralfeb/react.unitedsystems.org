@@ -21,6 +21,10 @@ const infoStyles = makeStyles(theme => ({
             margin: 5,
         },
     },
+    grid: {
+        display: 'grid',
+        gridTemplateRows: 'auto'
+    },
     secondary: {
         color: theme.palette.secondary.main
     }
