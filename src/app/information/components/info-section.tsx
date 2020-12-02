@@ -18,11 +18,6 @@ export const InfoSection = (props: ISectionProps) => {
   return (
     <Paper id={id} className={classes.paper}>
       <Typography variant='h4'>{header}</Typography>
-      <Typography variant='subtitle1'>
-        New Players look to the{' '}
-        <span className={classes.secondary}> blue buttons </span>for helpful
-        tips in getting started.
-      </Typography>
       <div className={classes.flex}>
         {buttons.map((guide) => {
           if (guide.local === true) {

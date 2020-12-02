@@ -1,7 +1,7 @@
-import { makeStyles, Typography } from '@material-ui/core';
+import { makeStyles, Paper, Typography } from '@material-ui/core';
 import React, { lazy, Suspense } from 'react';
 import { Route, useRouteMatch, Switch } from 'react-router-dom';
-import { Loading } from '../components';
+import { Loading, NotFound } from '../components';
 import { AboutAllies } from './components/about/about-allies';
 import { AboutHC } from './components/about/about-hc';
 import { AboutRules } from './components/about/about-rules';
@@ -14,7 +14,7 @@ import { InfoUSCLinks } from './components/info-usclinks';
 import { Infographic } from './components/infographic';
 const ShipBuilds = lazy(() => import('./components/guides/shipBuilds'));
 
-const useStyles = makeStyles({
+const useStyles = makeStyles((theme) => ({
   root: {
     height: '100%',
   },
@@ -41,7 +41,10 @@ const useStyles = makeStyles({
     display: 'flex',
     flexDirection: 'column',
   },
-});
+  secondary: {
+    color: theme.palette.secondary.main,
+  },
+}));
 
 export const Information = () => {
   const classes = useStyles();
@@ -56,6 +59,14 @@ export const Information = () => {
               USC Data Archive
             </Typography>
             <InfoUSCLinks />
+            <Paper className={classes.paper}>
+              <Typography variant='subtitle1'>
+                New Players look to the{' '}
+                <span className={classes.secondary}> blue buttons </span>for
+                helpful tips in getting started with the Guides, Tools, and
+                Documentation below.
+              </Typography>
+            </Paper>
             <InfoSection
               id='guides'
               key='guides'
@@ -101,6 +112,9 @@ export const Information = () => {
           </Route>
           <Route path={`${path}/scoopable`}>
             <Infographic img='scoopable' />
+          </Route>
+          <Route path='*'>
+            <NotFound />
           </Route>
         </Switch>
       </Suspense>
