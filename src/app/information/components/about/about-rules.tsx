@@ -4,10 +4,14 @@ import {
   ListItem,
   ListItemText,
   makeStyles,
+  Paper,
 } from '@material-ui/core';
 import React from 'react';
 
 const useStyles = makeStyles({
+  header: {
+    textAlign: 'center',
+  },
   root: {
     display: 'grid',
     gridTemplateColumns: '1fr 1fr',
@@ -38,9 +42,9 @@ const useStyles = makeStyles({
 export const AboutRules = () => {
   const classes = useStyles();
   return (
-    <div>
+    <div className={classes.header}>
       <Typography variant='h3'>Rules</Typography>
-      <div className={classes.root}>
+      <Paper className={classes.root}>
         <div className={classes.rules}>
           <Typography variant='h4'>Discord</Typography>
           <List>
@@ -69,7 +73,7 @@ export const AboutRules = () => {
             to demotion, expulsion, and/or USC Kill-on-Sight status.
           </Typography>
         </div>
-      </div>
+      </Paper>
     </div>
   );
 };

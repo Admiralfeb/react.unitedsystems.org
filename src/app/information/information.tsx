@@ -2,6 +2,9 @@ import { makeStyles, Typography } from '@material-ui/core';
 import React, { lazy, Suspense } from 'react';
 import { Route, useRouteMatch, Switch } from 'react-router-dom';
 import { Loading } from '../components';
+import { AboutAllies } from './components/about/about-allies';
+import { AboutHC } from './components/about/about-hc';
+import { AboutRules } from './components/about/about-rules';
 import { ShipReviews } from './components/guides/shipReviews';
 import { docsList } from './components/info-docs-list';
 import { guidesList } from './components/info-guides-list';
@@ -71,6 +74,15 @@ export const Information = () => {
               header='Documentation'
               buttons={docsList}
             />
+          </Route>
+          <Route path={`${path}/about/rules`}>
+            <AboutRules />
+          </Route>
+          <Route path={`${path}/about/hc`}>
+            <AboutHC />
+          </Route>
+          <Route path={`${path}/about/allies`}>
+            <AboutAllies />
           </Route>
           <Route path={`${path}/builds`}>
             <ShipBuilds />

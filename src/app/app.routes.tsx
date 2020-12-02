@@ -10,9 +10,6 @@ export const AppRoutes = () => {
       <Route path='/home' exact>
         <Home />
       </Route>
-      <Route path='/about'>
-        <About />
-      </Route>
       <Route path='/join'>
         <Join />
       </Route>

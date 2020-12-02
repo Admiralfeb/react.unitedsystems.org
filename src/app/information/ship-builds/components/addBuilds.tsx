@@ -1,8 +1,19 @@
-import { Button, TextField } from '@material-ui/core';
+import { Button, makeStyles, TextField } from '@material-ui/core';
 import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 
+const useStyles = makeStyles({
+  root: {
+    textAlign: 'center',
+    display: 'grid',
+    gridTemplate: 'auto / 1fr',
+    width: '90%',
+    margin: 'auto',
+  },
+});
+
 export const AddBuild = () => {
+  const classes = useStyles();
   const [jsonBuild, setJsonBuild] = useState('');
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -10,7 +21,7 @@ export const AddBuild = () => {
   };
 
   return (
-    <>
+    <div className={classes.root}>
       <Button
         to='/information/builds'
         component={NavLink}
@@ -39,6 +50,6 @@ export const AddBuild = () => {
       beginner
       author
       */}
-    </>
+    </div>
   );
 };

@@ -27,7 +27,7 @@ export interface ICoriolisLoadout {
     /**
      * 3rd Party references and/or links to this build/loadout
      */
-    references?: {
+    references: {
         /**
          * The name of the 3rd party, .e.g 'Coriolis.io' or 'E:D Shipyard'
          */

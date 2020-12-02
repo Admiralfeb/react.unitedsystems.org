@@ -29,13 +29,6 @@ export const NavbarComponent = () => {
         Home
       </Button>
       <Button
-        to='/about'
-        className={classes.navLink}
-        activeClassName={classes.active}
-        component={NavLink}>
-        About
-      </Button>
-      <Button
         to='/information'
         exact
         className={classes.navLink}

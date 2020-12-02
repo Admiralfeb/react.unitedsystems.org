@@ -3,6 +3,7 @@ import {
   ListItem,
   ListItemText,
   makeStyles,
+  Paper,
   Typography,
 } from '@material-ui/core';
 import React from 'react';
@@ -14,17 +15,18 @@ const useStyles = makeStyles({
   allies: {
     border: '3px solid white',
     borderRadius: 10,
-    margin: 5,
+    margin: 'auto',
+    width: 450,
   },
 });
 export const AboutAllies = () => {
   const classes = useStyles();
   return (
     <div>
-      <Typography variant='h2' className={classes.header}>
+      <Typography variant='h3' className={classes.header}>
         Allies
       </Typography>
-      <div className={classes.allies}>
+      <Paper className={classes.allies}>
         <List>
           {allies.map((rule: string, i: number) => (
             <ListItem key={i}>
@@ -32,7 +34,7 @@ export const AboutAllies = () => {
             </ListItem>
           ))}
         </List>
-      </div>
+      </Paper>
     </div>
   );
 };
