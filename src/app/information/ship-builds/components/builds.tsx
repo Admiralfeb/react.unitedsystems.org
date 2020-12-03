@@ -1,7 +1,9 @@
-import React, { useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { Loading } from '../../../components';
 import { filterShipBuilds } from '../functions/filterShipBuilds';
-import { useShipBuilds } from '../graphql/useShipBuilds';
+import { getShipInfofromID } from '../functions/getShipInfo';
+import { sortItems } from '../functions/sort';
+import { useShipBuilds } from '../hooks/useShipBuilds';
 import { IBuildInfo, IQuery } from '../models';
 import { BuildItem } from './buildItem';
 import './builds.css';
@@ -11,12 +13,28 @@ export const Builds = (props: { buildQuery: IQuery | undefined }) => {
   const { buildQuery } = props;
   const { loading, shipBuilds } = useShipBuilds();
 
-  useEffect(() => {
-    if (!loading) {
-      setQueriedBuilds(filterShipBuilds(shipBuilds, buildQuery));
+  let filterBuilds = useCallback(() => {
+    if (loading) {
+      return;
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [loading, buildQuery]);
+    const mappedBuilds = shipBuilds?.map((v) => {
+      const shipInfo = getShipInfofromID(v.ship)!;
+      const size = shipInfo?.size;
+      const newBuild: IBuildInfo = { ...v, size };
+      return newBuild;
+    });
+
+    const filtered = filterShipBuilds(mappedBuilds, buildQuery);
+    const sorted = sortItems(filtered!, 'ship');
+    setQueriedBuilds(sorted);
+  }, [loading, shipBuilds, buildQuery]);
+
+  useEffect(() => {
+    if (loading) {
+      return;
+    }
+    filterBuilds();
+  }, [loading, filterBuilds]);
 
   return (
     <div className='builds'>

@@ -1,17 +1,9 @@
 import { useQuery } from '@apollo/client';
 import gql from 'graphql-tag';
-import { getShipInfofromID } from '../functions/getShipInfo';
-import { sortItems } from '../functions/sort';
 import { IBuildInfo } from '../models';
 
 export const useShipBuilds = () => {
-    const { shipBuilds, loading } = useAllShipBuilds();
-    return {
-        loading, shipBuilds
-    }
-}
 
-const useAllShipBuilds = () => {
     const { data, loading, error } = useQuery<{ shipBuilds: IBuildInfo[] }>(gql`
         query AllShipBuilds {
             shipBuilds {
@@ -33,15 +25,7 @@ const useAllShipBuilds = () => {
         throw new Error(`Failed to fetch ship builds: ${error.message}`);
     }
 
-    let shipBuilds = data?.shipBuilds ?? [];
-    if (!loading) {
-        shipBuilds = shipBuilds.map((v) => {
-            const shipInfo = getShipInfofromID(v.ship)!;
-            const size = shipInfo?.size;
-            const newBuild: IBuildInfo = { ...v, size };
-            return newBuild;
-        });
-        shipBuilds = sortItems(shipBuilds, 'ship');
-    }
+    const shipBuilds = data?.shipBuilds ?? [];
+
     return { shipBuilds, loading };
 }

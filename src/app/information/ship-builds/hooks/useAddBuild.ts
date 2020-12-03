@@ -25,7 +25,7 @@ const ShipBuildFieldsFragment = gql`
     }`;
 
 export const useAddBuild = () => {
-    const [addBuildMutation, { data }] = useMutation<IBuildInfoInsert>(AddBuildMutation, {
+    const [addBuildMutation] = useMutation<IBuildInfoInsert>(AddBuildMutation, {
         update: (cache, { data }) => {
             cache.modify({
                 fields: {

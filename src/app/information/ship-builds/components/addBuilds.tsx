@@ -1,7 +1,6 @@
 import {
   Button,
   Checkbox,
-  FormControl,
   FormControlLabel,
   makeStyles,
   TextField,
@@ -10,7 +9,6 @@ import {
 import React, { ChangeEvent, useEffect, useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { processJSONBuild } from '../functions/processJSONBuild';
-import { IBuildInfo } from '../models';
 import { getShipInfofromName } from '../functions/getShipInfo';
 import { sortItems } from '../functions/sort';
 import Ships from '../assets/shipMap.json';
@@ -21,7 +19,7 @@ import {
 } from '@material-ui/lab';
 import BlockIcon from '@material-ui/icons/Block';
 import engineerIcon from '../assets/Engineer_icon.svg';
-import { useAddBuild } from '../graphql/useAddBuild';
+import { useAddBuild } from '../hooks/useAddBuild';
 import { IBuildInfoInsert } from '../models/buildInfoInsert';
 import { ObjectId } from 'bson';
 import { QuerySpecialization } from './querySpecialities';
@@ -58,7 +56,9 @@ export const AddBuild = () => {
   const addBuild = useAddBuild();
 
   useEffect(() => {
-    setBuildInfo({ ...buildInfo, specializations: specialties });
+    setBuildInfo((buildInfo) => {
+      return { ...buildInfo, specializations: specialties };
+    });
   }, [specialties]);
 
   const handleJSONChange = (event: ChangeEvent<HTMLInputElement>) => {
