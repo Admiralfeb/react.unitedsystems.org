@@ -26,6 +26,14 @@ export const docsList: IInfoButton[] = [
         beginner: true,
     },
     {
+        title: 'Find the Slot - Coriolis',
+        caption: 'Infographic',
+        local: true,
+        link:
+            '/coriolis',
+        beginner: true,
+    },
+    {
         title: 'Anti-Thargoid Flight Manual',
         caption: 'Created by Aterius',
         local: false,

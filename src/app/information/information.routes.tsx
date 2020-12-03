@@ -117,6 +117,9 @@ export const Information = () => {
           <Route path={`${path}/scoopable`}>
             <Infographic img='scoopable' />
           </Route>
+          <Route path={`${path}/coriolis`}>
+            <Infographic img='coriolis' />
+          </Route>
           <Route path='*'>
             <NotFound />
           </Route>
