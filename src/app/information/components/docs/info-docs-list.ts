@@ -1,4 +1,4 @@
-import { IInfoButton } from "../models/infoButtonModel";
+import { IInfoButton } from "../../models/infoButtonModel";
 
 export const docsList: IInfoButton[] = [
     {

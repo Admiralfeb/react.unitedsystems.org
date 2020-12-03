@@ -7,12 +7,12 @@ import { AboutHC } from './components/about/about-hc';
 import { AboutRules } from './components/about/about-rules';
 import { FleetCarriers } from './components/about/fleetCarriers';
 import { ShipReviews } from './components/guides/shipReviews';
-import { docsList } from './components/info-docs-list';
-import { guidesList } from './components/info-guides-list';
+import { docsList } from './components/docs/info-docs-list';
+import { guidesList } from './components/guides/info-guides-list';
 import { InfoSection } from './components/info-section';
-import { toolsList } from './components/info-tools-list';
+import { toolsList } from './components/tools/info-tools-list';
 import { InfoUSCLinks } from './components/info-usclinks';
-import { Infographic } from './components/infographic';
+import { Infographic } from './components/docs/infographic';
 const ShipBuilds = lazy(() => import('./components/guides/shipBuilds'));
 
 const useStyles = makeStyles((theme) => ({
