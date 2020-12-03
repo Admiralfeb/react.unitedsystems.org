@@ -15,6 +15,7 @@ const useAllShipBuilds = () => {
     const { data, loading, error } = useQuery<{ shipBuilds: IBuildInfo[] }>(gql`
         query AllShipBuilds {
             shipBuilds {
+                _id
                 author
                 beginner
                 buildLink

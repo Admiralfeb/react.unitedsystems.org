@@ -3,112 +3,96 @@
         "owner": "Pablok",
         "name": "Almagest",
         "id": "J0Y-N4Y",
-        "squad": true,
         "purpose": "Exploration"
     },
     {
         "owner": "Redfang Culph",
         "name": "Cabal Enforcer",
         "id": "J8W-3XG",
-        "squad": true,
         "purpose": "Operations"
     },
     {
         "owner": "PracticalHalo",
         "name": "Chaldea",
         "id": "J2T-37X",
-        "squad": false,
         "purpose": "Personal"
     },
     {
         "owner": "Acerrino",
         "name": "Ellen's Catgirl Cafe",
-        "id": "",
-        "squad": false,
+        "id": "Q7Z-42X",
         "purpose": "Personal / Anti-Xeno"
     },
     {
         "owner": "thegoog",
         "name": "Moya",
         "id": "QOB-4VT",
-        "squad": false,
         "purpose": "Personal"
     },
     {
         "owner": "Clever Ape",
         "name": "Overcompensation",
         "id": "V2V-9HT",
-        "squad": true,
         "purpose": "Operations"
     },
     {
         "owner": "Clever Ape",
         "name": "Wastage",
-        "id": "",
-        "squad": true,
+        "id": "VBV-T7G",
         "purpose": "Outfitting"
     },
     {
         "owner": "Luisqa",
         "name": "Pillar of Autumn",
         "id": "V7X-23Z",
-        "squad": true,
         "purpose": "Mining"
     },
     {
         "owner": "Luisqa",
-        "name": "",
-        "id": "",
-        "squad": false,
-        "purpose": ""
+        "name": "The Shaft",
+        "id": "V6L-06J",
+        "purpose": "Mining / Recruitment"
     },
     {
         "owner": "Skeetmeister11",
         "name": "Roamer's Recess",
         "id": "V3H-B8T",
-        "squad": false,
         "purpose": "Personal"
     },
     {
         "owner": "Aurelius Publius",
         "name": "Spirit of Alethea",
         "id": "KFV-G9K",
-        "squad": false,
         "purpose": "Community Goals"
     },
     {
         "owner": "IM2D",
         "name": "Stellaris Invicta",
         "id": "K9T-W9T",
-        "squad": false,
-        "purpose": "Recruitment / Events"
+        "purpose": "Events / Recruitment"
     },
     {
         "owner": "Lokioo42",
         "name": "Sulaco",
         "id": "K0X-T6X",
-        "squad": true,
         "purpose": "Anti-Xeno"
     },
     {
         "owner": "Eolin Solarviento",
         "name": "Tranquility Base",
         "id": "KHM-BQN",
-        "squad": false,
         "purpose": "Personal"
     },
     {
         "owner": "UltraNeros",
         "name": "Verrows Chamber",
         "id": "JGK-L1T",
-        "squad": false,
-        "purpose": ""
+        "purpose": "Personal"
     },
     {
         "owner": "Admiralfeb",
         "name": "Zocalo",
         "id": "J9H-22H",
-        "squad": true,
         "purpose": "Engineering / Trading"
     }
 ]

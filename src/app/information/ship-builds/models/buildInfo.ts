@@ -1,6 +1,7 @@
 import { ShipSize } from "./shipSize";
 
 export interface IBuildInfo {
+    _id?: string;
     id: number;
     ship: number;
     size: number | ShipSize;

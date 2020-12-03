@@ -26,7 +26,7 @@ export const Builds = (props: { buildQuery: IQuery | undefined }) => {
         queriedBuilds?.map((ship) => {
           return (
             <BuildItem
-              key={ship.id}
+              key={ship._id}
               id={ship.ship}
               author={ship.author}
               specializations={ship.specializations}
