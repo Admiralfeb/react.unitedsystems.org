@@ -40,20 +40,7 @@ export const AddBuild = () => {
   const classes = useStyles();
   const { enqueueSnackbar } = useSnackbar();
   const [jsonBuild, setJsonBuild] = useState('');
-  const [buildInfo, setBuildInfo] = useState<IBuildInfoInsert>({
-    description: '',
-    guardian: false,
-    powerplay: false,
-    buildLink: '',
-    ship: 0,
-    moreInfo: '',
-    _id: new ObjectId(),
-    id: 0,
-    author: '',
-    specializations: [],
-    engLevel: 0,
-    beginner: false,
-  });
+  const [buildInfo, setBuildInfo] = useState<IBuildInfoInsert>(DEFAULTBUILD);
   const [specialties, setSpecialties] = useState<string[]>([]);
   const addBuild = useAddBuild();
 
@@ -90,7 +77,6 @@ export const AddBuild = () => {
       beginner: false,
       moreInfo: '',
     };
-    console.log(info);
     setBuildInfo(info);
   };
 
@@ -128,6 +114,8 @@ export const AddBuild = () => {
     try {
       await addBuild(buildInfo);
       enqueueSnackbar('Build Successfully Submitted', { variant: 'success' });
+      setBuildInfo(DEFAULTBUILD);
+      setJsonBuild('');
     } catch (e) {
       enqueueSnackbar('Submit Failed', { variant: 'error' });
       console.error(e);
@@ -286,4 +274,19 @@ const findShipName = (shipID: number | null) => {
   }
   const shipName = Ships.find((x) => x.id === shipID);
   return shipName;
+};
+
+const DEFAULTBUILD: IBuildInfoInsert = {
+  description: '',
+  guardian: false,
+  powerplay: false,
+  buildLink: '',
+  ship: 0,
+  moreInfo: '',
+  _id: new ObjectId(),
+  id: 0,
+  author: '',
+  specializations: [],
+  engLevel: 0,
+  beginner: false,
 };
