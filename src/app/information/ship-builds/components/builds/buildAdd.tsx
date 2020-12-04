@@ -1,4 +1,4 @@
-import { Button, makeStyles } from '@material-ui/core';
+import { Button, FormGroup, makeStyles } from '@material-ui/core';
 import React, { ChangeEvent, useEffect, useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { processJSONBuild } from '../../functions/processJSONBuild';
@@ -109,6 +109,7 @@ export const BuildAdd = () => {
       await addBuild(buildInfo);
       enqueueSnackbar('Build Successfully Submitted', { variant: 'success' });
       setBuildInfo(DEFAULTBUILD);
+      setSpecialties([]);
       setJsonBuild('');
     } catch (e) {
       enqueueSnackbar('Submit Failed', { variant: 'error' });
@@ -134,13 +135,13 @@ export const BuildAdd = () => {
     {
       id: 'moreInfo',
       label: 'More Information',
-      isMultiline: false,
+      isMultiline: true,
       value: buildInfo.moreInfo,
       onChange: handleTextChange,
     },
     {
-      id: 'moreInfo',
-      label: 'More Information',
+      id: 'buildLink',
+      label: 'Build Link - Full',
       isMultiline: false,
       value: buildInfo.buildLink,
       onChange: handleTextChange,
@@ -178,16 +179,18 @@ export const BuildAdd = () => {
         handleShipChange={handleShipChange}
       />
       <QuerySpecialization
-        selectedSpecialties={specialties}
+        selectedSpecialties={buildInfo.specializations}
         setSpecialties={setSpecialties}
       />
       <EngToggleGroup
         engLevel={buildInfo.engLevel}
         handleEngLevelChange={handleEngLevelChange}
       />
-      {checkFields.map((check) => (
-        <BuildCheckBox {...check} onChange={handleOtherChange} />
-      ))}
+      <FormGroup row>
+        {checkFields.map((check) => (
+          <BuildCheckBox {...check} onChange={handleOtherChange} />
+        ))}
+      </FormGroup>
       <Button onClick={handleSubmit}>Submit Build</Button>
     </div>
   );
