@@ -19,4 +19,10 @@ jobs:
       - name: Install Dependencies
         run: npm ci --force
       - name: Build and deploy
-        run: npm run deploy
+        run: npm run build
+      - name: Deploy to GitHub Pages
+        uses: JamesIves/github-pages-deploy-action@3.7.1
+        with:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          BRANCH: gh-pages
+          FOLDER: build
