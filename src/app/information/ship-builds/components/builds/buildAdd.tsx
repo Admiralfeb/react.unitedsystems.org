@@ -1,5 +1,5 @@
 import { Button, FormGroup, makeStyles } from '@material-ui/core';
-import React, { ChangeEvent, useEffect, useState } from 'react';
+import { ChangeEvent, MouseEvent, useEffect, useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { processJSONBuild } from '../../functions/processJSONBuild';
 import { getShipInfofromName } from '../../functions/getShipInfo';
@@ -68,7 +68,6 @@ export const BuildAdd = () => {
     };
     setBuildInfo(info);
   };
-
   const handleTextChange = (event: ChangeEvent<HTMLInputElement>) => {
     const value = event.target.value;
 
@@ -96,12 +95,12 @@ export const BuildAdd = () => {
     });
   };
   const handleEngLevelChange = (
-    _: React.MouseEvent<HTMLElement>,
+    _: MouseEvent<HTMLElement>,
     engLevel: number
   ) => {
     setBuildInfo({ ...buildInfo, engLevel });
   };
-  const handleOtherChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const handleOtherChange = (event: ChangeEvent<HTMLInputElement>) => {
     setBuildInfo({ ...buildInfo, [event.target.name]: event.target.checked });
   };
   const handleSubmit = async () => {
