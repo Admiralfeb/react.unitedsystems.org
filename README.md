@@ -1,12 +1,6 @@
-# Elite Dangerous Massacre Finder
+# USC-Website
 
-This page will assist in finding a possible location to expand to for massacre missions.
-
-It will return a list of systems where:
-
-- An anarchy faction is present (unknown if they are local)
-- Has rings
-- Has populated systems with stations within 10 LY
+This is the code for the React version of the United Systems Cooperative website.
 
 ## Available Scripts
 
