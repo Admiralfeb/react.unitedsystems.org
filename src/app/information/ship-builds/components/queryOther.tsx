@@ -31,16 +31,17 @@ export const QueryOther = (props: {
   };
 
   return (
-    <div className='otherQuery'>
-      <h3 className='queryHeader'>Other Filters</h3>
-      <div className='otherButtons'>
-        <Tooltip title='Should the build have Guardian components?' arrow>
-          <div className='guardian'>
+    <div className="otherQuery">
+      <h3 className="queryHeader">Other Filters</h3>
+      <div className="otherButtons">
+        <Tooltip title="Should the build have Guardian components?" arrow>
+          <div className="guardian">
             <label>Guardian</label>
             <ToggleButtonGroup
               value={other.guardian}
               exclusive
-              onChange={handleGuardianChange}>
+              onChange={handleGuardianChange}
+            >
               <ToggleButton value={1}>
                 <CheckIcon />
               </ToggleButton>
@@ -50,13 +51,14 @@ export const QueryOther = (props: {
             </ToggleButtonGroup>
           </div>
         </Tooltip>
-        <Tooltip title='Does the build have Power Play modules?' arrow>
-          <div className='powerplay'>
+        <Tooltip title="Does the build have Power Play modules?" arrow>
+          <div className="powerplay">
             <label>Power Play</label>
             <ToggleButtonGroup
               value={other.powerplay}
               exclusive
-              onChange={handlePowerPlayChange}>
+              onChange={handlePowerPlayChange}
+            >
               <ToggleButton value={1}>
                 <CheckIcon />
               </ToggleButton>
@@ -66,13 +68,14 @@ export const QueryOther = (props: {
             </ToggleButtonGroup>
           </div>
         </Tooltip>
-        <Tooltip title='Is this build easy to achieve early-game?'>
-          <div className='beginner'>
+        <Tooltip title="Is this build easy to achieve early-game?">
+          <div className="beginner">
             <label>Beginner</label>
             <ToggleButtonGroup
               value={other.beginner}
               exclusive
-              onChange={handleBeginnerChange}>
+              onChange={handleBeginnerChange}
+            >
               <ToggleButton value={1}>
                 <CheckIcon />
               </ToggleButton>

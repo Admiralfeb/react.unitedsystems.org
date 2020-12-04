@@ -37,7 +37,7 @@ export const Builds = (props: { buildQuery: IQuery | undefined }) => {
   }, [loading, filterBuilds]);
 
   return (
-    <div className='builds'>
+    <div className="builds">
       {loading ? (
         <Loading />
       ) : (

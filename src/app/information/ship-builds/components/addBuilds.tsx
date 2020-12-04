@@ -130,47 +130,48 @@ export const AddBuild = () => {
   return (
     <div className={classes.root}>
       <Button
-        to='/information/builds'
+        to="/information/builds"
         component={NavLink}
-        color='secondary'
-        variant='outlined'>
+        color="secondary"
+        variant="outlined"
+      >
         Return to builds
       </Button>
       {jsonBuild === '' && (
         <TextField
-          label='Exported JSON'
+          label="Exported JSON"
           multiline
           value={jsonBuild}
           onChange={handleJSONChange}
         />
       )}
       <TextField
-        id='description'
-        label='Title/Description'
+        id="description"
+        label="Title/Description"
         value={buildInfo.description}
         onChange={handleTextChange}
       />
       <TextField
-        id='moreInfo'
-        label='More Information'
+        id="moreInfo"
+        label="More Information"
         multiline
         value={buildInfo.moreInfo}
         onChange={handleTextChange}
       />
       <TextField
-        id='buildLink'
-        label='Build Link - Full Link'
+        id="buildLink"
+        label="Build Link - Full Link"
         value={buildInfo.buildLink}
         onChange={handleTextChange}
       />
       <TextField
-        id='author'
-        label='Author'
+        id="author"
+        label="Author"
         value={buildInfo.author}
         onChange={handleTextChange}
       />
       <Autocomplete
-        id='shipType'
+        id="shipType"
         options={sortItems(Ships, 'name')}
         autoHighlight
         getOptionLabel={(option) => option.name}
@@ -182,8 +183,8 @@ export const AddBuild = () => {
         renderInput={(params) => (
           <TextField
             {...params}
-            label='Ship Type'
-            variant='outlined'
+            label="Ship Type"
+            variant="outlined"
             inputProps={{
               ...params.inputProps,
               autocomplete: 'new-password',
@@ -203,64 +204,65 @@ export const AddBuild = () => {
       <ToggleButtonGroup
         value={buildInfo.engLevel}
         exclusive
-        onChange={handleEngLevelChange}>
+        onChange={handleEngLevelChange}
+      >
         <ToggleButton value={0}>
-          <Tooltip title='No Engineering' arrow>
-            <div className='engButton'>
+          <Tooltip title="No Engineering" arrow>
+            <div className="engButton">
               <BlockIcon />
             </div>
           </Tooltip>
         </ToggleButton>
         <ToggleButton value={1}>
-          <Tooltip title='Simple Engineering' arrow>
-            <div className='engButton'>
-              <img src={engineerIcon} alt='engineeringIcon' />
+          <Tooltip title="Simple Engineering" arrow>
+            <div className="engButton">
+              <img src={engineerIcon} alt="engineeringIcon" />
             </div>
           </Tooltip>
         </ToggleButton>
         <ToggleButton value={2}>
-          <Tooltip title='Moderate Engineering' arrow>
-            <div className='engButton'>
-              <img src={engineerIcon} alt='engineeringIcon' />
-              <img src={engineerIcon} alt='engineeringIcon' />
+          <Tooltip title="Moderate Engineering" arrow>
+            <div className="engButton">
+              <img src={engineerIcon} alt="engineeringIcon" />
+              <img src={engineerIcon} alt="engineeringIcon" />
             </div>
           </Tooltip>
         </ToggleButton>
         <ToggleButton value={3}>
-          <Tooltip title='End-Game/Extreme Engineering' arrow>
-            <div className='engButton'>
-              <img src={engineerIcon} alt='engineeringIcon' />
-              <img src={engineerIcon} alt='engineeringIcon' />
-              <img src={engineerIcon} alt='engineeringIcon' />
+          <Tooltip title="End-Game/Extreme Engineering" arrow>
+            <div className="engButton">
+              <img src={engineerIcon} alt="engineeringIcon" />
+              <img src={engineerIcon} alt="engineeringIcon" />
+              <img src={engineerIcon} alt="engineeringIcon" />
             </div>
           </Tooltip>
         </ToggleButton>
       </ToggleButtonGroup>
       <FormControlLabel
-        label='Guardian'
+        label="Guardian"
         control={
           <Checkbox
-            name='guardian'
+            name="guardian"
             checked={buildInfo.guardian}
             onChange={handleOtherChange}
           />
         }
       />
       <FormControlLabel
-        label='Powerplay'
+        label="Powerplay"
         control={
           <Checkbox
-            name='powerplay'
+            name="powerplay"
             checked={buildInfo.powerplay}
             onChange={handleOtherChange}
           />
         }
       />
       <FormControlLabel
-        label='Beginner'
+        label="Beginner"
         control={
           <Checkbox
-            name='beginner'
+            name="beginner"
             checked={buildInfo.beginner}
             onChange={handleOtherChange}
           />

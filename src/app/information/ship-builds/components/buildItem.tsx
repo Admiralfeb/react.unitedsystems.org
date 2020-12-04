@@ -38,20 +38,20 @@ export const BuildItem = (props: IBuildItemProps) => {
   };
 
   return (
-    <Card variant='outlined' className='card'>
+    <Card variant="outlined" className="card">
       {shipInfo && (
         <CardMedia
-          className='shipImg'
+          className="shipImg"
           image={shipInfo?.shipImg}
           title={shipInfo?.name}
         />
       )}
-      <CardContent className='cardContent'>
+      <CardContent className="cardContent">
         <Typography>{props.description}</Typography>
         <Divider />
-        <div className='shipName'>
+        <div className="shipName">
           <Typography>{shipInfo?.name} </Typography>
-          <div className='spacer' />
+          <div className="spacer" />
           {shipInfo && <Typography>{ShipSize[shipInfo.size]}</Typography>}
         </div>
         {shipInfo?.requires && (
@@ -67,20 +67,22 @@ export const BuildItem = (props: IBuildItemProps) => {
         <EngIcons engLevel={props.engLevel} />
         <Divider />
         <Typography>Author: {props.author}</Typography>
-        <CardActions className='cardActions'>
+        <CardActions className="cardActions">
           <Button
-            variant='contained'
-            color='secondary'
+            variant="contained"
+            color="secondary"
             href={props.buildLink}
-            target='_blank'>
+            target="_blank"
+          >
             View Build
           </Button>{' '}
           {props.moreInfo && (
             <>
               <Button
-                variant='contained'
-                color='primary'
-                onClick={handleShowDialog}>
+                variant="contained"
+                color="primary"
+                onClick={handleShowDialog}
+              >
                 More Info
               </Button>
               <MoreInfoDialog
@@ -100,7 +102,7 @@ const EngIcons = (props: { engLevel: number }) => {
   let icons: JSX.Element[] = [];
   if (props.engLevel > 3 || props.engLevel < 1) {
     return (
-      <div className='engineering'>
+      <div className="engineering">
         <p>Engineering Level: None</p>
       </div>
     );
@@ -108,11 +110,11 @@ const EngIcons = (props: { engLevel: number }) => {
     for (let i = 1; i <= props.engLevel; i++) {
       icons = [
         ...icons,
-        <img src={engineerIcon} key={i} alt='Engineering Icon' />,
+        <img src={engineerIcon} key={i} alt="Engineering Icon" />,
       ];
     }
     return (
-      <div className='engineering'>
+      <div className="engineering">
         <p>
           <span>Engineering Level:</span> {icons.map((icon) => icon)}
         </p>
@@ -128,13 +130,13 @@ const TagGroup = (props: {
   beginner: boolean;
 }) => {
   return (
-    <div className='chips'>
+    <div className="chips">
       {props.tags.map((v) => (
         <Chip label={v} key={v} />
       ))}
-      {props.guardian && <Chip label='Guardian' key='guardian' />}
-      {props.powerplay && <Chip label='PowerPlay' key='powerplay' />}
-      {props.beginner && <Chip label='Beginner' key='beginner' />}
+      {props.guardian && <Chip label="Guardian" key="guardian" />}
+      {props.powerplay && <Chip label="PowerPlay" key="powerplay" />}
+      {props.beginner && <Chip label="Beginner" key="beginner" />}
     </div>
   );
 };

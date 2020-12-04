@@ -12,7 +12,7 @@ export const Loading = () => {
   return (
     <div className={classes.container}>
       <h3>Loading</h3>
-      <img id='imgLoading' width='300' alt='Loading' src={img} />
+      <img id="imgLoading" width="300" alt="Loading" src={img} />
     </div>
   );
 };

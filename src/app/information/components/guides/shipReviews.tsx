@@ -45,7 +45,7 @@ export const ShipReviews = () => {
   const shipReviews = useShipReviews();
   return (
     <div className={classes.table}>
-      <Typography variant='h3'>Ship Reviews</Typography>
+      <Typography variant="h3">Ship Reviews</Typography>
       <TableContainer component={Paper}>
         <Table className={classes.table}>
           <TableHead>
@@ -63,9 +63,10 @@ export const ShipReviews = () => {
                 <TableCell>
                   <Button
                     href={review.shipReview}
-                    target='_blank'
-                    variant='contained'
-                    color='secondary'>
+                    target="_blank"
+                    variant="contained"
+                    color="secondary"
+                  >
                     Pilot Review
                   </Button>
                 </TableCell>

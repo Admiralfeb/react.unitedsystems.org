@@ -19,20 +19,21 @@ export const QuerySpecialization = (props: {
   };
 
   return (
-    <div className='specializationQuery'>
-      <h3 className='queryHeader'>Ship Specializations</h3>
+    <div className="specializationQuery">
+      <h3 className="queryHeader">Ship Specializations</h3>
 
       <Typography>
         Select specializations that the ship should fulfill.
       </Typography>
 
-      <div className='specialButtons'>
+      <div className="specialButtons">
         {getSpecialties().map((special) => (
           <ToggleButton
             value={special}
             key={special}
             selected={selectedSpecialties.includes(special)}
-            onChange={() => handleSpecialties(special)}>
+            onChange={() => handleSpecialties(special)}
+          >
             {special}
           </ToggleButton>
         ))}

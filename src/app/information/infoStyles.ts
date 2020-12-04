@@ -1,33 +1,33 @@
-import { makeStyles } from "@material-ui/core";
+import { makeStyles } from '@material-ui/core';
 
-const infoStyles = makeStyles(theme => ({
-    paper: {
-        textAlign: 'center',
-        width: '80%',
-        margin: 'auto',
-        padding: 5,
-        paddingBottom: 10,
-        marginBottom: 5,
+const infoStyles = makeStyles((theme) => ({
+  paper: {
+    textAlign: 'center',
+    width: '80%',
+    margin: 'auto',
+    padding: 5,
+    paddingBottom: 10,
+    marginBottom: 5,
+  },
+  specialButton: {
+    display: 'flex',
+    flexDirection: 'column',
+  },
+  flex: {
+    '& button': {
+      margin: 5,
     },
-    specialButton: {
-        display: 'flex',
-        flexDirection: 'column',
+    '& a': {
+      margin: 5,
     },
-    flex: {
-        '& button': {
-            margin: 5,
-        },
-        '& a': {
-            margin: 5,
-        },
-    },
-    grid: {
-        display: 'grid',
-        gridTemplateRows: 'auto'
-    },
-    secondary: {
-        color: theme.palette.secondary.main
-    }
+  },
+  grid: {
+    display: 'grid',
+    gridTemplateRows: 'auto',
+  },
+  secondary: {
+    color: theme.palette.secondary.main,
+  },
 }));
 
 export default infoStyles;

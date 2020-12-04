@@ -1,36 +1,32 @@
-import { IInfoButton } from "../../models/infoButtonModel";
+import { IInfoButton } from '../../models/infoButtonModel';
 
 export const toolsList: IInfoButton[] = [
   {
     title: 'Ship Builder',
     caption: 'Coriolis',
     local: false,
-    link:
-      'https://coriolis.io/',
+    link: 'https://coriolis.io/',
     beginner: true,
   },
   {
     title: 'Inara Companion App',
     caption: 'Helpful 3rd party tool',
     local: false,
-    link:
-      'https://inara.cz/',
+    link: 'https://inara.cz/',
     beginner: true,
   },
   {
     title: "Miner's Tool",
-    caption: "Created by CMDR VicTic",
+    caption: 'Created by CMDR VicTic',
     local: false,
-    link:
-      'https://edtools.cc/miner',
+    link: 'https://edtools.cc/miner',
     beginner: true,
   },
   {
     title: 'Ship Anatomy',
     caption: 'a.teall.info',
     local: false,
-    link:
-      'http://a.teall.info/edsa/',
+    link: 'http://a.teall.info/edsa/',
     beginner: true,
   },
   {
@@ -45,16 +41,14 @@ export const toolsList: IInfoButton[] = [
     title: 'Material Finder',
     caption: 'EDTutorials',
     local: false,
-    link:
-      'https://www.edtutorials.com/material-finder/',
+    link: 'https://www.edtutorials.com/material-finder/',
     beginner: false,
   },
   {
     title: 'Neutron Star Plotter',
     caption: 'Created by Gareth Harper',
     local: false,
-    link:
-      'https://www.spansh.co.uk/plotter',
+    link: 'https://www.spansh.co.uk/plotter',
     beginner: false,
   },
   {
@@ -69,25 +63,21 @@ export const toolsList: IInfoButton[] = [
     title: 'EDDB Companion App',
     caption: 'Alternative to Inara',
     local: false,
-    link:
-      'https://eddb.io/',
+    link: 'https://eddb.io/',
     beginner: false,
   },
   {
     title: 'Elite Dangerous Star Map',
     caption: '(EDSM)',
     local: false,
-    link:
-      'https://www.edsm.net/',
+    link: 'https://www.edsm.net/',
     beginner: false,
   },
   {
     title: 'Fleet Carrier Calculator',
     caption: `Commander's Toolbox`,
     local: false,
-    link:
-      'https://cmdrs-toolbox.com/fleet-carrier-calculator',
+    link: 'https://cmdrs-toolbox.com/fleet-carrier-calculator',
     beginner: false,
   },
-
 ];

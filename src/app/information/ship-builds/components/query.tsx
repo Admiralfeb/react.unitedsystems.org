@@ -61,7 +61,7 @@ export const Query = (props: { queryUpdate: (query: IQuery) => void }) => {
   };
 
   return (
-    <Paper className='query'>
+    <Paper className="query">
       <QuerySpecialization
         selectedSpecialties={selectedSpecialties}
         setSpecialties={setSpecialties}
@@ -74,19 +74,21 @@ export const Query = (props: { queryUpdate: (query: IQuery) => void }) => {
       />
       <QueryEngineering engLevel={engLevel} setEngLevel={setEngLevel} />
       <QueryOther other={other} setOther={setOther} />
-      <div className='reset'>
+      <div className="reset">
         <Button
           onClick={resetQueries}
-          color='primary'
-          variant='outlined'
-          className='resetButton'>
+          color="primary"
+          variant="outlined"
+          className="resetButton"
+        >
           Reset Selections
         </Button>
         <Button
-          variant='outlined'
-          color='secondary'
+          variant="outlined"
+          color="secondary"
           component={NavLink}
-          to='/information/builds/add'>
+          to="/information/builds/add"
+        >
           Add Build
         </Button>
       </div>

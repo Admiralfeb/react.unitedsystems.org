@@ -16,7 +16,7 @@ export const InfoSection = (props: ISectionProps) => {
 
   return (
     <Paper id={id} className={classes.paper}>
-      <Typography variant='h4'>{header}</Typography>
+      <Typography variant="h4">{header}</Typography>
       <div className={classes.grid}>
         <div className={classes.flex}>
           {buttons
@@ -25,28 +25,30 @@ export const InfoSection = (props: ISectionProps) => {
               if (guide.local === true) {
                 return (
                   <Button
-                    variant='outlined'
+                    variant="outlined"
                     color={guide.beginner ? 'secondary' : 'primary'}
                     component={Link}
                     to={`${url}${guide.link}`}
-                    key={guide.title}>
+                    key={guide.title}
+                  >
                     <div className={classes.specialButton}>
                       <Typography>{guide.title}</Typography>
-                      <Typography variant='caption'>{guide.caption}</Typography>
+                      <Typography variant="caption">{guide.caption}</Typography>
                     </div>
                   </Button>
                 );
               } else {
                 return (
                   <Button
-                    variant='outlined'
+                    variant="outlined"
                     color={guide.beginner ? 'secondary' : 'primary'}
                     href={guide.link}
-                    target='_blank'
-                    key={guide.title}>
+                    target="_blank"
+                    key={guide.title}
+                  >
                     <div className={classes.specialButton}>
                       <Typography>{guide.title}</Typography>
-                      <Typography variant='caption'>{guide.caption}</Typography>
+                      <Typography variant="caption">{guide.caption}</Typography>
                     </div>
                   </Button>
                 );
@@ -60,28 +62,30 @@ export const InfoSection = (props: ISectionProps) => {
               if (guide.local === true) {
                 return (
                   <Button
-                    variant='outlined'
+                    variant="outlined"
                     color={guide.beginner ? 'secondary' : 'primary'}
                     component={Link}
                     to={`${url}${guide.link}`}
-                    key={guide.title}>
+                    key={guide.title}
+                  >
                     <div className={classes.specialButton}>
                       <Typography>{guide.title}</Typography>
-                      <Typography variant='caption'>{guide.caption}</Typography>
+                      <Typography variant="caption">{guide.caption}</Typography>
                     </div>
                   </Button>
                 );
               } else {
                 return (
                   <Button
-                    variant='outlined'
+                    variant="outlined"
                     color={guide.beginner ? 'secondary' : 'primary'}
                     href={guide.link}
-                    target='_blank'
-                    key={guide.title}>
+                    target="_blank"
+                    key={guide.title}
+                  >
                     <div className={classes.specialButton}>
                       <Typography>{guide.title}</Typography>
-                      <Typography variant='caption'>{guide.caption}</Typography>
+                      <Typography variant="caption">{guide.caption}</Typography>
                     </div>
                   </Button>
                 );

@@ -12,7 +12,7 @@ const Transition = forwardRef(function Transition(
   props: TransitionProps & { children?: React.ReactElement<any, any> },
   ref: React.Ref<unknown>
 ) {
-  return <Slide direction='up' ref={ref} {...props} />;
+  return <Slide direction="up" ref={ref} {...props} />;
 });
 
 export const MoreInfoDialog = (props: {
@@ -32,22 +32,24 @@ export const MoreInfoDialog = (props: {
         open={open}
         TransitionComponent={Transition}
         keepMounted
-        scroll='paper'
+        scroll="paper"
         onClose={handleClose}
-        aria-labelledby='alert-dialog-slide-title'
-        aria-describedby='alert-dialog-slide-description'>
-        <DialogTitle id='alert-dialog-slide-title'>
+        aria-labelledby="alert-dialog-slide-title"
+        aria-describedby="alert-dialog-slide-description"
+      >
+        <DialogTitle id="alert-dialog-slide-title">
           {'More Info About the Build'}
         </DialogTitle>
         <DialogContent>
           <DialogContentText
-            id='alert-dialog-slide-description'
-            style={{ whiteSpace: 'pre-line' }}>
+            id="alert-dialog-slide-description"
+            style={{ whiteSpace: 'pre-line' }}
+          >
             {content}
           </DialogContentText>
         </DialogContent>
         <DialogActions>
-          <Button onClick={handleClose} color='primary'>
+          <Button onClick={handleClose} color="primary">
             OK
           </Button>
         </DialogActions>

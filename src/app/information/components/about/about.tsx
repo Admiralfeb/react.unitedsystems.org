@@ -40,7 +40,7 @@ export const About = () => {
   const classes = useStyles();
   return (
     <div className={classes.root}>
-      <Typography variant='h2' className={classes.header}>
+      <Typography variant="h2" className={classes.header}>
         About USC
       </Typography>
       <Paper className={classes.paper}>

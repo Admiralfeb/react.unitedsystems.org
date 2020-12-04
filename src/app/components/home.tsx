@@ -39,15 +39,15 @@ export const Home = () => {
   const classes = useStyles();
   return (
     <div className={classes.root}>
-      <Typography variant='h3' className={classes.header}>
+      <Typography variant="h3" className={classes.header}>
         United Systems Cooperative
       </Typography>
       <Paper className={classes.paper}>
         <div className={classes.latin}>
-          <Typography className={classes.cursive} variant='h4'>
+          <Typography className={classes.cursive} variant="h4">
             Ad Astra Per Aspera
           </Typography>
-          <Typography variant='subtitle2' className={classes.subtitle}>
+          <Typography variant="subtitle2" className={classes.subtitle}>
             Through Hardships to the Stars
           </Typography>
         </div>
@@ -67,10 +67,11 @@ export const Home = () => {
         <video
           controls
           className={classes.video}
-          poster='https://dl.dropbox.com/s/nws07775923ta6z/vidImg.png?dl=0'>
+          poster="https://dl.dropbox.com/s/nws07775923ta6z/vidImg.png?dl=0"
+        >
           <source
-            src='https://dl.dropbox.com/s/h0n88hy5pgtf06n/about_us.mp4?dl=0'
-            type='video/mp4'
+            src="https://dl.dropbox.com/s/h0n88hy5pgtf06n/about_us.mp4?dl=0"
+            type="video/mp4"
           />
           "Your browser does not support this video"
         </video>

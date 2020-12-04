@@ -26,15 +26,15 @@ export const Selection = () => {
   return (
     <Switch>
       <Route path={path} exact>
-        <section className='selection'>
-          <Typography variant='h3'>Ship Build Archive</Typography>
+        <section className="selection">
+          <Typography variant="h3">Ship Build Archive</Typography>
           <Query queryUpdate={handleQuery} />
           <div ref={buildRef}>
             <Builds buildQuery={query} />
           </div>
           {isMobile && (
-            <div className='fab'>
-              <Fab color='primary' className='fab' onClick={handleFab}>
+            <div className="fab">
+              <Fab color="primary" className="fab" onClick={handleFab}>
                 <ArrowDownwardIcon />
               </Fab>
             </div>

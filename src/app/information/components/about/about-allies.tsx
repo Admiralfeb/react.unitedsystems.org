@@ -22,7 +22,7 @@ export const AboutAllies = () => {
   const classes = useStyles();
   return (
     <div>
-      <Typography variant='h3' className={classes.header}>
+      <Typography variant="h3" className={classes.header}>
         Allies
       </Typography>
       <Paper className={classes.allies}>

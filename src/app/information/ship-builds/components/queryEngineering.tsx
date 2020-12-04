@@ -19,43 +19,44 @@ export const QueryEngineering = (props: {
   };
 
   return (
-    <div className='engineeringQuery'>
-      <h3 className='queryHeader'>Ship Engineering Level</h3>
+    <div className="engineeringQuery">
+      <h3 className="queryHeader">Ship Engineering Level</h3>
       <Typography>
         Select Engineering level ranging from None to Max Engineering.
       </Typography>
       <ToggleButtonGroup
         value={engLevel}
         exclusive
-        onChange={handleEngLevelChange}>
+        onChange={handleEngLevelChange}
+      >
         <ToggleButton value={0}>
-          <Tooltip title='No Engineering' arrow>
-            <div className='engButton'>
+          <Tooltip title="No Engineering" arrow>
+            <div className="engButton">
               <BlockIcon />
             </div>
           </Tooltip>
         </ToggleButton>
         <ToggleButton value={1}>
-          <Tooltip title='Simple Engineering' arrow>
-            <div className='engButton'>
-              <img src={engineerIcon} alt='engineeringIcon' />
+          <Tooltip title="Simple Engineering" arrow>
+            <div className="engButton">
+              <img src={engineerIcon} alt="engineeringIcon" />
             </div>
           </Tooltip>
         </ToggleButton>
         <ToggleButton value={2}>
-          <Tooltip title='Moderate Engineering' arrow>
-            <div className='engButton'>
-              <img src={engineerIcon} alt='engineeringIcon' />
-              <img src={engineerIcon} alt='engineeringIcon' />
+          <Tooltip title="Moderate Engineering" arrow>
+            <div className="engButton">
+              <img src={engineerIcon} alt="engineeringIcon" />
+              <img src={engineerIcon} alt="engineeringIcon" />
             </div>
           </Tooltip>
         </ToggleButton>
         <ToggleButton value={3}>
-          <Tooltip title='End-Game/Extreme Engineering' arrow>
-            <div className='engButton'>
-              <img src={engineerIcon} alt='engineeringIcon' />
-              <img src={engineerIcon} alt='engineeringIcon' />
-              <img src={engineerIcon} alt='engineeringIcon' />
+          <Tooltip title="End-Game/Extreme Engineering" arrow>
+            <div className="engButton">
+              <img src={engineerIcon} alt="engineeringIcon" />
+              <img src={engineerIcon} alt="engineeringIcon" />
+              <img src={engineerIcon} alt="engineeringIcon" />
             </div>
           </Tooltip>
         </ToggleButton>

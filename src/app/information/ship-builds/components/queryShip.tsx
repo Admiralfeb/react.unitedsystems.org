@@ -25,12 +25,12 @@ export const QueryShip = (props: {
   };
 
   return (
-    <div className='shipQuery'>
-      <h3 className='queryHeader'>Ship Type and Size</h3>
-      <div className='shipQuerySection'>
-        <div className='shipTypeQuery'>
+    <div className="shipQuery">
+      <h3 className="queryHeader">Ship Type and Size</h3>
+      <div className="shipQuerySection">
+        <div className="shipTypeQuery">
           <Autocomplete
-            id='shipType'
+            id="shipType"
             options={sortItems(Ships, 'name')}
             autoHighlight
             getOptionLabel={(option) => option.name}
@@ -42,8 +42,8 @@ export const QueryShip = (props: {
             renderInput={(params) => (
               <TextField
                 {...params}
-                label='Ship Type'
-                variant='outlined'
+                label="Ship Type"
+                variant="outlined"
                 inputProps={{
                   ...params.inputProps,
                   autocomplete: 'new-password',
@@ -54,14 +54,16 @@ export const QueryShip = (props: {
             onChange={(_, value) => setShipType(value!.id)}
           />
         </div>
-        <div className='shipSizeQuery'>
+        <div className="shipSizeQuery">
           <Tooltip
             title="What's the size of the ship you're looking for?"
-            arrow>
+            arrow
+          >
             <ToggleButtonGroup
               value={shipSize}
               exclusive
-              onChange={handleShipSizeChange}>
+              onChange={handleShipSizeChange}
+            >
               <ToggleButton value={1}>Small</ToggleButton>
               <ToggleButton value={2}>Medium</ToggleButton>
               <ToggleButton value={3}>Large</ToggleButton>

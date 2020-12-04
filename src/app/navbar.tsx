@@ -22,34 +22,38 @@ export const NavbarComponent = () => {
   return (
     <nav className={classes.root}>
       <Button
-        to='/home'
+        to="/home"
         className={classes.navLink}
         activeClassName={classes.active}
-        component={NavLink}>
+        component={NavLink}
+      >
         Home
       </Button>
       <Button
-        to='/information'
+        to="/information"
         exact
         className={classes.navLink}
         activeClassName={classes.active}
-        component={NavLink}>
+        component={NavLink}
+      >
         Information
       </Button>
       <Button
-        to='/information/Builds'
+        to="/information/Builds"
         exact
         className={classes.navLink}
         activeClassName={classes.active}
-        component={NavLink}>
+        component={NavLink}
+      >
         USC Builds
       </Button>
       <div className={classes.filler} />
       <Button
-        to='/join'
-        color='secondary'
-        variant='contained'
-        component={NavLink}>
+        to="/join"
+        color="secondary"
+        variant="contained"
+        component={NavLink}
+      >
         Join
       </Button>
     </nav>

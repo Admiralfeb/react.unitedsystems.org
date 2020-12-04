@@ -23,7 +23,7 @@ export const AboutHC = () => {
   const classes = useStyles();
   return (
     <div>
-      <Typography variant='h3' className={classes.header}>
+      <Typography variant="h3" className={classes.header}>
         High Command
       </Typography>
       <Paper className={classes.rank}>

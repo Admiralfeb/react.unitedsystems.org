@@ -15,7 +15,7 @@ export const Infographic = (props: { img: string }) => {
     <div className={classes.root}>
       {infographic ? (
         <>
-          <Typography variant='h3'>{infographic.title}</Typography>
+          <Typography variant="h3">{infographic.title}</Typography>
           <img src={infographic.img} alt={infographic.title} />
         </>
       ) : (

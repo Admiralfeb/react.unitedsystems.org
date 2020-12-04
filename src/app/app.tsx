@@ -19,7 +19,7 @@ function App() {
       <RealmApolloProvider>
         <ThemeProvider theme={darkTheme}>
           <CssBaseline />
-          <div className='content'>
+          <div className="content">
             <Router history={history}>
               <NavbarComponent />
               <AppRoutes />

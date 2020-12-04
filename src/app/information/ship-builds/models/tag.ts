@@ -1,4 +1,4 @@
 export interface ITagInfo {
-    text: string;
-    className?: string;
+  text: string;
+  className?: string;
 }

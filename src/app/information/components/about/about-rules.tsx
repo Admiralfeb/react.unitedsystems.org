@@ -42,10 +42,10 @@ export const AboutRules = () => {
   const classes = useStyles();
   return (
     <div className={classes.header}>
-      <Typography variant='h3'>Rules</Typography>
+      <Typography variant="h3">Rules</Typography>
       <Paper className={classes.root}>
         <div className={classes.rules}>
-          <Typography variant='h4'>Discord</Typography>
+          <Typography variant="h4">Discord</Typography>
           <List>
             {discordRules.map((rule: string, index: number) => (
               <ListItem key={index}>
@@ -55,7 +55,7 @@ export const AboutRules = () => {
           </List>
         </div>
         <div className={classes.rules}>
-          <Typography variant='h4'>Members of USC</Typography>
+          <Typography variant="h4">Members of USC</Typography>
           <List>
             {memberRules.map((rule: string, index: number) => (
               <ListItem key={index}>

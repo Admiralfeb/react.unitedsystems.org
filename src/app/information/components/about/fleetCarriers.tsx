@@ -50,9 +50,9 @@ export const FleetCarriers = () => {
 
   return (
     <div className={classes.table}>
-      <Typography variant='h3'>USC Fleet Carriers</Typography>
+      <Typography variant="h3">USC Fleet Carriers</Typography>
       {loading ? <Loading /> : <USCCarriers carriers={squadCarriers} />}
-      <Typography variant='h4'>Personal Fleet Carriers of USC</Typography>
+      <Typography variant="h4">Personal Fleet Carriers of USC</Typography>
       {loading ? <Loading /> : <PersonalCarriers carriers={personalCarriers} />}
     </div>
   );

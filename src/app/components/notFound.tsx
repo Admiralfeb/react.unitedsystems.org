@@ -23,15 +23,15 @@ export const NotFound = () => {
   return (
     <div className={classes.root}>
       <Paper className={classes.paper}>
-        <Typography variant='h3'>Mistakes were made</Typography>
-        <Typography variant='subtitle1'>
+        <Typography variant="h3">Mistakes were made</Typography>
+        <Typography variant="subtitle1">
           You were hyperdicted... escape destruction by going{' '}
-          <Link to='/home' component={NavLink}>
+          <Link to="/home" component={NavLink}>
             home
           </Link>
           .
         </Typography>
-        <img className={classes.img} alt='404 Error' src={errorImg} />
+        <img className={classes.img} alt="404 Error" src={errorImg} />
       </Paper>
     </div>
   );
