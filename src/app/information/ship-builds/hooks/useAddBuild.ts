@@ -20,28 +20,8 @@ const AddBuildMutation = gql`
   }
 `;
 
-const ShipBuildFieldsFragment = gql`
-  fragment ShipBuildFields on shipBuilds {
-    _id
-  }
-`;
-
 export const useAddBuild = () => {
-  const [addBuildMutation] = useMutation<IBuildInfoInsert>(AddBuildMutation, {
-    update: (cache, { data }) => {
-      cache.modify({
-        fields: {
-          shipBuilds: (existingShipBuilds = []) => [
-            ...existingShipBuilds,
-            cache.writeFragment({
-              data,
-              fragment: ShipBuildFieldsFragment,
-            }),
-          ],
-        },
-      });
-    },
-  });
+  const [addBuildMutation] = useMutation<IBuildInfoInsert>(AddBuildMutation);
 
   const addShipBuild = async (build: IBuildInfoInsert) => {
     const addedBuild = await addBuildMutation({

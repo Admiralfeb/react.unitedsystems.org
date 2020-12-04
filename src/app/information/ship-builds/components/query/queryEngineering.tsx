@@ -1,7 +1,7 @@
 import { Tooltip, Typography } from '@material-ui/core';
 import { ToggleButtonGroup, ToggleButton } from '@material-ui/lab';
 import BlockIcon from '@material-ui/icons/Block';
-import engineerIcon from '../assets/Engineer_icon.svg';
+import engineerIcon from '../../assets/Engineer_icon.svg';
 
 import { SetStateAction } from 'react';
 

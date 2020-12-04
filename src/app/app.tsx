@@ -8,6 +8,7 @@ import { AppRoutes } from './app.routes';
 import './app.css';
 import { RealmAppProvider } from './providers/realmAppProvider';
 import { RealmApolloProvider } from './providers/realmApolloProvider';
+import { SnackbarProvider } from 'notistack';
 
 const realmID: string = 'usc-tbmbi';
 
@@ -17,15 +18,17 @@ function App() {
   return (
     <RealmAppProvider appId={realmID}>
       <RealmApolloProvider>
-        <ThemeProvider theme={darkTheme}>
-          <CssBaseline />
-          <div className="content">
-            <Router history={history}>
-              <NavbarComponent />
-              <AppRoutes />
-            </Router>
-          </div>
-        </ThemeProvider>
+        <SnackbarProvider maxSnack={3}>
+          <ThemeProvider theme={darkTheme}>
+            <CssBaseline />
+            <div className="content">
+              <Router history={history}>
+                <NavbarComponent />
+                <AppRoutes />
+              </Router>
+            </div>
+          </ThemeProvider>
+        </SnackbarProvider>
       </RealmApolloProvider>
     </RealmAppProvider>
   );

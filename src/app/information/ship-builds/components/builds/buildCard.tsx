@@ -6,13 +6,13 @@ import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import Divider from '@material-ui/core/Divider';
 import CardMedia from '@material-ui/core/CardMedia';
-import engineerIcon from '../assets/Engineer_icon.svg';
-import './buildItem.css';
+import engineerIcon from '../../assets/Engineer_icon.svg';
+import './buildCard.css';
 import { Chip } from '@material-ui/core';
-import { getShipInfofromID } from '../functions/getShipInfo';
-import { IShipInfo } from '../models/shipInfo';
-import { ShipSize } from '../models';
-import { MoreInfoDialog } from './moreInfoDialog';
+import { getShipInfofromID } from '../../functions/getShipInfo';
+import { IShipInfo } from '../../models/shipInfo';
+import { ShipSize } from '../../models';
+import { MoreInfoDialog } from '../moreInfoDialog';
 
 interface IBuildItemProps {
   id: number;
@@ -27,7 +27,7 @@ interface IBuildItemProps {
   moreInfo?: string;
 }
 
-export const BuildItem = (props: IBuildItemProps) => {
+export const BuildCard = (props: IBuildItemProps) => {
   const [shipInfo, setShipInfo] = useState<IShipInfo>();
   const [showDialog, setShowDialog] = useState<boolean>(false);
 

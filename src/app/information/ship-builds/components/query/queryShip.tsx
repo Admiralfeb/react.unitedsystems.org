@@ -1,7 +1,7 @@
 import { TextField, Tooltip } from '@material-ui/core';
 
-import { sortItems } from '../functions/sort';
-import Ships from '../assets/shipMap.json';
+import { sortItems } from '../../functions/sort';
+import Ships from '../../assets/shipMap.json';
 import {
   Autocomplete,
   ToggleButton,

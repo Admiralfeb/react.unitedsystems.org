@@ -8,21 +8,22 @@ import {
 } from '@material-ui/core';
 import { ChangeEvent, useEffect, useState } from 'react';
 import { NavLink } from 'react-router-dom';
-import { processJSONBuild } from '../functions/processJSONBuild';
-import { getShipInfofromName } from '../functions/getShipInfo';
-import { sortItems } from '../functions/sort';
-import Ships from '../assets/shipMap.json';
+import { processJSONBuild } from '../../functions/processJSONBuild';
+import { getShipInfofromName } from '../../functions/getShipInfo';
+import { sortItems } from '../../functions/sort';
+import Ships from '../../assets/shipMap.json';
 import {
   Autocomplete,
   ToggleButton,
   ToggleButtonGroup,
 } from '@material-ui/lab';
 import BlockIcon from '@material-ui/icons/Block';
-import engineerIcon from '../assets/Engineer_icon.svg';
-import { useAddBuild } from '../hooks/useAddBuild';
-import { IBuildInfoInsert } from '../models/buildInfoInsert';
+import engineerIcon from '../../assets/Engineer_icon.svg';
+import { useAddBuild } from '../../hooks/useAddBuild';
+import { IBuildInfoInsert } from '../../models/buildInfoInsert';
 import { ObjectId } from 'bson';
-import { QuerySpecialization } from './querySpecialities';
+import { QuerySpecialization } from '../query/querySpecialities';
+import { useSnackbar } from 'notistack';
 
 const useStyles = makeStyles({
   root: {
@@ -37,6 +38,7 @@ const useStyles = makeStyles({
 
 export const AddBuild = () => {
   const classes = useStyles();
+  const { enqueueSnackbar } = useSnackbar();
   const [jsonBuild, setJsonBuild] = useState('');
   const [buildInfo, setBuildInfo] = useState<IBuildInfoInsert>({
     description: '',
@@ -122,9 +124,14 @@ export const AddBuild = () => {
   const handleOtherChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setBuildInfo({ ...buildInfo, [event.target.name]: event.target.checked });
   };
-  const handleSubmit = () => {
-    const result = addBuild(buildInfo);
-    console.log(result);
+  const handleSubmit = async () => {
+    try {
+      await addBuild(buildInfo);
+      enqueueSnackbar('Build Successfully Submitted', { variant: 'success' });
+    } catch (e) {
+      enqueueSnackbar('Submit Failed', { variant: 'error' });
+      console.error(e);
+    }
   };
 
   return (

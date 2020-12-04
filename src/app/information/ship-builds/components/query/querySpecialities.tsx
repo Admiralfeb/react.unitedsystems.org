@@ -1,6 +1,6 @@
 import { Typography } from '@material-ui/core';
 import { ToggleButton } from '@material-ui/lab';
-import { ShipSpecialty } from '../models/shipSpecialty';
+import { ShipSpecialty } from '../../models/shipSpecialty';
 
 export const QuerySpecialization = (props: {
   selectedSpecialties: string[];

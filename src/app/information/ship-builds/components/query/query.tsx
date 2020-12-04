@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { IQuery } from '../models';
+import { IQuery } from '../../models';
 
 import './query.css';
 
@@ -8,7 +8,7 @@ import { QuerySpecialization } from './querySpecialities';
 import { QueryShip } from './queryShip';
 import { QueryEngineering } from './queryEngineering';
 import { QueryOther } from './queryOther';
-import { OtherFilters } from '../models/otherFilters';
+import { OtherFilters } from '../../models/otherFilters';
 import { NavLink, useLocation } from 'react-router-dom';
 
 const useUrlQuery = () => {

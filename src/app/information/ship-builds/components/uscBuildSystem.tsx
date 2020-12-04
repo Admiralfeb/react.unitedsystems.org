@@ -1,14 +1,14 @@
 import { Fab, Typography, useMediaQuery } from '@material-ui/core';
 import { useRef, useState } from 'react';
-import { Builds } from '.';
+import { Builds } from './builds/builds';
 import { IQuery } from '../models';
-import { Query } from './query';
+import { Query } from './query/query';
 import ArrowDownwardIcon from '@material-ui/icons/ArrowDownward';
-import './selection.css';
+import './uscBuildSystem.css';
 import { Route, Switch, useRouteMatch } from 'react-router-dom';
-import { AddBuild } from './addBuilds';
+import { AddBuild } from './builds/addBuilds';
 
-export const Selection = () => {
+export const USCBuildSystem = () => {
   const { path } = useRouteMatch();
   const [query, setQuery] = useState<IQuery>();
   const buildRef = useRef<HTMLDivElement>(null);

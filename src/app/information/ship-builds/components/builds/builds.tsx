@@ -1,11 +1,11 @@
 import { useCallback, useEffect, useState } from 'react';
-import { Loading } from '../../../components';
-import { filterShipBuilds } from '../functions/filterShipBuilds';
-import { getShipInfofromID } from '../functions/getShipInfo';
-import { sortItems } from '../functions/sort';
-import { useShipBuilds } from '../hooks/useShipBuilds';
-import { IBuildInfo, IQuery } from '../models';
-import { BuildItem } from './buildItem';
+import { Loading } from '../../../../components';
+import { filterShipBuilds } from '../../functions/filterShipBuilds';
+import { getShipInfofromID } from '../../functions/getShipInfo';
+import { sortItems } from '../../functions/sort';
+import { useShipBuilds } from '../../hooks/useShipBuilds';
+import { IBuildInfo, IQuery } from '../../models';
+import { BuildCard } from './buildCard';
 import './builds.css';
 
 export const Builds = (props: { buildQuery: IQuery | undefined }) => {
@@ -43,7 +43,7 @@ export const Builds = (props: { buildQuery: IQuery | undefined }) => {
       ) : (
         queriedBuilds?.map((ship) => {
           return (
-            <BuildItem
+            <BuildCard
               key={ship._id}
               id={ship.ship}
               author={ship.author}
