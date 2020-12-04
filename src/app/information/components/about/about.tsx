@@ -1,5 +1,5 @@
 import { makeStyles, Paper, Typography } from '@material-ui/core';
-import React from 'react';
+
 import { AboutAllies } from './about-allies';
 import { AboutHC } from './about-hc';
 import { AboutRules } from './about-rules';
@@ -40,7 +40,7 @@ export const About = () => {
   const classes = useStyles();
   return (
     <div className={classes.root}>
-      <Typography variant='h2' className={classes.header}>
+      <Typography variant="h2" className={classes.header}>
         About USC
       </Typography>
       <Paper className={classes.paper}>

@@ -1,24 +1,21 @@
-import React from 'react';
 import { Switch, Route, Redirect } from 'react-router-dom';
-import { About, Information, Home, Join, NotFound } from './components';
+import { Home, Join, NotFound } from './components';
+import { InformationRoutes } from './information/information.routes';
 
 export const AppRoutes = () => {
   return (
     <Switch>
-      <Redirect from='/' to='/home' exact />
-      <Route path='/home' exact>
+      <Redirect from="/" to="/home" exact />
+      <Route path="/home" exact>
         <Home />
       </Route>
-      <Route path='/about'>
-        <About />
-      </Route>
-      <Route path='/join'>
+      <Route path="/join">
         <Join />
       </Route>
-      <Route path='/information'>
-        <Information />
+      <Route path="/information">
+        <InformationRoutes />
       </Route>
-      <Route path='*'>
+      <Route path="*">
         <NotFound />
       </Route>
     </Switch>

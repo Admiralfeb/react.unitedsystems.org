@@ -10,18 +10,17 @@ export const darkTheme = createMuiTheme({
     },
     type: 'dark',
   },
-
 });
 
 darkTheme.overrides = {
   MuiLink: {
     root: {
       color: darkTheme.palette.primary.main,
-    }
+    },
   },
   MuiButton: {
     root: {
-      textTransform: 'initial'
-    }
-  }
-}
+      textTransform: 'initial',
+    },
+  },
+};

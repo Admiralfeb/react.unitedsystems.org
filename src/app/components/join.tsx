@@ -5,7 +5,6 @@ import {
   Typography,
   useMediaQuery,
 } from '@material-ui/core';
-import React from 'react';
 import { NavLink } from 'react-router-dom';
 
 const useStyles = makeStyles({
@@ -44,13 +43,13 @@ export const Join = () => {
   const mediaQuery = useMediaQuery('(min-width:950px)');
   return (
     <div className={classes.root}>
-      <Typography variant='h2' className={classes.header}>
+      <Typography variant="h2" className={classes.header}>
         Join Us!
       </Typography>
       <Paper className={classes.paper}>
         <Typography>
           Step 1: Read the rules on the{' '}
-          <Link to='/about' target='_blank' component={NavLink}>
+          <Link to="/about" target="_blank" component={NavLink}>
             About Page
           </Link>
           .
@@ -61,9 +60,9 @@ export const Join = () => {
           <Typography>
             Step 2: Fill out the{' '}
             <Link
-              to='https://docs.google.com/forms/d/e/1FAIpQLSfw7vIL8FY8ZGTF8YFjn3x-zGdhP5k9J6JALXAjXA7_Mm3-Rw/viewform?usp=sf_link'
-              target='_blank'
-              component={NavLink}>
+              href="https://docs.google.com/forms/d/e/1FAIpQLSfw7vIL8FY8ZGTF8YFjn3x-zGdhP5k9J6JALXAjXA7_Mm3-Rw/viewform?usp=sf_link"
+              target="_blank"
+            >
               USC Join Form
             </Link>
           </Typography>
@@ -71,10 +70,7 @@ export const Join = () => {
 
         <Typography>
           Step 3: Join our{' '}
-          <Link
-            to='https://discord.gg/br8Fy2M6cv'
-            target='_blank'
-            component={NavLink}>
+          <Link href="https://discord.gg/br8Fy2M6cv" target="_blank">
             Discord
           </Link>
         </Typography>
@@ -85,19 +81,17 @@ export const Join = () => {
         </Typography>
         <Typography>
           Recommended: Join our{' '}
-          <Link
-            to='https://inara.cz/squadron/7028/'
-            target='_blank'
-            component={NavLink}>
+          <Link href="https://inara.cz/squadron/7028/" target="_blank">
             Inara Squadron
           </Link>
         </Typography>
         {mediaQuery && (
           <iframe
             className={classes.iframe}
-            title='USC Application Form'
-            id='joinFormContainer'
-            src='https://docs.google.com/forms/d/e/1FAIpQLSfw7vIL8FY8ZGTF8YFjn3x-zGdhP5k9J6JALXAjXA7_Mm3-Rw/viewform?embedded=true'>
+            title="USC Application Form"
+            id="joinFormContainer"
+            src="https://docs.google.com/forms/d/e/1FAIpQLSfw7vIL8FY8ZGTF8YFjn3x-zGdhP5k9J6JALXAjXA7_Mm3-Rw/viewform?embedded=true"
+          >
             Loading…
           </iframe>
         )}

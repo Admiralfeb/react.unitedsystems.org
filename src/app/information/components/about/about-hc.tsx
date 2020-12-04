@@ -3,36 +3,38 @@ import {
   ListItem,
   ListItemText,
   makeStyles,
+  Paper,
   Typography,
 } from '@material-ui/core';
-import React from 'react';
 
 const useStyles = makeStyles({
+  root: {},
   header: {
     textAlign: 'center',
   },
   rank: {
     border: '3px solid white',
     borderRadius: 10,
-    margin: 5,
+    margin: 'auto',
+    width: 450,
   },
 });
 export const AboutHC = () => {
   const classes = useStyles();
   return (
     <div>
-      <Typography variant='h2' className={classes.header}>
+      <Typography variant="h3" className={classes.header}>
         High Command
       </Typography>
-      <div className={classes.rank}>
+      <Paper className={classes.rank}>
         <List>
-          {hc.map((rule: string, index: number) => (
-            <ListItem>
+          {hc.map((rule: string, i: number) => (
+            <ListItem key={i}>
               <ListItemText primary={`${rule}`} />
             </ListItem>
           ))}
         </List>
-      </div>
+      </Paper>
     </div>
   );
 };
@@ -52,5 +54,6 @@ const hc = [
   'Clever Ape',
   'IM2D',
   'Nullyti',
+  'Queen Eleanor',
   'Yuting9',
 ];
