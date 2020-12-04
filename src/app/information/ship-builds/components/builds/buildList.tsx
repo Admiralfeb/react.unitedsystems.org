@@ -6,9 +6,9 @@ import { sortItems } from '../../functions/sort';
 import { useShipBuilds } from '../../hooks/useShipBuilds';
 import { IBuildInfo, IQuery } from '../../models';
 import { BuildCard } from './buildCard';
-import './builds.css';
+import './buildList.css';
 
-export const Builds = (props: { buildQuery: IQuery | undefined }) => {
+export const BuildList = (props: { buildQuery: IQuery | undefined }) => {
   const [queriedBuilds, setQueriedBuilds] = useState<IBuildInfo[]>();
   const { buildQuery } = props;
   const { loading, shipBuilds } = useShipBuilds();

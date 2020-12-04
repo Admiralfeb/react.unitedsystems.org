@@ -1,12 +1,12 @@
 import { Fab, Typography, useMediaQuery } from '@material-ui/core';
 import { useRef, useState } from 'react';
-import { Builds } from './builds/builds';
+import { BuildList } from './builds/buildList';
 import { IQuery } from '../models';
 import { Query } from './query/query';
 import ArrowDownwardIcon from '@material-ui/icons/ArrowDownward';
 import './uscBuildSystem.css';
 import { Route, Switch, useRouteMatch } from 'react-router-dom';
-import { AddBuild } from './builds/addBuilds';
+import { BuildAdd } from './builds/buildAdd';
 
 export const USCBuildSystem = () => {
   const { path } = useRouteMatch();
@@ -30,7 +30,7 @@ export const USCBuildSystem = () => {
           <Typography variant="h3">Ship Build Archive</Typography>
           <Query queryUpdate={handleQuery} />
           <div ref={buildRef}>
-            <Builds buildQuery={query} />
+            <BuildList buildQuery={query} />
           </div>
           {isMobile && (
             <div className="fab">
@@ -42,7 +42,7 @@ export const USCBuildSystem = () => {
         </section>
       </Route>
       <Route path={`${path}/add`}>
-        <AddBuild />
+        <BuildAdd />
       </Route>
     </Switch>
   );

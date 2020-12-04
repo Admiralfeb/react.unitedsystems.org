@@ -1,12 +1,9 @@
-import { TextField, Tooltip } from '@material-ui/core';
+import { Tooltip } from '@material-ui/core';
 
-import { sortItems } from '../../functions/sort';
-import Ships from '../../assets/shipMap.json';
-import {
-  Autocomplete,
-  ToggleButton,
-  ToggleButtonGroup,
-} from '@material-ui/lab';
+import { ToggleButton, ToggleButtonGroup } from '@material-ui/lab';
+import { ChangeEvent } from 'react';
+import { IShipInfo } from '../../models';
+import { ShipAutocomplete } from '../shipAutocomplete';
 
 export const QueryShip = (props: {
   shipSize: number | null;
@@ -24,34 +21,19 @@ export const QueryShip = (props: {
     setShipSize(newValue);
   };
 
+  const handleShipChange = (_: ChangeEvent<{}>, value: IShipInfo | null) => {
+    const ship = value!.id;
+    setShipSize(ship);
+  };
+
   return (
     <div className="shipQuery">
       <h3 className="queryHeader">Ship Type and Size</h3>
       <div className="shipQuerySection">
         <div className="shipTypeQuery">
-          <Autocomplete
-            id="shipType"
-            options={sortItems(Ships, 'name')}
-            autoHighlight
-            getOptionLabel={(option) => option.name}
-            renderOption={(option) => (
-              <>
-                <span>{option.name}</span>
-              </>
-            )}
-            renderInput={(params) => (
-              <TextField
-                {...params}
-                label="Ship Type"
-                variant="outlined"
-                inputProps={{
-                  ...params.inputProps,
-                  autocomplete: 'new-password',
-                }}
-              />
-            )}
-            value={findShipName(shipType)}
-            onChange={(_, value) => setShipType(value!.id)}
+          <ShipAutocomplete
+            shipType={shipType}
+            handleShipChange={handleShipChange}
           />
         </div>
         <div className="shipSizeQuery">
@@ -73,12 +55,4 @@ export const QueryShip = (props: {
       </div>
     </div>
   );
-};
-
-const findShipName = (shipID: number | null) => {
-  if (shipID === null) {
-    return null;
-  }
-  const shipName = Ships.find((x) => x.id === shipID);
-  return shipName;
 };
