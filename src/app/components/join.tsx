@@ -5,7 +5,6 @@ import {
   Typography,
   useMediaQuery,
 } from '@material-ui/core';
-import React from 'react';
 import { NavLink } from 'react-router-dom';
 
 const useStyles = makeStyles({

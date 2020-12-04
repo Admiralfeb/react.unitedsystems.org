@@ -9,7 +9,7 @@ import {
   TableRow,
   TableBody,
 } from '@material-ui/core';
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Loading } from '../../../components';
 import { useFleetCarriers } from '../../hooks/useFleetCarriers';
 import { IFleetCarrier } from '../../models/fleetCarrier';

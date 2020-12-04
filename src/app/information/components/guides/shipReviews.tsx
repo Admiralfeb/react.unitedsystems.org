@@ -10,7 +10,7 @@ import {
   TableRow,
   Typography,
 } from '@material-ui/core';
-import React from 'react';
+
 import reviews from '../../ship-builds/assets/shipMap.json';
 import { sortItems } from '../../ship-builds/functions/sort';
 

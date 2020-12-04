@@ -6,7 +6,7 @@ import {
   TextField,
   Tooltip,
 } from '@material-ui/core';
-import React, { ChangeEvent, useEffect, useState } from 'react';
+import { ChangeEvent, useEffect, useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { processJSONBuild } from '../functions/processJSONBuild';
 import { getShipInfofromName } from '../functions/getShipInfo';

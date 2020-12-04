@@ -1,5 +1,5 @@
 import { Button, Paper, Typography } from '@material-ui/core';
-import React from 'react';
+
 import { NavLink, useRouteMatch } from 'react-router-dom';
 import useStyles from '../infoStyles';
 

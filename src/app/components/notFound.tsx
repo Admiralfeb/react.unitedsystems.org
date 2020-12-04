@@ -1,5 +1,4 @@
 import { Link, makeStyles, Paper, Typography } from '@material-ui/core';
-import React from 'react';
 import { NavLink } from 'react-router-dom';
 import errorImg from '../../assets/404.jpg';
 

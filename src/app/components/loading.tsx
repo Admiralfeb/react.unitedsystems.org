@@ -1,4 +1,3 @@
-import React from 'react';
 import img from '../../assets/EDLoader1.svg';
 import { makeStyles } from '@material-ui/core';
 

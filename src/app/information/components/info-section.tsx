@@ -1,5 +1,4 @@
 import { Button, Paper, Typography } from '@material-ui/core';
-import React from 'react';
 import { Link, useRouteMatch } from 'react-router-dom';
 import { IInfoButton } from '../models/infoButtonModel';
 import useStyles from '../infoStyles';

@@ -1,5 +1,5 @@
 import { Fab, Typography, useMediaQuery } from '@material-ui/core';
-import React, { useRef, useState } from 'react';
+import { useRef, useState } from 'react';
 import { Builds } from '.';
 import { IQuery } from '../models';
 import { Query } from './query';

@@ -1,5 +1,4 @@
 import { Button, Paper } from '@material-ui/core';
-import React from 'react';
 
 export const Footer = () => {
   return (

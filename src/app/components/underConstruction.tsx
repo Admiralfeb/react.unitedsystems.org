@@ -1,4 +1,3 @@
-import React from 'react';
 import img from '../../assets/construction.png';
 import { makeStyles } from '@material-ui/core';
 

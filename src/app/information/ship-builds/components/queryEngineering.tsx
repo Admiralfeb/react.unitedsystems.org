@@ -3,7 +3,7 @@ import { ToggleButtonGroup, ToggleButton } from '@material-ui/lab';
 import BlockIcon from '@material-ui/icons/Block';
 import engineerIcon from '../assets/Engineer_icon.svg';
 
-import React, { SetStateAction } from 'react';
+import { SetStateAction } from 'react';
 
 export const QueryEngineering = (props: {
   engLevel: number | null;

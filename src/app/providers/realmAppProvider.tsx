@@ -1,4 +1,4 @@
-import React, { createContext, useEffect, useState } from 'react';
+import { createContext, useEffect, useState } from 'react';
 import * as Realm from 'realm-web';
 
 export interface IRealmContext {
@@ -21,7 +21,7 @@ export const RealmAppProvider = (props: {
   }, [appId]);
 
   // Wrap the Realm.App object's user state with React state
-  const [currentUser, setCurrentUser] = React.useState(app.currentUser);
+  const [currentUser, setCurrentUser] = useState(app.currentUser);
   async function logInAnon() {
     await app.logIn(Realm.Credentials.anonymous());
     // If successful, app.currentUser is the user that just logged in

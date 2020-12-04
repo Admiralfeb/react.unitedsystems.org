@@ -1,5 +1,5 @@
 import { makeStyles, Paper, Typography } from '@material-ui/core';
-import React from 'react';
+
 import { AboutAllies } from './about-allies';
 import { AboutHC } from './about-hc';
 import { AboutRules } from './about-rules';

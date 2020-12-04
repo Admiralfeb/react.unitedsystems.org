@@ -1,6 +1,6 @@
 import { Tooltip } from '@material-ui/core';
 import { ToggleButtonGroup, ToggleButton } from '@material-ui/lab';
-import React from 'react';
+
 import { OtherFilters } from '../models/otherFilters';
 import BlockIcon from '@material-ui/icons/Block';
 import CheckIcon from '@material-ui/icons/Check';

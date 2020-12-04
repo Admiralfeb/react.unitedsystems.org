@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useRealmApp } from '../hooks/useRealmApp';
 import { IRealmContext } from './realmAppProvider';
 import {

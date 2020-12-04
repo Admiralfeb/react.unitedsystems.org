@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { Loading } from '../../../components';
 import { filterShipBuilds } from '../functions/filterShipBuilds';
 import { getShipInfofromID } from '../functions/getShipInfo';
