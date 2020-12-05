@@ -4,6 +4,7 @@
   width: 400px;
   min-width: 400px;
   margin: 5px;
+  min-height: 300px;
 }
 .cardContent {
   flex-grow: 1;

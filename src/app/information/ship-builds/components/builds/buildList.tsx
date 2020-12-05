@@ -18,7 +18,7 @@ export const BuildList = (props: { buildQuery: IQuery | undefined }) => {
       return;
     }
     const mappedBuilds = shipBuilds?.map((v) => {
-      const shipInfo = getShipInfofromID(v.ship)!;
+      const shipInfo = getShipInfofromID(v.ship!)!;
       const size = shipInfo?.size;
       const newBuild: IBuildInfo = { ...v, size };
       return newBuild;
@@ -42,21 +42,7 @@ export const BuildList = (props: { buildQuery: IQuery | undefined }) => {
         <Loading />
       ) : (
         queriedBuilds?.map((ship) => {
-          return (
-            <BuildCard
-              key={ship._id}
-              id={ship.ship}
-              author={ship.author}
-              specializations={ship.specializations}
-              engLevel={ship.engLevel}
-              description={ship.description}
-              buildLink={ship.buildLink}
-              guardian={ship.guardian}
-              powerplay={ship.powerplay}
-              beginner={ship.beginner}
-              moreInfo={ship.moreInfo}
-            />
-          );
+          return <BuildCard key={(ship._id as unknown) as string} {...ship} />;
         })
       )}
     </div>

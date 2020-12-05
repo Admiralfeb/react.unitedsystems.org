@@ -1,5 +1,5 @@
-import { useEffect, useState } from 'react';
-import { IQuery } from '../../models';
+import { Dispatch, useEffect, useState } from 'react';
+import { IBuildInfo, IQuery } from '../../models';
 
 import './query.css';
 
@@ -9,12 +9,13 @@ import { QueryShip } from './queryShip';
 import { QueryEngineering } from './queryEngineering';
 import { QueryOther } from './queryOther';
 import { OtherFilters } from '../../models/otherFilters';
-import { NavLink, useLocation } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
+import { useUrlQuery } from '../../hooks/useURLQuery';
 
-const useUrlQuery = () => {
-  return new URLSearchParams(useLocation().search);
-};
-export const Query = (props: { queryUpdate: (query: IQuery) => void }) => {
+export const Query = (props: {
+  queryUpdate: (query: IQuery) => void;
+  setSelectedBuild: Dispatch<React.SetStateAction<IBuildInfo | undefined>>;
+}) => {
   const [shipType, setShipType] = useState<number | null>(null);
   const [shipSize, setShipSize] = useState<number | null>(null);
   const [engLevel, setEngLevel] = useState<number | null>(null);

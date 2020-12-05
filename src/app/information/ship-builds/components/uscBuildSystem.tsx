@@ -1,45 +1,26 @@
-import { Fab, Typography, useMediaQuery } from '@material-ui/core';
-import { useRef, useState } from 'react';
-import { BuildList } from './builds/buildList';
-import { IQuery } from '../models';
-import { Query } from './query/query';
-import ArrowDownwardIcon from '@material-ui/icons/ArrowDownward';
-import './uscBuildSystem.css';
+import { useEffect, useState } from 'react';
 import { Route, Switch, useRouteMatch } from 'react-router-dom';
+import { IBuildInfo } from '../models';
 import { BuildAdd } from './builds/buildAdd';
+import { BuildDetail } from './builds/buildDetail';
+import { QueryandBuildList } from './queryandBuildList';
 
 export const USCBuildSystem = () => {
   const { path } = useRouteMatch();
-  const [query, setQuery] = useState<IQuery>();
-  const buildRef = useRef<HTMLDivElement>(null);
-  const isMobile = useMediaQuery('(max-width:1000px)');
+  const [buildDetail, setBuildDetail] = useState<IBuildInfo>();
 
-  const handleQuery = (query: IQuery) => {
-    setQuery(query);
-  };
-  const handleFab = () => {
-    if (buildRef.current) {
-      buildRef.current.scrollIntoView({ behavior: 'smooth' });
+  useEffect(() => {
+    if (buildDetail) {
     }
-  };
+  }, [buildDetail]);
 
   return (
     <Switch>
+      <Route path={`${path}/detail/:id`}>
+        <BuildDetail />
+      </Route>
       <Route path={path} exact>
-        <section className="selection">
-          <Typography variant="h3">Ship Build Archive</Typography>
-          <Query queryUpdate={handleQuery} />
-          <div ref={buildRef}>
-            <BuildList buildQuery={query} />
-          </div>
-          {isMobile && (
-            <div className="fab">
-              <Fab color="primary" className="fab" onClick={handleFab}>
-                <ArrowDownwardIcon />
-              </Fab>
-            </div>
-          )}
-        </section>
+        <QueryandBuildList setSelectedBuild={setBuildDetail} />
       </Route>
       <Route path={`${path}/add`}>
         <BuildAdd />

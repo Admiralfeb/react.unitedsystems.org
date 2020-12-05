@@ -6,36 +6,18 @@ import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import Divider from '@material-ui/core/Divider';
 import CardMedia from '@material-ui/core/CardMedia';
-import engineerIcon from '../../assets/Engineer_icon.svg';
 import './buildCard.css';
 import { Chip } from '@material-ui/core';
 import { getShipInfofromID } from '../../functions/getShipInfo';
 import { IShipInfo } from '../../models/shipInfo';
-import { ShipSize } from '../../models';
-import { MoreInfoDialog } from '../moreInfoDialog';
+import { IBuildInfo, ShipSize } from '../../models';
+import { EngIcons } from './engIcons';
+import { NavLink } from 'react-router-dom';
 
-interface IBuildItemProps {
-  id: number;
-  author: string;
-  specializations: string[];
-  engLevel: number;
-  description: string;
-  buildLink: string;
-  guardian: boolean;
-  powerplay: boolean;
-  beginner: boolean;
-  moreInfo?: string;
-}
-
-export const BuildCard = (props: IBuildItemProps) => {
+export const BuildCard = (props: IBuildInfo) => {
   const [shipInfo, setShipInfo] = useState<IShipInfo>();
-  const [showDialog, setShowDialog] = useState<boolean>(false);
 
-  useEffect(() => setShipInfo(getShipInfofromID(props.id)), [props.id]);
-
-  const handleShowDialog = () => {
-    setShowDialog(true);
-  };
+  useEffect(() => setShipInfo(getShipInfofromID(props.ship!)), [props.ship]);
 
   return (
     <Card variant="outlined" className="card">
@@ -76,51 +58,21 @@ export const BuildCard = (props: IBuildItemProps) => {
           >
             View Build
           </Button>{' '}
-          {props.moreInfo && (
-            <>
-              <Button
-                variant="contained"
-                color="primary"
-                onClick={handleShowDialog}
-              >
-                More Info
-              </Button>
-              <MoreInfoDialog
-                content={props.moreInfo!}
-                open={showDialog}
-                setOpen={setShowDialog}
-              />
-            </>
-          )}
+          <Button
+            to={`/information/builds/detail/${
+              (props._id as unknown) as string
+            }`}
+            component={NavLink}
+            color="primary"
+            variant="contained"
+            target="_blank"
+          >
+            View Details
+          </Button>
         </CardActions>
       </CardContent>
     </Card>
   );
-};
-
-const EngIcons = (props: { engLevel: number }) => {
-  let icons: JSX.Element[] = [];
-  if (props.engLevel > 3 || props.engLevel < 1) {
-    return (
-      <div className="engineering">
-        <p>Engineering Level: None</p>
-      </div>
-    );
-  } else {
-    for (let i = 1; i <= props.engLevel; i++) {
-      icons = [
-        ...icons,
-        <img src={engineerIcon} key={i} alt="Engineering Icon" />,
-      ];
-    }
-    return (
-      <div className="engineering">
-        <p>
-          <span>Engineering Level:</span> {icons.map((icon) => icon)}
-        </p>
-      </div>
-    );
-  }
 };
 
 const TagGroup = (props: {

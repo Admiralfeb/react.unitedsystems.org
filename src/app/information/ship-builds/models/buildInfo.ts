@@ -1,10 +1,10 @@
 import { ShipSize } from './shipSize';
+import { ObjectId } from 'bson';
 
 export interface IBuildInfo {
-  _id?: string;
-  id: number;
-  ship: number;
-  size: number | ShipSize;
+  _id: ObjectId;
+  ship?: number;
+  size?: number | ShipSize;
   author: string;
   specializations: string[];
   engLevel: number;
