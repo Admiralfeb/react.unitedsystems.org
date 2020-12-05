@@ -30,6 +30,27 @@ export const toolsList: IInfoButton[] = [
     beginner: true,
   },
   {
+    title: 'ED Ref Card',
+    caption: 'KeyBinds Helper',
+    local: false,
+    link: 'https://edrefcard.info/',
+    beginner: true,
+  },
+  {
+    title: 'ED Market Connector',
+    caption: 'EDMC',
+    local: false,
+    link: 'https://www.edtutorials.com/engineering/ed-market-connector/',
+    beginner: true,
+  },
+  {
+    title: 'ED Discovery',
+    caption: 'Alternative to EDMC',
+    local: false,
+    link: 'https://github.com/EDDiscovery/EDDiscovery/releases',
+    beginner: true,
+  },
+  {
     title: 'Massacre Mission Tracker',
     caption: 'Created by CMDR Clever Ape',
     local: false,
@@ -49,6 +70,13 @@ export const toolsList: IInfoButton[] = [
     caption: 'Created by Gareth Harper',
     local: false,
     link: 'https://www.spansh.co.uk/plotter',
+    beginner: false,
+  },
+  {
+    title: 'Road 2 Riches',
+    caption: 'Created by Gareth Harper',
+    local: false,
+    link: 'https://www.spansh.co.uk/riches',
     beginner: false,
   },
   {
