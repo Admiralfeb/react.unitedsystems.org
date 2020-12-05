@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/usc-website/static/css/main.ab77c9ad.chunk.css",
-    "main.js": "/usc-website/static/js/main.5f5fcd39.chunk.js",
-    "main.js.map": "/usc-website/static/js/main.5f5fcd39.chunk.js.map",
+    "main.js": "/usc-website/static/js/main.3f6447f9.chunk.js",
+    "main.js.map": "/usc-website/static/js/main.3f6447f9.chunk.js.map",
     "runtime-main.js": "/usc-website/static/js/runtime-main.eed2449c.js",
     "runtime-main.js.map": "/usc-website/static/js/runtime-main.eed2449c.js.map",
     "static/js/2.1877aa91.chunk.js": "/usc-website/static/js/2.1877aa91.chunk.js",
@@ -33,6 +33,6 @@
     "static/js/runtime-main.eed2449c.js",
     "static/js/2.1877aa91.chunk.js",
     "static/css/main.ab77c9ad.chunk.css",
-    "static/js/main.5f5fcd39.chunk.js"
+    "static/js/main.3f6447f9.chunk.js"
   ]
 }
