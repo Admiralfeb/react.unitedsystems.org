@@ -58,3 +58,20 @@ The Add build process is a specific one, but can be changed if needed.
 6. You will need to fill in the other appropriate values.
 7. Click `Submit Build` at the bottom and the system.
 8. If successful, it will clear the entry and show a notification that the submission was successful.
+
+## Acknowlegements
+
+Special thanks to all the CMDRs who helped with this project.
+
+- Clever Ape for the idea for the Ship Build System and webpage reviews.
+- UltraNeros for styling ideas on the Ship Build System.
+- Loki for permission to expand scope.
+- Queen Eleanor for webpage reviews.
+- Pablok for his video.
+- Admiralfeb for the coding of the site.
+
+Thanks to Coriolis.io for storing their data in JSON so it is easily readable by code.
+
+Thanks to edassets for their images and loader.
+
+Thanks to Frontier Developments for their game Elite: Dangerous.
