@@ -1,11 +1,13 @@
 import { Button, Paper, Typography } from '@material-ui/core';
 
 import { NavLink, useRouteMatch } from 'react-router-dom';
+import { useLinks } from '../../hooks/useLinks';
 import useStyles from '../infoStyles';
 
 export const InfoUSCLinks = () => {
   const classes = useStyles();
   const { url } = useRouteMatch();
+  const { inaraSquadLink, discordLink } = useLinks();
 
   return (
     <Paper id="usc-links" className={classes.paper}>
@@ -44,7 +46,7 @@ export const InfoUSCLinks = () => {
           Our Fleet Carriers
         </Button>
         <Button
-          href="https://discord.gg/br8Fy2M6cv"
+          href={discordLink}
           target="_blank"
           color="primary"
           variant="outlined"
@@ -52,7 +54,7 @@ export const InfoUSCLinks = () => {
           Discord
         </Button>
         <Button
-          href="https://inara.cz/squadron/7028/"
+          href={inaraSquadLink}
           target="_blank"
           color="primary"
           variant="outlined"

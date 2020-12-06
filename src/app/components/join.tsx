@@ -6,6 +6,7 @@ import {
   useMediaQuery,
 } from '@material-ui/core';
 import { NavLink } from 'react-router-dom';
+import { useLinks } from '../hooks/useLinks';
 
 const useStyles = makeStyles({
   root: {
@@ -41,6 +42,7 @@ const useStyles = makeStyles({
 export const Join = () => {
   const classes = useStyles();
   const mediaQuery = useMediaQuery('(min-width:950px)');
+  const { inaraSquadLink, discordLink } = useLinks();
   return (
     <div className={classes.root}>
       <Typography variant="h2" className={classes.header}>
@@ -49,7 +51,11 @@ export const Join = () => {
       <Paper className={classes.paper}>
         <Typography>
           Step 1: Read the rules on the{' '}
-          <Link to="/about" target="_blank" component={NavLink}>
+          <Link
+            to="/information/about/rules"
+            target="_blank"
+            component={NavLink}
+          >
             About Page
           </Link>
           .
@@ -70,7 +76,7 @@ export const Join = () => {
 
         <Typography>
           Step 3: Join our{' '}
-          <Link href="https://discord.gg/br8Fy2M6cv" target="_blank">
+          <Link href={discordLink} target="_blank">
             Discord
           </Link>
         </Typography>
@@ -81,7 +87,7 @@ export const Join = () => {
         </Typography>
         <Typography>
           Recommended: Join our{' '}
-          <Link href="https://inara.cz/squadron/7028/" target="_blank">
+          <Link href={inaraSquadLink} target="_blank">
             Inara Squadron
           </Link>
         </Typography>
