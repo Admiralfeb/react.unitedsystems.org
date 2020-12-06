@@ -1,5 +1,5 @@
-import { Dispatch, useEffect, useState } from 'react';
-import { IBuildInfo, IQuery } from '../../models';
+import { useEffect, useState } from 'react';
+import { IQuery } from '../../models';
 
 import './query.css';
 
@@ -12,11 +12,8 @@ import { OtherFilters } from '../../models/otherFilters';
 import { NavLink } from 'react-router-dom';
 import { useUrlQuery } from '../../hooks/useURLQuery';
 
-export const Query = (props: {
-  queryUpdate: (query: IQuery) => void;
-  setSelectedBuild: Dispatch<React.SetStateAction<IBuildInfo | undefined>>;
-}) => {
-  const [shipType, setShipType] = useState<number | null>(null);
+export const Query = (props: { queryUpdate: (query: IQuery) => void }) => {
+  const [shipType, setShipType] = useState<string | null>(null);
   const [shipSize, setShipSize] = useState<number | null>(null);
   const [engLevel, setEngLevel] = useState<number | null>(null);
   const [selectedSpecialties, setSpecialties] = useState<string[]>([]);

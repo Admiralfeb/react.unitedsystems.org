@@ -8,8 +8,8 @@ import { ShipAutocomplete } from '../shipAutocomplete';
 export const QueryShip = (props: {
   shipSize: number | null;
   setShipSize: React.Dispatch<React.SetStateAction<number | null>>;
-  shipType: number | null;
-  setShipType: React.Dispatch<React.SetStateAction<number | null>>;
+  shipType: string | null;
+  setShipType: React.Dispatch<React.SetStateAction<string | null>>;
 }) => {
   const { shipType, setShipType, shipSize, setShipSize } = props;
 
@@ -22,8 +22,9 @@ export const QueryShip = (props: {
   };
 
   const handleShipChange = (_: ChangeEvent<{}>, value: IShipInfo | null) => {
-    const ship = value!.id;
-    setShipSize(ship);
+    const ship = value!.shipId;
+    setShipType(ship);
+    setShipSize(null);
   };
 
   return (

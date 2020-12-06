@@ -1,16 +1,19 @@
 import { ObjectId } from 'bson';
 
 export interface IBuildInfoInsert {
-  powerplay: boolean;
   _id: ObjectId;
-  engLevel: number;
-  ship: number;
-  moreInfo: string;
-  description: string;
-  buildLink: string;
-  id: number;
-  guardian: boolean;
-  beginner: boolean;
+  shipId: string;
+  title: string;
   specializations: string[];
+  buildLink: string;
+  engLevel: number;
+  hasGuardian: boolean;
+  hasPowerplay: boolean;
+  isBeginner: boolean;
   author: string;
+  isVariant: boolean;
+  variants: string[];
+  related: string[];
+  description: string;
+  jsonBuild: string;
 }

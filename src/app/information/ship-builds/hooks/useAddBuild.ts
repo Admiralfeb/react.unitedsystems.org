@@ -3,20 +3,23 @@ import { IBuildInfoInsert } from '../models/buildInfoInsert';
 
 export const useAddBuild = () => {
   const [addBuildMutation] = useMutation<IBuildInfoInsert>(gql`
-    mutation AddBuild($build: ShipBuildInsertInput!) {
-      addedBuild: insertOneShipBuild(data: $build) {
+    mutation AddBuild($build: ShipBuildsv2InsertInput!) {
+      addedBuild: insertOneShipBuildsv2(data: $build) {
         _id
-        author
-        beginner
-        buildLink
-        description
-        engLevel
-        guardian
-        moreInfo
-        powerplay
-        ship
+        shipId
         specializations
-        id
+        title
+        buildLink
+        engLevel
+        hasGuardian
+        hasPowerplay
+        isBeginner
+        author
+        isVariant
+        variants
+        related
+        description
+        jsonBuild
       }
     }
   `);

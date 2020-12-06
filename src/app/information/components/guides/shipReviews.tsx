@@ -10,27 +10,7 @@ import {
   TableRow,
   Typography,
 } from '@material-ui/core';
-
-import reviews from '../../ship-builds/assets/shipMap.json';
-import { sortItems } from '../../ship-builds/functions/sort';
-
-interface IShipReview {
-  id: number;
-  name: string;
-  manufacturer: string;
-  shipReview: string;
-}
-
-const useShipReviews = (): IShipReview[] => {
-  const reviewList = reviews.map((review) => {
-    const id = review.id;
-    const name = review.name;
-    const manufacturer = review.manufacturer;
-    const shipReview = review.shipReview;
-    return { id, name, manufacturer, shipReview };
-  });
-  return sortItems(reviewList, 'name');
-};
+import { useShipReviews } from '../../hooks/useShipReviews';
 
 const useStyles = makeStyles({
   table: {
@@ -57,7 +37,7 @@ export const ShipReviews = () => {
           </TableHead>
           <TableBody>
             {shipReviews.map((review) => (
-              <TableRow key={review.id}>
+              <TableRow key={review.shipId}>
                 <TableCell>{review.name}</TableCell>
                 <TableCell>{review.manufacturer}</TableCell>
                 <TableCell>

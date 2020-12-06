@@ -1,15 +1,14 @@
 import { useCallback, useEffect, useState } from 'react';
 import { Loading } from '../../../../components';
 import { filterShipBuilds } from '../../functions/filterShipBuilds';
-import { getShipInfofromID } from '../../functions/getShipInfo';
 import { sortItems } from '../../functions/sort';
 import { useShipBuilds } from '../../hooks/useShipBuilds';
-import { IBuildInfo, IQuery } from '../../models';
+import { IBuildInfov2, IQuery } from '../../models';
 import { BuildCard } from './buildCard';
 import './buildList.css';
 
 export const BuildList = (props: { buildQuery: IQuery | undefined }) => {
-  const [queriedBuilds, setQueriedBuilds] = useState<IBuildInfo[]>();
+  const [queriedBuilds, setQueriedBuilds] = useState<IBuildInfov2[]>();
   const { buildQuery } = props;
   const { loading, shipBuilds } = useShipBuilds();
 
@@ -17,15 +16,9 @@ export const BuildList = (props: { buildQuery: IQuery | undefined }) => {
     if (loading) {
       return;
     }
-    const mappedBuilds = shipBuilds?.map((v) => {
-      const shipInfo = getShipInfofromID(v.ship!)!;
-      const size = shipInfo?.size;
-      const newBuild: IBuildInfo = { ...v, size };
-      return newBuild;
-    });
-
-    const filtered = filterShipBuilds(mappedBuilds, buildQuery);
-    const sorted = sortItems(filtered!, 'ship');
+    console.log(shipBuilds);
+    const filtered = filterShipBuilds(shipBuilds, buildQuery);
+    const sorted = sortItems(filtered!, 'shipId');
     setQueriedBuilds(sorted);
   }, [loading, shipBuilds, buildQuery]);
 
@@ -42,7 +35,9 @@ export const BuildList = (props: { buildQuery: IQuery | undefined }) => {
         <Loading />
       ) : (
         queriedBuilds?.map((ship) => {
-          return <BuildCard key={(ship._id as unknown) as string} {...ship} />;
+          return (
+            <BuildCard key={(ship._id as unknown) as string} shipBuild={ship} />
+          );
         })
       )}
     </div>

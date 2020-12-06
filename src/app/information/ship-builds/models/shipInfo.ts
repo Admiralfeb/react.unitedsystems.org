@@ -2,9 +2,10 @@ import { ShipSize } from '.';
 
 export interface IShipInfo {
   /** id of the ship. Used to determine other info */
-  id: number;
+  shipId: string;
   name: string;
   size: ShipSize;
   requires?: string;
   shipImg: string;
+  shipReview: string;
 }

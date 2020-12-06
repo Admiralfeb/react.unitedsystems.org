@@ -44,8 +44,8 @@ export const BuildAdd = () => {
     const {
       buildName,
       shipName,
-      guardian,
-      powerplay,
+      hasGuardian,
+      hasPowerplay,
       engineering,
       url,
     } = processJSONBuild(event.target.value);
@@ -54,17 +54,20 @@ export const BuildAdd = () => {
     const _id = buildInfo._id;
     const info: IBuildInfoInsert = {
       _id,
-      id: 0,
-      description: buildName,
-      guardian,
-      powerplay,
+      title: buildName,
+      hasGuardian,
+      hasPowerplay,
       buildLink: url,
-      ship: shipInfo.id,
+      shipId: shipInfo.shipId,
       author: '',
       specializations: [],
       engLevel,
-      beginner: false,
-      moreInfo: '',
+      isBeginner: false,
+      description: '',
+      isVariant: false,
+      variants: [],
+      related: [],
+      jsonBuild: event.target.value,
     };
     setBuildInfo(info);
   };
@@ -72,26 +75,46 @@ export const BuildAdd = () => {
     const value = event.target.value;
 
     switch (event.target.id) {
-      case 'description':
-        setBuildInfo({ ...buildInfo, description: value });
+      case 'title':
+        setBuildInfo((info) => {
+          return { ...info, title: value };
+        });
         break;
-      case 'moreInfo':
-        setBuildInfo({ ...buildInfo, moreInfo: value });
+      case 'description':
+        setBuildInfo((info) => {
+          return { ...info, description: value };
+        });
         break;
       case 'buildLink':
-        setBuildInfo({ ...buildInfo, buildLink: value });
+        setBuildInfo((info) => {
+          return { ...info, buildLink: value };
+        });
         break;
       case 'author':
-        setBuildInfo({ ...buildInfo, author: value });
+        setBuildInfo((info) => {
+          return { ...info, author: value };
+        });
+        break;
+      case 'variants':
+        const variants = value.split(',').map((s) => s.trim());
+        setBuildInfo((info) => {
+          return { ...info, variants: variants };
+        });
+        break;
+      case 'related':
+        const related = value.split(',').map((s) => s.trim());
+        setBuildInfo((info) => {
+          return { ...info, related: related };
+        });
         break;
       default:
         break;
     }
   };
   const handleShipChange = (_: ChangeEvent<{}>, value: IShipInfo | null) => {
-    const ship = value!.id;
+    const ship = value!.shipId;
     setBuildInfo((buildInfo) => {
-      return { ...buildInfo, ship };
+      return { ...buildInfo, shipId: ship };
     });
   };
   const handleEngLevelChange = (
@@ -107,7 +130,7 @@ export const BuildAdd = () => {
     try {
       await addBuild(buildInfo);
       enqueueSnackbar('Build Successfully Submitted', { variant: 'success' });
-      setBuildInfo(DEFAULTBUILD);
+      setBuildInfo({ ...DEFAULTBUILD, _id: new ObjectId() });
       setSpecialties([]);
       setJsonBuild('');
     } catch (e) {
@@ -125,17 +148,17 @@ export const BuildAdd = () => {
       onChange: handleJSONChange,
     },
     {
-      id: 'description',
-      label: 'Title/Description',
+      id: 'title',
+      label: 'Title',
       isMultiline: false,
-      value: buildInfo.description,
+      value: buildInfo.title,
       onChange: handleTextChange,
     },
     {
-      id: 'moreInfo',
+      id: 'description',
       label: 'More Information',
       isMultiline: true,
-      value: buildInfo.moreInfo,
+      value: buildInfo.description,
       onChange: handleTextChange,
     },
     {
@@ -145,6 +168,20 @@ export const BuildAdd = () => {
       value: buildInfo.buildLink,
       onChange: handleTextChange,
     },
+    // {
+    //   id: 'variant',
+    //   label: 'Variant Build IDs - If applicable - separated by commas',
+    //   isMultiline: false,
+    //   value: buildInfo.variants.join(','),
+    //   onChange: handleTextChange,
+    // },
+    // {
+    //   id: 'related',
+    //   label: 'Related Build IDs - If applicable - separated by commas',
+    //   isMultiline: false,
+    //   value: buildInfo.related.join(','),
+    //   onChange: handleTextChange,
+    // },
     {
       id: 'author',
       label: 'Author',
@@ -155,9 +192,13 @@ export const BuildAdd = () => {
   ];
 
   const checkFields = [
-    { label: 'Guardian', name: 'guardian', checked: buildInfo.guardian },
-    { label: 'PowerPlay', name: 'powerplay', checked: buildInfo.powerplay },
-    { label: 'Beginner', name: 'beginner', checked: buildInfo.beginner },
+    { label: 'Guardian', name: 'hasGuardian', checked: buildInfo.hasGuardian },
+    {
+      label: 'PowerPlay',
+      name: 'hasPowerplay',
+      checked: buildInfo.hasPowerplay,
+    },
+    { label: 'Beginner', name: 'isBeginner', checked: buildInfo.isBeginner },
   ];
 
   return (
@@ -171,10 +212,10 @@ export const BuildAdd = () => {
         Return to builds
       </Button>
       {textFields.map((field) => (
-        <BuildAddText {...field} />
+        <BuildAddText key={field.id} {...field} />
       ))}
       <ShipAutocomplete
-        shipType={buildInfo.ship}
+        shipType={buildInfo.shipId}
         handleShipChange={handleShipChange}
       />
       <QuerySpecialization
@@ -187,25 +228,34 @@ export const BuildAdd = () => {
       />
       <FormGroup row>
         {checkFields.map((check) => (
-          <BuildCheckBox {...check} onChange={handleOtherChange} />
+          <BuildCheckBox
+            key={check.name}
+            {...check}
+            onChange={handleOtherChange}
+          />
         ))}
       </FormGroup>
-      <Button onClick={handleSubmit}>Submit Build</Button>
+      <Button onClick={handleSubmit} variant="outlined">
+        Submit Build
+      </Button>
     </div>
   );
 };
 
 const DEFAULTBUILD: IBuildInfoInsert = {
-  description: '',
-  guardian: false,
-  powerplay: false,
-  buildLink: '',
-  ship: 0,
-  moreInfo: '',
   _id: new ObjectId(),
-  id: 0,
-  author: '',
+  shipId: 'adder',
+  title: '',
   specializations: [],
+  buildLink: '',
   engLevel: 0,
-  beginner: false,
+  hasGuardian: false,
+  hasPowerplay: false,
+  isBeginner: false,
+  author: '',
+  isVariant: false,
+  variants: [],
+  related: [],
+  description: '',
+  jsonBuild: '',
 };

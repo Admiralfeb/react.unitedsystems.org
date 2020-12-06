@@ -5,8 +5,8 @@ export const processJSONBuild = (
 ): {
   buildName: string;
   shipName: string;
-  guardian: boolean;
-  powerplay: boolean;
+  hasGuardian: boolean;
+  hasPowerplay: boolean;
   engineering: boolean;
   url: string;
 } => {
@@ -94,5 +94,12 @@ export const processJSONBuild = (
     engineering = true;
   }
 
-  return { buildName, shipName, guardian, powerplay, engineering, url };
+  return {
+    buildName,
+    shipName,
+    hasGuardian: guardian,
+    hasPowerplay: powerplay,
+    engineering,
+    url,
+  };
 };

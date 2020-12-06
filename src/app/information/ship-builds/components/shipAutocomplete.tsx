@@ -3,24 +3,24 @@ import { TextField } from '@material-ui/core';
 import { sortItems } from '../functions/sort';
 import { ChangeEvent } from 'react';
 import { IShipInfo } from '../models';
-import { useShips } from '../hooks/useShips';
+import { useShipMap } from '../hooks/useShipMap';
 
-const findShipName = (ships: IShipInfo[], shipID: number | null) => {
+const findShipName = (ships: IShipInfo[], shipID: string | null) => {
   if (shipID === null) {
     return null;
   }
-  const shipName = ships.find((x) => x.id === shipID);
+  const shipName = ships.find((x) => x.shipId === shipID);
   return shipName;
 };
 
 interface IShipAutocompleteProps {
-  shipType: number | null;
+  shipType: string | null;
   handleShipChange: (event: ChangeEvent<{}>, value: IShipInfo | null) => void;
 }
 
 export const ShipAutocomplete = (props: IShipAutocompleteProps) => {
   const { shipType, handleShipChange } = props;
-  const ships = useShips();
+  const ships = useShipMap();
 
   return (
     <Autocomplete

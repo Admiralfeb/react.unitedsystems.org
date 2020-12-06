@@ -1,6 +1,6 @@
 [
     {
-        "id": 0,
+        "shipId": "sidewinder",
         "name": "Sidewinder",
         "size": 1,
         "shipImg": "https://edassets.org/static/img/ship-schematics/qohen-leth/sidewinder.svg",
@@ -8,7 +8,7 @@
         "manufacturer": "Falcon Delacy"
     },
     {
-        "id": 1,
+        "shipId": "eagle",
         "name": "Eagle Mk II",
         "size": 1,
         "shipImg": "https://edassets.org/static/img/ship-schematics/qohen-leth/eagle-mk-ii.svg",
@@ -16,7 +16,7 @@
         "manufacturer": "Core Dynamics"
     },
     {
-        "id": 2,
+        "shipId": "hauler",
         "name": "Hauler",
         "size": 1,
         "shipImg": "https://edassets.org/static/img/ship-schematics/qohen-leth/hauler.svg",
@@ -24,7 +24,7 @@
         "manufacturer": "Zorgon Peterson"
     },
     {
-        "id": 3,
+        "shipId": "adder",
         "name": "Adder",
         "size": 1,
         "shipImg": "https://edassets.org/static/img/ship-schematics/qohen-leth/adder.svg",
@@ -32,7 +32,7 @@
         "manufacturer": "Zorgon Peterson"
     },
     {
-        "id": 4,
+        "shipId": "imperial_eagle",
         "name": "Imperial Eagle",
         "size": 1,
         "shipImg": "https://edassets.org/static/img/ship-schematics/qohen-leth/imperial-eagle.svg",
@@ -40,7 +40,7 @@
         "manufacturer": "Gutamaya"
     },
     {
-        "id": 5,
+        "shipId": "viper",
         "name": "Viper Mk III",
         "size": 1,
         "shipImg": "https://edassets.org/static/img/ship-schematics/qohen-leth/viper-mk-iii.svg",
@@ -48,7 +48,7 @@
         "manufacturer": "Falcon Delacy"
     },
     {
-        "id": 6,
+        "shipId": "cobra_mk_iii",
         "name": "Cobra Mk III",
         "size": 1,
         "shipImg": "https://edassets.org/static/img/ship-schematics/qohen-leth/cobra-mk-iii.svg",
@@ -56,7 +56,7 @@
         "manufacturer": "Falcon Delacy"
     },
     {
-        "id": 7,
+        "shipId": "viper_mk_iv",
         "name": "Viper Mk IV",
         "size": 1,
         "shipImg": "https://edassets.org/static/img/ship-schematics/qohen-leth/viper-mk-iv.svg",
@@ -64,7 +64,7 @@
         "manufacturer": "Falcon Delacy"
     },
     {
-        "id": 8,
+        "shipId": "diamondback_scout",
         "name": "Diamondback Scout",
         "size": 1,
         "shipImg": "https://edassets.org/static/img/ship-schematics/qohen-leth/diamondback-scout.svg",
@@ -72,7 +72,7 @@
         "manufacturer": "Lakon Spaceway"
     },
     {
-        "id": 9,
+        "shipId": "cobra_mk_iv",
         "name": "Cobra Mk IV",
         "requires": "Horizons Early Adopter",
         "size": 1,
@@ -81,7 +81,7 @@
         "manufacturer": "Falcon Delacy"
     },
     {
-        "id": 10,
+        "shipId": "type_6_transporter",
         "name": "Type-6 Transporter",
         "size": 1,
         "shipImg": "https://edassets.org/static/img/ship-schematics/qohen-leth/type-6-transporter.svg",
@@ -89,7 +89,7 @@
         "manufacturer": "Lakon Spaceway"
     },
     {
-        "id": 11,
+        "shipId": "dolphin",
         "name": "Dolphin",
         "size": 1,
         "shipImg": "https://edassets.org/static/img/ship-schematics/qohen-leth/dolphin.svg",
@@ -97,7 +97,7 @@
         "manufacturer": "Saud Kruger"
     },
     {
-        "id": 12,
+        "shipId": "diamondback_explorer",
         "name": "Diamondback Explorer (DBX)",
         "size": 1,
         "shipImg": "https://edassets.org/static/img/ship-schematics/qohen-leth/diamondback-explorer.svg",
@@ -105,7 +105,7 @@
         "manufacturer": "Lakon Spaceway"
     },
     {
-        "id": 13,
+        "shipId": "imperial_courier",
         "name": "Imperial Courier",
         "requires": "Imperial Rank: Master",
         "size": 1,
@@ -114,7 +114,7 @@
         "manufacturer": "Gutamaya"
     },
     {
-        "id": 14,
+        "shipId": "keelback",
         "name": "Keelback",
         "size": 2,
         "shipImg": "https://edassets.org/static/img/ship-schematics/qohen-leth/keelback.svg",
@@ -122,7 +122,7 @@
         "manufacturer": "Lakon Spaceway"
     },
     {
-        "id": 15,
+        "shipId": "asp_scout",
         "name": "Asp Scout",
         "size": 2,
         "shipImg": "https://edassets.org/static/img/ship-schematics/qohen-leth/asp-scout.svg",
@@ -130,7 +130,7 @@
         "manufacturer": "Lakon Spaceway"
     },
     {
-        "id": 16,
+        "shipId": "vulture",
         "name": "Vulture",
         "size": 1,
         "shipImg": "https://edassets.org/static/img/ship-schematics/qohen-leth/vulture.svg",
@@ -138,7 +138,7 @@
         "manufacturer": "Core Dynamics"
     },
     {
-        "id": 17,
+        "shipId": "asp_explorer",
         "name": "Asp Explorer",
         "size": 2,
         "shipImg": "https://edassets.org/static/img/ship-schematics/qohen-leth/asp-explorer.svg",
@@ -146,7 +146,7 @@
         "manufacturer": "Lakon Spaceway"
     },
     {
-        "id": 18,
+        "shipId": "federal_dropship",
         "name": "Federal Dropship",
         "requires": "Federal Rank: Midshipman",
         "size": 2,
@@ -155,7 +155,7 @@
         "manufacturer": "Core Dynamics"
     },
     {
-        "id": 19,
+        "shipId": "type_7_transporter",
         "name": "Type-7 Transporter",
         "size": 2,
         "shipImg": "https://edassets.org/static/img/ship-schematics/qohen-leth/type-7-transporter.svg",
@@ -163,7 +163,7 @@
         "manufacturer": "Lakon Spaceway"
     },
     {
-        "id": 20,
+        "shipId": "alliance_chieftain",
         "name": "Alliance Chieftain",
         "size": 2,
         "shipImg": "https://edassets.org/static/img/ship-schematics/qohen-leth/alliance-chieftain.svg",
@@ -171,7 +171,7 @@
         "manufacturer": "Lakon Spaceway"
     },
     {
-        "id": 21,
+        "shipId": "federal_assault_ship",
         "name": "Federal Assault Ship (FAS)",
         "requires": "Federal Rank: Chief Petty Officer",
         "size": 2,
@@ -180,7 +180,7 @@
         "manufacturer": "Core Dynamics"
     },
     {
-        "id": 22,
+        "shipId": "imperial_clipper",
         "name": "Imperial Clipper",
         "requires": "Imperial Rank: Baron",
         "size": 3,
@@ -189,7 +189,7 @@
         "manufacturer": "Gutamaya"
     },
     {
-        "id": 23,
+        "shipId": "alliance_crusader",
         "name": "Alliance Crusader",
         "size": 2,
         "shipImg": "https://edassets.org/static/img/ship-schematics/qohen-leth/alliance-crusader.svg",
@@ -197,7 +197,7 @@
         "manufacturer": "Lakon Spaceway"
     },
     {
-        "id": 24,
+        "shipId": "alliance_challenger",
         "name": "Alliance Challenger",
         "size": 2,
         "shipImg": "https://edassets.org/static/img/ship-schematics/qohen-leth/alliance-challenger.svg",
@@ -205,7 +205,7 @@
         "manufacturer": "Lakon Spaceway"
     },
     {
-        "id": 25,
+        "shipId": "federal_gunship",
         "name": "Federal Gunship",
         "requires": "Federal Rank: Ensign",
         "size": 2,
@@ -214,7 +214,7 @@
         "manufacturer": "Core Dynamics"
     },
     {
-        "id": 26,
+        "shipId": "krait_phantom",
         "name": "Krait Phantom",
         "size": 2,
         "shipImg": "https://edassets.org/static/img/ship-schematics/qohen-leth/krait-phantom.svg",
@@ -222,7 +222,7 @@
         "manufacturer": "Falcon Delacy"
     },
     {
-        "id": 27,
+        "shipId": "krait_mkii",
         "name": "Krait Mk II",
         "size": 2,
         "shipImg": "https://edassets.org/static/img/ship-schematics/qohen-leth/krait-mk-ii.svg",
@@ -230,7 +230,7 @@
         "manufacturer": "Falcon Delacy"
     },
     {
-        "id": 28,
+        "shipId": "orca",
         "name": "Orca",
         "size": 2,
         "shipImg": "https://edassets.org/static/img/ship-schematics/qohen-leth/orca.svg",
@@ -238,7 +238,7 @@
         "manufacturer": "Saud Kruger"
     },
     {
-        "id": 29,
+        "shipId": "fer_de_lance",
         "name": "Fer-de-lance",
         "size": 2,
         "shipImg": "https://edassets.org/static/img/ship-schematics/qohen-leth/fer-de-lance.svg",
@@ -246,7 +246,7 @@
         "manufacturer": "Zorgon Peterson"
     },
     {
-        "id": 30,
+        "shipId": "mamba",
         "name": "Mamba",
         "size": 2,
         "shipImg": "https://edassets.org/static/img/ship-schematics/qohen-leth/mamba.svg",
@@ -254,7 +254,7 @@
         "manufacturer": "Zorgon Peterson"
     },
     {
-        "id": 31,
+        "shipId": "python",
         "name": "Python",
         "size": 2,
         "shipImg": "https://edassets.org/static/img/ship-schematics/qohen-leth/python.svg",
@@ -262,7 +262,7 @@
         "manufacturer": "Falcon Delacy"
     },
     {
-        "id": 32,
+        "shipId": "type_9_heavy",
         "name": "Type-9 Heavy",
         "size": 3,
         "shipImg": "https://edassets.org/static/img/ship-schematics/qohen-leth/type-9-heavy.svg",
@@ -270,7 +270,7 @@
         "manufacturer": "Lakon Spaceway"
     },
     {
-        "id": 33,
+        "shipId": "beluga_liner",
         "name": "Beluga Liner",
         "size": 3,
         "shipImg": "https://edassets.org/static/img/ship-schematics/qohen-leth/beluga-liner.svg",
@@ -278,7 +278,7 @@
         "manufacturer": "Saud Kruger"
     },
     {
-        "id": 34,
+        "shipId": "type_10_defender",
         "name": "Type-10 Defender",
         "size": 3,
         "shipImg": "https://edassets.org/static/img/ship-schematics/qohen-leth/type-10-defender.svg",
@@ -286,7 +286,7 @@
         "manufacturer": "Lakon Spaceway"
     },
     {
-        "id": 35,
+        "shipId": "anaconda",
         "name": "Anaconda",
         "size": 3,
         "shipImg": "https://edassets.org/static/img/ship-schematics/qohen-leth/anaconda.svg",
@@ -294,7 +294,7 @@
         "manufacturer": "Falcon Delacy"
     },
     {
-        "id": 36,
+        "shipId": "federal_corvette",
         "name": "Federal Corvette",
         "requires": "Federal Rank: Rear Admiral",
         "size": 3,
@@ -303,7 +303,7 @@
         "manufacturer": "Core Dynamics"
     },
     {
-        "id": 37,
+        "shipId": "imperial_cutter",
         "name": "Imperial Cutter",
         "requires": "Imperial Rank: Duke",
         "size": 3,

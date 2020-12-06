@@ -1,7 +1,7 @@
 import { ShipSize } from '.';
 import { OtherFilters } from './otherFilters';
 export interface IQuery {
-  ship: number | null;
+  ship: string | null;
   size: ShipSize | null;
   specialties: string[];
   engLevel: number | null;

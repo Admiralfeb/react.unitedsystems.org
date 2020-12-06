@@ -1,8 +1,8 @@
 import shipMap from '../assets/shipMap.json';
 import { IShipInfo } from '../models/shipInfo';
 
-export const getShipInfofromID = (shipID: number): IShipInfo | undefined => {
-  const ship: IShipInfo | undefined = shipMap.find((x) => x.id === shipID);
+export const getShipInfofromID = (shipID: string): IShipInfo | undefined => {
+  const ship: IShipInfo | undefined = shipMap.find((x) => x.shipId === shipID);
   return ship;
 };
 export const getShipInfofromName = (

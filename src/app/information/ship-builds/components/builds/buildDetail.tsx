@@ -1,16 +1,69 @@
-import { Paper, Typography } from '@material-ui/core';
-import { useEffect, useMemo } from 'react';
+import {
+  Button,
+  Divider,
+  makeStyles,
+  Paper,
+  Typography,
+} from '@material-ui/core';
+import { useEffect, useMemo, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { Loading } from '../../../../components';
+import { getShipInfofromID } from '../../functions/getShipInfo';
 import { useShipBuilds } from '../../hooks/useShipBuilds';
+import { IShipInfo, ShipSize } from '../../models';
+import { BuildDetailBuilds } from './buildDetailBuilds';
+import { TagGroup } from './tagGroup';
 
 interface RouteParams {
   id: string;
 }
 
+const useStyles = makeStyles((theme) => ({
+  paper: {
+    width: '80%',
+    margin: 'auto',
+    padding: 10,
+    marginBottom: 5,
+  },
+  img: {
+    width: 300,
+    [theme.breakpoints.down('md')]: {
+      display: 'none',
+    },
+  },
+  flexDown: {
+    display: 'flex',
+    flexDirection: 'column',
+  },
+  flexAcross: {
+    display: 'flex',
+    flexDirection: 'row',
+    [theme.breakpoints.down('md')]: {
+      flexDirection: 'column',
+      flexWrap: 'wrap',
+    },
+  },
+  spacer: {
+    flexGrow: 1,
+  },
+  gridDown: {
+    display: 'grid',
+    gridTemplate: 'auto / 1fr',
+    gap: '5px',
+  },
+  margin: {
+    margin: 10,
+  },
+  textCenter: {
+    textAlign: 'center',
+  },
+}));
+
 export const BuildDetail = () => {
   const { loading, shipBuilds } = useShipBuilds();
   let { id } = useParams<RouteParams>();
+  const classes = useStyles();
+  const [shipInfo, setShipInfo] = useState<IShipInfo>();
 
   let foundBuild = useMemo(() => {
     if (loading) {
@@ -25,7 +78,10 @@ export const BuildDetail = () => {
   }, [id, loading, shipBuilds]);
 
   useEffect(() => {
-    console.log({ foundBuild });
+    if (foundBuild) {
+      const info = getShipInfofromID(foundBuild.shipId);
+      setShipInfo(info);
+    }
   }, [foundBuild]);
 
   return (
@@ -34,9 +90,83 @@ export const BuildDetail = () => {
       {loading ? (
         <Loading />
       ) : (
-        <Paper>
-          <Typography>{foundBuild?.description}</Typography>
-        </Paper>
+        <>
+          <Paper className={`${classes.paper} ${classes.flexAcross}`}>
+            {shipInfo && (
+              <div className={`${classes.flexDown} ${classes.margin}`}>
+                <img
+                  src={shipInfo.shipImg}
+                  alt={shipInfo.name}
+                  className={classes.img}
+                />
+                <div className={classes.flexAcross}>
+                  <Typography>{shipInfo.name}</Typography>
+                  <span className={classes.spacer} />
+                  <Typography>{ShipSize[shipInfo.size]}</Typography>
+                </div>
+                {shipInfo.requires && (
+                  <Typography>Requires: {shipInfo.requires}</Typography>
+                )}
+                <Button
+                  variant="contained"
+                  color="primary"
+                  href={shipInfo.shipReview}
+                  target="_blank"
+                >
+                  Pilot Review
+                </Button>
+              </div>
+            )}
+            <Divider orientation="vertical" flexItem />
+            <div
+              className={`${classes.flexDown} ${classes.spacer} ${classes.margin}`}
+            >
+              <Typography variant="h5">{foundBuild?.title}</Typography>
+              <TagGroup build={foundBuild!} />
+              <Typography style={{ whiteSpace: 'pre-line' }}>
+                {foundBuild?.description}
+              </Typography>
+            </div>
+            <div className={classes.flexDown}>
+              <div className={classes.gridDown}>
+                <Button
+                  variant="contained"
+                  color="primary"
+                  href={foundBuild!.buildLink}
+                  target="_blank"
+                >
+                  Open Coriolis
+                </Button>
+                <Button
+                  variant="contained"
+                  color="secondary"
+                  onClick={() => alert('work in progress')}
+                >
+                  Add Variant
+                </Button>
+                <Button
+                  variant="contained"
+                  color="secondary"
+                  onClick={() => alert('work in progress')}
+                >
+                  Add Related
+                </Button>
+              </div>
+            </div>
+          </Paper>
+          {foundBuild && foundBuild.variants.length > 0 ? (
+            <BuildDetailBuilds
+              title="Build Variants"
+              buildIDs={foundBuild.variants}
+            />
+          ) : null}
+          {foundBuild && foundBuild.related.length > 0 ? (
+            <BuildDetailBuilds
+              title="Related Builds"
+              buildIDs={foundBuild.related}
+            />
+          ) : null}
+        </>
       )}
     </>
   );

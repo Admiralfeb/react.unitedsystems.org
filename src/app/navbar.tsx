@@ -39,7 +39,7 @@ export const NavbarComponent = () => {
         Information
       </Button>
       <Button
-        to="/information/Builds"
+        to="/information/builds"
         exact
         className={classes.navLink}
         activeClassName={classes.active}

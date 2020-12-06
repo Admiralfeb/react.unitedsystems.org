@@ -1,10 +1,13 @@
 import { gql, useMutation } from '@apollo/client';
 import { IBuildInfoInsert } from '../models/buildInfoInsert';
 
-export const useUpdateBuild = () => {
-  const [updateBuildMutation] = useMutation<IBuildInfoInsert>(gql`
-    mutation AddBuild($build: ShipBuildInsertInput!) {
-      updatedBuild: updateOneShipBuild(query: { _id: $buildID }, data: $build) {
+export const useReplaceBuild = () => {
+  const [replaceBuildMutation] = useMutation<IBuildInfoInsert>(gql`
+    mutation AddBuild($build: ShipBuildsv2InsertInput!) {
+      updatedBuild: replaceOneShipBuildsv2(
+        query: { _id: $buildID }
+        data: $build
+      ) {
         _id
         author
         beginner
@@ -21,8 +24,8 @@ export const useUpdateBuild = () => {
     }
   `);
 
-  const updateShipBuild = async (build: IBuildInfoInsert) => {
-    const updatedBuild = await updateBuildMutation({
+  const replaceShipBuild = async (build: IBuildInfoInsert) => {
+    const updatedBuild = await replaceBuildMutation({
       variables: {
         buildID: build._id,
         build: {
@@ -33,5 +36,5 @@ export const useUpdateBuild = () => {
     return updatedBuild;
   };
 
-  return updateShipBuild;
+  return replaceShipBuild;
 };
