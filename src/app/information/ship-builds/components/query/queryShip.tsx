@@ -22,8 +22,8 @@ export const QueryShip = (props: {
   };
 
   const handleShipChange = (_: ChangeEvent<{}>, value: IShipInfo | null) => {
-    const ship = value!.shipId;
-    setShipType(ship);
+    const ship = value?.shipId;
+    setShipType(ship ?? null);
     setShipSize(null);
   };
 
