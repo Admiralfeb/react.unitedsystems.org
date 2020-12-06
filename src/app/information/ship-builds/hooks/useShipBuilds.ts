@@ -1,30 +1,20 @@
-import { gql, useQuery } from '@apollo/client';
+import { useQuery } from '@apollo/client';
 import { IBuildInfov2 } from '../models';
+import { loader } from 'graphql.macro';
+import { useShipBuildMutations } from './useShipBuildMutations';
+
+const AllShipBuildsv2s = loader('../graphql/allShipBuildsv2s.gql');
 
 export const useShipBuilds = () => {
+  const { shipBuilds, loading } = useAllShipBuilds();
+  const { addBuild, replaceBuild } = useShipBuildMutations();
+  return { loading, shipBuilds, addBuild, replaceBuild };
+};
+
+const useAllShipBuilds = () => {
   const { data, loading, error } = useQuery<{
     shipBuildsv2s: IBuildInfov2[];
-  }>(gql`
-    query AllShipBuilds {
-      shipBuildsv2s {
-        _id
-        shipId
-        specializations
-        title
-        buildLink
-        engLevel
-        hasGuardian
-        hasPowerplay
-        isBeginner
-        author
-        isVariant
-        variants
-        related
-        description
-        jsonBuild
-      }
-    }
-  `);
+  }>(AllShipBuildsv2s);
   if (error) {
     throw new Error(`Failed to fetch ship builds: ${error.message}`);
   }

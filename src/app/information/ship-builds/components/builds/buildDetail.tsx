@@ -7,12 +7,14 @@ import {
 } from '@material-ui/core';
 import { useEffect, useMemo, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { Loading } from '../../../../components';
+import { Loading, NotFound } from '../../../../components';
 import { getShipInfofromID } from '../../functions/getShipInfo';
 import { useShipBuilds } from '../../hooks/useShipBuilds';
 import { IShipInfo, ShipSize } from '../../models';
 import { BuildDetailBuilds } from './buildDetailBuilds';
 import { TagGroup } from './tagGroup';
+import ReactMarkdown from 'react-markdown';
+import gfm from 'remark-gfm';
 
 interface RouteParams {
   id: string;
@@ -73,8 +75,11 @@ export const BuildDetail = () => {
     let build = shipBuilds.find(
       (x) => x._id && ((x._id as unknown) as string) === id
     );
-
-    return build;
+    if (build) {
+      return build;
+    } else {
+      return null;
+    }
   }, [id, loading, shipBuilds]);
 
   useEffect(() => {
@@ -89,6 +94,8 @@ export const BuildDetail = () => {
       <Typography variant="h3">Build Detail</Typography>
       {loading ? (
         <Loading />
+      ) : foundBuild === null ? (
+        <NotFound />
       ) : (
         <>
           <Paper className={`${classes.paper} ${classes.flexAcross}`}>
@@ -126,8 +133,16 @@ export const BuildDetail = () => {
               <Typography style={{ whiteSpace: 'pre-line' }}>
                 {foundBuild?.description}
               </Typography>
+              {foundBuild?.description && (
+                <ReactMarkdown
+                  plugins={[gfm]}
+                  children={foundBuild.description}
+                />
+              )}
             </div>
-            <div className={classes.flexDown}>
+            <div
+              className={`${classes.flexDown} ${classes.spacer} ${classes.textCenter}`}
+            >
               <div className={classes.gridDown}>
                 <Button
                   variant="contained"
@@ -137,7 +152,7 @@ export const BuildDetail = () => {
                 >
                   Open Coriolis
                 </Button>
-                <Button
+                {/* <Button
                   variant="contained"
                   color="secondary"
                   onClick={() => alert('work in progress')}
@@ -150,7 +165,7 @@ export const BuildDetail = () => {
                   onClick={() => alert('work in progress')}
                 >
                   Add Related
-                </Button>
+                </Button> */}
               </div>
             </div>
           </Paper>

@@ -3,7 +3,6 @@ import { ChangeEvent, MouseEvent, useEffect, useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { processJSONBuild } from '../../functions/processJSONBuild';
 import { getShipInfofromName } from '../../functions/getShipInfo';
-import { useAddBuild } from '../../hooks/useAddBuild';
 import { IBuildInfoInsert } from '../../models/buildInfoInsert';
 import { ObjectId } from 'bson';
 import { QuerySpecialization } from '../query/querySpecialities';
@@ -13,6 +12,7 @@ import { BuildAddText } from './buildAddText';
 import { IShipInfo } from '../../models';
 import { ShipAutocomplete } from '../shipAutocomplete';
 import { BuildCheckBox } from './buildCheckBox';
+import { useShipBuilds } from '../../hooks/useShipBuilds';
 
 const useStyles = makeStyles({
   root: {
@@ -31,7 +31,7 @@ export const BuildAdd = () => {
   const [jsonBuild, setJsonBuild] = useState('');
   const [buildInfo, setBuildInfo] = useState<IBuildInfoInsert>(DEFAULTBUILD);
   const [specialties, setSpecialties] = useState<string[]>([]);
-  const addBuild = useAddBuild();
+  const { addBuild } = useShipBuilds();
 
   useEffect(() => {
     setBuildInfo((buildInfo) => {
@@ -134,7 +134,7 @@ export const BuildAdd = () => {
       setSpecialties([]);
       setJsonBuild('');
     } catch (e) {
-      enqueueSnackbar('Submit Failed', { variant: 'error' });
+      enqueueSnackbar(`Submit Failed: ${e.message}`, { variant: 'error' });
       console.error(e);
     }
   };
@@ -153,10 +153,11 @@ export const BuildAdd = () => {
       isMultiline: false,
       value: buildInfo.title,
       onChange: handleTextChange,
+      disabled: true,
     },
     {
       id: 'description',
-      label: 'More Information',
+      label: 'More Information - Accepts markdown',
       isMultiline: true,
       value: buildInfo.description,
       onChange: handleTextChange,
@@ -167,6 +168,7 @@ export const BuildAdd = () => {
       isMultiline: false,
       value: buildInfo.buildLink,
       onChange: handleTextChange,
+      disabled: true,
     },
     // {
     //   id: 'variant',
@@ -192,11 +194,17 @@ export const BuildAdd = () => {
   ];
 
   const checkFields = [
-    { label: 'Guardian', name: 'hasGuardian', checked: buildInfo.hasGuardian },
+    {
+      label: 'Guardian',
+      name: 'hasGuardian',
+      checked: buildInfo.hasGuardian,
+      disabled: true,
+    },
     {
       label: 'PowerPlay',
       name: 'hasPowerplay',
       checked: buildInfo.hasPowerplay,
+      disabled: true,
     },
     { label: 'Beginner', name: 'isBeginner', checked: buildInfo.isBeginner },
   ];

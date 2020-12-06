@@ -1,0 +1,19 @@
+query AllShipBuildsv2s {
+  shipBuildsv2s {
+    _id
+    shipId
+    specializations
+    title
+    buildLink
+    engLevel
+    hasGuardian
+    hasPowerplay
+    isBeginner
+    author
+    isVariant
+    variants
+    related
+    description
+    jsonBuild
+  }
+}
