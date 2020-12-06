@@ -2,8 +2,8 @@ import { useMutation } from '@apollo/client';
 import { loader } from 'graphql.macro';
 import { IBuildInfoInsert } from '../models/buildInfoInsert';
 
-const AddBuildMutation = loader('../graphql/insertOneShipbuildsv2.gql');
-const ReplaceBuildMutation = loader('../graphql/replaceOneShipbuildsv2.gql');
+const AddBuildMutation = loader('../graphql/insertOneShipBuildsv2.gql');
+const ReplaceBuildMutation = loader('../graphql/replaceOneShipBuildsv2.gql');
 
 export const useShipBuildMutations = () => {
   return {
