@@ -1,0 +1,24 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Join should match the snapshot 1`] = `
+<body>
+  <div>
+    <div
+      class="makeStyles-container-1"
+    >
+      <h2
+        data-testid="title"
+      />
+      <h3>
+        This page is currently under construction.
+      </h3>
+      <img
+        alt="Under Construction"
+        id="imgUnderConstruction"
+        src="construction.png"
+        width="300"
+      />
+    </div>
+  </div>
+</body>
+`;
