@@ -1,0 +1,238 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`About Rules should match the snapshot 1`] = `
+<body>
+  <div>
+    <div
+      class="makeStyles-header-1"
+    >
+      <h3
+        class="MuiTypography-root MuiTypography-h3"
+      >
+        Rules
+      </h3>
+      <div
+        class="MuiPaper-root makeStyles-root-2 MuiPaper-elevation1 MuiPaper-rounded"
+      >
+        <div
+          class="makeStyles-rules-3"
+        >
+          <h4
+            class="MuiTypography-root MuiTypography-h4"
+          >
+            Discord
+          </h4>
+          <ul
+            class="MuiList-root MuiList-padding"
+          >
+            <li
+              class="MuiListItem-root MuiListItem-gutters"
+            >
+              <div
+                class="MuiListItemText-root"
+              >
+                <span
+                  class="MuiTypography-root MuiListItemText-primary MuiTypography-body1 MuiTypography-displayBlock"
+                >
+                  1) Be Respectful
+                </span>
+              </div>
+            </li>
+            <li
+              class="MuiListItem-root MuiListItem-gutters"
+            >
+              <div
+                class="MuiListItemText-root"
+              >
+                <span
+                  class="MuiTypography-root MuiListItemText-primary MuiTypography-body1 MuiTypography-displayBlock"
+                >
+                  2) Be Mature
+                </span>
+              </div>
+            </li>
+            <li
+              class="MuiListItem-root MuiListItem-gutters"
+            >
+              <div
+                class="MuiListItemText-root"
+              >
+                <span
+                  class="MuiTypography-root MuiListItemText-primary MuiTypography-body1 MuiTypography-displayBlock"
+                >
+                  3) Do not @everyone
+                </span>
+              </div>
+            </li>
+            <li
+              class="MuiListItem-root MuiListItem-gutters"
+            >
+              <div
+                class="MuiListItemText-root"
+              >
+                <span
+                  class="MuiTypography-root MuiListItemText-primary MuiTypography-body1 MuiTypography-displayBlock"
+                >
+                  4) No porn or nudity
+                </span>
+              </div>
+            </li>
+            <li
+              class="MuiListItem-root MuiListItem-gutters"
+            >
+              <div
+                class="MuiListItemText-root"
+              >
+                <span
+                  class="MuiTypography-root MuiListItemText-primary MuiTypography-body1 MuiTypography-displayBlock"
+                >
+                  5) No harassment
+                </span>
+              </div>
+            </li>
+            <li
+              class="MuiListItem-root MuiListItem-gutters"
+            >
+              <div
+                class="MuiListItemText-root"
+              >
+                <span
+                  class="MuiTypography-root MuiListItemText-primary MuiTypography-body1 MuiTypography-displayBlock"
+                >
+                  6) No excessive swearing
+                </span>
+              </div>
+            </li>
+            <li
+              class="MuiListItem-root MuiListItem-gutters"
+            >
+              <div
+                class="MuiListItemText-root"
+              >
+                <span
+                  class="MuiTypography-root MuiListItemText-primary MuiTypography-body1 MuiTypography-displayBlock"
+                >
+                  7) No derogatory terms or phrases
+                </span>
+              </div>
+            </li>
+            <li
+              class="MuiListItem-root MuiListItem-gutters"
+            >
+              <div
+                class="MuiListItemText-root"
+              >
+                <span
+                  class="MuiTypography-root MuiListItemText-primary MuiTypography-body1 MuiTypography-displayBlock"
+                >
+                  8) No political discussions as they can become heated.
+                </span>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <div
+          class="makeStyles-rules-3"
+        >
+          <h4
+            class="MuiTypography-root MuiTypography-h4"
+          >
+            Members of USC
+          </h4>
+          <ul
+            class="MuiList-root MuiList-padding"
+          >
+            <li
+              class="MuiListItem-root MuiListItem-gutters"
+            >
+              <div
+                class="MuiListItemText-root"
+              >
+                <span
+                  class="MuiTypography-root MuiListItemText-primary MuiTypography-body1 MuiTypography-displayBlock"
+                >
+                  1) Will not, under no circumstance, Combat Log.
+                </span>
+              </div>
+            </li>
+            <li
+              class="MuiListItem-root MuiListItem-gutters"
+            >
+              <div
+                class="MuiListItemText-root"
+              >
+                <span
+                  class="MuiTypography-root MuiListItemText-primary MuiTypography-body1 MuiTypography-displayBlock"
+                >
+                  2) Will not attack other USC Personnel or any allies of the United Systems Cooperative.
+                </span>
+              </div>
+            </li>
+            <li
+              class="MuiListItem-root MuiListItem-gutters"
+            >
+              <div
+                class="MuiListItemText-root"
+              >
+                <span
+                  class="MuiTypography-root MuiListItemText-primary MuiTypography-body1 MuiTypography-displayBlock"
+                >
+                  3) Will not attack any innocent CMDRs, unless in pre-arranged combat, or for Powerplay.
+                </span>
+              </div>
+            </li>
+            <li
+              class="MuiListItem-root MuiListItem-gutters"
+            >
+              <div
+                class="MuiListItemText-root"
+              >
+                <span
+                  class="MuiTypography-root MuiListItemText-primary MuiTypography-body1 MuiTypography-displayBlock"
+                >
+                  4) Will not, under no circumstance, discriminate against other commanders on the basis of race, religion, sexuality, nationality, etc.
+                </span>
+              </div>
+            </li>
+            <li
+              class="MuiListItem-root MuiListItem-gutters"
+            >
+              <div
+                class="MuiListItemText-root"
+              >
+                <span
+                  class="MuiTypography-root MuiListItemText-primary MuiTypography-body1 MuiTypography-displayBlock"
+                >
+                  5) Will not, under no circumstance, seek revenge against other USC Personnel, directly or indirectly. Punishments for crimes, and resolutions for transgressions, will be handed out by High Command.
+                </span>
+              </div>
+            </li>
+            <li
+              class="MuiListItem-root MuiListItem-gutters"
+            >
+              <div
+                class="MuiListItemText-root"
+              >
+                <span
+                  class="MuiTypography-root MuiListItemText-primary MuiTypography-body1 MuiTypography-displayBlock"
+                >
+                  6) Will not, under no circumstance, to divulge information marked as confidential by High Command.
+                </span>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <div
+          class="makeStyles-consequences-4"
+        >
+          <p
+            class="MuiTypography-root MuiTypography-body1"
+          >
+            Those found in violation of any of these Discord or Group rules, or found attempting to bypass these rules in any way, will first be subject to a minimum of a warning, further offences will be subject to demotion, expulsion, and/or USC Kill-on-Sight status.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+`;

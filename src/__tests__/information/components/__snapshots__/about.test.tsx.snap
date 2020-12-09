@@ -1,0 +1,701 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`About should match the snapshot 1`] = `
+<body>
+  <div>
+    <div
+      class="makeStyles-root-1"
+    >
+      <h2
+        class="MuiTypography-root makeStyles-header-2 MuiTypography-h2"
+      >
+        About USC
+      </h2>
+      <div
+        class="MuiPaper-root makeStyles-paper-3 MuiPaper-elevation1 MuiPaper-rounded"
+      >
+        <div
+          class="makeStyles-header-6"
+        >
+          <h3
+            class="MuiTypography-root MuiTypography-h3"
+          >
+            Rules
+          </h3>
+          <div
+            class="MuiPaper-root makeStyles-root-7 MuiPaper-elevation1 MuiPaper-rounded"
+          >
+            <div
+              class="makeStyles-rules-8"
+            >
+              <h4
+                class="MuiTypography-root MuiTypography-h4"
+              >
+                Discord
+              </h4>
+              <ul
+                class="MuiList-root MuiList-padding"
+              >
+                <li
+                  class="MuiListItem-root MuiListItem-gutters"
+                >
+                  <div
+                    class="MuiListItemText-root"
+                  >
+                    <span
+                      class="MuiTypography-root MuiListItemText-primary MuiTypography-body1 MuiTypography-displayBlock"
+                    >
+                      1) Be Respectful
+                    </span>
+                  </div>
+                </li>
+                <li
+                  class="MuiListItem-root MuiListItem-gutters"
+                >
+                  <div
+                    class="MuiListItemText-root"
+                  >
+                    <span
+                      class="MuiTypography-root MuiListItemText-primary MuiTypography-body1 MuiTypography-displayBlock"
+                    >
+                      2) Be Mature
+                    </span>
+                  </div>
+                </li>
+                <li
+                  class="MuiListItem-root MuiListItem-gutters"
+                >
+                  <div
+                    class="MuiListItemText-root"
+                  >
+                    <span
+                      class="MuiTypography-root MuiListItemText-primary MuiTypography-body1 MuiTypography-displayBlock"
+                    >
+                      3) Do not @everyone
+                    </span>
+                  </div>
+                </li>
+                <li
+                  class="MuiListItem-root MuiListItem-gutters"
+                >
+                  <div
+                    class="MuiListItemText-root"
+                  >
+                    <span
+                      class="MuiTypography-root MuiListItemText-primary MuiTypography-body1 MuiTypography-displayBlock"
+                    >
+                      4) No porn or nudity
+                    </span>
+                  </div>
+                </li>
+                <li
+                  class="MuiListItem-root MuiListItem-gutters"
+                >
+                  <div
+                    class="MuiListItemText-root"
+                  >
+                    <span
+                      class="MuiTypography-root MuiListItemText-primary MuiTypography-body1 MuiTypography-displayBlock"
+                    >
+                      5) No harassment
+                    </span>
+                  </div>
+                </li>
+                <li
+                  class="MuiListItem-root MuiListItem-gutters"
+                >
+                  <div
+                    class="MuiListItemText-root"
+                  >
+                    <span
+                      class="MuiTypography-root MuiListItemText-primary MuiTypography-body1 MuiTypography-displayBlock"
+                    >
+                      6) No excessive swearing
+                    </span>
+                  </div>
+                </li>
+                <li
+                  class="MuiListItem-root MuiListItem-gutters"
+                >
+                  <div
+                    class="MuiListItemText-root"
+                  >
+                    <span
+                      class="MuiTypography-root MuiListItemText-primary MuiTypography-body1 MuiTypography-displayBlock"
+                    >
+                      7) No derogatory terms or phrases
+                    </span>
+                  </div>
+                </li>
+                <li
+                  class="MuiListItem-root MuiListItem-gutters"
+                >
+                  <div
+                    class="MuiListItemText-root"
+                  >
+                    <span
+                      class="MuiTypography-root MuiListItemText-primary MuiTypography-body1 MuiTypography-displayBlock"
+                    >
+                      8) No political discussions as they can become heated.
+                    </span>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div
+              class="makeStyles-rules-8"
+            >
+              <h4
+                class="MuiTypography-root MuiTypography-h4"
+              >
+                Members of USC
+              </h4>
+              <ul
+                class="MuiList-root MuiList-padding"
+              >
+                <li
+                  class="MuiListItem-root MuiListItem-gutters"
+                >
+                  <div
+                    class="MuiListItemText-root"
+                  >
+                    <span
+                      class="MuiTypography-root MuiListItemText-primary MuiTypography-body1 MuiTypography-displayBlock"
+                    >
+                      1) Will not, under no circumstance, Combat Log.
+                    </span>
+                  </div>
+                </li>
+                <li
+                  class="MuiListItem-root MuiListItem-gutters"
+                >
+                  <div
+                    class="MuiListItemText-root"
+                  >
+                    <span
+                      class="MuiTypography-root MuiListItemText-primary MuiTypography-body1 MuiTypography-displayBlock"
+                    >
+                      2) Will not attack other USC Personnel or any allies of the United Systems Cooperative.
+                    </span>
+                  </div>
+                </li>
+                <li
+                  class="MuiListItem-root MuiListItem-gutters"
+                >
+                  <div
+                    class="MuiListItemText-root"
+                  >
+                    <span
+                      class="MuiTypography-root MuiListItemText-primary MuiTypography-body1 MuiTypography-displayBlock"
+                    >
+                      3) Will not attack any innocent CMDRs, unless in pre-arranged combat, or for Powerplay.
+                    </span>
+                  </div>
+                </li>
+                <li
+                  class="MuiListItem-root MuiListItem-gutters"
+                >
+                  <div
+                    class="MuiListItemText-root"
+                  >
+                    <span
+                      class="MuiTypography-root MuiListItemText-primary MuiTypography-body1 MuiTypography-displayBlock"
+                    >
+                      4) Will not, under no circumstance, discriminate against other commanders on the basis of race, religion, sexuality, nationality, etc.
+                    </span>
+                  </div>
+                </li>
+                <li
+                  class="MuiListItem-root MuiListItem-gutters"
+                >
+                  <div
+                    class="MuiListItemText-root"
+                  >
+                    <span
+                      class="MuiTypography-root MuiListItemText-primary MuiTypography-body1 MuiTypography-displayBlock"
+                    >
+                      5) Will not, under no circumstance, seek revenge against other USC Personnel, directly or indirectly. Punishments for crimes, and resolutions for transgressions, will be handed out by High Command.
+                    </span>
+                  </div>
+                </li>
+                <li
+                  class="MuiListItem-root MuiListItem-gutters"
+                >
+                  <div
+                    class="MuiListItemText-root"
+                  >
+                    <span
+                      class="MuiTypography-root MuiListItemText-primary MuiTypography-body1 MuiTypography-displayBlock"
+                    >
+                      6) Will not, under no circumstance, to divulge information marked as confidential by High Command.
+                    </span>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div
+              class="makeStyles-consequences-9"
+            >
+              <p
+                class="MuiTypography-root MuiTypography-body1"
+              >
+                Those found in violation of any of these Discord or Group rules, or found attempting to bypass these rules in any way, will first be subject to a minimum of a warning, further offences will be subject to demotion, expulsion, and/or USC Kill-on-Sight status.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div
+          class="makeStyles-setGrid-5"
+        >
+          <div>
+            <h3
+              class="MuiTypography-root makeStyles-header-11 MuiTypography-h3"
+            >
+              High Command
+            </h3>
+            <div
+              class="MuiPaper-root makeStyles-rank-12 MuiPaper-elevation1 MuiPaper-rounded"
+            >
+              <ul
+                class="MuiList-root MuiList-padding"
+              >
+                <li
+                  class="MuiListItem-root MuiListItem-gutters"
+                >
+                  <div
+                    class="MuiListItemText-root"
+                  >
+                    <span
+                      class="MuiTypography-root MuiListItemText-primary MuiTypography-body1 MuiTypography-displayBlock"
+                    >
+                      NickG2002
+                    </span>
+                  </div>
+                </li>
+                <li
+                  class="MuiListItem-root MuiListItem-gutters"
+                >
+                  <div
+                    class="MuiListItemText-root"
+                  >
+                    <span
+                      class="MuiTypography-root MuiListItemText-primary MuiTypography-body1 MuiTypography-displayBlock"
+                    >
+                      Goliath the Second
+                    </span>
+                  </div>
+                </li>
+                <li
+                  class="MuiListItem-root MuiListItem-gutters"
+                >
+                  <div
+                    class="MuiListItemText-root"
+                  >
+                    <span
+                      class="MuiTypography-root MuiListItemText-primary MuiTypography-body1 MuiTypography-displayBlock"
+                    >
+                      LOKioo42
+                    </span>
+                  </div>
+                </li>
+                <li
+                  class="MuiListItem-root MuiListItem-gutters"
+                >
+                  <div
+                    class="MuiListItemText-root"
+                  >
+                    <span
+                      class="MuiTypography-root MuiListItemText-primary MuiTypography-body1 MuiTypography-displayBlock"
+                    >
+                      Pablok
+                    </span>
+                  </div>
+                </li>
+                <li
+                  class="MuiListItem-root MuiListItem-gutters"
+                >
+                  <div
+                    class="MuiListItemText-root"
+                  >
+                    <span
+                      class="MuiTypography-root MuiListItemText-primary MuiTypography-body1 MuiTypography-displayBlock"
+                    >
+                      PracticalHalo
+                    </span>
+                  </div>
+                </li>
+                <li
+                  class="MuiListItem-root MuiListItem-gutters"
+                >
+                  <div
+                    class="MuiListItemText-root"
+                  >
+                    <span
+                      class="MuiTypography-root MuiListItemText-primary MuiTypography-body1 MuiTypography-displayBlock"
+                    >
+                      RedFang Culph
+                    </span>
+                  </div>
+                </li>
+                <li
+                  class="MuiListItem-root MuiListItem-gutters"
+                >
+                  <div
+                    class="MuiListItemText-root"
+                  >
+                    <span
+                      class="MuiTypography-root MuiListItemText-primary MuiTypography-body1 MuiTypography-displayBlock"
+                    >
+                      UltraNeros
+                    </span>
+                  </div>
+                </li>
+                <li
+                  class="MuiListItem-root MuiListItem-gutters"
+                >
+                  <div
+                    class="MuiListItemText-root"
+                  >
+                    <span
+                      class="MuiTypography-root MuiListItemText-primary MuiTypography-body1 MuiTypography-displayBlock"
+                    >
+                      Admiralfeb
+                    </span>
+                  </div>
+                </li>
+                <li
+                  class="MuiListItem-root MuiListItem-gutters"
+                >
+                  <div
+                    class="MuiListItemText-root"
+                  >
+                    <span
+                      class="MuiTypography-root MuiListItemText-primary MuiTypography-body1 MuiTypography-displayBlock"
+                    >
+                      Akhaten
+                    </span>
+                  </div>
+                </li>
+                <li
+                  class="MuiListItem-root MuiListItem-gutters"
+                >
+                  <div
+                    class="MuiListItemText-root"
+                  >
+                    <span
+                      class="MuiTypography-root MuiListItemText-primary MuiTypography-body1 MuiTypography-displayBlock"
+                    >
+                      Aurelius Publius
+                    </span>
+                  </div>
+                </li>
+                <li
+                  class="MuiListItem-root MuiListItem-gutters"
+                >
+                  <div
+                    class="MuiListItemText-root"
+                  >
+                    <span
+                      class="MuiTypography-root MuiListItemText-primary MuiTypography-body1 MuiTypography-displayBlock"
+                    >
+                      Captain Smokeq
+                    </span>
+                  </div>
+                </li>
+                <li
+                  class="MuiListItem-root MuiListItem-gutters"
+                >
+                  <div
+                    class="MuiListItemText-root"
+                  >
+                    <span
+                      class="MuiTypography-root MuiListItemText-primary MuiTypography-body1 MuiTypography-displayBlock"
+                    >
+                      Clever Ape
+                    </span>
+                  </div>
+                </li>
+                <li
+                  class="MuiListItem-root MuiListItem-gutters"
+                >
+                  <div
+                    class="MuiListItemText-root"
+                  >
+                    <span
+                      class="MuiTypography-root MuiListItemText-primary MuiTypography-body1 MuiTypography-displayBlock"
+                    >
+                      IM2D
+                    </span>
+                  </div>
+                </li>
+                <li
+                  class="MuiListItem-root MuiListItem-gutters"
+                >
+                  <div
+                    class="MuiListItemText-root"
+                  >
+                    <span
+                      class="MuiTypography-root MuiListItemText-primary MuiTypography-body1 MuiTypography-displayBlock"
+                    >
+                      Nullyti
+                    </span>
+                  </div>
+                </li>
+                <li
+                  class="MuiListItem-root MuiListItem-gutters"
+                >
+                  <div
+                    class="MuiListItemText-root"
+                  >
+                    <span
+                      class="MuiTypography-root MuiListItemText-primary MuiTypography-body1 MuiTypography-displayBlock"
+                    >
+                      Queen Eleanor
+                    </span>
+                  </div>
+                </li>
+                <li
+                  class="MuiListItem-root MuiListItem-gutters"
+                >
+                  <div
+                    class="MuiListItemText-root"
+                  >
+                    <span
+                      class="MuiTypography-root MuiListItemText-primary MuiTypography-body1 MuiTypography-displayBlock"
+                    >
+                      Yuting9
+                    </span>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div>
+            <h3
+              class="MuiTypography-root makeStyles-header-13 MuiTypography-h3"
+            >
+              Allies
+            </h3>
+            <div
+              class="MuiPaper-root makeStyles-allies-14 MuiPaper-elevation1 MuiPaper-rounded"
+            >
+              <ul
+                class="MuiList-root MuiList-padding"
+              >
+                <li
+                  class="MuiListItem-root MuiListItem-gutters"
+                >
+                  <div
+                    class="MuiListItemText-root"
+                  >
+                    <span
+                      class="MuiTypography-root MuiListItemText-primary MuiTypography-body1 MuiTypography-displayBlock"
+                    >
+                      1st Imperium Auxiliary Cohort
+                    </span>
+                  </div>
+                </li>
+                <li
+                  class="MuiListItem-root MuiListItem-gutters"
+                >
+                  <div
+                    class="MuiListItemText-root"
+                  >
+                    <span
+                      class="MuiTypography-root MuiListItemText-primary MuiTypography-body1 MuiTypography-displayBlock"
+                    >
+                      Alba Rotam Private Military
+                    </span>
+                  </div>
+                </li>
+                <li
+                  class="MuiListItem-root MuiListItem-gutters"
+                >
+                  <div
+                    class="MuiListItemText-root"
+                  >
+                    <span
+                      class="MuiTypography-root MuiListItemText-primary MuiTypography-body1 MuiTypography-displayBlock"
+                    >
+                      Arbor Caelum
+                    </span>
+                  </div>
+                </li>
+                <li
+                  class="MuiListItem-root MuiListItem-gutters"
+                >
+                  <div
+                    class="MuiListItemText-root"
+                  >
+                    <span
+                      class="MuiTypography-root MuiListItemText-primary MuiTypography-body1 MuiTypography-displayBlock"
+                    >
+                      Black Universe Gazers
+                    </span>
+                  </div>
+                </li>
+                <li
+                  class="MuiListItem-root MuiListItem-gutters"
+                >
+                  <div
+                    class="MuiListItemText-root"
+                  >
+                    <span
+                      class="MuiTypography-root MuiListItemText-primary MuiTypography-body1 MuiTypography-displayBlock"
+                    >
+                      Daily Routine Incorperated
+                    </span>
+                  </div>
+                </li>
+                <li
+                  class="MuiListItem-root MuiListItem-gutters"
+                >
+                  <div
+                    class="MuiListItemText-root"
+                  >
+                    <span
+                      class="MuiTypography-root MuiListItemText-primary MuiTypography-body1 MuiTypography-displayBlock"
+                    >
+                      Explorers of Nabudis
+                    </span>
+                  </div>
+                </li>
+                <li
+                  class="MuiListItem-root MuiListItem-gutters"
+                >
+                  <div
+                    class="MuiListItemText-root"
+                  >
+                    <span
+                      class="MuiTypography-root MuiListItemText-primary MuiTypography-body1 MuiTypography-displayBlock"
+                    >
+                      The Galactic Archive
+                    </span>
+                  </div>
+                </li>
+                <li
+                  class="MuiListItem-root MuiListItem-gutters"
+                >
+                  <div
+                    class="MuiListItemText-root"
+                  >
+                    <span
+                      class="MuiTypography-root MuiListItemText-primary MuiTypography-body1 MuiTypography-displayBlock"
+                    >
+                      Gilgamesh Corps
+                    </span>
+                  </div>
+                </li>
+                <li
+                  class="MuiListItem-root MuiListItem-gutters"
+                >
+                  <div
+                    class="MuiListItemText-root"
+                  >
+                    <span
+                      class="MuiTypography-root MuiListItemText-primary MuiTypography-body1 MuiTypography-displayBlock"
+                    >
+                      Independence Separatist Fleet
+                    </span>
+                  </div>
+                </li>
+                <li
+                  class="MuiListItem-root MuiListItem-gutters"
+                >
+                  <div
+                    class="MuiListItemText-root"
+                  >
+                    <span
+                      class="MuiTypography-root MuiListItemText-primary MuiTypography-body1 MuiTypography-displayBlock"
+                    >
+                      Intergalactic Astronomical Union
+                    </span>
+                  </div>
+                </li>
+                <li
+                  class="MuiListItem-root MuiListItem-gutters"
+                >
+                  <div
+                    class="MuiListItemText-root"
+                  >
+                    <span
+                      class="MuiTypography-root MuiListItemText-primary MuiTypography-body1 MuiTypography-displayBlock"
+                    >
+                      Interstellar Incorporated
+                    </span>
+                  </div>
+                </li>
+                <li
+                  class="MuiListItem-root MuiListItem-gutters"
+                >
+                  <div
+                    class="MuiListItemText-root"
+                  >
+                    <span
+                      class="MuiTypography-root MuiListItemText-primary MuiTypography-body1 MuiTypography-displayBlock"
+                    >
+                      Knights of Pleiades
+                    </span>
+                  </div>
+                </li>
+                <li
+                  class="MuiListItem-root MuiListItem-gutters"
+                >
+                  <div
+                    class="MuiListItemText-root"
+                  >
+                    <span
+                      class="MuiTypography-root MuiListItemText-primary MuiTypography-body1 MuiTypography-displayBlock"
+                    >
+                      Ryders of the Void
+                    </span>
+                  </div>
+                </li>
+                <li
+                  class="MuiListItem-root MuiListItem-gutters"
+                >
+                  <div
+                    class="MuiListItemText-root"
+                  >
+                    <span
+                      class="MuiTypography-root MuiListItemText-primary MuiTypography-body1 MuiTypography-displayBlock"
+                    >
+                      ROOKS
+                    </span>
+                  </div>
+                </li>
+                <li
+                  class="MuiListItem-root MuiListItem-gutters"
+                >
+                  <div
+                    class="MuiListItemText-root"
+                  >
+                    <span
+                      class="MuiTypography-root MuiListItemText-primary MuiTypography-body1 MuiTypography-displayBlock"
+                    >
+                      Sapere Aude
+                    </span>
+                  </div>
+                </li>
+                <li
+                  class="MuiListItem-root MuiListItem-gutters"
+                >
+                  <div
+                    class="MuiListItemText-root"
+                  >
+                    <span
+                      class="MuiTypography-root MuiListItemText-primary MuiTypography-body1 MuiTypography-displayBlock"
+                    >
+                      The Altruists
+                    </span>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+`;
