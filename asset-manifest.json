@@ -3,15 +3,15 @@
     "main.css": "/usc-website/static/css/main.ab77c9ad.chunk.css",
     "main.js": "/usc-website/static/js/main.5d881f13.chunk.js",
     "main.js.map": "/usc-website/static/js/main.5d881f13.chunk.js.map",
-    "runtime-main.js": "/usc-website/static/js/runtime-main.376895e9.js",
-    "runtime-main.js.map": "/usc-website/static/js/runtime-main.376895e9.js.map",
+    "runtime-main.js": "/usc-website/static/js/runtime-main.4cd3adb6.js",
+    "runtime-main.js.map": "/usc-website/static/js/runtime-main.4cd3adb6.js.map",
     "static/js/2.5233e708.chunk.js": "/usc-website/static/js/2.5233e708.chunk.js",
     "static/js/2.5233e708.chunk.js.map": "/usc-website/static/js/2.5233e708.chunk.js.map",
     "static/js/3.43642d2f.chunk.js": "/usc-website/static/js/3.43642d2f.chunk.js",
     "static/js/3.43642d2f.chunk.js.map": "/usc-website/static/js/3.43642d2f.chunk.js.map",
     "static/css/4.af482471.chunk.css": "/usc-website/static/css/4.af482471.chunk.css",
-    "static/js/4.2fbd3fb5.chunk.js": "/usc-website/static/js/4.2fbd3fb5.chunk.js",
-    "static/js/4.2fbd3fb5.chunk.js.map": "/usc-website/static/js/4.2fbd3fb5.chunk.js.map",
+    "static/js/4.3568850e.chunk.js": "/usc-website/static/js/4.3568850e.chunk.js",
+    "static/js/4.3568850e.chunk.js.map": "/usc-website/static/js/4.3568850e.chunk.js.map",
     "static/js/5.f6cf64c2.chunk.js": "/usc-website/static/js/5.f6cf64c2.chunk.js",
     "static/js/5.f6cf64c2.chunk.js.map": "/usc-website/static/js/5.f6cf64c2.chunk.js.map",
     "index.html": "/usc-website/index.html",
@@ -30,7 +30,7 @@
     "static/media/index.css": "/usc-website/static/media/USC background pic.d02c7e28.png"
   },
   "entrypoints": [
-    "static/js/runtime-main.376895e9.js",
+    "static/js/runtime-main.4cd3adb6.js",
     "static/js/2.5233e708.chunk.js",
     "static/css/main.ab77c9ad.chunk.css",
     "static/js/main.5d881f13.chunk.js"
