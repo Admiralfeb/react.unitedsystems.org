@@ -129,13 +129,12 @@ export const BuildDetail = () => {
               className={`${classes.flexDown} ${classes.spacer} ${classes.margin}`}
             >
               <Typography variant="h5">{foundBuild?.title}</Typography>
+              <Typography>Author: {foundBuild?.author}</Typography>
               <TagGroup build={foundBuild!} />
-              <Typography style={{ whiteSpace: 'pre-line' }}>
-                {foundBuild?.description}
-              </Typography>
               {foundBuild?.description && (
                 <ReactMarkdown
                   plugins={[gfm]}
+                  renderers={{ paragraph: Typography }}
                   children={foundBuild.description}
                 />
               )}
