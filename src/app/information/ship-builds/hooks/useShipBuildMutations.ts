@@ -4,11 +4,16 @@ import { IBuildInfoInsert } from '../models/buildInfoInsert';
 
 const AddBuildMutation = loader('../graphql/insertOneShipBuildsv2.gql');
 const ReplaceBuildMutation = loader('../graphql/replaceOneShipBuildsv2.gql');
+const UpdateBuildMutation = loader(
+  '../graphql/updateRelatedOneShipBuildsv2.gql'
+);
 
 export const useShipBuildMutations = () => {
   return {
     addBuild: useAddBuild(),
     replaceBuild: useReplaceBuild(),
+    updateVariants: useUpdateVariantBuilds(),
+    updateRelated: useUpdateRelatedBuilds(),
   };
 };
 
@@ -27,6 +32,44 @@ const useAddBuild = () => {
   };
 
   return addShipBuild;
+};
+
+const useUpdateRelatedBuilds = () => {
+  const [updateBuildMutation] = useMutation(UpdateBuildMutation);
+
+  const updateRelatedBuilds = async (id: string, relatedBuilds: string[]) => {
+    const updatedBuild = await updateBuildMutation({
+      variables: {
+        build: {
+          _id: id,
+        },
+        input: {
+          related: relatedBuilds,
+        },
+      },
+    });
+    return updatedBuild;
+  };
+  return updateRelatedBuilds;
+};
+
+const useUpdateVariantBuilds = () => {
+  const [updateBuildMutation] = useMutation(UpdateBuildMutation);
+
+  const updateVariantBuilds = async (id: string, variantBuilds: string[]) => {
+    const updatedBuild = await updateBuildMutation({
+      variables: {
+        build: {
+          _id: id,
+        },
+        input: {
+          variants: variantBuilds,
+        },
+      },
+    });
+    return updatedBuild;
+  };
+  return updateVariantBuilds;
 };
 
 const useReplaceBuild = () => {
