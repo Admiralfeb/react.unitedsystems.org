@@ -6,7 +6,7 @@ import {
   Typography,
 } from '@material-ui/core';
 import { useEffect, useMemo, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { NavLink, useParams } from 'react-router-dom';
 import { Loading, NotFound } from '../../../../components';
 import { getShipInfofromID } from '../../functions/getShipInfo';
 import { useShipBuilds } from '../../hooks/useShipBuilds';
@@ -151,20 +151,26 @@ export const BuildDetail = () => {
                 >
                   Open Coriolis
                 </Button>
-                {/* <Button
+                <Button
                   variant="contained"
                   color="secondary"
-                  onClick={() => alert('work in progress')}
+                  to={`/information/builds/add?type=variant&refID=${
+                    (foundBuild!._id as unknown) as string
+                  }`}
+                  component={NavLink}
                 >
                   Add Variant
                 </Button>
                 <Button
                   variant="contained"
                   color="secondary"
-                  onClick={() => alert('work in progress')}
+                  to={`/information/builds/add?type=related&refID=${
+                    (foundBuild!._id as unknown) as string
+                  }`}
+                  component={NavLink}
                 >
                   Add Related
-                </Button> */}
+                </Button>
               </div>
             </div>
           </Paper>

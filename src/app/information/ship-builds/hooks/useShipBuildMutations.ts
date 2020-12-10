@@ -18,7 +18,9 @@ export const useShipBuildMutations = () => {
 };
 
 const useAddBuild = () => {
-  const [addBuildMutation] = useMutation<IBuildInfoInsert>(AddBuildMutation);
+  const [addBuildMutation] = useMutation<{
+    insertOneShipBuildsv2: IBuildInfoInsert;
+  }>(AddBuildMutation);
 
   const addShipBuild = async (build: IBuildInfoInsert) => {
     const addedBuild = await addBuildMutation({

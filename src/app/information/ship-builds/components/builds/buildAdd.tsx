@@ -13,6 +13,8 @@ import { IShipInfo } from '../../models';
 import { ShipAutocomplete } from '../shipAutocomplete';
 import { BuildCheckBox } from './buildCheckBox';
 import { useShipBuilds } from '../../hooks/useShipBuilds';
+import { useUrlQuery } from '../../hooks/useURLQuery';
+import { Loading } from '../../../../components';
 
 const useStyles = makeStyles({
   root: {
@@ -31,7 +33,14 @@ export const BuildAdd = () => {
   const [jsonBuild, setJsonBuild] = useState('');
   const [buildInfo, setBuildInfo] = useState<IBuildInfoInsert>(DEFAULTBUILD);
   const [specialties, setSpecialties] = useState<string[]>([]);
-  const { addBuild } = useShipBuilds();
+  const {
+    loading,
+    shipBuilds,
+    addBuild,
+    addRelated,
+    addVariant,
+  } = useShipBuilds();
+  const urlQuery = useUrlQuery();
 
   useEffect(() => {
     setBuildInfo((buildInfo) => {
@@ -127,9 +136,32 @@ export const BuildAdd = () => {
     setBuildInfo({ ...buildInfo, [event.target.name]: event.target.checked });
   };
   const handleSubmit = async () => {
+    const addType = urlQuery.get('type');
+    console.log(addType);
+    const refID = urlQuery.get('refID');
     try {
-      await addBuild(buildInfo);
-      enqueueSnackbar('Build Successfully Submitted', { variant: 'success' });
+      switch (addType) {
+        case 'variant':
+          if (refID) {
+            await addVariant(refID, shipBuilds, buildInfo);
+          } else {
+            throw new Error('Build reference ID missing from URL');
+          }
+          break;
+        case 'related':
+          if (refID) {
+            await addRelated(refID, shipBuilds, buildInfo);
+          } else {
+            throw new Error('Build reference ID missing from URL');
+          }
+          break;
+        default:
+          await addBuild(buildInfo);
+          break;
+      }
+      enqueueSnackbar('Build Successfully Submitted', {
+        variant: 'success',
+      });
       setBuildInfo({ ...DEFAULTBUILD, _id: new ObjectId() });
       setSpecialties([]);
       setJsonBuild('');
@@ -208,6 +240,10 @@ export const BuildAdd = () => {
     },
     { label: 'Beginner', name: 'isBeginner', checked: buildInfo.isBeginner },
   ];
+
+  if (loading) {
+    return <Loading />;
+  }
 
   return (
     <div className={classes.root}>

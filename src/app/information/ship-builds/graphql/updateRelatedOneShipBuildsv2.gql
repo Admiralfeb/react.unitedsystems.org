@@ -3,7 +3,8 @@ mutation UpdateRelatedOneShipBuildsv2(
   $input: ShipBuildsv2UpdateInput!
 ) {
   updateOneShipBuildsv2(query: $build, set: $input) {
+    _id
     related
-    variant
+    variants
   }
 }
