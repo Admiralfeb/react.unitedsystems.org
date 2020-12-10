@@ -1,10 +1,17 @@
 import { Route, Switch, useRouteMatch } from 'react-router-dom';
-import { BuildAdd } from './builds/buildAdd';
-import { BuildDetail } from './builds/buildDetail';
-import { QueryandBuildList } from './queryandBuildList';
+import { Loading } from '../../components';
+import { BuildAdd } from './components/builds/buildAdd';
+import { BuildDetail } from './components/builds/buildDetail';
+import { QueryandBuildList } from './components/queryandBuildList';
+import { useShipBuilds } from './hooks/useShipBuilds';
 
 export const USCBuildSystem = () => {
   const { path } = useRouteMatch();
+  const { loading } = useShipBuilds();
+
+  if (loading) {
+    return <Loading />;
+  }
 
   return (
     <Switch>
