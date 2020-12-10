@@ -1,19 +1,16 @@
 mutation ReplaceBuild($build: ShipBuildsv2InsertInput!) {
-  replaceOneShipBuildsv2(query: { _id: $buildID }, data: $build) {
+  updatedBuild: replaceOneShipBuildsv2(query: { _id: $buildID }, data: $build) {
     _id
-    shipId
-    specializations
-    title
-    buildLink
-    engLevel
-    hasGuardian
-    hasPowerplay
-    isBeginner
     author
-    isVariant
-    variants
-    related
+    beginner
+    buildLink
     description
-    jsonBuild
+    engLevel
+    guardian
+    moreInfo
+    powerplay
+    ship
+    specializations
+    id
   }
 }
