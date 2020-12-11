@@ -7,7 +7,7 @@ import {
 } from '@material-ui/core';
 import { useEffect, useMemo, useState } from 'react';
 import { NavLink, useParams } from 'react-router-dom';
-import { Loading, NotFound } from '../../../../components';
+import { Loading, NotFound } from '../../../components';
 import { getShipInfofromID } from '../../functions/getShipInfo';
 import { useShipBuilds } from '../../hooks/useShipBuilds';
 import { IShipInfo, ShipSize } from '../../models';

@@ -2,14 +2,14 @@ import { makeStyles } from '@material-ui/core';
 import { lazy, Suspense } from 'react';
 import { Route, useRouteMatch, Switch } from 'react-router-dom';
 import { Loading, NotFound } from '../components';
-import { AboutAllies } from './components/about/about-allies';
-import { AboutHC } from './components/about/about-hc';
-import { AboutRules } from './components/about/about-rules';
-import { FleetCarriers } from './components/about/fleetCarriers';
-import { ShipReviews } from './components/guides/shipReviews';
-import { Infographic } from './components/docs/infographic';
+import { AboutAllies } from './components/about-allies';
+import { AboutHC } from './components/about-hc';
+import { AboutRules } from './components/about-rules';
+import { Carriers } from './components/carriers';
+import { ShipReviews } from './components/shipReviews';
+import { Infographic } from './components/infographic';
 import { Information } from './information';
-const ShipBuilds = lazy(() => import('./components/guides/shipBuilds'));
+const ShipBuilds = lazy(() => import('./shipBuilds'));
 
 const useStyles = makeStyles({
   root: {
@@ -38,7 +38,7 @@ export const InformationRoutes = () => {
             <AboutAllies />
           </Route>
           <Route path={`${path}/about/fc`}>
-            <FleetCarriers />
+            <Carriers />
           </Route>
           <Route path={`${path}/builds`}>
             <ShipBuilds />

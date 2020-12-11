@@ -1,5 +1,5 @@
 import { makeStyles, Typography } from '@material-ui/core';
-import { Loading } from '../../../../components';
+import { Loading } from '../../../components';
 import { useShipBuilds } from '../../hooks/useShipBuilds';
 import { BuildCard } from './buildCard';
 

@@ -1,5 +1,5 @@
-import reviews from '../ship-builds/assets/shipMap.json';
-import { sortItems } from '../ship-builds/functions/sort';
+import reviews from '../../ship-builds/assets/shipMap.json';
+import { sortItems } from '../functions/sort';
 import { IShipReview } from '../models/shipReview';
 
 export const useShipReviews = (): IShipReview[] => {

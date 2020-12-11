@@ -10,7 +10,7 @@ import {
   TableRow,
   Typography,
 } from '@material-ui/core';
-import { useShipReviews } from '../../hooks/useShipReviews';
+import { useShipReviews } from '../hooks/useShipReviews';
 
 const useStyles = makeStyles({
   table: {

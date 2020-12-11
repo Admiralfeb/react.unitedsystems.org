@@ -1,10 +1,7 @@
 import { makeStyles } from '@material-ui/core';
-import { docsList } from './components/docs/info-docs-list';
-import { guidesList } from './components/guides/info-guides-list';
-import { toolsList } from './components/tools/info-tools-list';
 import { Typography, Paper } from '@material-ui/core';
-import { InfoUSCLinks } from './components/info-usclinks';
 import { InfoSection } from './components/info-section';
+import { useInfoButtons } from './hooks/useInfoButtons';
 
 const useStyles = makeStyles((theme) => ({
   header: {
@@ -29,12 +26,18 @@ const useStyles = makeStyles((theme) => ({
 
 export const Information = () => {
   const classes = useStyles();
+  const { toolsList, docsList, guidesList, uscLinksList } = useInfoButtons();
   return (
     <>
       <Typography variant="h2" className={classes.header}>
         USC Data Archive
       </Typography>
-      <InfoUSCLinks />
+      <InfoSection
+        id="usc-links"
+        key="usc-links"
+        header="USC Links"
+        buttons={uscLinksList}
+      />
       <Paper className={classes.paper}>
         <Typography variant="subtitle1">
           New Players look to the{' '}
