@@ -1,4 +1,4 @@
-import { Button, FormGroup, makeStyles } from '@material-ui/core';
+import { Button, FormGroup, makeStyles, Typography } from '@material-ui/core';
 import { ChangeEvent, MouseEvent, useEffect, useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { processJSONBuild } from '../../functions/processJSONBuild';
@@ -255,6 +255,13 @@ export const BuildAdd = () => {
       >
         Return to builds
       </Button>
+      <Typography>
+        Save your build in Coriolis and choose Export. Paste the exported JSON
+        into the Exported JSON field.
+      </Typography>
+      <Typography>
+        Verify/enter remaining information and click Submit Build at the bottom.
+      </Typography>
       {textFields.map((field) => (
         <BuildAddText key={field.id} {...field} />
       ))}
