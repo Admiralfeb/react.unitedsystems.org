@@ -1,6 +1,6 @@
 import { Typography, makeStyles } from '@material-ui/core';
 import { useMemo } from 'react';
-import { Loading } from '../../components';
+import { EDSpinner } from '@admiralfeb/react-components';
 import { useFleetCarriers } from '../hooks/useFleetCarriers';
 import { IFleetCarrier } from '../models/fleetCarrier';
 import { sortItems } from '../functions/sort';
@@ -31,9 +31,13 @@ export const Carriers = () => {
   return (
     <div className={classes.table}>
       <Typography variant="h3">USC Fleet Carriers</Typography>
-      {loading ? <Loading /> : <USCCarriers carriers={squadCarriers} />}
+      {loading ? <EDSpinner /> : <USCCarriers carriers={squadCarriers} />}
       <Typography variant="h4">Personal Fleet Carriers of USC</Typography>
-      {loading ? <Loading /> : <PersonalCarriers carriers={personalCarriers} />}
+      {loading ? (
+        <EDSpinner />
+      ) : (
+        <PersonalCarriers carriers={personalCarriers} />
+      )}
     </div>
   );
 };

@@ -7,7 +7,7 @@ import {
 } from '@material-ui/core';
 import { useEffect, useMemo, useState } from 'react';
 import { NavLink, useParams } from 'react-router-dom';
-import { Loading, NotFound } from '../../../components';
+import { NotFound } from '../../../components';
 import { getShipInfofromID } from '../../functions/getShipInfo';
 import { useShipBuilds } from '../../hooks/useShipBuilds';
 import { IShipInfo, ShipSize } from '../../models';
@@ -15,6 +15,7 @@ import { BuildDetailBuilds } from './buildDetailBuilds';
 import { TagGroup } from './tagGroup';
 import ReactMarkdown from 'react-markdown';
 import gfm from 'remark-gfm';
+import { EDSpinner } from '@admiralfeb/react-components';
 
 interface RouteParams {
   id: string;
@@ -93,7 +94,7 @@ export const BuildDetail = () => {
     <>
       <Typography variant="h3">Build Detail</Typography>
       {loading ? (
-        <Loading />
+        <EDSpinner />
       ) : foundBuild === null ? (
         <NotFound />
       ) : (

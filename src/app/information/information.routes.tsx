@@ -1,7 +1,7 @@
 import { makeStyles } from '@material-ui/core';
 import { lazy, Suspense } from 'react';
 import { Route, useRouteMatch, Switch } from 'react-router-dom';
-import { Loading, NotFound } from '../components';
+import { NotFound } from '../components';
 import { AboutAllies } from './components/about-allies';
 import { AboutHC } from './components/about-hc';
 import { AboutRules } from './components/about-rules';
@@ -9,6 +9,7 @@ import { Carriers } from './components/carriers';
 import { ShipReviews } from './components/shipReviews';
 import { Infographic } from './components/infographic';
 import { Information } from './information';
+import { EDSpinner } from '@admiralfeb/react-components';
 const ShipBuilds = lazy(() => import('./shipBuilds'));
 
 const useStyles = makeStyles({
@@ -23,7 +24,7 @@ export const InformationRoutes = () => {
 
   return (
     <div className={classes.root}>
-      <Suspense fallback={<Loading />}>
+      <Suspense fallback={<EDSpinner />}>
         <Switch>
           <Route exact path={path}>
             <Information />

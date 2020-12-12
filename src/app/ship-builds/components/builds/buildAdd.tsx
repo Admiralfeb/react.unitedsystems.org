@@ -14,7 +14,7 @@ import { ShipAutocomplete } from '../shipAutocomplete';
 import { BuildCheckBox } from './buildCheckBox';
 import { useShipBuilds } from '../../hooks/useShipBuilds';
 import { useUrlQuery } from '../../hooks/useURLQuery';
-import { Loading } from '../../../components';
+import { EDSpinner } from '@admiralfeb/react-components';
 
 const useStyles = makeStyles({
   root: {
@@ -242,7 +242,7 @@ export const BuildAdd = () => {
   ];
 
   if (loading) {
-    return <Loading />;
+    return <EDSpinner />;
   }
 
   return (
