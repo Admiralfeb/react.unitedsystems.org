@@ -1,7 +1,6 @@
 import { EDSpinner } from '@admiralfeb/react-components';
 import { useCallback, useEffect, useState } from 'react';
 import { filterShipBuilds } from '../../functions/filterShipBuilds';
-import { sortItems } from '../../functions/sort';
 import { useShipBuilds } from '../../hooks/useShipBuilds';
 import { IBuildInfov2, IQuery } from '../../models';
 import { BuildCard } from './buildCard';
@@ -18,8 +17,7 @@ export const BuildList = (props: { buildQuery: IQuery | undefined }) => {
     }
     console.log(shipBuilds);
     const filtered = filterShipBuilds(shipBuilds, buildQuery);
-    const sorted = sortItems(filtered!, 'shipId');
-    setQueriedBuilds(sorted);
+    setQueriedBuilds(filtered);
   }, [loading, shipBuilds, buildQuery]);
 
   useEffect(() => {

@@ -1,5 +1,5 @@
 query AllShipBuildsv2s {
-  shipBuildsv2s {
+  shipBuildsv2s(sortBy: SHIPID_ASC) {
     _id
     shipId
     specializations
