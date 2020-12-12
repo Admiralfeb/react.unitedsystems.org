@@ -1,6 +1,5 @@
 import { makeStyles, Typography } from '@material-ui/core';
-
-import { infoGraphics } from './infographic-list';
+import { useInfographic } from '../hooks/useInfographic';
 
 const useStyles = makeStyles({
   root: {
@@ -23,8 +22,4 @@ export const Infographic = (props: { img: string }) => {
       )}
     </div>
   );
-};
-
-const useInfographic = (imgID: string) => {
-  return infoGraphics.find((x) => x.id === imgID);
 };

@@ -1,5 +1,5 @@
+import { EDSpinner } from '@admiralfeb/react-components';
 import { makeStyles, Typography } from '@material-ui/core';
-import { Loading } from '../../../../components';
 import { useShipBuilds } from '../../hooks/useShipBuilds';
 import { BuildCard } from './buildCard';
 
@@ -30,7 +30,7 @@ export const BuildDetailBuilds = (props: {
     <div id="variants" className={classes.textCenter}>
       <Typography variant="h4">{title}</Typography>
       {loading ? (
-        <Loading />
+        <EDSpinner />
       ) : (
         <div className={classes.paper}>
           {buildIDs.map((id) => {

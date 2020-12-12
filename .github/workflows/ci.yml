@@ -1,13 +1,12 @@
-name: CD
+name: CI
 
 on:
   push:
-    branches: [master]
   workflow_dispatch:
 
 jobs:
-  build-deploy:
-    name: Build and Deploy
+  build:
+    name: Install and Build
     runs-on: ubuntu-latest
     steps:
       - name: 'Checkout from git'
@@ -20,9 +19,3 @@ jobs:
         run: npm ci --force
       - name: Build
         run: npm run build
-      - name: Deploy to GitHub Pages
-        uses: JamesIves/github-pages-deploy-action@3.7.1
-        with:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          BRANCH: gh-pages
-          FOLDER: build

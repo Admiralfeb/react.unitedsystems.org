@@ -1,5 +1,5 @@
+import { EDSpinner } from '@admiralfeb/react-components';
 import { useCallback, useEffect, useState } from 'react';
-import { Loading } from '../../../../components';
 import { filterShipBuilds } from '../../functions/filterShipBuilds';
 import { sortItems } from '../../functions/sort';
 import { useShipBuilds } from '../../hooks/useShipBuilds';
@@ -32,7 +32,7 @@ export const BuildList = (props: { buildQuery: IQuery | undefined }) => {
   return (
     <div className="builds">
       {loading ? (
-        <Loading />
+        <EDSpinner />
       ) : (
         queriedBuilds?.map((ship) => {
           return (

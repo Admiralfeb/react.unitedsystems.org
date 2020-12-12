@@ -1,5 +1,5 @@
 import { Route, Switch, useRouteMatch } from 'react-router-dom';
-import { Loading } from '../../components';
+import { EDSpinner } from '@admiralfeb/react-components';
 import { BuildAdd } from './components/builds/buildAdd';
 import { BuildDetail } from './components/builds/buildDetail';
 import { QueryandBuildList } from './components/queryandBuildList';
@@ -10,7 +10,7 @@ export const USCBuildSystem = () => {
   const { loading } = useShipBuilds();
 
   if (loading) {
-    return <Loading />;
+    return <EDSpinner />;
   }
 
   return (
