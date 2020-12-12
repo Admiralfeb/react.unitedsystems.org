@@ -1,8 +1,7 @@
-name: CD
+name: CI
 
 on:
   push:
-    branches: [master]
   workflow_dispatch:
 
 jobs:
@@ -20,9 +19,3 @@ jobs:
         run: npm ci --force
       - name: Build
         run: npm run build
-      - name: Deploy to GitHub Pages
-        uses: JamesIves/github-pages-deploy-action@3.7.1
-        with:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          BRANCH: gh-pages
-          FOLDER: build
