@@ -4,36 +4,57 @@ import { ToggleButtonGroup, ToggleButton } from '@material-ui/lab';
 import { OtherFilters } from '../../models/otherFilters';
 import BlockIcon from '@material-ui/icons/Block';
 import CheckIcon from '@material-ui/icons/Check';
+import { Dispatch, MouseEvent, SetStateAction } from 'react';
 
 export const QueryOther = (props: {
   other: OtherFilters;
-  setOther: React.Dispatch<React.SetStateAction<OtherFilters>>;
+  setOther: Dispatch<SetStateAction<OtherFilters>>;
 }) => {
   const { other, setOther } = props;
 
   const handleGuardianChange = (
-    _: React.MouseEvent<HTMLElement>,
+    _: MouseEvent<HTMLElement>,
     newValue: number
   ) => {
-    setOther({ ...other, guardian: newValue });
+    setOther((prevState) => ({ ...prevState, guardian: newValue }));
   };
   const handlePowerPlayChange = (
-    _: React.MouseEvent<HTMLElement>,
+    _: MouseEvent<HTMLElement>,
     newValue: number
   ) => {
-    setOther({ ...other, powerplay: newValue });
+    setOther((prevState) => ({ ...prevState, powerplay: newValue }));
   };
   const handleBeginnerChange = (
-    _: React.MouseEvent<HTMLElement>,
+    _: MouseEvent<HTMLElement>,
     newValue: number
   ) => {
-    setOther({ ...other, beginner: newValue });
+    setOther((prevState) => ({ ...prevState, beginner: newValue }));
+  };
+  const handleShowVariantsChange = (
+    _: MouseEvent<HTMLElement>,
+    checked: boolean
+  ) => {
+    setOther((prevState) => ({ ...prevState, showVariants: checked }));
   };
 
   return (
     <div className="otherQuery">
       <h3 className="queryHeader">Other Filters</h3>
       <div className="otherButtons">
+        <Tooltip title="Show all builds, including variants" arrow>
+          <div className="showVariants">
+            <label>Show Variants</label>
+            <ToggleButtonGroup
+              value={other.showVariants}
+              exclusive
+              onChange={handleShowVariantsChange}
+            >
+              <ToggleButton value={true}>
+                <CheckIcon />
+              </ToggleButton>
+            </ToggleButtonGroup>
+          </div>
+        </Tooltip>
         <Tooltip title="Should the build have Guardian components?" arrow>
           <div className="guardian">
             <label>Guardian</label>
@@ -68,7 +89,7 @@ export const QueryOther = (props: {
             </ToggleButtonGroup>
           </div>
         </Tooltip>
-        <Tooltip title="Is this build easy to achieve early-game?">
+        <Tooltip title="Is this build easy to achieve early-game?" arrow>
           <div className="beginner">
             <label>Beginner</label>
             <ToggleButtonGroup

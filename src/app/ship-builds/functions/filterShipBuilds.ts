@@ -6,7 +6,13 @@ export const filterShipBuilds = (
   query: IQuery | undefined
 ) => {
   if (shipBuilds && query) {
-    let newList = shipBuilds.filter((x) => x.isVariant === false);
+    let newList = shipBuilds;
+    if (
+      query.other.showVariants === null ||
+      query.other.showVariants === false
+    ) {
+      newList = newList.filter((build) => build.isVariant === false);
+    }
     // ship type
     if (query.ship !== null) {
       newList = newList.filter((build) => build.shipId === query.ship);
@@ -58,6 +64,7 @@ export const filterShipBuilds = (
       const val = query.other.beginner === 1 ? true : false;
       newList = newList.filter((build) => build.isBeginner === val);
     }
+
     return newList;
   }
 };

@@ -60,6 +60,7 @@ label > img {
   flex-direction: row;
   justify-content: center;
 }
+.showVariants,
 .guardian,
 .powerplay,
 .beginner {
@@ -67,12 +68,14 @@ label > img {
   grid-template-rows: 0.5fr 1fr;
   margin: 0 10px;
 }
+.showVariants > div,
 .guardian > div,
 .powerplay > div,
 .beginner > div {
   margin: auto;
   padding: 5px;
 }
+.showVariants > label,
 .guardian > label,
 .powerplay > label,
 .beginner > label {

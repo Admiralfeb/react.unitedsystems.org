@@ -21,6 +21,7 @@ export const Query = (props: { queryUpdate: (query: IQuery) => void }) => {
     guardian: null,
     powerplay: null,
     beginner: null,
+    showVariants: null,
   });
   let query = useUrlQuery();
 
@@ -55,6 +56,7 @@ export const Query = (props: { queryUpdate: (query: IQuery) => void }) => {
       guardian: null,
       powerplay: null,
       beginner: null,
+      showVariants: null,
     });
   };
 
