@@ -1,12 +1,14 @@
 import { Typography } from '@material-ui/core';
 import { ToggleButton } from '@material-ui/lab';
 import { ShipSpecialty } from 'models/shipBuilds/shipSpecialty';
+import { useQueryStyles } from './queryStyles';
 
 export const QuerySpecialization = (props: {
   selectedSpecialties: string[];
   setSpecialties: React.Dispatch<React.SetStateAction<string[]>>;
 }) => {
   const { selectedSpecialties, setSpecialties } = props;
+  const classes = useQueryStyles();
 
   const handleSpecialties = (special: string) => {
     let newSpecials: string[] = [];
@@ -19,14 +21,14 @@ export const QuerySpecialization = (props: {
   };
 
   return (
-    <div className="specializationQuery">
-      <h3 className="queryHeader">Ship Specializations</h3>
+    <div className={classes.querySection}>
+      <h3 className={classes.querySectionheader}>Ship Specializations</h3>
 
-      <Typography>
+      <Typography className={classes.queryExplanationText}>
         Select specializations that the ship should fulfill.
       </Typography>
 
-      <div className="specialButtons">
+      <div className={classes.querySpecialtyButtons}>
         {getSpecialties().map((special) => (
           <ToggleButton
             value={special}

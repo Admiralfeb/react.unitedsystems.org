@@ -4,6 +4,7 @@ import { ToggleButton, ToggleButtonGroup } from '@material-ui/lab';
 import { ChangeEvent } from 'react';
 import { IShipInfo } from 'models/shipBuilds';
 import { ShipAutocomplete } from '../shipAutocomplete';
+import { useQueryStyles } from './queryStyles';
 
 export const QueryShip = (props: {
   shipSize: number | null;
@@ -12,6 +13,7 @@ export const QueryShip = (props: {
   setShipType: React.Dispatch<React.SetStateAction<string | null>>;
 }) => {
   const { shipType, setShipType, shipSize, setShipSize } = props;
+  const classes = useQueryStyles();
 
   const handleShipSizeChange = (
     _: React.MouseEvent<HTMLElement>,
@@ -28,16 +30,16 @@ export const QueryShip = (props: {
   };
 
   return (
-    <div className="shipQuery">
-      <h3 className="queryHeader">Ship Type and Size</h3>
-      <div className="shipQuerySection">
-        <div className="shipTypeQuery">
+    <div className={classes.querySection}>
+      <h3 className={classes.querySectionheader}>Ship Type and Size</h3>
+      <div className={classes.shipQueries}>
+        <div className={classes.shipTypeQuery}>
           <ShipAutocomplete
             shipType={shipType}
             handleShipChange={handleShipChange}
           />
         </div>
-        <div className="shipSizeQuery">
+        <div className={classes.shipSizeQuery}>
           <Tooltip
             title="What's the size of the ship you're looking for?"
             arrow

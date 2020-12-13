@@ -10,7 +10,9 @@ const useStyles = makeStyles({
     '& p': {
       textAlign: 'center',
     },
+    width: '95%',
   },
+  header: { textAlign: 'center' },
   fab: {
     position: 'fixed',
     bottom: '5px',
@@ -36,7 +38,9 @@ export const QueryandBuildList = () => {
 
   return (
     <section className={classes.root}>
-      <Typography variant="h3">Ship Build Archive</Typography>
+      <Typography variant="h3" className={classes.header}>
+        Ship Build Archive
+      </Typography>
       <Query updateQuery={handleQuery} />
       <div ref={buildRef}>
         <BuildList buildQuery={query} />

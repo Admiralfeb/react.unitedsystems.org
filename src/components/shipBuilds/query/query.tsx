@@ -1,8 +1,6 @@
 import { useEffect, useState } from 'react';
 import { IQuery, OtherFilters } from 'models/shipBuilds';
 
-import './query.css';
-
 import { Button, Paper } from '@material-ui/core';
 import { QuerySpecialization } from './querySpecialities';
 import { QueryShip } from './queryShip';
@@ -10,6 +8,7 @@ import { QueryEngineering } from './queryEngineering';
 import { QueryOther } from './queryOther';
 import { NavLink } from 'react-router-dom';
 import { useUrlQuery } from 'hooks/useURLQuery';
+import { useQueryStyles } from './queryStyles';
 
 export const Query = (props: { updateQuery: (query: IQuery) => void }) => {
   const [shipType, setShipType] = useState<string | null>(null);
@@ -24,6 +23,7 @@ export const Query = (props: { updateQuery: (query: IQuery) => void }) => {
   });
   let urlQuery = useUrlQuery();
   const { updateQuery } = props;
+  const classes = useQueryStyles();
 
   useEffect(() => {
     const queryParam = urlQuery.get('beginner');
@@ -59,7 +59,7 @@ export const Query = (props: { updateQuery: (query: IQuery) => void }) => {
   };
 
   return (
-    <Paper className="query">
+    <Paper className={classes.root}>
       <QuerySpecialization
         selectedSpecialties={selectedSpecialties}
         setSpecialties={setSpecialties}
@@ -72,7 +72,7 @@ export const Query = (props: { updateQuery: (query: IQuery) => void }) => {
       />
       <QueryEngineering engLevel={engLevel} setEngLevel={setEngLevel} />
       <QueryOther other={other} setOther={setOther} />
-      <div className="reset">
+      <div className={classes.bottomButtons}>
         <Button
           onClick={resetQueries}
           color="primary"
