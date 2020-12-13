@@ -1,5 +1,5 @@
 import { createMuiTheme } from '@material-ui/core';
-import backgroundImg from 'assets/USC background pic.png';
+import backgroundImg from 'assets/background.png';
 
 export const darkTheme = createMuiTheme({
   palette: {
