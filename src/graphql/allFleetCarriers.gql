@@ -1,0 +1,8 @@
+query AllFleetCarriers {
+  fleetCarriers {
+    id
+    name
+    owner
+    purpose
+  }
+}
