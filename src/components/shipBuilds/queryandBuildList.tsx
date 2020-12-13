@@ -1,5 +1,5 @@
 import { Fab, makeStyles, Typography, useMediaQuery } from '@material-ui/core';
-import { useRef, useState } from 'react';
+import { useCallback, useRef, useState } from 'react';
 import { BuildList } from './builds/buildList';
 import { IQuery } from 'models/shipBuilds';
 import { Query } from './query/query';
@@ -24,9 +24,9 @@ export const QueryandBuildList = () => {
   const isMobile = useMediaQuery('(max-width:1000px)');
   const classes = useStyles();
 
-  const handleQuery = (query: IQuery) => {
+  const handleQuery = useCallback((query: IQuery) => {
     setQuery(query);
-  };
+  }, []);
 
   const handleFab = () => {
     if (buildRef.current) {
@@ -37,7 +37,7 @@ export const QueryandBuildList = () => {
   return (
     <section className={classes.root}>
       <Typography variant="h3">Ship Build Archive</Typography>
-      <Query queryUpdate={handleQuery} />
+      <Query updateQuery={handleQuery} />
       <div ref={buildRef}>
         <BuildList buildQuery={query} />
       </div>

@@ -11,7 +11,7 @@ import { QueryOther } from './queryOther';
 import { NavLink } from 'react-router-dom';
 import { useUrlQuery } from 'hooks/useURLQuery';
 
-export const Query = (props: { queryUpdate: (query: IQuery) => void }) => {
+export const Query = (props: { updateQuery: (query: IQuery) => void }) => {
   const [shipType, setShipType] = useState<string | null>(null);
   const [shipSize, setShipSize] = useState<number | null>(null);
   const [engLevel, setEngLevel] = useState<number | null>(null);
@@ -22,10 +22,11 @@ export const Query = (props: { queryUpdate: (query: IQuery) => void }) => {
     beginner: null,
     showVariants: null,
   });
-  let query = useUrlQuery();
+  let urlQuery = useUrlQuery();
+  const { updateQuery } = props;
 
   useEffect(() => {
-    const queryParam = query.get('beginner');
+    const queryParam = urlQuery.get('beginner');
     if (queryParam === 'true') {
       setOther({ ...other, beginner: 1 });
     }
@@ -33,7 +34,6 @@ export const Query = (props: { queryUpdate: (query: IQuery) => void }) => {
   }, []);
 
   useEffect(() => {
-    const { queryUpdate } = props;
     const query: IQuery = {
       ship: shipType,
       size: shipSize,
@@ -41,10 +41,9 @@ export const Query = (props: { queryUpdate: (query: IQuery) => void }) => {
       specialties: selectedSpecialties,
       other,
     };
-    queryUpdate(query);
-    // Disable eslint. Props is not missing from dependencies.
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [shipType, shipSize, engLevel, selectedSpecialties, other]);
+    console.log(query);
+    updateQuery(query);
+  }, [shipType, shipSize, engLevel, selectedSpecialties, other, updateQuery]);
 
   const resetQueries = () => {
     setShipType(null);
