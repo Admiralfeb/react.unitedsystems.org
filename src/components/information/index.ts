@@ -5,5 +5,4 @@ export * from './carriers';
 export * from './infoSection';
 export * from './infographic';
 export * from './information';
-export * from './shipBuilds';
 export * from './shipReviews';
