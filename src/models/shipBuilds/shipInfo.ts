@@ -8,4 +8,5 @@ export interface IShipInfo {
   requires?: string;
   shipImg: string;
   shipReview: string;
+  blueprint: string;
 }

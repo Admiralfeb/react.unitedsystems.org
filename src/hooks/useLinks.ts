@@ -1,16 +1,21 @@
-import { InaraSquadLink, DiscordLink, PatreonLink } from 'data/uscLinks';
+import {
+  InaraSquadLink,
+  DiscordLink,
+  PatreonLink,
+  BlueprintLink,
+} from 'data/uscLinks';
+
 export const useLinks = () => {
-  return {
-    inaraSquadLink: InaraSquadLink,
-    discordLink: DiscordLink,
-    patreonLink: PatreonLink,
-  };
+  return { ...links };
 };
 
 export const getLinks = () => {
-  return {
-    inaraSquadLink: InaraSquadLink,
-    discordLink: DiscordLink,
-    patreonLink: PatreonLink,
-  };
+  return { ...links };
+};
+
+const links = {
+  inaraSquadLink: InaraSquadLink,
+  discordLink: DiscordLink,
+  patreonLink: PatreonLink,
+  blueprints: BlueprintLink,
 };

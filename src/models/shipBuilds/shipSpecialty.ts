@@ -1,8 +1,8 @@
 export enum ShipSpecialty {
-  exp = 'Exploration',
   jump = 'Jump Ship',
   hge = 'HGE Farming',
   cargo = 'Cargo',
+  passenger = 'Passenger',
   mining = 'Miner',
   pve = 'Combat - PvE',
   pvp = 'Combat - PvP',
