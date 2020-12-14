@@ -6,10 +6,22 @@ import {
   TableCell,
   TableRow,
   TableBody,
+  makeStyles,
 } from '@material-ui/core';
 import { IFleetCarrier } from 'models/information/fleetCarrier';
-import { useStyles } from './carriers';
 
+const useStyles = makeStyles({
+  table: {
+    maxWidth: 600,
+    textAlign: 'center',
+    margin: 'auto',
+  },
+});
+
+/**
+ * Displays Personal carriers
+ * @param props carriers to display
+ */
 export const PersonalCarriers = (props: {
   carriers: IFleetCarrier[] | undefined;
 }) => {
@@ -17,7 +29,7 @@ export const PersonalCarriers = (props: {
   const { carriers } = props;
 
   return (
-    <TableContainer component={Paper} className={classes.secondTable}>
+    <TableContainer component={Paper} className={classes.table}>
       <Table>
         <TableHead>
           <TableRow>

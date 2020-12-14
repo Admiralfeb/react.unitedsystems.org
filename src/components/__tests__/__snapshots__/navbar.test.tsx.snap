@@ -1,0 +1,79 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Join should match the snapshot 1`] = `
+<body>
+  <div>
+    <nav
+      class="makeStyles-root-1"
+    >
+      <a
+        aria-disabled="false"
+        class="MuiButtonBase-root MuiButton-root MuiButton-text makeStyles-navLink-3"
+        href="/home"
+        role="button"
+        tabindex="0"
+      >
+        <span
+          class="MuiButton-label"
+        >
+          Home
+        </span>
+        <span
+          class="MuiTouchRipple-root"
+        />
+      </a>
+      <a
+        aria-disabled="false"
+        class="MuiButtonBase-root MuiButton-root MuiButton-text makeStyles-navLink-3"
+        href="/information"
+        role="button"
+        tabindex="0"
+      >
+        <span
+          class="MuiButton-label"
+        >
+          Information
+        </span>
+        <span
+          class="MuiTouchRipple-root"
+        />
+      </a>
+      <a
+        aria-disabled="false"
+        class="MuiButtonBase-root MuiButton-root MuiButton-text makeStyles-navLink-3"
+        href="/information/builds"
+        role="button"
+        tabindex="0"
+      >
+        <span
+          class="MuiButton-label"
+        >
+          USC Builds
+        </span>
+        <span
+          class="MuiTouchRipple-root"
+        />
+      </a>
+      <div
+        class="makeStyles-filler-5"
+      />
+      <a
+        aria-disabled="false"
+        class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedSecondary"
+        href="/join"
+        role="button"
+        tabindex="0"
+      >
+        <span
+          class="MuiButton-label"
+        >
+          Join
+        </span>
+        <span
+          class="MuiTouchRipple-root"
+        />
+      </a>
+    </nav>
+  </div>
+</body>
+`;

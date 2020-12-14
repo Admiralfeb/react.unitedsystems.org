@@ -37,6 +37,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+/** Displays the rules */
 export const AboutRules = () => {
   const classes = useStyles();
   return (

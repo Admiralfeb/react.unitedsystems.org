@@ -1,23 +1,47 @@
-import { useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
-import { Button } from '@material-ui/core';
-import useStyles from './navbar.styles';
-import { useRealmApp } from 'hooks/useRealmApp';
+import { Button, makeStyles } from '@material-ui/core';
+import { useLoginAnon } from 'hooks/useLoginAnon';
+
+const useStyles = makeStyles((theme) => ({
+  root: {
+    width: '100%',
+    display: 'flex',
+    padding: '5px 10px',
+    backgroundColor: '#333',
+    height: 'auto',
+    minHeight: 'auto',
+    justifyContent: 'initial',
+    zIndex: 1500,
+  },
+  img: {
+    height: 'auto',
+    width: '55px',
+    float: 'left',
+    display: 'block',
+    marginRight: '1em',
+  },
+  navLink: {
+    backgroundColor: 'transparent',
+    color: '#f2f2f2',
+    textAlign: 'center',
+    textDecoration: 'none',
+    marginTop: 'auto',
+    marginBottom: 'auto',
+    marginLeft: '0.5em',
+    textTransform: 'initial',
+  },
+  active: {
+    backgroundColor: theme.palette.primary.main,
+    color: 'white',
+  },
+  filler: {
+    flex: '1 0',
+  },
+}));
 
 export const NavbarComponent = () => {
   const classes = useStyles();
-  const realm = useRealmApp();
-
-  useEffect(() => {
-    console.log(realm.currentUser);
-    if (realm.currentUser === null) {
-      realm
-        .logInAnon()
-        .then((_) => console.log(realm.currentUser))
-        .catch((reason) => console.log(reason));
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  useLoginAnon();
 
   return (
     <nav className={classes.root}>

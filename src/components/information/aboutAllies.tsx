@@ -19,6 +19,8 @@ const useStyles = makeStyles({
     width: 450,
   },
 });
+
+/** Displays Allies */
 export const AboutAllies = () => {
   const classes = useStyles();
   return (

@@ -1,6 +1,6 @@
 import { makeStyles } from '@material-ui/core';
 import { Typography, Paper } from '@material-ui/core';
-import { InfoSection } from './info-section';
+import { InfoSection } from './infoSection';
 import { useInfoButtons } from 'hooks/information/useInfoButtons';
 
 const useStyles = makeStyles((theme) => ({
@@ -24,6 +24,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+/** Information Landing Component */
 export const Information = () => {
   const classes = useStyles();
   const { toolsList, docsList, guidesList, uscLinksList } = useInfoButtons();

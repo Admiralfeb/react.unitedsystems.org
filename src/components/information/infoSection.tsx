@@ -1,14 +1,51 @@
-import { Button, Paper, Typography } from '@material-ui/core';
+import { Button, makeStyles, Paper, Typography } from '@material-ui/core';
 import { Link, useRouteMatch } from 'react-router-dom';
 import { IInfoButton } from 'models/information/infoButtonModel';
-import useStyles from './infoStyles';
 
+const useStyles = makeStyles((theme) => ({
+  paper: {
+    textAlign: 'center',
+    width: '80%',
+    margin: 'auto',
+    padding: 5,
+    paddingBottom: 10,
+    marginBottom: 5,
+  },
+  specialButton: {
+    display: 'flex',
+    flexDirection: 'column',
+  },
+  flex: {
+    '& button': {
+      margin: 5,
+    },
+    '& a': {
+      margin: 5,
+    },
+  },
+  grid: {
+    display: 'grid',
+    gridTemplateRows: 'auto',
+  },
+  secondary: {
+    color: theme.palette.secondary.main,
+  },
+}));
+
+/** Interface for Info Section Props */
 interface ISectionProps {
+  /** id of section */
   id: string;
+  /** header to display */
   header: string;
+  /** Buttons to display */
   buttons: IInfoButton[];
 }
 
+/**
+ * Displays an info Section set of buttons
+ * @param props id, header, and button array.
+ */
 export const InfoSection = (props: ISectionProps) => {
   const classes = useStyles();
   const { url } = useRouteMatch();

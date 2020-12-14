@@ -29,3 +29,5 @@ export const ShipBuildSystemRoutes = () => {
     </Switch>
   );
 };
+
+export default ShipBuildSystemRoutes;

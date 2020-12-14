@@ -20,6 +20,7 @@ const useStyles = makeStyles({
   },
 });
 
+/** Displays the ship Review Table */
 export const ShipReviews = () => {
   const classes = useStyles();
   const shipReviews = useShipReviews();

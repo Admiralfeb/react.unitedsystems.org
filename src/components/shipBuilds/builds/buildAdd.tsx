@@ -25,6 +25,15 @@ const useStyles = makeStyles({
   },
 });
 
+/**
+ * Add Build Screen
+ *
+ * Used for all addition functions:
+ *
+ * - Normal Build
+ * - Related Build
+ * - Variant Build
+ */
 export const BuildAdd = () => {
   const classes = useStyles();
   const { enqueueSnackbar } = useSnackbar();
