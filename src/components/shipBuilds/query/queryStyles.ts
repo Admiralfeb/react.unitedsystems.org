@@ -19,7 +19,6 @@ export const useQueryStyles = makeStyles((theme) => ({
         'ship   other'
         'buttons    buttons'`,
       gridTemplateRows: '1fr 1fr 0.1fr',
-      //   gridTemplateColumns: '1fr 0.5fr',
       rowGap: '5px',
       columnGap: '5px',
     },
@@ -27,6 +26,9 @@ export const useQueryStyles = makeStyles((theme) => ({
   bottomButtons: {
     textAlign: 'center',
     gridArea: 'buttons',
+    '& button': {
+      margin: '5px',
+    },
   },
   querySection: {
     width: '90%',

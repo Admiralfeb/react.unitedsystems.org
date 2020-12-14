@@ -1,14 +1,14 @@
 import { useEffect, useState } from 'react';
 import { IQuery, OtherFilters } from 'models/shipBuilds';
 
-import { Button, Paper } from '@material-ui/core';
+import { Paper } from '@material-ui/core';
 import { QuerySpecialization } from './querySpecialities';
 import { QueryShip } from './queryShip';
 import { QueryEngineering } from './queryEngineering';
 import { QueryOther } from './queryOther';
-import { NavLink } from 'react-router-dom';
 import { useUrlQuery } from 'hooks/useURLQuery';
 import { useQueryStyles } from './queryStyles';
+import { QueryActions } from './queryButtons';
 
 export const Query = (props: { updateQuery: (query: IQuery) => void }) => {
   const [shipType, setShipType] = useState<string | null>(null);
@@ -72,24 +72,7 @@ export const Query = (props: { updateQuery: (query: IQuery) => void }) => {
       />
       <QueryEngineering engLevel={engLevel} setEngLevel={setEngLevel} />
       <QueryOther other={other} setOther={setOther} />
-      <div className={classes.bottomButtons}>
-        <Button
-          onClick={resetQueries}
-          color="primary"
-          variant="outlined"
-          className="resetButton"
-        >
-          Reset Selections
-        </Button>
-        <Button
-          variant="outlined"
-          color="secondary"
-          component={NavLink}
-          to="/information/builds/add"
-        >
-          Add Build
-        </Button>
-      </div>
+      <QueryActions resetQueries={resetQueries} />
     </Paper>
   );
 };
