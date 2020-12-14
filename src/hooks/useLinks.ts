@@ -3,7 +3,7 @@ import {
   DiscordLink,
   PatreonLink,
   BlueprintLink,
-} from 'data/uscLinks';
+} from 'data/links';
 
 export const useLinks = () => {
   return { ...links };
