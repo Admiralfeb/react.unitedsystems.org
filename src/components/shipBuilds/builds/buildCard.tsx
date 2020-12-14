@@ -47,21 +47,19 @@ export const BuildCard = (props: { shipBuild: IBuildInfov2 | undefined }) => {
 
   return shipBuild && shipInfo ? (
     <Card variant="outlined" className={classes.root}>
-      {shipInfo && (
-        <div>
-          <CardMedia
-            className={classes.media}
-            image={shipInfo.shipImg}
-            title={shipInfo.name}
-          />
-          <Typography>{ShipSize[shipInfo.size]}</Typography>
-        </div>
-      )}
+      <div>
+        <CardMedia
+          className={classes.media}
+          image={shipInfo.shipImg}
+          title={shipInfo.name}
+        />
+        <Typography>{ShipSize[shipInfo.size]}</Typography>
+      </div>
       <CardContent className={classes.content}>
         <Typography>{shipBuild.title}</Typography>
         <Divider />
-        <Typography>{shipInfo?.name} </Typography>
-        {shipInfo?.requires && (
+        <Typography>{shipInfo.name} </Typography>
+        {shipInfo.requires && (
           <Typography>Requirement: {shipInfo.requires}</Typography>
         )}
         <TagGroup build={shipBuild} />

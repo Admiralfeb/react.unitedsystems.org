@@ -13,7 +13,7 @@ import {
 import { NotFound } from 'components';
 import { EDSpinner } from '@admiralfeb/react-components';
 import { infoGraphics } from 'data/information/infographicList';
-const ShipBuilds = lazy(() => import('components/information/shipBuilds'));
+const ShipBuilds = lazy(() => import('routes/shipBuilds.routes'));
 
 const useStyles = makeStyles({
   root: {

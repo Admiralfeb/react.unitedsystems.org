@@ -20,6 +20,8 @@ const useStyles = makeStyles({
     width: 450,
   },
 });
+
+/** Displays High Command Members */
 export const AboutHC = () => {
   const classes = useStyles();
   return (

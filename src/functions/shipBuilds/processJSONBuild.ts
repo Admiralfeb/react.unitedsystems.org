@@ -34,11 +34,10 @@ export const processJSONBuild = (
     x?.group.toLowerCase().startsWith('guardian')
   );
   if (
-    guardian === false &&
-    (ppName.toLowerCase().startsWith('guardian') ||
-      pdName.toLowerCase().startsWith('guardian') ||
-      guardianHardPoints ||
-      guardianInternals)
+    ppName.toLowerCase().startsWith('guardian') ||
+    pdName.toLowerCase().startsWith('guardian') ||
+    guardianHardPoints ||
+    guardianInternals
   ) {
     guardian = true;
   }
@@ -81,15 +80,14 @@ export const processJSONBuild = (
   const pdEng = core.powerDistributor.blueprint;
   const sensorEng = core.sensors.blueprint;
   if (
-    engineering === false &&
-    (weaponEng.length > 0 ||
-      internalEng.length > 0 ||
-      ppEng ||
-      thrustEng ||
-      fsdEng ||
-      lifeEng ||
-      pdEng ||
-      sensorEng)
+    weaponEng.length > 0 ||
+    internalEng.length > 0 ||
+    ppEng ||
+    thrustEng ||
+    fsdEng ||
+    lifeEng ||
+    pdEng ||
+    sensorEng
   ) {
     engineering = true;
   }

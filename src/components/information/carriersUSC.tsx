@@ -6,10 +6,22 @@ import {
   TableCell,
   TableRow,
   TableBody,
+  makeStyles,
 } from '@material-ui/core';
 import { IFleetCarrier } from 'models/information/fleetCarrier';
-import { useStyles } from './carriers';
 
+const useStyles = makeStyles({
+  table: {
+    maxWidth: 600,
+    textAlign: 'center',
+    margin: 'auto',
+  },
+});
+
+/**
+ * Displays USC Carriers
+ * @param props carriers to display
+ */
 export const USCCarriers = (props: {
   carriers: IFleetCarrier[] | undefined;
 }) => {

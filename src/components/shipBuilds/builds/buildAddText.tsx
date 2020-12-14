@@ -9,6 +9,10 @@ interface IBuildAddText {
   onChange: (event: ChangeEvent<HTMLInputElement>) => void;
   disabled?: boolean;
 }
+
+/**
+ *
+ */
 export const BuildAddText = (props: IBuildAddText) => {
   const { id, label, value, onChange, isMultiline, disabled } = props;
   return (

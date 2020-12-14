@@ -7,6 +7,10 @@ const useStyles = makeStyles({
   },
 });
 
+/**
+ * Displays an infographic
+ * @param props imgID to display
+ */
 export const Infographic = (props: { img: string }) => {
   const infographic = useInfographic(props.img);
   const classes = useStyles();
