@@ -1,11 +1,11 @@
 import { cleanup, render, RenderResult } from '@testing-library/react';
-import { About } from '../../../app/components';
+import { AboutAllies } from 'components/information/aboutAllies';
 
 let componentBody: RenderResult;
 
-describe('About', () => {
+describe('About Allies', () => {
   beforeEach(() => {
-    componentBody = render(<About />);
+    componentBody = render(<AboutAllies />);
   });
 
   afterEach(() => {

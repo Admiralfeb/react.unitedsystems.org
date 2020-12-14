@@ -1,4 +1,4 @@
-import { NavbarComponent } from '../app/navbar';
+import { NavbarComponent } from 'components/navbar';
 import { cleanup, render, RenderResult } from '@testing-library/react';
 
 let componentBody: RenderResult;

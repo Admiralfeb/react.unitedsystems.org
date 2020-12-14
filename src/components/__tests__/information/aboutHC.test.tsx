@@ -1,5 +1,5 @@
 import { cleanup, render, RenderResult } from '@testing-library/react';
-import { AboutHC } from '../../../app/information/components/about/about-hc';
+import { AboutHC } from 'components/information/aboutHC';
 
 let componentBody: RenderResult;
 

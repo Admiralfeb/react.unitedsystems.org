@@ -1,11 +1,16 @@
 import { cleanup, render, RenderResult } from '@testing-library/react';
-import { AboutRules } from '../../../app/information/components/about/about-rules';
+import { MemoryRouter } from 'react-router-dom';
+import { Join } from 'components/join';
 
 let componentBody: RenderResult;
 
-describe('About Rules', () => {
+describe('Join', () => {
   beforeEach(() => {
-    componentBody = render(<AboutRules />);
+    componentBody = render(
+      <MemoryRouter initialEntries={['/join']}>
+        <Join />
+      </MemoryRouter>
+    );
   });
 
   afterEach(() => {

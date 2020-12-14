@@ -1,11 +1,11 @@
 import { cleanup, render, RenderResult } from '@testing-library/react';
-import { Loading } from '../../app/components';
+import { AboutRules } from 'components/information/aboutRules';
 
 let componentBody: RenderResult;
 
-describe('Join', () => {
+describe('About Rules', () => {
   beforeEach(() => {
-    componentBody = render(<Loading />);
+    componentBody = render(<AboutRules />);
   });
 
   afterEach(() => {

@@ -1,4 +1,4 @@
-import { Home } from '../../app/components/home';
+import { Home } from 'components/home';
 import { cleanup, render, RenderResult } from '@testing-library/react';
 
 let componentBody: RenderResult;
