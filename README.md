@@ -2,6 +2,10 @@
 
 This is the code for the React version of the United Systems Cooperative website.
 
+![main](https://github.com/Admiralfeb/usc-website/workflows/main/badge.svg)
+[![DeepScan grade](https://deepscan.io/api/teams/12116/projects/15086/branches/296557/badge/grade.svg)](https://deepscan.io/dashboard#view=project&tid=12116&pid=15086&bid=296557)
+[![codecov](https://codecov.io/gh/Admiralfeb/usc-website/branch/master/graph/badge.svg?token=WVP9YZXO7P)](https://codecov.io/gh/Admiralfeb/usc-website)
+
 ## Available Scripts
 
 In the project directory, you can run:
