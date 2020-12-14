@@ -1,4 +1,5 @@
 import { createMuiTheme } from '@material-ui/core';
+import backgroundImg from 'assets/background.png';
 
 export const darkTheme = createMuiTheme({
   palette: {
@@ -13,6 +14,17 @@ export const darkTheme = createMuiTheme({
 });
 
 darkTheme.overrides = {
+  MuiCssBaseline: {
+    '@global': {
+      body: {
+        height: '100%',
+        backgroundImage: `url("${backgroundImg}")`,
+        backgroundRepeat: 'no-repeat',
+        backgroundAttachment: 'fixed',
+        backgroundSize: 'cover',
+      },
+    },
+  },
   MuiLink: {
     root: {
       color: darkTheme.palette.primary.main,

@@ -4,6 +4,7 @@ import {
   Paper,
   Typography,
   useMediaQuery,
+  useTheme,
 } from '@material-ui/core';
 import { NavLink } from 'react-router-dom';
 import { useLinks } from 'hooks/useLinks';
@@ -41,7 +42,8 @@ const useStyles = makeStyles({
 
 export const Join = () => {
   const classes = useStyles();
-  const mediaQuery = useMediaQuery('(min-width:950px)');
+  const theme = useTheme();
+  const isMedium = useMediaQuery(theme.breakpoints.up('md'));
   const { inaraSquadLink, discordLink } = useLinks();
   return (
     <div className={classes.root}>
@@ -60,7 +62,7 @@ export const Join = () => {
           </Link>
           .
         </Typography>
-        {mediaQuery ? (
+        {isMedium ? (
           <Typography>Step 2: Fill out the form below</Typography>
         ) : (
           <Typography>
@@ -91,7 +93,7 @@ export const Join = () => {
             Inara Squadron
           </Link>
         </Typography>
-        {mediaQuery && (
+        {isMedium && (
           <iframe
             className={classes.iframe}
             title="USC Application Form"

@@ -1,17 +1,16 @@
 import { useEffect, useState } from 'react';
 import { IQuery, OtherFilters } from 'models/shipBuilds';
 
-import './query.css';
-
-import { Button, Paper } from '@material-ui/core';
+import { Paper } from '@material-ui/core';
 import { QuerySpecialization } from './querySpecialities';
 import { QueryShip } from './queryShip';
 import { QueryEngineering } from './queryEngineering';
 import { QueryOther } from './queryOther';
-import { NavLink } from 'react-router-dom';
 import { useUrlQuery } from 'hooks/useURLQuery';
+import { useQueryStyles } from './queryStyles';
+import { QueryActions } from './queryButtons';
 
-export const Query = (props: { queryUpdate: (query: IQuery) => void }) => {
+export const Query = (props: { updateQuery: (query: IQuery) => void }) => {
   const [shipType, setShipType] = useState<string | null>(null);
   const [shipSize, setShipSize] = useState<number | null>(null);
   const [engLevel, setEngLevel] = useState<number | null>(null);
@@ -22,10 +21,12 @@ export const Query = (props: { queryUpdate: (query: IQuery) => void }) => {
     beginner: null,
     showVariants: null,
   });
-  let query = useUrlQuery();
+  let urlQuery = useUrlQuery();
+  const { updateQuery } = props;
+  const classes = useQueryStyles();
 
   useEffect(() => {
-    const queryParam = query.get('beginner');
+    const queryParam = urlQuery.get('beginner');
     if (queryParam === 'true') {
       setOther({ ...other, beginner: 1 });
     }
@@ -33,7 +34,6 @@ export const Query = (props: { queryUpdate: (query: IQuery) => void }) => {
   }, []);
 
   useEffect(() => {
-    const { queryUpdate } = props;
     const query: IQuery = {
       ship: shipType,
       size: shipSize,
@@ -41,10 +41,9 @@ export const Query = (props: { queryUpdate: (query: IQuery) => void }) => {
       specialties: selectedSpecialties,
       other,
     };
-    queryUpdate(query);
-    // Disable eslint. Props is not missing from dependencies.
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [shipType, shipSize, engLevel, selectedSpecialties, other]);
+    console.log(query);
+    updateQuery(query);
+  }, [shipType, shipSize, engLevel, selectedSpecialties, other, updateQuery]);
 
   const resetQueries = () => {
     setShipType(null);
@@ -60,7 +59,7 @@ export const Query = (props: { queryUpdate: (query: IQuery) => void }) => {
   };
 
   return (
-    <Paper className="query">
+    <Paper className={classes.root}>
       <QuerySpecialization
         selectedSpecialties={selectedSpecialties}
         setSpecialties={setSpecialties}
@@ -73,24 +72,7 @@ export const Query = (props: { queryUpdate: (query: IQuery) => void }) => {
       />
       <QueryEngineering engLevel={engLevel} setEngLevel={setEngLevel} />
       <QueryOther other={other} setOther={setOther} />
-      <div className="reset">
-        <Button
-          onClick={resetQueries}
-          color="primary"
-          variant="outlined"
-          className="resetButton"
-        >
-          Reset Selections
-        </Button>
-        <Button
-          variant="outlined"
-          color="secondary"
-          component={NavLink}
-          to="/information/builds/add"
-        >
-          Add Build
-        </Button>
-      </div>
+      <QueryActions resetQueries={resetQueries} />
     </Paper>
   );
 };

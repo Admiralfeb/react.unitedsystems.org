@@ -1,5 +1,11 @@
-import { Fab, makeStyles, Typography, useMediaQuery } from '@material-ui/core';
-import { useRef, useState } from 'react';
+import {
+  Fab,
+  makeStyles,
+  Typography,
+  useMediaQuery,
+  useTheme,
+} from '@material-ui/core';
+import { useCallback, useRef, useState } from 'react';
 import { BuildList } from './builds/buildList';
 import { IQuery } from 'models/shipBuilds';
 import { Query } from './query/query';
@@ -10,7 +16,9 @@ const useStyles = makeStyles({
     '& p': {
       textAlign: 'center',
     },
+    width: '95%',
   },
+  header: { textAlign: 'center' },
   fab: {
     position: 'fixed',
     bottom: '5px',
@@ -21,12 +29,13 @@ const useStyles = makeStyles({
 export const QueryandBuildList = () => {
   const [query, setQuery] = useState<IQuery>();
   const buildRef = useRef<HTMLDivElement>(null);
-  const isMobile = useMediaQuery('(max-width:1000px)');
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down('md'));
   const classes = useStyles();
 
-  const handleQuery = (query: IQuery) => {
+  const handleQuery = useCallback((query: IQuery) => {
     setQuery(query);
-  };
+  }, []);
 
   const handleFab = () => {
     if (buildRef.current) {
@@ -36,8 +45,10 @@ export const QueryandBuildList = () => {
 
   return (
     <section className={classes.root}>
-      <Typography variant="h3">Ship Build Archive</Typography>
-      <Query queryUpdate={handleQuery} />
+      <Typography variant="h3" className={classes.header}>
+        Ship Build Archive
+      </Typography>
+      <Query updateQuery={handleQuery} />
       <div ref={buildRef}>
         <BuildList buildQuery={query} />
       </div>

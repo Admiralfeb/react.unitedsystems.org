@@ -27,7 +27,7 @@ export const BuildDetailBuilds = (props: {
   const { loading, shipBuilds } = useShipBuilds();
 
   return (
-    <div id="variants" className={classes.textCenter}>
+    <div className={classes.textCenter}>
       <Typography variant="h4">{title}</Typography>
       {loading ? (
         <EDSpinner />

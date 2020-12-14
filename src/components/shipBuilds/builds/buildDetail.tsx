@@ -1,72 +1,37 @@
-import {
-  Button,
-  Divider,
-  makeStyles,
-  Paper,
-  Typography,
-} from '@material-ui/core';
-import { useEffect, useMemo, useState } from 'react';
-import { NavLink, useParams } from 'react-router-dom';
-import { NotFound } from '../..';
-import { getShipInfofromID } from 'functions/shipBuilds/getShipInfo';
+import { getShipInfofromID } from 'functions/shipBuilds';
 import { useShipBuilds } from 'hooks/shipBuilds/useShipBuilds';
-import { IShipInfo, ShipSize } from 'models/shipBuilds';
-import { BuildDetailBuilds } from './buildDetailBuilds';
-import { TagGroup } from './tagGroup';
-import ReactMarkdown from 'react-markdown';
-import gfm from 'remark-gfm';
+import { IShipInfo } from 'models/shipBuilds';
+import React, { useEffect, useMemo, useState } from 'react';
+import { useParams } from 'react-router-dom';
 import { EDSpinner } from '@admiralfeb/react-components';
+import { NotFound } from 'components';
+import {
+  makeStyles,
+  Typography,
+  useMediaQuery,
+  useTheme,
+} from '@material-ui/core';
+import { BuildDetailFull } from './buildDetailFull';
+import { BuildDetailMobile } from './buildDetailMobile';
+import { BuildDetailBuilds } from './buildDetailBuilds';
 
 interface RouteParams {
   id: string;
 }
 
-const useStyles = makeStyles((theme) => ({
-  paper: {
-    width: '80%',
-    margin: 'auto',
-    padding: 10,
-    marginBottom: 5,
-  },
-  img: {
-    width: 300,
-    [theme.breakpoints.down('md')]: {
-      display: 'none',
-    },
-  },
-  flexDown: {
-    display: 'flex',
-    flexDirection: 'column',
-  },
-  flexAcross: {
-    display: 'flex',
-    flexDirection: 'row',
-    [theme.breakpoints.down('md')]: {
-      flexDirection: 'column',
-      flexWrap: 'wrap',
-    },
-  },
-  spacer: {
-    flexGrow: 1,
-  },
-  gridDown: {
-    display: 'grid',
-    gridTemplate: 'auto / 1fr',
-    gap: '5px',
-  },
-  margin: {
-    margin: 10,
-  },
+const useStyles = makeStyles({
   textCenter: {
     textAlign: 'center',
   },
-}));
+});
 
 export const BuildDetail = () => {
   const { loading, shipBuilds } = useShipBuilds();
   let { id } = useParams<RouteParams>();
-  const classes = useStyles();
   const [shipInfo, setShipInfo] = useState<IShipInfo>();
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
+  const classes = useStyles();
 
   let foundBuild = useMemo(() => {
     if (loading) {
@@ -90,105 +55,36 @@ export const BuildDetail = () => {
     }
   }, [foundBuild]);
 
+  if (loading) {
+    return <EDSpinner />;
+  }
+
   return (
     <>
-      <Typography variant="h3">Build Detail</Typography>
-      {loading ? (
-        <EDSpinner />
-      ) : foundBuild === null ? (
-        <NotFound />
+      <Typography variant="h3" className={classes.textCenter}>
+        Build Detail
+      </Typography>
+      {foundBuild ? (
+        isMobile ? (
+          <BuildDetailMobile foundBuild={foundBuild} shipInfo={shipInfo} />
+        ) : (
+          <BuildDetailFull foundBuild={foundBuild} shipInfo={shipInfo} />
+        )
       ) : (
-        <>
-          <Paper className={`${classes.paper} ${classes.flexAcross}`}>
-            {shipInfo && (
-              <div className={`${classes.flexDown} ${classes.margin}`}>
-                <img
-                  src={shipInfo.shipImg}
-                  alt={shipInfo.name}
-                  className={classes.img}
-                />
-                <div className={classes.flexAcross}>
-                  <Typography>{shipInfo.name}</Typography>
-                  <span className={classes.spacer} />
-                  <Typography>{ShipSize[shipInfo.size]}</Typography>
-                </div>
-                {shipInfo.requires && (
-                  <Typography>Requires: {shipInfo.requires}</Typography>
-                )}
-                <Button
-                  variant="contained"
-                  color="primary"
-                  href={shipInfo.shipReview}
-                  target="_blank"
-                >
-                  Pilot Review
-                </Button>
-              </div>
-            )}
-            <Divider orientation="vertical" flexItem />
-            <div
-              className={`${classes.flexDown} ${classes.spacer} ${classes.margin}`}
-            >
-              <Typography variant="h5">{foundBuild?.title}</Typography>
-              <Typography>Author: {foundBuild?.author}</Typography>
-              <TagGroup build={foundBuild!} />
-              {foundBuild?.description && (
-                <ReactMarkdown
-                  plugins={[gfm]}
-                  renderers={{ paragraph: Typography }}
-                  children={foundBuild.description}
-                />
-              )}
-            </div>
-            <div
-              className={`${classes.flexDown} ${classes.spacer} ${classes.textCenter}`}
-            >
-              <div className={classes.gridDown}>
-                <Button
-                  variant="contained"
-                  color="primary"
-                  href={foundBuild!.buildLink}
-                  target="_blank"
-                >
-                  Open Coriolis
-                </Button>
-                <Button
-                  variant="contained"
-                  color="secondary"
-                  to={`/information/builds/add?type=variant&refID=${
-                    (foundBuild!._id as unknown) as string
-                  }`}
-                  component={NavLink}
-                >
-                  Add Variant
-                </Button>
-                <Button
-                  variant="contained"
-                  color="secondary"
-                  to={`/information/builds/add?type=related&refID=${
-                    (foundBuild!._id as unknown) as string
-                  }`}
-                  component={NavLink}
-                >
-                  Add Related
-                </Button>
-              </div>
-            </div>
-          </Paper>
-          {foundBuild && foundBuild.variants.length > 0 ? (
-            <BuildDetailBuilds
-              title="Build Variants"
-              buildIDs={foundBuild.variants}
-            />
-          ) : null}
-          {foundBuild && foundBuild.related.length > 0 ? (
-            <BuildDetailBuilds
-              title="Related Builds"
-              buildIDs={foundBuild.related}
-            />
-          ) : null}
-        </>
+        <NotFound />
       )}
+      {foundBuild && foundBuild.variants.length > 0 ? (
+        <BuildDetailBuilds
+          title="Build Variants"
+          buildIDs={foundBuild.variants}
+        />
+      ) : null}
+      {foundBuild && foundBuild.related.length > 0 ? (
+        <BuildDetailBuilds
+          title="Related Builds"
+          buildIDs={foundBuild.related}
+        />
+      ) : null}
     </>
   );
 };

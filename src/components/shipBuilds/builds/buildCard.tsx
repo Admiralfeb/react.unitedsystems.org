@@ -1,4 +1,3 @@
-import './buildCard.css';
 import {
   CardMedia,
   Divider,
@@ -7,6 +6,7 @@ import {
   CardActions,
   CardContent,
   Card,
+  makeStyles,
 } from '@material-ui/core';
 import { IBuildInfov2, ShipSize } from 'models/shipBuilds';
 import { EngIcons } from './engIcons';
@@ -14,27 +14,53 @@ import { NavLink } from 'react-router-dom';
 import { useShipIdfromMap } from 'hooks/shipBuilds/useShipMap';
 import { TagGroup } from './tagGroup';
 
+const useStyles = makeStyles({
+  root: {
+    display: 'flex',
+    flexDirection: 'row',
+    width: '400px',
+    minWidth: '400px',
+    margin: '5px',
+  },
+  content: {
+    flexGrow: 1,
+    flexBasis: 'auto',
+    flexWrap: 'wrap',
+  },
+  media: {
+    height: '100px',
+    width: '100px',
+    flexShrink: 0,
+  },
+  shipName: {
+    display: 'flex',
+  },
+  spacer: {
+    flexGrow: 1,
+  },
+});
+
 export const BuildCard = (props: { shipBuild: IBuildInfov2 | undefined }) => {
   const { shipBuild } = props;
   const shipInfo = useShipIdfromMap(shipBuild?.shipId);
+  const classes = useStyles();
 
   return shipBuild && shipInfo ? (
-    <Card variant="outlined" className="card">
+    <Card variant="outlined" className={classes.root}>
       {shipInfo && (
-        <CardMedia
-          className="shipImg"
-          image={shipInfo?.shipImg}
-          title={shipInfo?.name}
-        />
+        <div>
+          <CardMedia
+            className={classes.media}
+            image={shipInfo.shipImg}
+            title={shipInfo.name}
+          />
+          <Typography>{ShipSize[shipInfo.size]}</Typography>
+        </div>
       )}
-      <CardContent className="cardContent">
+      <CardContent className={classes.content}>
         <Typography>{shipBuild.title}</Typography>
         <Divider />
-        <div className="shipName">
-          <Typography>{shipInfo?.name} </Typography>
-          <div className="spacer" />
-          {shipInfo && <Typography>{ShipSize[shipInfo.size]}</Typography>}
-        </div>
+        <Typography>{shipInfo?.name} </Typography>
         {shipInfo?.requires && (
           <Typography>Requirement: {shipInfo.requires}</Typography>
         )}
@@ -49,8 +75,8 @@ export const BuildCard = (props: { shipBuild: IBuildInfov2 | undefined }) => {
         {shipBuild.related.length > 0 ? (
           <Typography>Has Related Builds</Typography>
         ) : null}
-        <div className="spacer" />
-        <CardActions className="cardActions">
+        <div className={classes.spacer} />
+        <CardActions className="">
           <Button
             variant="contained"
             color="secondary"

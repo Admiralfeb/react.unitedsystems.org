@@ -5,13 +5,12 @@ import { createBrowserHistory } from 'history';
 import { Router } from 'react-router-dom';
 import { NavbarComponent } from 'components/navbar';
 import { AppRoutes } from 'routes/app.routes';
-import './app.css';
 import { RealmAppProvider, RealmApolloProvider } from 'providers';
 import { SnackbarProvider } from 'notistack';
 
 const realmID: string = 'usc-tbmbi';
 
-function App() {
+export const App = () => {
   const history = createBrowserHistory({ basename: process.env.PUBLIC_URL });
 
   return (
@@ -20,7 +19,7 @@ function App() {
         <SnackbarProvider maxSnack={3}>
           <ThemeProvider theme={darkTheme}>
             <CssBaseline />
-            <div className="content">
+            <div>
               <Router history={history}>
                 <NavbarComponent />
                 <AppRoutes />
@@ -31,6 +30,4 @@ function App() {
       </RealmApolloProvider>
     </RealmAppProvider>
   );
-}
-
-export default App;
+};

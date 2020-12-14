@@ -8,7 +8,7 @@ import {
 } from '@material-ui/core';
 import { discordRules, memberRules } from 'data/information';
 
-const useStyles = makeStyles({
+const useStyles = makeStyles((theme) => ({
   header: {
     textAlign: 'center',
   },
@@ -16,6 +16,10 @@ const useStyles = makeStyles({
     display: 'grid',
     gridTemplateColumns: '1fr 1fr',
     gridTemplateRows: 'auto',
+    [theme.breakpoints.down('md')]: {
+      gridTemplateColumns: '1fr',
+      gridTemplateRows: 'auto',
+    },
   },
   rules: {
     border: '3px solid white',
@@ -27,17 +31,11 @@ const useStyles = makeStyles({
     border: '3px solid white',
     borderRadius: 10,
     margin: 5,
-  },
-  '@media (max-width: 1024px)': {
-    root: {
-      gridTemplateColumns: '1fr',
-      gridTemplateRows: 'auto',
-    },
-    consequences: {
+    [theme.breakpoints.down('md')]: {
       gridColumn: 1,
     },
   },
-});
+}));
 
 export const AboutRules = () => {
   const classes = useStyles();

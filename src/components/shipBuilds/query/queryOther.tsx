@@ -5,12 +5,14 @@ import { OtherFilters } from 'models/shipBuilds/otherFilters';
 import BlockIcon from '@material-ui/icons/Block';
 import CheckIcon from '@material-ui/icons/Check';
 import { Dispatch, MouseEvent, SetStateAction } from 'react';
+import { useQueryStyles } from './queryStyles';
 
 export const QueryOther = (props: {
   other: OtherFilters;
   setOther: Dispatch<SetStateAction<OtherFilters>>;
 }) => {
   const { other, setOther } = props;
+  const classes = useQueryStyles();
 
   const handleGuardianChange = (
     _: MouseEvent<HTMLElement>,
@@ -38,11 +40,11 @@ export const QueryOther = (props: {
   };
 
   return (
-    <div className="otherQuery">
-      <h3 className="queryHeader">Other Filters</h3>
-      <div className="otherButtons">
+    <div className={classes.querySection}>
+      <h3 className={classes.querySectionheader}>Other Filters</h3>
+      <div className={classes.queryOtherButtons}>
         <Tooltip title="Show all builds, including variants" arrow>
-          <div className="showVariants">
+          <div className={classes.queryOtherButtonGrids}>
             <label>Show Variants</label>
             <ToggleButtonGroup
               value={other.showVariants}
@@ -56,7 +58,7 @@ export const QueryOther = (props: {
           </div>
         </Tooltip>
         <Tooltip title="Should the build have Guardian components?" arrow>
-          <div className="guardian">
+          <div className={classes.queryOtherButtonGrids}>
             <label>Guardian</label>
             <ToggleButtonGroup
               value={other.guardian}
@@ -73,7 +75,7 @@ export const QueryOther = (props: {
           </div>
         </Tooltip>
         <Tooltip title="Does the build have Power Play modules?" arrow>
-          <div className="powerplay">
+          <div className={classes.queryOtherButtonGrids}>
             <label>Power Play</label>
             <ToggleButtonGroup
               value={other.powerplay}
@@ -90,7 +92,9 @@ export const QueryOther = (props: {
           </div>
         </Tooltip>
         <Tooltip title="Is this build easy to achieve early-game?" arrow>
-          <div className="beginner">
+          <div
+            className={`${classes.queryOtherButtonGrids} ${classes.QueryOtherBeginnerButtons}`}
+          >
             <label>Beginner</label>
             <ToggleButtonGroup
               value={other.beginner}
