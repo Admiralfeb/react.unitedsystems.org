@@ -1,4 +1,10 @@
-import { Fab, makeStyles, Typography, useMediaQuery } from '@material-ui/core';
+import {
+  Fab,
+  makeStyles,
+  Typography,
+  useMediaQuery,
+  useTheme,
+} from '@material-ui/core';
 import { useCallback, useRef, useState } from 'react';
 import { BuildList } from './builds/buildList';
 import { IQuery } from 'models/shipBuilds';
@@ -23,7 +29,8 @@ const useStyles = makeStyles({
 export const QueryandBuildList = () => {
   const [query, setQuery] = useState<IQuery>();
   const buildRef = useRef<HTMLDivElement>(null);
-  const isMobile = useMediaQuery('(max-width:1000px)');
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down('md'));
   const classes = useStyles();
 
   const handleQuery = useCallback((query: IQuery) => {

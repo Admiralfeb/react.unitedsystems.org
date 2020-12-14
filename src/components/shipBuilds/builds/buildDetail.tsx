@@ -92,7 +92,9 @@ export const BuildDetail = () => {
 
   return (
     <>
-      <Typography variant="h3">Build Detail</Typography>
+      <Typography variant="h3" className={classes.textCenter}>
+        Build Detail
+      </Typography>
       {loading ? (
         <EDSpinner />
       ) : foundBuild === null ? (
@@ -121,7 +123,7 @@ export const BuildDetail = () => {
                   href={shipInfo.shipReview}
                   target="_blank"
                 >
-                  Pilot Review
+                  Pilot's Review
                 </Button>
               </div>
             )}
