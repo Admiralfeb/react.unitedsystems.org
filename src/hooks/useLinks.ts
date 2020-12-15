@@ -1,8 +1,9 @@
 import {
-  InaraSquadLink,
+  BlueprintLink,
   DiscordLink,
   PatreonLink,
-  BlueprintLink,
+  InaraCommodityLink,
+  InaraSquadLink,
 } from 'data/links';
 
 export const useLinks = () => {
@@ -18,4 +19,5 @@ const links = {
   discordLink: DiscordLink,
   patreonLink: PatreonLink,
   blueprints: BlueprintLink,
+  inaraCommodity: InaraCommodityLink,
 };
