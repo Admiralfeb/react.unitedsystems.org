@@ -36,6 +36,7 @@ export const docsList: IInfoButton[] = [
     link: '/error-codes',
     beginner: true,
   },
+
   {
     title: 'Anti-Thargoid Flight Manual',
     caption: 'Created by Aterius',

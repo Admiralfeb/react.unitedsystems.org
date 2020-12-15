@@ -7,6 +7,7 @@ import {
   Carriers,
   Infographic,
   Information,
+  MiningMap,
   ShipReviews,
 } from 'components/information';
 import { NotFound } from 'components';
@@ -37,6 +38,9 @@ export const InformationRoutes = () => {
         </Route>
         <Route path={`${path}/builds`}>
           <ShipBuilds />
+        </Route>
+        <Route path={`${path}/mining`}>
+          <MiningMap />
         </Route>
         <Route path={`${path}/reviews`}>
           <ShipReviews />

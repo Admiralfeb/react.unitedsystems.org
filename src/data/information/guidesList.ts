@@ -39,8 +39,15 @@ export const guidesList: IInfoButton[] = [
     beginner: true,
   },
   {
+    title: 'Mining Maps',
+    caption: 'Compiled by Luisqa',
+    local: true,
+    link: '/mining',
+    beginner: false,
+  },
+  {
     title: 'Cave Johnson',
-    caption: 'Compiled by IM2D',
+    caption: 'Compiled by IM2D and Nullyti',
     local: true,
     link: '/cave-johnson',
     beginner: false,
