@@ -42,6 +42,7 @@ export const MiningMap = () => {
               <TableCell>System</TableCell>
               <TableCell>Body</TableCell>
               <TableCell>Material</TableCell>
+              <TableCell>Mining Type</TableCell>
               <TableCell>Rez Overlap</TableCell>
               <TableCell>Link</TableCell>
             </TableRow>
@@ -61,6 +62,7 @@ export const MiningMap = () => {
                 </TableCell>
                 <TableCell>{map.body}</TableCell>
                 <TableCell>{map.material}</TableCell>
+                <TableCell>{map.miningType}</TableCell>
                 <TableCell>{map.overlap}</TableCell>
                 <TableCell>
                   <Button
