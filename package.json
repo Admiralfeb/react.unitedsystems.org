@@ -2,7 +2,7 @@
   "name": "usc-website",
   "version": "2020.12.0",
   "private": true,
-  "homepage": "http://admiralfeb.github.io/usc-website/",
+  "homepage": "https://usc.admiralfeb.net",
   "dependencies": {
     "@admiralfeb/react-components": "^1.1.1",
     "@apollo/client": "^3.2.9",
