@@ -192,7 +192,7 @@ export const BuildAdd = () => {
       isMultiline: false,
       value: buildInfo.title,
       onChange: handleTextChange,
-      disabled: true,
+      disabled: false,
     },
     {
       id: 'description',

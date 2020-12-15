@@ -1,6 +1,5 @@
 export * from './buildInfo';
 export * from './buildInfoInsert';
-export * from './coriolis';
 export * from './otherFilters';
 export * from './query';
 export * from './shipInfo';

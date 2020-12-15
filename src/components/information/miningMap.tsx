@@ -1,6 +1,7 @@
 import {
   Button,
   IconButton,
+  Link,
   makeStyles,
   Paper,
   Table,
@@ -15,6 +16,7 @@ import { useMiningMaps } from 'hooks/information/useMiningMaps';
 import React from 'react';
 import FileCopyIcon from '@material-ui/icons/FileCopy';
 import { copytoClipboard } from 'functions/copytoClipboard';
+import { useLinks } from 'hooks/useLinks';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -30,6 +32,7 @@ const useStyles = makeStyles((theme) => ({
 export const MiningMap = () => {
   const maps = useMiningMaps();
   const classes = useStyles();
+  const { inaraCommodity } = useLinks();
 
   return (
     <div className={classes.root}>
@@ -42,6 +45,7 @@ export const MiningMap = () => {
               <TableCell>System</TableCell>
               <TableCell>Body</TableCell>
               <TableCell>Material</TableCell>
+              <TableCell>Mining Type</TableCell>
               <TableCell>Rez Overlap</TableCell>
               <TableCell>Link</TableCell>
             </TableRow>
@@ -60,7 +64,15 @@ export const MiningMap = () => {
                   </IconButton>
                 </TableCell>
                 <TableCell>{map.body}</TableCell>
-                <TableCell>{map.material}</TableCell>
+                <TableCell>
+                  <Link
+                    href={`${inaraCommodity}${map.materialInara}`}
+                    target="_blank"
+                  >
+                    {map.material}
+                  </Link>
+                </TableCell>
+                <TableCell>{map.miningType}</TableCell>
                 <TableCell>{map.overlap}</TableCell>
                 <TableCell>
                   <Button
