@@ -1,4 +1,9 @@
-import { ICoriolisLoadout } from 'models/shipBuilds/coriolis';
+import {
+  ICoriolisLoadout,
+  IShipCoreModules,
+  IShipHardpoints,
+  IShipInternalModules,
+} from 'models/shipBuilds/coriolis';
 
 export const processJSONBuild = (
   json: string
@@ -15,9 +20,6 @@ export const processJSONBuild = (
   const buildName = build.name;
   const shipName = build.ship;
   const url = build.references[0].url ?? '';
-  let guardian = false;
-  let powerplay = false;
-  let engineering = false;
 
   const components = build.components;
   const core = components.standard;
@@ -25,24 +27,69 @@ export const processJSONBuild = (
   const internals = components.internal;
 
   // Check for Guardian
-  const ppName = (core.powerPlant.name as string) ?? '';
-  const pdName = (core.powerDistributor.name as string) ?? '';
-  const guardianHardPoints = hardpoints.find((x) =>
-    x?.group.toLowerCase().startsWith('guardian')
-  );
-  const guardianInternals = internals.find((x) =>
-    x?.group.toLowerCase().startsWith('guardian')
-  );
-  if (
-    ppName.toLowerCase().startsWith('guardian') ||
-    pdName.toLowerCase().startsWith('guardian') ||
-    guardianHardPoints ||
-    guardianInternals
-  ) {
-    guardian = true;
-  }
+  const guardian = checkGuardian(core, hardpoints, internals);
 
   // Check for PowerPlay
+  const powerplay = checkPowerplay(internals, hardpoints);
+
+  // Check for engineering
+  const engineering = checkEngineering(hardpoints, internals, core);
+
+  return {
+    buildName,
+    shipName,
+    hasGuardian: guardian,
+    hasPowerplay: powerplay,
+    engineering,
+    url,
+  };
+};
+
+/**
+ * Check for Engineered modules, except the armor
+ * @param hardpoints
+ * @param internals
+ * @param core
+ */
+const checkEngineering = (
+  hardpoints: IShipHardpoints,
+  internals: IShipInternalModules,
+  core: IShipCoreModules
+) => {
+  let engineering = false;
+  const weaponEng = hardpoints.filter((hp) => hp?.blueprint);
+  const internalEng = internals.filter((i) => i?.blueprint);
+  const ppEng = core.powerPlant.blueprint;
+  const thrustEng = core.thrusters.blueprint;
+  const fsdEng = core.frameShiftDrive.blueprint;
+  const lifeEng = core.lifeSupport.blueprint;
+  const pdEng = core.powerDistributor.blueprint;
+  const sensorEng = core.sensors.blueprint;
+  if (
+    weaponEng.length > 0 ||
+    internalEng.length > 0 ||
+    ppEng ||
+    thrustEng ||
+    fsdEng ||
+    lifeEng ||
+    pdEng ||
+    sensorEng
+  ) {
+    engineering = true;
+  }
+  return engineering;
+};
+
+/**
+ * Check for Powerplay modules
+ * @param internals
+ * @param hardpoints
+ */
+const checkPowerplay = (
+  internals: IShipInternalModules,
+  hardpoints: IShipHardpoints
+) => {
+  let powerplay = false;
   const powerplayWeaponNames = [
     'disruptor',
     'imperial hammer',
@@ -69,35 +116,36 @@ export const processJSONBuild = (
       powerplay = powerplayHardpoint ? true : false;
     }
   });
+  return powerplay;
+};
 
-  // Check for engineering
-  const weaponEng = hardpoints.filter((hp) => hp?.blueprint);
-  const internalEng = internals.filter((i) => i?.blueprint);
-  const ppEng = core.powerPlant.blueprint;
-  const thrustEng = core.thrusters.blueprint;
-  const fsdEng = core.frameShiftDrive.blueprint;
-  const lifeEng = core.lifeSupport.blueprint;
-  const pdEng = core.powerDistributor.blueprint;
-  const sensorEng = core.sensors.blueprint;
+/**
+ * Check for Guardian modules/weapons
+ * @param core
+ * @param hardpoints
+ * @param internals
+ */
+const checkGuardian = (
+  core: IShipCoreModules,
+  hardpoints: IShipHardpoints,
+  internals: IShipInternalModules
+) => {
+  let guardian = false;
+  const ppName = (core.powerPlant.name as string) ?? '';
+  const pdName = (core.powerDistributor.name as string) ?? '';
+  const guardianHardPoints = hardpoints.find((x) =>
+    x?.group.toLowerCase().startsWith('guardian')
+  );
+  const guardianInternals = internals.find((x) =>
+    x?.group.toLowerCase().startsWith('guardian')
+  );
   if (
-    weaponEng.length > 0 ||
-    internalEng.length > 0 ||
-    ppEng ||
-    thrustEng ||
-    fsdEng ||
-    lifeEng ||
-    pdEng ||
-    sensorEng
+    ppName.toLowerCase().startsWith('guardian') ||
+    pdName.toLowerCase().startsWith('guardian') ||
+    guardianHardPoints ||
+    guardianInternals
   ) {
-    engineering = true;
+    guardian = true;
   }
-
-  return {
-    buildName,
-    shipName,
-    hasGuardian: guardian,
-    hasPowerplay: powerplay,
-    engineering,
-    url,
-  };
+  return guardian;
 };
