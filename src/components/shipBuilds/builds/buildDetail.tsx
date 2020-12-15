@@ -1,7 +1,3 @@
-import { getShipInfofromID } from 'functions/shipBuilds';
-import { useShipBuilds } from 'hooks/shipBuilds/useShipBuilds';
-import { IShipInfo } from 'models/shipBuilds';
-import React, { useEffect, useMemo, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { EDSpinner } from '@admiralfeb/react-components';
 import { NotFound } from 'components';
@@ -14,6 +10,7 @@ import {
 import { BuildDetailFull } from './buildDetailFull';
 import { BuildDetailMobile } from './buildDetailMobile';
 import { BuildDetailBuilds } from './buildDetailBuilds';
+import { useShipBuildInfo } from 'hooks/shipBuilds/useShipBuildInfo';
 
 interface RouteParams {
   id: string;
@@ -26,34 +23,11 @@ const useStyles = makeStyles({
 });
 
 export const BuildDetail = () => {
-  const { loading, shipBuilds } = useShipBuilds();
   let { id } = useParams<RouteParams>();
-  const [shipInfo, setShipInfo] = useState<IShipInfo>();
+  const { loading, shipInfo, foundBuild } = useShipBuildInfo(id);
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
   const classes = useStyles();
-
-  let foundBuild = useMemo(() => {
-    if (loading) {
-      return undefined;
-    }
-
-    let build = shipBuilds.find(
-      (x) => x._id && ((x._id as unknown) as string) === id
-    );
-    if (build) {
-      return build;
-    } else {
-      return null;
-    }
-  }, [id, loading, shipBuilds]);
-
-  useEffect(() => {
-    if (foundBuild) {
-      const info = getShipInfofromID(foundBuild.shipId);
-      setShipInfo(info);
-    }
-  }, [foundBuild]);
 
   if (loading) {
     return <EDSpinner />;
