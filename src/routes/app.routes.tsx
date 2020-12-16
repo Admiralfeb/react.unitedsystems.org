@@ -1,5 +1,5 @@
 import { Switch, Route, Redirect } from 'react-router-dom';
-import { Home, Join, NotFound } from 'components';
+import { Home, Join, JoinForm, NotFound } from 'components';
 import { InformationRoutes } from './information.routes';
 
 export const AppRoutes = () => {
@@ -9,11 +9,14 @@ export const AppRoutes = () => {
       <Route path="/home" exact>
         <Home />
       </Route>
+      <Route path="/information">
+        <InformationRoutes />
+      </Route>
       <Route path="/join">
         <Join />
       </Route>
-      <Route path="/information">
-        <InformationRoutes />
+      <Route path="/joinForm">
+        <JoinForm />
       </Route>
       <Route path="*">
         <NotFound />
