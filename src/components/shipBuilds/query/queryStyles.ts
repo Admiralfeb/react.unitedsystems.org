@@ -80,6 +80,7 @@ export const useQueryStyles = makeStyles((theme) => ({
     display: 'flex',
     flexDirection: 'row',
     justifyContent: 'center',
+    flexWrap: 'wrap',
   },
   queryOtherButtonGrids: {
     display: 'grid',
