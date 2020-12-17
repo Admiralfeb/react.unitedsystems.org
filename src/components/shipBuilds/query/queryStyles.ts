@@ -3,9 +3,8 @@ import { makeStyles } from '@material-ui/core';
 export const useQueryStyles = makeStyles((theme) => ({
   root: {
     display: 'grid',
-    rowGap: '1px',
-    margin: 'auto',
-    width: '95%',
+    rowGap: '2px',
+    width: '99%',
     gridTemplateAreas: `
     'specializations'
     'engineering'
@@ -32,10 +31,11 @@ export const useQueryStyles = makeStyles((theme) => ({
   },
   querySection: {
     width: '90%',
+    minWidth: '90%',
     border: '5px solid gray',
     padding: '5px',
     borderRadius: '15px',
-    margin: '5px',
+    margin: 'auto',
     textAlign: 'center',
     [theme.breakpoints.up('lg')]: {
       width: '98%',
@@ -80,6 +80,7 @@ export const useQueryStyles = makeStyles((theme) => ({
     display: 'flex',
     flexDirection: 'row',
     justifyContent: 'center',
+    flexWrap: 'wrap',
   },
   queryOtherButtonGrids: {
     display: 'grid',
