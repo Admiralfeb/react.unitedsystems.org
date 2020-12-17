@@ -17,6 +17,7 @@ const useStyles = makeStyles({
       textAlign: 'center',
     },
     width: '95%',
+    margin: 'auto',
   },
   header: { textAlign: 'center' },
   fab: {
@@ -44,7 +45,7 @@ export const QueryandBuildList = () => {
   };
 
   return (
-    <section className={classes.root}>
+    <div className={classes.root}>
       <Typography variant="h3" className={classes.header}>
         Ship Build Archive
       </Typography>
@@ -59,6 +60,6 @@ export const QueryandBuildList = () => {
           </Fab>
         </div>
       )}
-    </section>
+    </div>
   );
 };
