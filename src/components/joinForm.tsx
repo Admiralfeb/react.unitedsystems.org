@@ -13,7 +13,7 @@ import {
   TextField,
   Typography,
 } from '@material-ui/core';
-import React, { ChangeEvent, FormEvent, useMemo, useState } from 'react';
+import React, { ChangeEvent, useEffect, useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { Controller, useForm } from 'react-hook-form';
 
@@ -39,49 +39,55 @@ const useStyles = makeStyles((theme) => ({
 
 export const JoinForm = () => {
   const classes = useStyles();
-  const { register, handleSubmit, control } = useForm<IJoinFormFields>();
-  const [formFields, setFormFields] = useState<IJoinFormFields>({
-    cmdr: '',
-    discord: '',
-    platforms: {
-      pc: false,
-      xbox: false,
-      ps: false,
-    },
-    playingLength: null,
-    reference: null,
-    reference2: undefined,
-    rules: false,
-    timezone: '',
-  });
+  const {
+    register,
+    handleSubmit,
+    control,
+    setValue,
+    errors,
+  } = useForm<IJoinFormFields>();
+
   const [platforms, setPlatforms] = useState<{
-    pc: Boolean;
-    xbox: Boolean;
+    pc: boolean;
+    xbox: boolean;
     ps: boolean;
   }>({ pc: false, xbox: false, ps: false });
+  const [ref, setRef] = useState('');
+  const [ref2Question, setRef2Question] = useState('');
 
-  const ref2Question: string | undefined = useMemo(() => {
-    const ref = formFields.reference;
-    switch (ref) {
-      case 'player':
-        return 'Which player referred you?';
-      case 'other':
-        return "Please explain 'Other'";
-      default:
-        return undefined;
-    }
-  }, [formFields]);
+  useEffect(() => {
+    register('platforms', { required: true });
+    register('reference', { required: true });
+  }, [register]);
 
-  const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
+  const handlePlatformChange = (event: ChangeEvent<HTMLInputElement>) => {
     const targetName = event.target.name;
     const checked = event.target.checked;
     console.log(targetName);
     if (targetName === 'pc' || targetName === 'xbox' || targetName === 'ps') {
-      setFormFields((state) => {
-        const platforms = state.platforms;
-        platforms[targetName] = checked;
-        return { ...state, platforms };
+      setPlatforms((state) => {
+        state[targetName] = checked;
+        const newValue = { ...state, [targetName]: checked };
+        setValue('platforms', newValue);
+        return newValue;
       });
+    }
+  };
+
+  const handleRefChange = (event: ChangeEvent<HTMLInputElement>) => {
+    console.log(event.target);
+    setRef(event.target.value);
+    setValue('reference', event.target.value);
+    switch (event.target.value) {
+      case 'player':
+        setRef2Question('Which player referred you?');
+        break;
+      case 'other':
+        setRef2Question("Please explain 'Other'");
+        break;
+      default:
+        setRef2Question('');
+        break;
     }
   };
 
@@ -94,18 +100,19 @@ export const JoinForm = () => {
       </Typography>
       <Paper className={classes.paper}>
         <Typography className={classes.header}>
-          Items marked with * are required.
+          All items are required.
         </Typography>
         <form onSubmit={handleSubmit(onSubmit)}>
           <div className={classes.question}>
-            <Typography>
-              Please enter your in-game CMDR name without 'CMDR'
-            </Typography>
+            <Typography>Please enter your in-game CMDR name</Typography>
             <TextField
               label="CMDR Name"
               inputRef={register({ required: true, minLength: 2 })}
               name="cmdr"
             />
+            {errors.cmdr && (
+              <Typography color="error">CMDR Name is required</Typography>
+            )}
           </div>
           <div className={classes.question}>
             <Typography>
@@ -116,20 +123,25 @@ export const JoinForm = () => {
               inputRef={register({ required: true, pattern: /^.+#\d{4}$/gi })}
               name="discord"
             />
+            {errors.discord && (
+              <Typography color="error">
+                Discord Name is required and must be in name#1234 format
+              </Typography>
+            )}
           </div>
           <div className={classes.question}>
             <Typography>
               Which platform(s) do you play on? Choose all that apply.
             </Typography>
-            <FormControl component="fieldset">
+            <FormControl component="fieldset" required>
               <FormGroup row>
                 <FormControlLabel
                   label="PC"
                   control={
                     <Checkbox
                       name="pc"
-                      checked={props.value}
-                      onChange={(e) => props.onChange(e.target.checked)}
+                      checked={platforms.pc}
+                      onChange={handlePlatformChange}
                     />
                   }
                 />
@@ -138,8 +150,8 @@ export const JoinForm = () => {
                   control={
                     <Checkbox
                       name="xbox"
-                      checked={props.value}
-                      onChange={(e) => props.onChange(e.target.checked)}
+                      checked={platforms.xbox}
+                      onChange={handlePlatformChange}
                     />
                   }
                 />
@@ -148,40 +160,41 @@ export const JoinForm = () => {
                   control={
                     <Checkbox
                       name="ps"
-                      checked={props.value}
-                      onChange={(e) => props.onChange(e.target.checked)}
+                      checked={platforms.ps}
+                      onChange={handlePlatformChange}
                     />
                   }
                 />
               </FormGroup>
             </FormControl>
+            {errors.platforms && (
+              <Typography color="error">
+                You must select at least one platform.
+              </Typography>
+            )}
           </div>
           <div className={classes.question}>
             <Typography>How long have you been playing?</Typography>
             <Controller
               as={
-                <RadioGroup
-                  name="playingLength"
-                  value={formFields.playingLength}
-                  row
-                >
+                <RadioGroup name="playingLength" row>
                   <FormControlLabel
-                    value="0"
+                    value="lessthanMonth"
                     control={<Radio />}
                     label="Less than 1 month"
                   />
                   <FormControlLabel
-                    value="1"
+                    value="morethanMonth"
                     control={<Radio />}
                     label="More than 1 month"
                   />
                   <FormControlLabel
-                    value="2"
+                    value="morethan6Month"
                     control={<Radio />}
                     label="More than 6 months"
                   />
                   <FormControlLabel
-                    value="3"
+                    value="morethan1Year"
                     control={<Radio />}
                     label="More than 1 year"
                   />
@@ -189,13 +202,23 @@ export const JoinForm = () => {
               }
               name="playingLength"
               control={control}
-              defaultValue="0"
+              defaultValue=""
             />
+            {errors.playingLength && (
+              <Typography color="error">
+                You must select how long you've been playing.
+              </Typography>
+            )}
           </div>
           <div className={classes.question}>
             <Typography>How did you find us?</Typography>
             <FormControl component="fieldset" required>
-              <RadioGroup name="reference" value={formFields.playingLength} row>
+              <RadioGroup
+                name="reference"
+                row
+                value={ref}
+                onChange={handleRefChange}
+              >
                 <FormControlLabel
                   value="reddit"
                   control={<Radio />}
@@ -233,29 +256,35 @@ export const JoinForm = () => {
                 />
               </RadioGroup>
             </FormControl>
-
+            {errors.reference && (
+              <Typography color="error">
+                You must select how to found us.
+              </Typography>
+            )}
             {ref2Question && (
               <div>
                 <Divider />
-                <FormControl>
+                <div>
                   <Typography>{ref2Question}</Typography>
                   <TextField
-                    value={formFields.reference2}
-                    onChange={handleInputChange}
+                    inputRef={register({ required: true })}
                     name="reference2"
-                    required
                   />
-                </FormControl>
+                  {errors.reference2 && (
+                    <Typography color="error">
+                      You must populate this field.
+                    </Typography>
+                  )}
+                </div>
               </div>
             )}
           </div>
           <div className={classes.question}>
             <Typography>What timezone are you in?</Typography>
-            <TextField
-              value={formFields.timezone}
-              onChange={handleInputChange}
-              name="timezone"
-            />
+            <TextField inputRef={register} name="timezone" />
+            {errors.timezone && (
+              <Typography color="error">Please enter your timezone.</Typography>
+            )}
           </div>
           <div className={classes.question}>
             <Typography>
@@ -278,8 +307,17 @@ export const JoinForm = () => {
               }
               label="Yes"
             />
+            {errors.rules && (
+              <Typography color="error">
+                You must read and agree to abide by the rules.
+              </Typography>
+            )}
           </div>
-          <Button type="submit">Submit Form</Button>
+          <div className={classes.header}>
+            <Button type="submit" color="primary" variant="outlined">
+              Submit Form
+            </Button>
+          </div>
         </form>
       </Paper>
     </div>
