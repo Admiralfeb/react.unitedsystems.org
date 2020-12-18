@@ -1,4 +1,5 @@
 import {
+  Button,
   Checkbox,
   Divider,
   FormControl,
@@ -12,8 +13,9 @@ import {
   TextField,
   Typography,
 } from '@material-ui/core';
-import React, { useState } from 'react';
+import React, { ChangeEvent, FormEvent, useMemo, useState } from 'react';
 import { NavLink } from 'react-router-dom';
+import { Controller, useForm } from 'react-hook-form';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -36,6 +38,8 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export const JoinForm = () => {
+  const classes = useStyles();
+  const { register, handleSubmit, control } = useForm<IJoinFormFields>();
   const [formFields, setFormFields] = useState<IJoinFormFields>({
     cmdr: '',
     discord: '',
@@ -50,7 +54,38 @@ export const JoinForm = () => {
     rules: false,
     timezone: '',
   });
-  const classes = useStyles();
+  const [platforms, setPlatforms] = useState<{
+    pc: Boolean;
+    xbox: Boolean;
+    ps: boolean;
+  }>({ pc: false, xbox: false, ps: false });
+
+  const ref2Question: string | undefined = useMemo(() => {
+    const ref = formFields.reference;
+    switch (ref) {
+      case 'player':
+        return 'Which player referred you?';
+      case 'other':
+        return "Please explain 'Other'";
+      default:
+        return undefined;
+    }
+  }, [formFields]);
+
+  const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
+    const targetName = event.target.name;
+    const checked = event.target.checked;
+    console.log(targetName);
+    if (targetName === 'pc' || targetName === 'xbox' || targetName === 'ps') {
+      setFormFields((state) => {
+        const platforms = state.platforms;
+        platforms[targetName] = checked;
+        return { ...state, platforms };
+      });
+    }
+  };
+
+  const onSubmit = (data: IJoinFormFields) => console.log(data);
 
   return (
     <div className={classes.root}>
@@ -58,149 +93,194 @@ export const JoinForm = () => {
         Join USC
       </Typography>
       <Paper className={classes.paper}>
-        <div className={classes.question}>
-          <Typography>
-            Please enter your in-game CMDR name without 'CMDR'
-          </Typography>
-          <TextField label="CMDR Name" value={formFields.cmdr} />
-        </div>
-        <div className={classes.question}>
-          <Typography>
-            Please enter your discord name in format: name#1234
-          </Typography>
-          <TextField label="Discord Name" value={formFields.discord} />
-        </div>
-        <div className={classes.question}>
-          <Typography>
-            Which platform(s) do you play on? Choose all that apply.
-          </Typography>
-          <FormControl component="fieldset">
-            <FormGroup row>
-              <FormControlLabel
-                label="PC"
-                control={
-                  <Checkbox checked={formFields.platforms.pc} name="pc" />
-                }
-              />
-              <FormControlLabel
-                label="Xbox One"
-                control={
-                  <Checkbox checked={formFields.platforms.xbox} name="xbox" />
-                }
-              />
-              <FormControlLabel
-                label="PS4 / PS5"
-                control={
-                  <Checkbox checked={formFields.platforms.ps} name="ps" />
-                }
-              />
-            </FormGroup>
-          </FormControl>
-        </div>
-        <div className={classes.question}>
-          <Typography>How long have you been playing?</Typography>
-          <FormControl component="fieldset">
-            <RadioGroup
+        <Typography className={classes.header}>
+          Items marked with * are required.
+        </Typography>
+        <form onSubmit={handleSubmit(onSubmit)}>
+          <div className={classes.question}>
+            <Typography>
+              Please enter your in-game CMDR name without 'CMDR'
+            </Typography>
+            <TextField
+              label="CMDR Name"
+              inputRef={register({ required: true, minLength: 2 })}
+              name="cmdr"
+            />
+          </div>
+          <div className={classes.question}>
+            <Typography>
+              Please enter your discord name in format: name#1234
+            </Typography>
+            <TextField
+              label="Discord Name"
+              inputRef={register({ required: true, pattern: /^.+#\d{4}$/gi })}
+              name="discord"
+            />
+          </div>
+          <div className={classes.question}>
+            <Typography>
+              Which platform(s) do you play on? Choose all that apply.
+            </Typography>
+            <FormControl component="fieldset">
+              <FormGroup row>
+                <FormControlLabel
+                  label="PC"
+                  control={
+                    <Checkbox
+                      name="pc"
+                      checked={props.value}
+                      onChange={(e) => props.onChange(e.target.checked)}
+                    />
+                  }
+                />
+                <FormControlLabel
+                  label="Xbox One"
+                  control={
+                    <Checkbox
+                      name="xbox"
+                      checked={props.value}
+                      onChange={(e) => props.onChange(e.target.checked)}
+                    />
+                  }
+                />
+                <FormControlLabel
+                  label="PS4 / PS5"
+                  control={
+                    <Checkbox
+                      name="ps"
+                      checked={props.value}
+                      onChange={(e) => props.onChange(e.target.checked)}
+                    />
+                  }
+                />
+              </FormGroup>
+            </FormControl>
+          </div>
+          <div className={classes.question}>
+            <Typography>How long have you been playing?</Typography>
+            <Controller
+              as={
+                <RadioGroup
+                  name="playingLength"
+                  value={formFields.playingLength}
+                  row
+                >
+                  <FormControlLabel
+                    value="0"
+                    control={<Radio />}
+                    label="Less than 1 month"
+                  />
+                  <FormControlLabel
+                    value="1"
+                    control={<Radio />}
+                    label="More than 1 month"
+                  />
+                  <FormControlLabel
+                    value="2"
+                    control={<Radio />}
+                    label="More than 6 months"
+                  />
+                  <FormControlLabel
+                    value="3"
+                    control={<Radio />}
+                    label="More than 1 year"
+                  />
+                </RadioGroup>
+              }
               name="playingLength"
-              value={formFields.playingLength}
-              row
-            >
-              <FormControlLabel
-                value={0}
-                control={<Radio />}
-                label="Less than 1 month"
-              />
-              <FormControlLabel
-                value={1}
-                control={<Radio />}
-                label="More than 1 month"
-              />
-              <FormControlLabel
-                value={2}
-                control={<Radio />}
-                label="More than 6 months"
-              />
-              <FormControlLabel
-                value={3}
-                control={<Radio />}
-                label="More than 1 year"
-              />
-            </RadioGroup>
-          </FormControl>
-        </div>
-        <div className={classes.question}>
-          <Typography>How did you find us?</Typography>
-          <FormControl component="fieldset">
-            <RadioGroup name="reference" value={formFields.playingLength} row>
-              <FormControlLabel
-                value="reddit"
-                control={<Radio />}
-                label="Reddit"
-              />
-              <FormControlLabel
-                value="inara"
-                control={<Radio />}
-                label="Inara"
-              />
-              <FormControlLabel
-                value="player"
-                control={<Radio />}
-                label="Player Referral"
-              />
-              <FormControlLabel
-                value="facebook"
-                control={<Radio />}
-                label="Facebook"
-              />
-              <FormControlLabel
-                value="website"
-                control={<Radio />}
-                label="Our Website"
-              />
-              <FormControlLabel
-                value="forums"
-                control={<Radio />}
-                label="Forums"
-              />
-              <FormControlLabel
-                value="other"
-                control={<Radio />}
-                label="Other"
-              />
-            </RadioGroup>
-          </FormControl>
+              control={control}
+              defaultValue="0"
+            />
+          </div>
+          <div className={classes.question}>
+            <Typography>How did you find us?</Typography>
+            <FormControl component="fieldset" required>
+              <RadioGroup name="reference" value={formFields.playingLength} row>
+                <FormControlLabel
+                  value="reddit"
+                  control={<Radio />}
+                  label="Reddit"
+                />
+                <FormControlLabel
+                  value="inara"
+                  control={<Radio />}
+                  label="Inara"
+                />
+                <FormControlLabel
+                  value="player"
+                  control={<Radio />}
+                  label="Player Referral"
+                />
+                <FormControlLabel
+                  value="facebook"
+                  control={<Radio />}
+                  label="Facebook"
+                />
+                <FormControlLabel
+                  value="website"
+                  control={<Radio />}
+                  label="Our Website"
+                />
+                <FormControlLabel
+                  value="forums"
+                  control={<Radio />}
+                  label="Forums"
+                />
+                <FormControlLabel
+                  value="other"
+                  control={<Radio />}
+                  label="Other"
+                />
+              </RadioGroup>
+            </FormControl>
 
-          {formFields.reference2 && (
-            <div>
-              <Divider />
-              <FormControl>
-                <Typography>{formFields.reference2.question}</Typography>
-                <TextField value={formFields.reference2.answer} />
-              </FormControl>
-            </div>
-          )}
-        </div>
-        <div className={classes.question}>
-          <Typography>What timezone are you in?</Typography>
-          <TextField />
-        </div>
-        <div className={classes.question}>
-          <Typography>
-            I have read and agree to the{' '}
-            <Link
-              component={NavLink}
-              to="/information/about/rules"
-              target="_blank"
-            >
-              rules
-            </Link>
-            .
-          </Typography>
-          <FormControlLabel
-            control={<Checkbox checked={formFields.rules} name="rules" />}
-            label="Yes"
-          />
-        </div>
+            {ref2Question && (
+              <div>
+                <Divider />
+                <FormControl>
+                  <Typography>{ref2Question}</Typography>
+                  <TextField
+                    value={formFields.reference2}
+                    onChange={handleInputChange}
+                    name="reference2"
+                    required
+                  />
+                </FormControl>
+              </div>
+            )}
+          </div>
+          <div className={classes.question}>
+            <Typography>What timezone are you in?</Typography>
+            <TextField
+              value={formFields.timezone}
+              onChange={handleInputChange}
+              name="timezone"
+            />
+          </div>
+          <div className={classes.question}>
+            <Typography>
+              I have read and agree to the{' '}
+              <Link
+                component={NavLink}
+                to="/information/about/rules"
+                target="_blank"
+              >
+                rules
+              </Link>
+              .
+            </Typography>
+            <FormControlLabel
+              control={
+                <Checkbox
+                  name="rules"
+                  inputRef={register({ required: true })}
+                />
+              }
+              label="Yes"
+            />
+          </div>
+          <Button type="submit">Submit Form</Button>
+        </form>
       </Paper>
     </div>
   );
@@ -215,11 +295,8 @@ interface IJoinFormFields {
     ps: boolean;
   };
   playingLength: number | null;
-  reference: number | null;
-  reference2?: {
-    question: string;
-    answer: string;
-  };
+  reference: string | null;
+  reference2?: string;
   rules: boolean;
   timezone: string;
 }
