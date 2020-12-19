@@ -41,6 +41,7 @@ jobs:
         run: npm run test:coverage
         env:
           CI: true
+          REACT_APP_REALM_ID: ${{secrets.REACT_APP_REALM_ID}}
       - name: Upload CodeCoverage
         uses: codecov/codecov-action@master
         with:
@@ -63,6 +64,8 @@ jobs:
         run: npm ci --force
       - name: Build
         run: npm run build
+        env:
+          REACT_APP_REALM_ID: ${{secrets.REACT_APP_REALM_ID}}
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@3.7.1
         if: github.ref == 'refs/heads/main'

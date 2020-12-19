@@ -8,7 +8,7 @@ import { AppRoutes } from 'routes/app.routes';
 import { RealmAppProvider, RealmApolloProvider } from 'providers';
 import { SnackbarProvider } from 'notistack';
 
-const realmID: string = 'usc-tbmbi';
+const realmID: string | undefined = process.env.REACT_APP_REALM_ID;
 
 export const App = () => {
   const history = createBrowserHistory({ basename: process.env.PUBLIC_URL });

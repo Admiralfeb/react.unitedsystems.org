@@ -11,10 +11,13 @@ export interface IRealmContext {
 export const RealmAppContext = createContext<IRealmContext | null>(null);
 
 export const RealmAppProvider = (props: {
-  appId: string;
+  appId: string | undefined;
   children: React.ReactNode;
 }) => {
   const { appId, children } = props;
+  if (appId === undefined) {
+    throw new Error('appId is not defined');
+  }
   const [app, setApp] = useState(new Realm.App(appId));
   useEffect(() => {
     setApp(new Realm.App(appId));
