@@ -41,7 +41,7 @@ jobs:
         run: npm run test:coverage
         env:
           CI: true
-          REACT_APP_REALM_ID: ${{secrets.REACT_APP_REALM_ID}}
+          REACT_APP_REALM_ID: ${{secrets.REACT_APP_REALM_ID_TEST}}
       - name: Upload CodeCoverage
         uses: codecov/codecov-action@master
         with:
