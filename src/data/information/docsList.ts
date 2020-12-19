@@ -2,6 +2,13 @@ import { IInfoButton } from 'models/information/infoButtonModel';
 
 export const docsList: IInfoButton[] = [
   {
+    title: 'Radar',
+    caption: 'Infographic',
+    local: true,
+    link: '/radar',
+    beginner: true,
+  },
+  {
     title: 'Station Landing Map',
     caption: 'Infographic',
     local: true,

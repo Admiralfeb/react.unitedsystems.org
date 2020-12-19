@@ -4,6 +4,7 @@ import FSS from 'assets/information/FSS-1.jpg';
 import Scoopable from 'assets/information/KBGFoam.jpg';
 import Coriolis from 'assets/information/Entrance_on_a_Coriolis_Dock.png';
 import ErrorCodes from 'assets/information/ED error codes.png';
+import Radar from 'assets/information/radar.png';
 
 export const infoGraphics = [
   {
@@ -35,5 +36,10 @@ export const infoGraphics = [
     id: 'error-codes',
     title: 'Error Codes',
     img: ErrorCodes,
+  },
+  {
+    id: 'radar',
+    title: 'Radar',
+    img: Radar,
   },
 ];
