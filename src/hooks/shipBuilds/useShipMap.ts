@@ -6,7 +6,7 @@ export const useShipMap = () => {
   return ships;
 };
 
-export const useShipIdfromMap = (shipId: string | undefined) => {
+export const useShipIdfromMap = (shipId?: string) => {
   if (shipId) {
     const ships: IShipInfo[] = Ships;
     const ship = ships.find((x) => x.shipId === shipId);
