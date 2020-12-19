@@ -6,7 +6,7 @@ describe('App', () => {
     cleanup();
   });
 
-  it('should render', () => {
+  it('should render', async () => {
     render(<App />);
   });
 });

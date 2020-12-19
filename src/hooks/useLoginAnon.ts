@@ -4,7 +4,6 @@ import { useRealmApp } from './useRealmApp';
 export const useLoginAnon = () => {
   const realm = useRealmApp();
   useEffect(() => {
-    console.log(realm.currentUser);
     if (realm.currentUser === null) {
       realm
         .logInAnon()
