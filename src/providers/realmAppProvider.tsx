@@ -1,20 +1,17 @@
+import { IRealmContext } from 'models/realmContext';
 import { createContext, useEffect, useState } from 'react';
 import * as Realm from 'realm-web';
-
-export interface IRealmContext {
-  currentUser: Realm.User<globalThis.Realm.DefaultFunctionsFactory, any> | null;
-  logInAnon: () => Promise<void>;
-  logOut: () => Promise<void>;
-  app: Realm.App;
-}
 
 export const RealmAppContext = createContext<IRealmContext | null>(null);
 
 export const RealmAppProvider = (props: {
-  appId: string;
+  appId: string | undefined;
   children: React.ReactNode;
 }) => {
   const { appId, children } = props;
+  if (appId === undefined) {
+    throw new Error('appId is not defined');
+  }
   const [app, setApp] = useState(new Realm.App(appId));
   useEffect(() => {
     setApp(new Realm.App(appId));

@@ -1,6 +1,7 @@
 import { NavLink } from 'react-router-dom';
 import { Button, makeStyles } from '@material-ui/core';
 import { useLoginAnon } from 'hooks/useLoginAnon';
+import { useSnackbar } from 'notistack';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -41,7 +42,12 @@ const useStyles = makeStyles((theme) => ({
 
 export const NavbarComponent = () => {
   const classes = useStyles();
-  useLoginAnon();
+  const { enqueueSnackbar } = useSnackbar();
+  try {
+    useLoginAnon();
+  } catch (e) {
+    enqueueSnackbar('Unable to login for database', { variant: 'error' });
+  }
 
   return (
     <nav className={classes.root}>

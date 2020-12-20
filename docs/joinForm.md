@@ -1,4 +1,4 @@
-# Join Form Plan
+# Join Form Path
 
 ## Primary Questions
 
