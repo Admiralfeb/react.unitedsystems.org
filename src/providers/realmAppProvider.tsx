@@ -1,12 +1,6 @@
+import { IRealmContext } from 'models/realmContext';
 import { createContext, useEffect, useState } from 'react';
 import * as Realm from 'realm-web';
-
-export interface IRealmContext {
-  currentUser: Realm.User<globalThis.Realm.DefaultFunctionsFactory, any> | null;
-  logInAnon: () => Promise<void>;
-  logOut: () => Promise<void>;
-  app: Realm.App;
-}
 
 export const RealmAppContext = createContext<IRealmContext | null>(null);
 

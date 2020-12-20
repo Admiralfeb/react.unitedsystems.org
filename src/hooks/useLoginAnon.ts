@@ -1,15 +1,13 @@
-import { useEffect } from 'react';
 import { useRealmApp } from './useRealmApp';
 
-export const useLoginAnon = () => {
+export const useLoginAnon = async () => {
   const realm = useRealmApp();
-  useEffect(() => {
-    if (realm.currentUser === null) {
-      realm
-        .logInAnon()
-        .then((_) => console.log(realm.currentUser))
-        .catch((reason) => console.log(reason));
+  if (realm.currentUser === null) {
+    try {
+      await realm.logInAnon();
+      console.log(realm.currentUser);
+    } catch (_) {
+      throw new Error('Unable to login anon');
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }
 };

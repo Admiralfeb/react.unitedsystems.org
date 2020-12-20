@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useRealmApp } from 'hooks/useRealmApp';
-import { IRealmContext } from './realmAppProvider';
+import { IRealmContext } from 'models/realmContext';
 import {
   ApolloClient,
   ApolloProvider,
@@ -9,6 +9,9 @@ import {
 } from '@apollo/client';
 
 const createRealmApolloClient = (app: IRealmContext) => {
+  if (app.app === undefined) {
+    throw new Error('app is not defined');
+  }
   const link = new HttpLink({
     uri: `https://realm.mongodb.com/api/client/v2.0/app/${app.app.id}/graphql`,
     // A custom fetch handler adds the logged in user's access token to GraphQL requests
