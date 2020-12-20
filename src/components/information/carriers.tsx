@@ -29,7 +29,7 @@ export const Carriers = () => {
 
   return (
     <div className={classes.table}>
-      <Typography variant="h3">USC Fleet Carriers</Typography>
+      <Typography variant="h4">USC Fleet Carriers</Typography>
       <USCCarriers carriers={squadCarriers} />
       <Typography variant="h4">Personal Fleet Carriers of USC</Typography>
       <PersonalCarriers carriers={personalCarriers} />
