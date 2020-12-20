@@ -7,7 +7,6 @@ import {
 } from '@material-ui/core';
 import { useLinks } from 'hooks/useLinks';
 import { IBuildInfov2, IShipInfo, ShipSize } from 'models/shipBuilds';
-import React from 'react';
 import ReactMarkdown from 'react-markdown';
 import { NavLink } from 'react-router-dom';
 import gfm from 'remark-gfm';

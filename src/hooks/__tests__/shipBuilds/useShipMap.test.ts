@@ -1,8 +1,10 @@
-import { renderHook } from '@testing-library/react-hooks';
+import { cleanup, renderHook } from '@testing-library/react-hooks';
 import { useShipIdfromMap } from 'hooks/shipBuilds/useShipMap';
 import Ships from 'data/shipBuilds/shipMap.json';
 
 describe('useShipMapbyID', () => {
+  afterEach(cleanup);
+
   it('should return undefined when id is blank', () => {
     const { result } = renderHook(() => useShipIdfromMap());
 

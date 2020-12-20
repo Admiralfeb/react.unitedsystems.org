@@ -47,7 +47,7 @@ export const Join = () => {
   const { inaraSquadLink, discordLink } = useLinks();
   return (
     <div className={classes.root}>
-      <Typography variant="h2" className={classes.header}>
+      <Typography variant="h3" className={classes.header}>
         Join Us!
       </Typography>
       <Paper className={classes.paper}>

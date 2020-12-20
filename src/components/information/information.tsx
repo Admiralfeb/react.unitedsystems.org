@@ -30,7 +30,7 @@ export const Information = () => {
   const { toolsList, docsList, guidesList, uscLinksList } = useInfoButtons();
   return (
     <>
-      <Typography variant="h2" className={classes.header}>
+      <Typography variant="h3" className={classes.header}>
         USC Data Archive
       </Typography>
       <InfoSection

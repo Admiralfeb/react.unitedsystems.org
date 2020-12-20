@@ -1,12 +1,12 @@
 import { IRealmContext } from 'models/realmContext';
-import { createContext, useEffect, useState } from 'react';
+import { createContext, ReactNode, useEffect, useState } from 'react';
 import * as Realm from 'realm-web';
 
 export const RealmAppContext = createContext<IRealmContext | null>(null);
 
 export const RealmAppProvider = (props: {
   appId: string | undefined;
-  children: React.ReactNode;
+  children: ReactNode;
 }) => {
   const { appId, children } = props;
   if (appId === undefined) {

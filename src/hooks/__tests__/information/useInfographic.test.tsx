@@ -1,7 +1,9 @@
-import { renderHook } from '@testing-library/react-hooks';
+import { cleanup, renderHook } from '@testing-library/react-hooks';
 import { useInfographic } from 'hooks/information/useInfographic';
 
 describe('useInfographic', () => {
+  afterEach(cleanup);
+
   it('should return undefined', () => {
     const { result } = renderHook(() => useInfographic('noobhammer'));
 

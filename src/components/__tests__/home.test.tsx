@@ -8,9 +8,7 @@ describe('Home', () => {
     componentBody = render(<Home />);
   });
 
-  afterEach(() => {
-    cleanup();
-  });
+  afterEach(cleanup);
 
   it(`should render 'United Systems Cooperative' in an h3 element`, () => {
     const tag = componentBody.getByText('United Systems Cooperative').tagName;

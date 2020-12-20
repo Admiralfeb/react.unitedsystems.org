@@ -1,5 +1,5 @@
 import { ThemeProvider, CssBaseline } from '@material-ui/core';
-import { darkTheme } from './theme';
+import { theme } from './theme';
 import { createBrowserHistory } from 'history';
 
 import { Router } from 'react-router-dom';
@@ -17,7 +17,7 @@ export const App = () => {
     <RealmAppProvider appId={realmID}>
       <RealmApolloProvider>
         <SnackbarProvider maxSnack={3}>
-          <ThemeProvider theme={darkTheme}>
+          <ThemeProvider theme={theme}>
             <CssBaseline />
             <div>
               <Router history={history}>

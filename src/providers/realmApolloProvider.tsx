@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { ReactNode, useEffect, useState } from 'react';
 import { useRealmApp } from 'hooks/useRealmApp';
 import { IRealmContext } from 'models/realmContext';
 import {
@@ -33,7 +33,7 @@ const createRealmApolloClient = (app: IRealmContext) => {
   return new ApolloClient({ link, cache });
 };
 
-export const RealmApolloProvider = (props: { children: React.ReactNode }) => {
+export const RealmApolloProvider = (props: { children: ReactNode }) => {
   const app = useRealmApp();
   const [client, setClient] = useState(createRealmApolloClient(app));
   useEffect(() => {

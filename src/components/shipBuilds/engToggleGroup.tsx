@@ -1,14 +1,11 @@
-import React from 'react';
+import { MouseEvent } from 'react';
 import { ToggleButton, ToggleButtonGroup } from '@material-ui/lab';
 import { makeStyles, Tooltip } from '@material-ui/core';
 import BlockIcon from '@material-ui/icons/Block';
 import engineerIcon from 'assets/shipBuilds/Engineer_icon.svg';
 
 interface IEngToggleGroupProps {
-  handleEngLevelChange: (
-    _: React.MouseEvent<HTMLElement>,
-    newValue: number
-  ) => void;
+  handleEngLevelChange: (_: MouseEvent<HTMLElement>, newValue: number) => void;
   engLevel: number | null;
 }
 

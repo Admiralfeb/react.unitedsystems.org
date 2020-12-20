@@ -13,7 +13,6 @@ import {
   Typography,
 } from '@material-ui/core';
 import { useMiningMaps } from 'hooks/information/useMiningMaps';
-import React from 'react';
 import FileCopyIcon from '@material-ui/icons/FileCopy';
 import { copytoClipboard } from 'functions/copytoClipboard';
 import { useLinks } from 'hooks/useLinks';

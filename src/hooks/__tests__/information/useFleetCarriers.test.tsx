@@ -5,12 +5,14 @@ import {
   useSquadCarriers,
 } from 'hooks/information/useFleetCarriers';
 import { MockedProvider } from '@apollo/client/testing';
-import { renderHook } from '@testing-library/react-hooks';
+import { cleanup, renderHook } from '@testing-library/react-hooks';
 import fleetCarrierData from 'data/information/fleetCarriers.json';
 
 const FleetCarriers = loader('../../../graphql/allFleetCarriers.gql');
 
 describe('useFleetCarriers', () => {
+  afterEach(cleanup);
+
   it('should throw error if it fails the query', async () => {
     const errorMock = {
       request: {

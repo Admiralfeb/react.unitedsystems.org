@@ -1,11 +1,11 @@
 import { Typography } from '@material-ui/core';
-import { SetStateAction, MouseEvent } from 'react';
+import { SetStateAction, MouseEvent, Dispatch } from 'react';
 import { EngToggleGroup } from '../engToggleGroup';
 import { useQueryStyles } from './queryStyles';
 
 export const QueryEngineering = (props: {
   engLevel: number | null;
-  setEngLevel: React.Dispatch<SetStateAction<number | null>>;
+  setEngLevel: Dispatch<SetStateAction<number | null>>;
 }) => {
   const { engLevel, setEngLevel } = props;
   const classes = useQueryStyles();
