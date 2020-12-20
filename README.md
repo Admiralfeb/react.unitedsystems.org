@@ -6,6 +6,12 @@ This is the code for the React version of the United Systems Cooperative website
 [![DeepScan grade](https://deepscan.io/api/teams/12116/projects/15149/branches/299062/badge/grade.svg)](https://deepscan.io/dashboard#view=project&tid=12116&pid=15149&bid=299062)
 [![codecov](https://codecov.io/gh/Admiralfeb/usc-website/branch/master/graph/badge.svg?token=WVP9YZXO7P)](https://codecov.io/gh/Admiralfeb/usc-website)
 
+## Required Technologies to Update this Repository
+
+- VS Code (highly recommended)
+- Node.js v15.3.0
+- npm v7.1.2
+
 ## Available Scripts
 
 In the project directory, you can run:
