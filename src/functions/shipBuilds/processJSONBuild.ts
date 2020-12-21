@@ -103,7 +103,7 @@ const checkPowerplay = (
     'rocket propelled fsd disruptor',
   ];
   const powerplayInternals = internals.find((x) =>
-    x?.group.toLowerCase().startsWith('prismatic')
+    x?.group?.toLowerCase().startsWith('prismatic')
   );
   if (powerplay === false && powerplayInternals) {
     powerplay = true;
@@ -134,10 +134,10 @@ const checkGuardian = (
   const ppName = (core.powerPlant.name as string) ?? '';
   const pdName = (core.powerDistributor.name as string) ?? '';
   const guardianHardPoints = hardpoints.find((x) =>
-    x?.group.toLowerCase().startsWith('guardian')
+    x?.group?.toLowerCase().startsWith('guardian')
   );
   const guardianInternals = internals.find((x) =>
-    x?.group.toLowerCase().startsWith('guardian')
+    x?.group?.toLowerCase().startsWith('guardian')
   );
   if (
     ppName.toLowerCase().startsWith('guardian') ||
