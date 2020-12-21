@@ -1,11 +1,12 @@
 import { Typography } from '@material-ui/core';
 import { ToggleButton } from '@material-ui/lab';
 import { ShipSpecialty } from 'models/shipBuilds/shipSpecialty';
+import { Dispatch, SetStateAction } from 'react';
 import { useQueryStyles } from './queryStyles';
 
 export const QuerySpecialization = (props: {
   selectedSpecialties: string[];
-  setSpecialties: React.Dispatch<React.SetStateAction<string[]>>;
+  setSpecialties: Dispatch<SetStateAction<string[]>>;
 }) => {
   const { selectedSpecialties, setSpecialties } = props;
   const classes = useQueryStyles();

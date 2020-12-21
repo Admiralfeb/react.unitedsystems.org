@@ -1,22 +1,21 @@
 import { Tooltip } from '@material-ui/core';
-
 import { ToggleButton, ToggleButtonGroup } from '@material-ui/lab';
-import { ChangeEvent } from 'react';
+import { ChangeEvent, Dispatch, MouseEvent, SetStateAction } from 'react';
 import { IShipInfo } from 'models/shipBuilds';
 import { ShipAutocomplete } from '../shipAutocomplete';
 import { useQueryStyles } from './queryStyles';
 
 export const QueryShip = (props: {
   shipSize: number | null;
-  setShipSize: React.Dispatch<React.SetStateAction<number | null>>;
+  setShipSize: Dispatch<SetStateAction<number | null>>;
   shipType: string | null;
-  setShipType: React.Dispatch<React.SetStateAction<string | null>>;
+  setShipType: Dispatch<SetStateAction<string | null>>;
 }) => {
   const { shipType, setShipType, shipSize, setShipSize } = props;
   const classes = useQueryStyles();
 
   const handleShipSizeChange = (
-    _: React.MouseEvent<HTMLElement>,
+    _: MouseEvent<HTMLElement>,
     newValue: number
   ) => {
     setShipType(null);

@@ -8,9 +8,7 @@ describe('About High Command', () => {
     componentBody = render(<AboutHC />);
   });
 
-  afterEach(() => {
-    cleanup();
-  });
+  afterEach(cleanup);
 
   it(`should match the snapshot`, () => {
     const { baseElement } = componentBody;

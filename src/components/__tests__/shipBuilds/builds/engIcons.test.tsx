@@ -2,7 +2,7 @@ import { cleanup, render } from '@testing-library/react';
 import { EngIcons } from 'components/shipBuilds/builds/engIcons';
 
 describe('Engineering Icons', () => {
-  afterEach(() => cleanup());
+  afterEach(cleanup);
 
   for (let i = 4; i < 10; i++) {
     it(`renders as none when greater than 3. value: ${i}`, () => {

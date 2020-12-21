@@ -4,7 +4,7 @@ import { MemoryRouter } from 'react-router-dom';
 import * as hooks from 'hooks/shipBuilds/useShipBuildInfo';
 
 describe('Build Detail Parent', () => {
-  afterEach(() => cleanup());
+  afterEach(cleanup);
 
   it('Renders Not Found if build not found', (cb) => {
     const spy = jest.spyOn(hooks, 'useShipBuildInfo');

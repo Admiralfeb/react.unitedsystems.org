@@ -1,7 +1,9 @@
-import { render } from '@testing-library/react';
+import { cleanup, render } from '@testing-library/react';
 import { Infographic } from 'components/information';
 
 describe('Infographic', () => {
+  afterEach(cleanup);
+
   it('Renders the Cave Johnson', () => {
     const { getByText } = render(<Infographic img="cave-johnson" />);
 

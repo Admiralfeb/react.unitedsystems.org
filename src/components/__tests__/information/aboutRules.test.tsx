@@ -8,9 +8,7 @@ describe('About Rules', () => {
     componentBody = render(<AboutRules />);
   });
 
-  afterEach(() => {
-    cleanup();
-  });
+  afterEach(cleanup);
 
   it(`should match the snapshot`, () => {
     const { baseElement } = componentBody;

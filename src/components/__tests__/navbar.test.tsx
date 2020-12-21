@@ -12,9 +12,7 @@ jest.mock('hooks/useLoginAnon', () => ({
 let componentBody: RenderResult;
 
 describe('Navbar', () => {
-  afterEach(() => {
-    cleanup();
-  });
+  afterEach(cleanup);
 
   it(`should match the snapshot`, () => {
     componentBody = render(
