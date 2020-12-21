@@ -3,6 +3,16 @@
   "version": "2020.12.0",
   "private": true,
   "homepage": "https://usc.admiralfeb.net",
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "test:coverage": "react-scripts test --env=jsdom --coverage --watchAll=false",
+    "test:coverage:manual": "react-scripts test --env=jsdom --coverage --watchAll",
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
+  },
   "dependencies": {
     "@admiralfeb/react-components": "^1.1.1",
     "@apollo/client": "^3.2.9",
@@ -43,16 +53,6 @@
     "husky": "^4.3.6",
     "prettier": "^2.2.1",
     "pretty-quick": "^3.1.0"
-  },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "test:coverage": "react-scripts test --env=jsdom --coverage --watchAll=false",
-    "test:coverage:manual": "react-scripts test --env=jsdom --coverage --watchAll",
-    "eject": "react-scripts eject",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [
