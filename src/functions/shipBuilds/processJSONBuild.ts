@@ -26,8 +26,6 @@ export const processJSONBuild = (
   const hardpoints = components.hardpoints;
   const internals = components.internal;
 
-  console.log(internals);
-
   // Check for Guardian
   const guardian = checkGuardian(core, hardpoints, internals);
 
