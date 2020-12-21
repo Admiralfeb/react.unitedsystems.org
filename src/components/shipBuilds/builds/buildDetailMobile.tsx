@@ -50,18 +50,24 @@ export const BuildDetailMobile = (props: {
   return (
     <Paper className={classes.paper}>
       <div className={classes.flexrow}>
-        <img
-          src={shipInfo!.shipImg}
-          alt={shipInfo!.name}
-          className={classes.img}
-        />
+        {shipInfo && (
+          <img
+            src={shipInfo!.shipImg}
+            alt={shipInfo!.name}
+            className={classes.img}
+          />
+        )}
         <div>
           <Typography variant="h5">{foundBuild.title}</Typography>
           <Typography>Author: {foundBuild.author}</Typography>
           <div className={classes.flexrow}>
-            <Typography>{shipInfo!.name}</Typography>
-            <div className={classes.spacer} />
-            <Typography>{ShipSize[shipInfo!.size]}</Typography>
+            {shipInfo && (
+              <>
+                <Typography>{shipInfo.name}</Typography>
+                <div className={classes.spacer} />
+                <Typography>{ShipSize[shipInfo.size]}</Typography>
+              </>
+            )}
           </div>
         </div>
       </div>
@@ -84,22 +90,26 @@ export const BuildDetailMobile = (props: {
         />
       )}
       <div className={classes.buttonGrid}>
-        <Button
-          variant="contained"
-          color="secondary"
-          href={shipInfo!.shipReview}
-          target="_blank"
-        >
-          Pilot's Review
-        </Button>
-        <Button
-          variant="contained"
-          color="secondary"
-          href={`${blueprints}?s=${shipInfo!.blueprint}`}
-          target="_blank"
-        >
-          Ship Anatomy
-        </Button>
+        {shipInfo && (
+          <>
+            <Button
+              variant="contained"
+              color="secondary"
+              href={shipInfo.shipReview}
+              target="_blank"
+            >
+              Pilot's Review
+            </Button>
+            <Button
+              variant="contained"
+              color="secondary"
+              href={`${blueprints}?s=${shipInfo.blueprint}`}
+              target="_blank"
+            >
+              Ship Anatomy
+            </Button>
+          </>
+        )}
         <Button
           variant="contained"
           color="secondary"

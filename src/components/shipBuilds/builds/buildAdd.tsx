@@ -1,4 +1,10 @@
-import { Button, FormGroup, makeStyles, Typography } from '@material-ui/core';
+import {
+  Button,
+  FormGroup,
+  makeStyles,
+  Paper,
+  Typography,
+} from '@material-ui/core';
 import { ObjectId } from 'bson';
 import { ChangeEvent, MouseEvent, useEffect, useState } from 'react';
 import { NavLink } from 'react-router-dom';
@@ -22,6 +28,11 @@ const useStyles = makeStyles({
     rowGap: '10px',
     width: '90%',
     margin: 'auto',
+    padding: 10,
+  },
+  center: {
+    textAlign: 'center',
+    margin: '0 auto',
   },
 });
 
@@ -111,18 +122,6 @@ export const BuildAdd = () => {
           return { ...info, author: value };
         });
         break;
-      case 'variants':
-        const variants = value.split(',').map((s) => s.trim());
-        setBuildInfo((info) => {
-          return { ...info, variants: variants };
-        });
-        break;
-      case 'related':
-        const related = value.split(',').map((s) => s.trim());
-        setBuildInfo((info) => {
-          return { ...info, related: related };
-        });
-        break;
       default:
         break;
     }
@@ -143,38 +142,68 @@ export const BuildAdd = () => {
     setBuildInfo({ ...buildInfo, [event.target.name]: event.target.checked });
   };
   const handleSubmit = async () => {
-    const addType = urlQuery.get('type');
-    console.log(addType);
-    const refID = urlQuery.get('refID');
     try {
-      switch (addType) {
-        case 'variant':
-          if (refID) {
-            await addVariant(refID, shipBuilds, buildInfo);
-          } else {
-            throw new Error('Build reference ID missing from URL');
-          }
-          break;
-        case 'related':
-          if (refID) {
-            await addRelated(refID, shipBuilds, buildInfo);
-          } else {
-            throw new Error('Build reference ID missing from URL');
-          }
-          break;
-        default:
-          await addBuild(buildInfo);
-          break;
+      if (buildInfo.jsonBuild === '') {
+        throw new Error(
+          'Exported JSON is blank. Verify you have pasted the JSON from Coriolis.'
+        );
       }
-      enqueueSnackbar('Build Successfully Submitted', {
-        variant: 'success',
-      });
-      setBuildInfo({ ...DEFAULTBUILD, _id: new ObjectId() });
-      setSpecialties([]);
-      setJsonBuild('');
+      if (buildInfo.specializations.length < 1) {
+        throw new Error(
+          'No specializations have been selected. Minimum is one.'
+        );
+      }
+      if (buildInfo.author === '') {
+        throw new Error('Author is blank.');
+      }
+      if (buildInfo.description === '') {
+        throw new Error('More Information is blank.');
+      }
+      if (buildInfo.title === '') {
+        throw new Error(
+          'Build Title is blank. Verify you have pasted the JSON from Coriolis.'
+        );
+      }
+      if (buildInfo.buildLink === '') {
+        throw new Error(
+          'Build Link is blank. Verify you have pasted the JSON from Coriolis.'
+        );
+      }
+      const addType = urlQuery.get('type');
+      console.log(addType);
+      const refID = urlQuery.get('refID');
+      try {
+        switch (addType) {
+          case 'variant':
+            if (refID) {
+              await addVariant(refID, shipBuilds, buildInfo);
+            } else {
+              throw new Error('Build reference ID missing from URL');
+            }
+            break;
+          case 'related':
+            if (refID) {
+              await addRelated(refID, shipBuilds, buildInfo);
+            } else {
+              throw new Error('Build reference ID missing from URL');
+            }
+            break;
+          default:
+            await addBuild(buildInfo);
+            break;
+        }
+        enqueueSnackbar('Build Successfully Submitted', {
+          variant: 'success',
+        });
+        setBuildInfo({ ...DEFAULTBUILD, _id: new ObjectId() });
+        setSpecialties([]);
+        setJsonBuild('');
+      } catch (e) {
+        enqueueSnackbar(`Submit Failed: ${e.message}`, { variant: 'error' });
+        console.error(e);
+      }
     } catch (e) {
-      enqueueSnackbar(`Submit Failed: ${e.message}`, { variant: 'error' });
-      console.error(e);
+      enqueueSnackbar(`Submit failed. ${e.message}`, { variant: 'error' });
     }
   };
 
@@ -253,50 +282,58 @@ export const BuildAdd = () => {
   }
 
   return (
-    <div className={classes.root}>
-      <Button
-        to="/information/builds"
-        component={NavLink}
-        color="secondary"
-        variant="outlined"
-      >
-        Return to builds
-      </Button>
-      <Typography>
-        Save your build in Coriolis and choose Export. Paste the exported JSON
-        into the Exported JSON field.
+    <>
+      <Typography variant="h3" className={classes.center}>
+        Add Build Form
       </Typography>
-      <Typography>
-        Verify/enter remaining information and click Submit Build at the bottom.
-      </Typography>
-      {textFields.map((field) => (
-        <BuildAddText key={field.id} {...field} />
-      ))}
-      <ShipAutocomplete
-        shipType={buildInfo.shipId}
-        handleShipChange={handleShipChange}
-      />
-      <QuerySpecialization
-        selectedSpecialties={buildInfo.specializations}
-        setSpecialties={setSpecialties}
-      />
-      <EngToggleGroup
-        engLevel={buildInfo.engLevel}
-        handleEngLevelChange={handleEngLevelChange}
-      />
-      <FormGroup row>
-        {checkFields.map((check) => (
-          <BuildCheckBox
-            key={check.name}
-            {...check}
-            onChange={handleOtherChange}
-          />
+      <Paper className={classes.root}>
+        <Button
+          to="/information/builds"
+          component={NavLink}
+          color="secondary"
+          variant="outlined"
+        >
+          Return to builds
+        </Button>
+        <Typography>
+          Save your build in Coriolis and choose Export. Paste the exported JSON
+          into the Exported JSON field.
+        </Typography>
+        <Typography>
+          Verify/enter remaining information and click Submit Build at the
+          bottom.
+        </Typography>
+        {textFields.map((field) => (
+          <BuildAddText key={field.id} {...field} />
         ))}
-      </FormGroup>
-      <Button onClick={handleSubmit} variant="outlined">
-        Submit Build
-      </Button>
-    </div>
+        <ShipAutocomplete
+          shipType={buildInfo.shipId}
+          handleShipChange={handleShipChange}
+        />
+        <QuerySpecialization
+          selectedSpecialties={buildInfo.specializations}
+          setSpecialties={setSpecialties}
+        />
+        <div className={classes.center}>
+          <EngToggleGroup
+            engLevel={buildInfo.engLevel}
+            handleEngLevelChange={handleEngLevelChange}
+          />
+        </div>
+        <FormGroup row className={classes.center}>
+          {checkFields.map((check) => (
+            <BuildCheckBox
+              key={check.name}
+              {...check}
+              onChange={handleOtherChange}
+            />
+          ))}
+        </FormGroup>
+        <Button onClick={handleSubmit} variant="outlined">
+          Submit Build
+        </Button>
+      </Paper>
+    </>
   );
 };
 

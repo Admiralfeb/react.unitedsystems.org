@@ -13,10 +13,6 @@ const theme = createMuiTheme({
   },
 });
 
-theme.typography.h3 = {
-  textAlign: 'center',
-};
-
 theme.overrides = {
   MuiCssBaseline: {
     '@global': {

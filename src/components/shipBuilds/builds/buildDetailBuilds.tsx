@@ -26,21 +26,21 @@ export const BuildDetailBuilds = (props: {
   const classes = useStyles();
   const { loading, shipBuilds } = useShipBuilds();
 
+  if (loading) {
+    return <EDSpinner />;
+  }
+
   return (
     <div className={classes.textCenter}>
       <Typography variant="h4">{title}</Typography>
-      {loading ? (
-        <EDSpinner />
-      ) : (
-        <div className={classes.paper}>
-          {buildIDs.map((id) => {
-            const build = shipBuilds.find(
-              (x) => ((x._id as unknown) as string) === id
-            );
-            return <BuildCard shipBuild={build} key={id} />;
-          })}
-        </div>
-      )}
+      <div className={classes.paper}>
+        {buildIDs.map((id) => {
+          const build = shipBuilds.find(
+            (x) => ((x._id as unknown) as string) === id
+          );
+          return <BuildCard shipBuild={build} key={id} />;
+        })}
+      </div>
     </div>
   );
 };
