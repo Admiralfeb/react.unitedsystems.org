@@ -3,7 +3,7 @@ import { BuildDetailBuilds } from 'components/shipBuilds/builds/buildDetailBuild
 import React from 'react';
 import { MemoryRouter } from 'react-router-dom';
 import * as shipHooks from 'hooks/shipBuilds/useShipBuilds';
-import { testBuildNoExtra } from 'data/shipBuilds/testBuild';
+import { testBuildNoExtra } from 'data/shipBuilds/testBuilds/testBuild';
 
 describe('BuildDetailBuilds', () => {
   afterEach(cleanup);

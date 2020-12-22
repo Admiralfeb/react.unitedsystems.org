@@ -3,7 +3,7 @@ import { BuildCard } from 'components/shipBuilds/builds/buildCard';
 import {
   testBuildExtraBuilds,
   testBuildNoExtra,
-} from 'data/shipBuilds/testBuild';
+} from 'data/shipBuilds/testBuilds/testBuild';
 import { MemoryRouter } from 'react-router-dom';
 
 describe('BuildCard', () => {
