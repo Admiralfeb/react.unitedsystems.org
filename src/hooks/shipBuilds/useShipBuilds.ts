@@ -7,19 +7,21 @@ import { IBuildInfoInsert } from 'models/shipBuilds/buildInfoInsert';
 const AllShipBuildsv2s = loader('../../graphql/allShipBuildsv2s.gql');
 
 export const useShipBuilds = () => {
+  const addRelated = useAddRelatedBuild();
+  const addVariant = useAddVariantBuild();
   const { shipBuilds, loading } = useAllShipBuilds();
   const { addBuild, replaceBuild } = useShipBuildMutations();
   return {
     loading,
     shipBuilds,
     addBuild,
-    addRelated: useAddRelatedBuild(),
-    addVariant: useAddVariantBuild(),
+    addRelated,
+    addVariant,
     replaceBuild,
   };
 };
 
-const useAllShipBuilds = () => {
+export const useAllShipBuilds = () => {
   const { data, loading, error } = useQuery<{
     shipBuildsv2s: IBuildInfov2[];
   }>(AllShipBuildsv2s);
