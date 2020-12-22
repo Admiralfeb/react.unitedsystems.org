@@ -1,6 +1,6 @@
 import { cleanup, render } from '@testing-library/react';
 import { BuildDetailFull } from 'components/shipBuilds/builds/buildDetailFull';
-import { testBuildNoExtra } from 'data/shipBuilds/testBuild';
+import { testBuildNoExtra } from 'data/shipBuilds/testBuilds/testBuild';
 import { getShipInfofromID } from 'functions/shipBuilds';
 import { MemoryRouter } from 'react-router-dom';
 
