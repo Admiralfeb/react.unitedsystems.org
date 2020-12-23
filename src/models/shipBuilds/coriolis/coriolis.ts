@@ -35,6 +35,7 @@ export interface ICoriolisLoadout {
      * The link/url to the 3rd party referencing this build/loadout
      */
     url: string;
+    shipId?: string;
     [k: string]: unknown;
   }[];
   /**
