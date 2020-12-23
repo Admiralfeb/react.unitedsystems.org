@@ -8,7 +8,7 @@ import {
 import { ObjectId } from 'bson';
 import { ChangeEvent, MouseEvent, useEffect, useState } from 'react';
 import { NavLink } from 'react-router-dom';
-import { getShipInfofromName, processJSONBuild } from 'functions/shipBuilds';
+import { processJSONBuild } from 'functions/shipBuilds';
 import { IShipInfo, IBuildInfoInsert } from 'models/shipBuilds';
 import { QuerySpecialization } from '../query/querySpecialities';
 import { EngToggleGroup } from '../engToggleGroup';
@@ -70,14 +70,13 @@ export const BuildAdd = () => {
     setJsonBuild(event.target.value);
     const {
       buildName,
-      shipName,
+      shipID,
       hasGuardian,
       hasPowerplay,
       engineering,
       url,
     } = processJSONBuild(event.target.value);
     const engLevel = engineering ? 1 : 0;
-    const shipInfo = getShipInfofromName(shipName)!;
     const _id = buildInfo._id;
     const info: IBuildInfoInsert = {
       _id,
@@ -85,7 +84,7 @@ export const BuildAdd = () => {
       hasGuardian,
       hasPowerplay,
       buildLink: url,
-      shipId: shipInfo.shipId,
+      shipId: shipID,
       author: '',
       specializations: [],
       engLevel,
