@@ -7,36 +7,60 @@ const useStyles = makeStyles((theme) => ({
   root: {
     width: '100%',
     display: 'flex',
-    padding: '5px 10px',
+    padding: '0.2rem 0.2rem',
     backgroundColor: '#333',
     height: 'auto',
     minHeight: 'auto',
     justifyContent: 'initial',
     zIndex: 1500,
-  },
-  img: {
-    height: 'auto',
-    width: '55px',
-    float: 'left',
-    display: 'block',
-    marginRight: '1em',
+    [theme.breakpoints.up('md')]: {
+      padding: '0.5rem 0.5rem',
+    }
   },
   navLink: {
     backgroundColor: 'transparent',
+    width: '25%',
+    height: 'auto',
+    marginRight: '0.2em',
     color: '#f2f2f2',
     textAlign: 'center',
     textDecoration: 'none',
-    marginTop: 'auto',
-    marginBottom: 'auto',
-    marginLeft: '0.5em',
-    textTransform: 'initial',
+    fontSize: '1rem',
+    [theme.breakpoints.up('md')]: {
+      width: '10rem',
+      marginRight: '0.5em',
+      fontSize: '1.5rem',
+      lineHeight: '1.5rem',
+    }
   },
   active: {
     backgroundColor: theme.palette.primary.main,
     color: 'white',
   },
+  navLinkJoin: {
+    // backgroundColor: 'none',
+    backgroundColor: 'transparent',
+    width: '25%',
+    border: `${theme.palette.secondary.main} 0.1em solid`,
+    color: 'white',
+    fontSize: '1rem',
+    "&:hover": {
+      backgroundColor: theme.palette.secondary.main,
+    },
+    [theme.breakpoints.up('md')]: {
+      width: '10rem',
+      fontSize: '1.5rem',
+    }
+  },
+  activeJoin: {
+    backgroundColor: theme.palette.secondary.main,
+  },
   filler: {
+    display: 'none',
     flex: '1 0',
+    [theme.breakpoints.up('md')]: {
+      display: 'block',
+    }
   },
 }));
 
@@ -81,6 +105,8 @@ export const NavbarComponent = () => {
       <Button
         to="/join"
         color="secondary"
+        className={classes.navLinkJoin}
+        activeClassName={classes.activeJoin}
         variant="contained"
         component={NavLink}
       >
