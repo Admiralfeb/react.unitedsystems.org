@@ -1,6 +1,6 @@
 import { makeStyles, Paper, Typography } from '@material-ui/core';
 
-const useStyles = makeStyles({
+const useStyles = makeStyles((theme) => ({
   root: {},
   header: {
     textAlign: 'center',
@@ -33,7 +33,10 @@ const useStyles = makeStyles({
     width: '100%',
     padding: 0,
   },
-});
+  lore: {
+    marginBottom: theme.spacing(1),
+  },
+}));
 
 export const Home = () => {
   const classes = useStyles();
@@ -51,7 +54,7 @@ export const Home = () => {
             Through Hardships to the Stars
           </Typography>
         </div>
-        <Typography>
+        <Typography className={classes.lore}>
           Established in 3306, the United Systems Cooperative is a tight-knit
           organization of independent pilots operating across the galaxy, both
           in human space, and the uncharted sectors beyond. Little is known
