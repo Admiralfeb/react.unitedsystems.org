@@ -1,18 +1,47 @@
-import { Tooltip } from '@material-ui/core';
+import { makeStyles, Tooltip } from '@material-ui/core';
 import { ToggleButtonGroup, ToggleButton } from '@material-ui/lab';
 
 import { OtherFilters } from 'models/shipBuilds/otherFilters';
 import BlockIcon from '@material-ui/icons/Block';
 import CheckIcon from '@material-ui/icons/Check';
 import { Dispatch, MouseEvent, SetStateAction } from 'react';
-import { useQueryStyles } from './queryStyles';
+import { useSharedStyles } from './queryStyles';
+
+const useStyles = makeStyles((theme) => ({
+  queryOtherButtons: {
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'center',
+    flexWrap: 'wrap',
+  },
+  queryOtherButtonGrids: {
+    display: 'grid',
+    gridTemplateRows: '0.5fr 1fr',
+    margin: '0 10px',
+    '& div': {
+      margin: 'auto',
+      padding: '5px',
+    },
+    '& label': {
+      height: '25px',
+      padding: '5px',
+    },
+  },
+  QueryOtherBeginnerButtons: {
+    borderWidth: '3px',
+    borderStyle: 'solid',
+    borderColor: theme.palette.secondary.main,
+    borderRadius: '5px',
+  },
+}));
 
 export const QueryOther = (props: {
   other: OtherFilters;
   setOther: Dispatch<SetStateAction<OtherFilters>>;
 }) => {
   const { other, setOther } = props;
-  const classes = useQueryStyles();
+  const sharedClasses = useSharedStyles();
+  const classes = useStyles();
 
   const handleGuardianChange = (
     _: MouseEvent<HTMLElement>,
@@ -40,8 +69,8 @@ export const QueryOther = (props: {
   };
 
   return (
-    <div className={classes.querySection}>
-      <h3 className={classes.querySectionheader}>Other Filters</h3>
+    <div className={sharedClasses.querySection}>
+      <h3 className={sharedClasses.querySectionheader}>Other Filters</h3>
       <div className={classes.queryOtherButtons}>
         <Tooltip title="Show all builds, including variants" arrow>
           <div className={classes.queryOtherButtonGrids}>

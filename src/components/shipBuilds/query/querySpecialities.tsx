@@ -1,15 +1,29 @@
-import { Typography } from '@material-ui/core';
+import { makeStyles, Typography } from '@material-ui/core';
 import { ToggleButton } from '@material-ui/lab';
 import { ShipSpecialty } from 'models/shipBuilds/shipSpecialty';
 import { Dispatch, SetStateAction } from 'react';
-import { useQueryStyles } from './queryStyles';
+import { useSharedStyles } from './queryStyles';
+
+const useStyles = makeStyles((theme) => ({
+  querySpecialtyButtons: {
+    display: 'grid',
+    gridTemplate: '1fr 1fr 1fr 1fr 1fr / 1fr 1fr',
+    '& button': {
+      margin: '3px',
+    },
+    [theme.breakpoints.up('lg')]: {
+      gridTemplate: '1fr 1fr / 1fr 1fr 1fr 1fr 1fr',
+    },
+  },
+}));
 
 export const QuerySpecialization = (props: {
   selectedSpecialties: string[];
   setSpecialties: Dispatch<SetStateAction<string[]>>;
 }) => {
   const { selectedSpecialties, setSpecialties } = props;
-  const classes = useQueryStyles();
+  const sharedClasses = useSharedStyles();
+  const classes = useStyles();
 
   const handleSpecialties = (special: string) => {
     let newSpecials: string[] = [];
@@ -22,10 +36,10 @@ export const QuerySpecialization = (props: {
   };
 
   return (
-    <div className={classes.querySection}>
-      <h3 className={classes.querySectionheader}>Ship Specializations</h3>
+    <div className={sharedClasses.querySection}>
+      <h3 className={sharedClasses.querySectionheader}>Ship Specializations</h3>
 
-      <Typography className={classes.queryExplanationText}>
+      <Typography className={sharedClasses.queryExplanationText}>
         Select specializations that the ship should fulfill.
       </Typography>
 
