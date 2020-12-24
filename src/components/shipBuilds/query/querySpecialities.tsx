@@ -2,7 +2,7 @@ import { makeStyles, Typography } from '@material-ui/core';
 import { ToggleButton } from '@material-ui/lab';
 import { ShipSpecialty } from 'models/shipBuilds/shipSpecialty';
 import { Dispatch, SetStateAction } from 'react';
-import { useSharedStyles } from './queryStyles';
+import { useSharedStyles } from './sharedStyles';
 
 const useStyles = makeStyles((theme) => ({
   querySpecialtyButtons: {

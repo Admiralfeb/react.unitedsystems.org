@@ -1,7 +1,7 @@
 import { makeStyles, Typography } from '@material-ui/core';
 import { SetStateAction, MouseEvent, Dispatch } from 'react';
 import { EngToggleGroup } from '../engToggleGroup';
-import { useSharedStyles } from './queryStyles';
+import { useSharedStyles } from './sharedStyles';
 
 const useStyles = makeStyles({
   engineeringQuery: {

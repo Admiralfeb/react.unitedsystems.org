@@ -3,7 +3,7 @@ import { ToggleButton, ToggleButtonGroup } from '@material-ui/lab';
 import { ChangeEvent, Dispatch, MouseEvent, SetStateAction } from 'react';
 import { IShipInfo } from 'models/shipBuilds';
 import { ShipAutocomplete } from '../shipAutocomplete';
-import { useSharedStyles } from './queryStyles';
+import { useSharedStyles } from './sharedStyles';
 
 const useStyles = makeStyles((theme) => ({
   shipQueries: {

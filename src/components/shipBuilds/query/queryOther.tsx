@@ -5,7 +5,7 @@ import { OtherFilters } from 'models/shipBuilds/otherFilters';
 import BlockIcon from '@material-ui/icons/Block';
 import CheckIcon from '@material-ui/icons/Check';
 import { Dispatch, MouseEvent, SetStateAction } from 'react';
-import { useSharedStyles } from './queryStyles';
+import { useSharedStyles } from './sharedStyles';
 
 const useStyles = makeStyles((theme) => ({
   queryOtherButtons: {
