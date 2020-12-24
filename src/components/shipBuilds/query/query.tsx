@@ -8,7 +8,7 @@ import { QueryEngineering } from './queryEngineering';
 import { QueryOther } from './queryOther';
 import { useUrlQuery } from 'hooks/useURLQuery';
 import { useQueryStyles } from './queryStyles';
-import { QueryActions } from './queryButtons';
+import { QueryActions } from './queryActions';
 
 export const Query = (props: { updateQuery: (query: IQuery) => void }) => {
   const [shipType, setShipType] = useState<string | null>(null);
