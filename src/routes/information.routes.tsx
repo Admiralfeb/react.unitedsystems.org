@@ -1,4 +1,4 @@
-import { lazy, Suspense } from 'react';
+import { Suspense } from 'react';
 import { Route, useRouteMatch, Switch } from 'react-router-dom';
 import {
   AboutAllies,
@@ -13,7 +13,6 @@ import {
 import { NotFound } from 'components';
 import { EDSpinner } from '@admiralfeb/react-components';
 import { infoGraphics } from 'data/information/infographicList';
-const ShipBuilds = lazy(() => import('routes/shipBuilds.routes'));
 
 export const InformationRoutes = () => {
   const { path } = useRouteMatch();
@@ -35,9 +34,6 @@ export const InformationRoutes = () => {
         </Route>
         <Route path={`${path}/about/fc`}>
           <Carriers />
-        </Route>
-        <Route path={`${path}/builds`}>
-          <ShipBuilds />
         </Route>
         <Route path={`${path}/mining`}>
           <MiningMap />
