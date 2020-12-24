@@ -28,7 +28,7 @@ export const QueryActions = (props: { resetQueries: () => void }) => {
         variant="outlined"
         color="secondary"
         component={NavLink}
-        to="/information/builds/add"
+        to="/builds/add"
       >
         Add Build
       </Button>
