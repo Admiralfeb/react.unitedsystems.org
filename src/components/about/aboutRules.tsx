@@ -6,7 +6,7 @@ import {
   makeStyles,
   Paper,
 } from '@material-ui/core';
-import { discordRules, memberRules } from 'data/information';
+import { discordRules, memberRules } from 'data/about';
 
 const useStyles = makeStyles((theme) => ({
   header: {
@@ -14,8 +14,10 @@ const useStyles = makeStyles((theme) => ({
   },
   root: {
     display: 'grid',
-    gridTemplateColumns: '1fr 1fr',
+    gridTemplateColumns: '0.5fr 1fr',
     gridTemplateRows: 'auto',
+    width: '90%',
+    margin: 'auto',
     [theme.breakpoints.down('md')]: {
       gridTemplateColumns: '1fr',
       gridTemplateRows: 'auto',
@@ -31,9 +33,13 @@ const useStyles = makeStyles((theme) => ({
     border: '3px solid white',
     borderRadius: 10,
     margin: 5,
+    padding: theme.spacing(1),
     [theme.breakpoints.down('md')]: {
       gridColumn: 1,
     },
+  },
+  listItem: {
+    margin: `0 ${theme.spacing(2)} 0 ${theme.spacing(1)}`,
   },
 }));
 
@@ -42,23 +48,23 @@ export const AboutRules = () => {
   const classes = useStyles();
   return (
     <div className={classes.header}>
-      <Typography variant="h3">Rules</Typography>
+      <Typography variant="h4">Rules</Typography>
       <Paper className={classes.root}>
         <div className={classes.rules}>
-          <Typography variant="h4">Discord</Typography>
+          <Typography variant="h5">Discord</Typography>
           <List>
             {discordRules.map((rule: string, index: number) => (
-              <ListItem key={index}>
+              <ListItem key={index} className={classes.listItem}>
                 <ListItemText primary={`${index + 1}) ${rule}`} />
               </ListItem>
             ))}
           </List>
         </div>
         <div className={classes.rules}>
-          <Typography variant="h4">Members of USC</Typography>
+          <Typography variant="h5">Members of USC</Typography>
           <List>
             {memberRules.map((rule: string, index: number) => (
-              <ListItem key={index}>
+              <ListItem key={index} className={classes.listItem}>
                 <ListItemText primary={`${index + 1}) ${rule}`} />
               </ListItem>
             ))}

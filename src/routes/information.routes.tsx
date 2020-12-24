@@ -1,10 +1,6 @@
 import { Suspense } from 'react';
 import { Route, useRouteMatch, Switch } from 'react-router-dom';
 import {
-  AboutAllies,
-  AboutHC,
-  AboutRules,
-  Carriers,
   Infographic,
   Information,
   MiningMap,
@@ -22,18 +18,6 @@ export const InformationRoutes = () => {
       <Switch>
         <Route exact path={path}>
           <Information />
-        </Route>
-        <Route path={`${path}/about/rules`}>
-          <AboutRules />
-        </Route>
-        <Route path={`${path}/about/hc`}>
-          <AboutHC />
-        </Route>
-        <Route path={`${path}/about/allies`}>
-          <AboutAllies />
-        </Route>
-        <Route path={`${path}/about/fc`}>
-          <Carriers />
         </Route>
         <Route path={`${path}/mining`}>
           <MiningMap />

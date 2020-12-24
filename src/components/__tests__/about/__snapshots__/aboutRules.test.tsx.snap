@@ -6,27 +6,27 @@ exports[`About Rules should match the snapshot 1`] = `
     <div
       class="makeStyles-header-1"
     >
-      <h3
-        class="MuiTypography-root MuiTypography-h3"
+      <h4
+        class="MuiTypography-root MuiTypography-h4"
       >
         Rules
-      </h3>
+      </h4>
       <div
         class="MuiPaper-root makeStyles-root-2 MuiPaper-elevation1 MuiPaper-rounded"
       >
         <div
           class="makeStyles-rules-3"
         >
-          <h4
-            class="MuiTypography-root MuiTypography-h4"
+          <h5
+            class="MuiTypography-root MuiTypography-h5"
           >
             Discord
-          </h4>
+          </h5>
           <ul
             class="MuiList-root MuiList-padding"
           >
             <li
-              class="MuiListItem-root MuiListItem-gutters"
+              class="MuiListItem-root makeStyles-listItem-5 MuiListItem-gutters"
             >
               <div
                 class="MuiListItemText-root"
@@ -39,7 +39,7 @@ exports[`About Rules should match the snapshot 1`] = `
               </div>
             </li>
             <li
-              class="MuiListItem-root MuiListItem-gutters"
+              class="MuiListItem-root makeStyles-listItem-5 MuiListItem-gutters"
             >
               <div
                 class="MuiListItemText-root"
@@ -52,7 +52,7 @@ exports[`About Rules should match the snapshot 1`] = `
               </div>
             </li>
             <li
-              class="MuiListItem-root MuiListItem-gutters"
+              class="MuiListItem-root makeStyles-listItem-5 MuiListItem-gutters"
             >
               <div
                 class="MuiListItemText-root"
@@ -65,7 +65,7 @@ exports[`About Rules should match the snapshot 1`] = `
               </div>
             </li>
             <li
-              class="MuiListItem-root MuiListItem-gutters"
+              class="MuiListItem-root makeStyles-listItem-5 MuiListItem-gutters"
             >
               <div
                 class="MuiListItemText-root"
@@ -78,7 +78,7 @@ exports[`About Rules should match the snapshot 1`] = `
               </div>
             </li>
             <li
-              class="MuiListItem-root MuiListItem-gutters"
+              class="MuiListItem-root makeStyles-listItem-5 MuiListItem-gutters"
             >
               <div
                 class="MuiListItemText-root"
@@ -91,7 +91,7 @@ exports[`About Rules should match the snapshot 1`] = `
               </div>
             </li>
             <li
-              class="MuiListItem-root MuiListItem-gutters"
+              class="MuiListItem-root makeStyles-listItem-5 MuiListItem-gutters"
             >
               <div
                 class="MuiListItemText-root"
@@ -104,7 +104,7 @@ exports[`About Rules should match the snapshot 1`] = `
               </div>
             </li>
             <li
-              class="MuiListItem-root MuiListItem-gutters"
+              class="MuiListItem-root makeStyles-listItem-5 MuiListItem-gutters"
             >
               <div
                 class="MuiListItemText-root"
@@ -117,7 +117,7 @@ exports[`About Rules should match the snapshot 1`] = `
               </div>
             </li>
             <li
-              class="MuiListItem-root MuiListItem-gutters"
+              class="MuiListItem-root makeStyles-listItem-5 MuiListItem-gutters"
             >
               <div
                 class="MuiListItemText-root"
@@ -134,16 +134,16 @@ exports[`About Rules should match the snapshot 1`] = `
         <div
           class="makeStyles-rules-3"
         >
-          <h4
-            class="MuiTypography-root MuiTypography-h4"
+          <h5
+            class="MuiTypography-root MuiTypography-h5"
           >
             Members of USC
-          </h4>
+          </h5>
           <ul
             class="MuiList-root MuiList-padding"
           >
             <li
-              class="MuiListItem-root MuiListItem-gutters"
+              class="MuiListItem-root makeStyles-listItem-5 MuiListItem-gutters"
             >
               <div
                 class="MuiListItemText-root"
@@ -156,7 +156,7 @@ exports[`About Rules should match the snapshot 1`] = `
               </div>
             </li>
             <li
-              class="MuiListItem-root MuiListItem-gutters"
+              class="MuiListItem-root makeStyles-listItem-5 MuiListItem-gutters"
             >
               <div
                 class="MuiListItemText-root"
@@ -169,7 +169,7 @@ exports[`About Rules should match the snapshot 1`] = `
               </div>
             </li>
             <li
-              class="MuiListItem-root MuiListItem-gutters"
+              class="MuiListItem-root makeStyles-listItem-5 MuiListItem-gutters"
             >
               <div
                 class="MuiListItemText-root"
@@ -182,7 +182,7 @@ exports[`About Rules should match the snapshot 1`] = `
               </div>
             </li>
             <li
-              class="MuiListItem-root MuiListItem-gutters"
+              class="MuiListItem-root makeStyles-listItem-5 MuiListItem-gutters"
             >
               <div
                 class="MuiListItemText-root"
@@ -195,7 +195,7 @@ exports[`About Rules should match the snapshot 1`] = `
               </div>
             </li>
             <li
-              class="MuiListItem-root MuiListItem-gutters"
+              class="MuiListItem-root makeStyles-listItem-5 MuiListItem-gutters"
             >
               <div
                 class="MuiListItemText-root"
@@ -208,7 +208,7 @@ exports[`About Rules should match the snapshot 1`] = `
               </div>
             </li>
             <li
-              class="MuiListItem-root MuiListItem-gutters"
+              class="MuiListItem-root makeStyles-listItem-5 MuiListItem-gutters"
             >
               <div
                 class="MuiListItemText-root"

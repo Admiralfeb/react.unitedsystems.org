@@ -1,7 +1,7 @@
 import { render } from '@testing-library/react';
-import { Carriers } from 'components/information';
+import { Carriers } from 'components/about';
 import * as hooks from 'hooks/information/useFleetCarriers';
-import fleetCarrierData from 'data/information/fleetCarriers.json';
+import fleetCarrierData from 'data/about/fleetCarriers.json';
 import { cleanup } from '@testing-library/react-hooks';
 
 describe('Carriers', () => {

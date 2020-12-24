@@ -1,16 +1,16 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`About Allies should match the snapshot 1`] = `
+exports[`About High Command should match the snapshot 1`] = `
 <body>
   <div>
     <div>
-      <h3
-        class="MuiTypography-root makeStyles-header-1 MuiTypography-h3"
+      <h4
+        class="MuiTypography-root makeStyles-header-2 MuiTypography-h4"
       >
-        Allies
-      </h3>
+        High Command
+      </h4>
       <div
-        class="MuiPaper-root makeStyles-allies-2 MuiPaper-elevation1 MuiPaper-rounded"
+        class="MuiPaper-root makeStyles-rank-3 MuiPaper-elevation1 MuiPaper-rounded"
       >
         <ul
           class="MuiList-root MuiList-padding"
@@ -24,7 +24,7 @@ exports[`About Allies should match the snapshot 1`] = `
               <span
                 class="MuiTypography-root MuiListItemText-primary MuiTypography-body1 MuiTypography-displayBlock"
               >
-                1st Imperium Auxiliary Cohort
+                NickG2002
               </span>
             </div>
           </li>
@@ -37,7 +37,7 @@ exports[`About Allies should match the snapshot 1`] = `
               <span
                 class="MuiTypography-root MuiListItemText-primary MuiTypography-body1 MuiTypography-displayBlock"
               >
-                Alba Rotam Private Military
+                Goliath the Second
               </span>
             </div>
           </li>
@@ -50,7 +50,7 @@ exports[`About Allies should match the snapshot 1`] = `
               <span
                 class="MuiTypography-root MuiListItemText-primary MuiTypography-body1 MuiTypography-displayBlock"
               >
-                Arbor Caelum
+                LOKioo42
               </span>
             </div>
           </li>
@@ -63,7 +63,7 @@ exports[`About Allies should match the snapshot 1`] = `
               <span
                 class="MuiTypography-root MuiListItemText-primary MuiTypography-body1 MuiTypography-displayBlock"
               >
-                Black Universe Gazers
+                Pablok
               </span>
             </div>
           </li>
@@ -76,7 +76,7 @@ exports[`About Allies should match the snapshot 1`] = `
               <span
                 class="MuiTypography-root MuiListItemText-primary MuiTypography-body1 MuiTypography-displayBlock"
               >
-                Daily Routine Incorperated
+                PracticalHalo
               </span>
             </div>
           </li>
@@ -89,7 +89,7 @@ exports[`About Allies should match the snapshot 1`] = `
               <span
                 class="MuiTypography-root MuiListItemText-primary MuiTypography-body1 MuiTypography-displayBlock"
               >
-                Explorers of Nabudis
+                RedFang Culph
               </span>
             </div>
           </li>
@@ -102,7 +102,7 @@ exports[`About Allies should match the snapshot 1`] = `
               <span
                 class="MuiTypography-root MuiListItemText-primary MuiTypography-body1 MuiTypography-displayBlock"
               >
-                The Galactic Archive
+                UltraNeros
               </span>
             </div>
           </li>
@@ -115,7 +115,7 @@ exports[`About Allies should match the snapshot 1`] = `
               <span
                 class="MuiTypography-root MuiListItemText-primary MuiTypography-body1 MuiTypography-displayBlock"
               >
-                Gilgamesh Corps
+                Admiralfeb
               </span>
             </div>
           </li>
@@ -128,7 +128,7 @@ exports[`About Allies should match the snapshot 1`] = `
               <span
                 class="MuiTypography-root MuiListItemText-primary MuiTypography-body1 MuiTypography-displayBlock"
               >
-                Independence Separatist Fleet
+                Akhaten
               </span>
             </div>
           </li>
@@ -141,7 +141,7 @@ exports[`About Allies should match the snapshot 1`] = `
               <span
                 class="MuiTypography-root MuiListItemText-primary MuiTypography-body1 MuiTypography-displayBlock"
               >
-                Intergalactic Astronomical Union
+                Aurelius Publius
               </span>
             </div>
           </li>
@@ -154,7 +154,7 @@ exports[`About Allies should match the snapshot 1`] = `
               <span
                 class="MuiTypography-root MuiListItemText-primary MuiTypography-body1 MuiTypography-displayBlock"
               >
-                Interstellar Incorporated
+                Captain Smokeq
               </span>
             </div>
           </li>
@@ -167,7 +167,7 @@ exports[`About Allies should match the snapshot 1`] = `
               <span
                 class="MuiTypography-root MuiListItemText-primary MuiTypography-body1 MuiTypography-displayBlock"
               >
-                Knights of Pleiades
+                Clever Ape
               </span>
             </div>
           </li>
@@ -180,7 +180,7 @@ exports[`About Allies should match the snapshot 1`] = `
               <span
                 class="MuiTypography-root MuiListItemText-primary MuiTypography-body1 MuiTypography-displayBlock"
               >
-                Ryders of the Void
+                Luisqa
               </span>
             </div>
           </li>
@@ -193,7 +193,7 @@ exports[`About Allies should match the snapshot 1`] = `
               <span
                 class="MuiTypography-root MuiListItemText-primary MuiTypography-body1 MuiTypography-displayBlock"
               >
-                ROOKS
+                Nullyti
               </span>
             </div>
           </li>
@@ -206,7 +206,7 @@ exports[`About Allies should match the snapshot 1`] = `
               <span
                 class="MuiTypography-root MuiListItemText-primary MuiTypography-body1 MuiTypography-displayBlock"
               >
-                Sapere Aude
+                Queen Eleanor
               </span>
             </div>
           </li>
@@ -219,7 +219,7 @@ exports[`About Allies should match the snapshot 1`] = `
               <span
                 class="MuiTypography-root MuiListItemText-primary MuiTypography-body1 MuiTypography-displayBlock"
               >
-                The Altruists
+                Yuting9
               </span>
             </div>
           </li>

@@ -6,32 +6,29 @@ import {
   Paper,
   Typography,
 } from '@material-ui/core';
-import { hc } from 'data/information';
+import { allies } from 'data/about';
 
 const useStyles = makeStyles({
-  root: {},
   header: {
     textAlign: 'center',
   },
-  rank: {
-    border: '3px solid white',
-    borderRadius: 10,
+  allies: {
     margin: 'auto',
     width: 450,
   },
 });
 
-/** Displays High Command Members */
-export const AboutHC = () => {
+/** Displays Allies */
+export const AboutAllies = () => {
   const classes = useStyles();
   return (
     <div>
-      <Typography variant="h3" className={classes.header}>
-        High Command
+      <Typography variant="h4" className={classes.header}>
+        Allies
       </Typography>
-      <Paper className={classes.rank}>
+      <Paper className={classes.allies}>
         <List>
-          {hc.map((rule: string, i: number) => (
+          {allies.map((rule: string, i: number) => (
             <ListItem key={i}>
               <ListItemText primary={`${rule}`} />
             </ListItem>
