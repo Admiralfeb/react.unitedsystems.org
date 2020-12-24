@@ -84,7 +84,7 @@ export const BuildCard = (props: { shipBuild: IBuildInfov2 | undefined }) => {
             View Build
           </Button>{' '}
           <Button
-            to={`builds/detail/${(shipBuild._id as unknown) as string}`}
+            to={`/builds/detail/${(shipBuild._id as unknown) as string}`}
             component={NavLink}
             color="primary"
             variant="contained"
