@@ -3,7 +3,6 @@ import {
   Divider,
   Typography,
   Button,
-  CardActions,
   CardContent,
   Card,
   makeStyles,
@@ -13,6 +12,7 @@ import { EngIcons } from './engIcons';
 import { NavLink } from 'react-router-dom';
 import { useShipIdfromMap } from 'hooks/shipBuilds/useShipMap';
 import { TagGroup } from './tagGroup';
+import { theme } from 'theme';
 
 const useStyles = makeStyles({
   root: {
@@ -31,12 +31,24 @@ const useStyles = makeStyles({
     height: '100px',
     width: '100px',
     flexShrink: 0,
+    margin: 'auto',
   },
   shipName: {
     display: 'flex',
   },
   spacer: {
     flexGrow: 1,
+  },
+  mediaAndActions: {
+    marginLeft: theme.spacing(1),
+  },
+  actions: {
+    display: 'grid',
+    gridTemplateRows: 'auto',
+    '& a': {
+      minWidth: 121,
+      marginBottom: theme.spacing(1),
+    },
   },
 });
 
@@ -47,13 +59,32 @@ export const BuildCard = (props: { shipBuild: IBuildInfov2 | undefined }) => {
 
   return shipBuild && shipInfo ? (
     <Card variant="outlined" className={classes.root}>
-      <div>
+      <div className={classes.mediaAndActions}>
         <CardMedia
           className={classes.media}
           image={shipInfo.shipImg}
           title={shipInfo.name}
         />
         <Typography>{ShipSize[shipInfo.size]}</Typography>
+        <div className={classes.actions}>
+          <Button
+            variant="contained"
+            color="secondary"
+            href={shipBuild.buildLink}
+            target="_blank"
+          >
+            View Build
+          </Button>
+          <Button
+            to={`/builds/detail/${(shipBuild._id as unknown) as string}`}
+            component={NavLink}
+            color="primary"
+            variant="contained"
+            target="_blank"
+          >
+            More Details
+          </Button>
+        </div>
       </div>
       <CardContent className={classes.content}>
         <Typography>{shipBuild.title}</Typography>
@@ -74,25 +105,6 @@ export const BuildCard = (props: { shipBuild: IBuildInfov2 | undefined }) => {
           <Typography>Has Related Builds</Typography>
         ) : null}
         <div className={classes.spacer} />
-        <CardActions className="">
-          <Button
-            variant="contained"
-            color="secondary"
-            href={shipBuild.buildLink}
-            target="_blank"
-          >
-            View Build
-          </Button>{' '}
-          <Button
-            to={`/builds/detail/${(shipBuild._id as unknown) as string}`}
-            component={NavLink}
-            color="primary"
-            variant="contained"
-            target="_blank"
-          >
-            View Details
-          </Button>
-        </CardActions>
       </CardContent>
     </Card>
   ) : null;
