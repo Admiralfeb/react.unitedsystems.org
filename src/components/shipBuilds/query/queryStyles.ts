@@ -2,9 +2,10 @@ import { makeStyles } from '@material-ui/core';
 
 export const useQueryStyles = makeStyles((theme) => ({
   root: {
+    padding: theme.spacing(1),
     display: 'grid',
-    rowGap: '2px',
-    width: '99%',
+    rowGap: theme.spacing(1),
+    // width: '99%',
     gridTemplateAreas: `
     'specializations'
     'engineering'
@@ -14,12 +15,11 @@ export const useQueryStyles = makeStyles((theme) => ({
     textAlign: 'center',
     [theme.breakpoints.up('lg')]: {
       gridTemplateAreas: `
-        'specializations    engineering'
-        'ship   other'
-        'buttons    buttons'`,
+        'specializations engineering'
+        'ship other'
+        'buttons buttons'`,
       gridTemplateRows: '1fr 1fr 0.1fr',
-      rowGap: '5px',
-      columnGap: '5px',
+      gridGap: theme.spacing(1),
     },
   },
   bottomButtons: {
@@ -30,19 +30,23 @@ export const useQueryStyles = makeStyles((theme) => ({
     },
   },
   querySection: {
-    width: '90%',
-    minWidth: '90%',
+    width: '99%',
+    minHeight: '15rem',
     border: '5px solid gray',
-    padding: '5px',
+    // padding: '5px',
     borderRadius: '15px',
     margin: 'auto',
     textAlign: 'center',
+    display: 'grid',
+    gridTemplate: '1fr 1fr 4fr / 1fr',
+    justifyContent: 'space-evenly',
+    flexDirection: 'column',
     [theme.breakpoints.up('lg')]: {
-      width: '98%',
+      width: '100%',
     },
   },
   querySectionheader: {
-    marginTop: '5px',
+    margin: '0.5rem 0',
     textAlign: 'center',
   },
   shipQueries: {
@@ -70,7 +74,7 @@ export const useQueryStyles = makeStyles((theme) => ({
     display: 'grid',
     gridTemplate: '1fr 1fr 1fr 1fr 1fr / 1fr 1fr',
     '& button': {
-      margin: '3px',
+    margin: '3px',
     },
     [theme.breakpoints.up('lg')]: {
       gridTemplate: '1fr 1fr / 1fr 1fr 1fr 1fr 1fr',

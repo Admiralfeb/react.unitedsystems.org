@@ -4,6 +4,7 @@ import { ChangeEvent, Dispatch, MouseEvent, SetStateAction } from 'react';
 import { IShipInfo } from 'models/shipBuilds';
 import { ShipAutocomplete } from '../shipAutocomplete';
 import { useQueryStyles } from './queryStyles';
+import { Typography } from '@material-ui/core';
 
 export const QueryShip = (props: {
   shipSize: number | null;
@@ -31,6 +32,9 @@ export const QueryShip = (props: {
   return (
     <div className={classes.querySection}>
       <h3 className={classes.querySectionheader}>Ship Type and Size</h3>
+      <Typography className={classes.queryExplanationText}>
+        Search your specified ship or size.
+      </Typography>
       <div className={classes.shipQueries}>
         <div className={classes.shipTypeQuery}>
           <ShipAutocomplete

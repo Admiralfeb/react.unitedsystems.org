@@ -6,6 +6,7 @@ import BlockIcon from '@material-ui/icons/Block';
 import CheckIcon from '@material-ui/icons/Check';
 import { Dispatch, MouseEvent, SetStateAction } from 'react';
 import { useQueryStyles } from './queryStyles';
+import { Typography } from '@material-ui/core';
 
 export const QueryOther = (props: {
   other: OtherFilters;
@@ -42,6 +43,11 @@ export const QueryOther = (props: {
   return (
     <div className={classes.querySection}>
       <h3 className={classes.querySectionheader}>Other Filters</h3>
+
+      <Typography className={classes.queryExplanationText}>
+        Select adiitional filters.
+      </Typography>
+
       <div className={classes.queryOtherButtons}>
         <Tooltip title="Show all builds, including variants" arrow>
           <div className={classes.queryOtherButtonGrids}>
