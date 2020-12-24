@@ -30,23 +30,24 @@ export const useQueryStyles = makeStyles((theme) => ({
     },
   },
   querySection: {
-    width: '99%',
-    minHeight: '15rem',
+    width: '100%',
+    minHeight: '14rem',
     border: '5px solid gray',
-    // padding: '5px',
-    borderRadius: '15px',
+    padding: '0.5rem',
+    borderRadius: '1rem',
     margin: 'auto',
     textAlign: 'center',
     display: 'grid',
-    gridTemplate: '1fr 1fr 4fr / 1fr',
+    gridTemplate: '0.6fr 0.6fr 3fr / 1fr',
     justifyContent: 'space-evenly',
+    alignItems: 'center',
     flexDirection: 'column',
     [theme.breakpoints.up('lg')]: {
       width: '100%',
     },
   },
   querySectionheader: {
-    margin: '0.5rem 0',
+    margin: '0',
     textAlign: 'center',
   },
   shipQueries: {
@@ -66,6 +67,11 @@ export const useQueryStyles = makeStyles((theme) => ({
   },
   engineeringQuery: {
     gridArea: 'engineering',
+  },
+  toggleButtonCustom: {
+    '& svg': {
+      fontSize: '2rem',
+    },
   },
   queryExplanationText: {
     color: 'rgba(255, 255, 255, 0.7)',
@@ -97,6 +103,9 @@ export const useQueryStyles = makeStyles((theme) => ({
     '& label': {
       height: '25px',
       padding: '5px',
+    },
+    '& svg': {
+      fontSize: '2rem',
     },
   },
   QueryOtherBeginnerButtons: {

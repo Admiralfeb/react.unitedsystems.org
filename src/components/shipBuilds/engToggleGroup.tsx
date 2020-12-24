@@ -9,15 +9,15 @@ interface IEngToggleGroupProps {
   engLevel: number | null;
 }
 
-const useStyles = makeStyles({
+const useStyles = makeStyles(theme => ({
   engButton: {
     display: 'flex',
     '& img': {
-      height: '20px',
-      width: '20px',
+      height: '2rem',
+      width: '2rem',
     },
   },
-});
+}));
 
 export const EngToggleGroup = (props: IEngToggleGroupProps) => {
   const { engLevel, handleEngLevelChange } = props;

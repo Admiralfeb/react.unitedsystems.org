@@ -45,7 +45,7 @@ export const QueryOther = (props: {
       <h3 className={classes.querySectionheader}>Other Filters</h3>
 
       <Typography className={classes.queryExplanationText}>
-        Select adiitional filters.
+        Select additional filters.
       </Typography>
 
       <div className={classes.queryOtherButtons}>

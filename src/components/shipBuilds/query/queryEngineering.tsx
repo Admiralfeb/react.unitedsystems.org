@@ -23,10 +23,12 @@ export const QueryEngineering = (props: {
       <Typography className={classes.queryExplanationText}>
         Select Engineering level ranging from None to Max Engineering.
       </Typography>
-      <EngToggleGroup
-        engLevel={engLevel}
-        handleEngLevelChange={handleEngLevelChange}
-      />
+      <div className={classes.toggleButtonCustom}>
+        <EngToggleGroup
+          engLevel={engLevel}
+          handleEngLevelChange={handleEngLevelChange}
+        />
+      </div>
     </div>
   );
 };
