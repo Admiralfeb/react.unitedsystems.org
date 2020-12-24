@@ -7,7 +7,7 @@ exports[`Nav Mobile should match snapshot 1`] = `
       class="makeStyles-root-1"
     >
       <header
-        class="MuiPaper-root MuiAppBar-root MuiAppBar-positionStatic MuiAppBar-colorDefault MuiPaper-elevation4"
+        class="MuiPaper-root MuiAppBar-root MuiAppBar-positionStatic MuiAppBar-colorInherit MuiPaper-elevation4"
       >
         <div
           class="MuiToolbar-root MuiToolbar-regular MuiToolbar-gutters"
