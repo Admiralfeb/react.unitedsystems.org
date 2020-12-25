@@ -6,7 +6,7 @@ import {
 } from 'hooks/information/useFleetCarriers';
 import { MockedProvider } from '@apollo/client/testing';
 import { cleanup, renderHook } from '@testing-library/react-hooks';
-import fleetCarrierData from 'data/information/fleetCarriers.json';
+import fleetCarrierData from 'data/about/fleetCarriers.json';
 
 const FleetCarriers = loader('../../../graphql/allFleetCarriers.gql');
 

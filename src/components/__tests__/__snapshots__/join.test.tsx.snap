@@ -5,6 +5,7 @@ exports[`Join should match the snapshot 1`] = `
   <div>
     <div
       class="makeStyles-root-1"
+      style="opacity: 1; webkit-transition: opacity 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms; transition: opacity 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;"
     >
       <h3
         class="MuiTypography-root makeStyles-header-2 MuiTypography-h3"
@@ -21,7 +22,7 @@ exports[`Join should match the snapshot 1`] = `
            
           <a
             class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorPrimary"
-            href="/information/about/rules"
+            href="/about/rules"
             target="_blank"
           >
             About Page
@@ -40,6 +41,7 @@ exports[`Join should match the snapshot 1`] = `
           >
             USC Join Form
           </a>
+          .
         </p>
         <p
           class="MuiTypography-root MuiTypography-body1"
@@ -53,6 +55,7 @@ exports[`Join should match the snapshot 1`] = `
           >
             Discord
           </a>
+          .
         </p>
         <p
           class="MuiTypography-root MuiTypography-body1"
@@ -71,6 +74,7 @@ exports[`Join should match the snapshot 1`] = `
           >
             Inara Squadron
           </a>
+          .
         </p>
       </div>
     </div>

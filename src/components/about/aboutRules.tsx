@@ -5,6 +5,7 @@ import {
   ListItemText,
   makeStyles,
   Paper,
+  Fade,
 } from '@material-ui/core';
 import { discordRules, memberRules } from 'data/about';
 
@@ -47,38 +48,40 @@ const useStyles = makeStyles((theme) => ({
 export const AboutRules = () => {
   const classes = useStyles();
   return (
-    <div className={classes.header}>
-      <Typography variant="h4">Rules</Typography>
-      <Paper className={classes.root}>
-        <div className={classes.rules}>
-          <Typography variant="h5">Discord</Typography>
-          <List>
-            {discordRules.map((rule: string, index: number) => (
-              <ListItem key={index} className={classes.listItem}>
-                <ListItemText primary={`${index + 1}) ${rule}`} />
-              </ListItem>
-            ))}
-          </List>
-        </div>
-        <div className={classes.rules}>
-          <Typography variant="h5">Members of USC</Typography>
-          <List>
-            {memberRules.map((rule: string, index: number) => (
-              <ListItem key={index} className={classes.listItem}>
-                <ListItemText primary={`${index + 1}) ${rule}`} />
-              </ListItem>
-            ))}
-          </List>
-        </div>
-        <div className={classes.consequences}>
-          <Typography>
-            Those found in violation of any of these Discord or Group rules, or
-            found attempting to bypass these rules in any way, will first be
-            subject to a minimum of a warning, further offences will be subject
-            to demotion, expulsion, and/or USC Kill-on-Sight status.
-          </Typography>
-        </div>
-      </Paper>
-    </div>
+    <Fade in={true}>
+      <div className={classes.header}>
+        <Typography variant="h4">Rules</Typography>
+        <Paper className={classes.root}>
+          <div className={classes.rules}>
+            <Typography variant="h5">Discord</Typography>
+            <List>
+              {discordRules.map((rule: string, index: number) => (
+                <ListItem key={index} className={classes.listItem}>
+                  <ListItemText primary={`${index + 1}) ${rule}`} />
+                </ListItem>
+              ))}
+            </List>
+          </div>
+          <div className={classes.rules}>
+            <Typography variant="h5">Members of USC</Typography>
+            <List>
+              {memberRules.map((rule: string, index: number) => (
+                <ListItem key={index} className={classes.listItem}>
+                  <ListItemText primary={`${index + 1}) ${rule}`} />
+                </ListItem>
+              ))}
+            </List>
+          </div>
+          <div className={classes.consequences}>
+            <Typography>
+              Those found in violation of any of these Discord or Group rules,
+              or found attempting to bypass these rules in any way, will first
+              be subject to a minimum of a warning, further offences will be
+              subject to demotion, expulsion, and/or USC Kill-on-Sight status.
+            </Typography>
+          </div>
+        </Paper>
+      </div>
+    </Fade>
   );
 };

@@ -1,6 +1,8 @@
 import {
   Fab,
+  Fade,
   makeStyles,
+  Slide,
   Typography,
   useMediaQuery,
   useTheme,
@@ -45,21 +47,23 @@ export const QueryandBuildList = () => {
   };
 
   return (
-    <div className={classes.root}>
-      <Typography variant="h3" className={classes.header}>
-        Ship Build Archive
-      </Typography>
-      <Query updateQuery={handleQuery} />
-      <div ref={buildRef}>
-        <BuildList buildQuery={query} />
-      </div>
-      {isMobile && (
-        <div className={classes.fab}>
-          <Fab color="primary" className="fab" onClick={handleFab}>
-            <ArrowDownwardIcon />
-          </Fab>
+    <Fade in={true}>
+      <div className={classes.root}>
+        <Typography variant="h3" className={classes.header}>
+          Ship Build Archive
+        </Typography>
+        <Query updateQuery={handleQuery} />
+        <div ref={buildRef}>
+          <BuildList buildQuery={query} />
         </div>
-      )}
-    </div>
+        <Slide direction="left" in={isMobile} timeout={1000}>
+          <div className={classes.fab}>
+            <Fab color="primary" className="fab" onClick={handleFab}>
+              <ArrowDownwardIcon />
+            </Fab>
+          </div>
+        </Slide>
+      </div>
+    </Fade>
   );
 };

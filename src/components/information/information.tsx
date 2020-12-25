@@ -1,4 +1,10 @@
-import { Button, makeStyles, useMediaQuery, useTheme } from '@material-ui/core';
+import {
+  Button,
+  Fade,
+  makeStyles,
+  useMediaQuery,
+  useTheme,
+} from '@material-ui/core';
 import { Typography, Paper } from '@material-ui/core';
 import { InfoSection } from './infoSection';
 import { useInfoButtons } from 'hooks/useInfoButtons';
@@ -46,69 +52,71 @@ export const Information = () => {
   };
 
   return (
-    <>
-      <Typography variant="h3" className={classes.header}>
-        Information Archive
-      </Typography>
-
-      <Paper className={classes.paper}>
-        <Typography variant="subtitle1">
-          New Players look to the{' '}
-          <span className={classes.secondary}> blue buttons </span>for helpful
-          tips in getting started with the Guides, Tools, and Documentation
-          below.
+    <Fade in={true}>
+      <div>
+        <Typography variant="h3" className={classes.header}>
+          Information Archive
         </Typography>
-      </Paper>
-      {isMobile && (
+
         <Paper className={classes.paper}>
-          <Typography variant="subtitle1">Scroll To:</Typography>
-          <Button
-            variant="outlined"
-            onClick={() => handleScroll(guidesRef)}
-            title="guides"
-          >
-            Guides
-          </Button>
-          <Button
-            variant="outlined"
-            onClick={() => handleScroll(toolsRef)}
-            title="tools"
-          >
-            Tools
-          </Button>
-          <Button
-            variant="outlined"
-            onClick={() => handleScroll(docsRef)}
-            title="docs"
-          >
-            Documentation
-          </Button>
+          <Typography variant="subtitle1">
+            New Players look to the{' '}
+            <span className={classes.secondary}> blue buttons </span>for helpful
+            tips in getting started with the Guides, Tools, and Documentation
+            below.
+          </Typography>
         </Paper>
-      )}
-      <div ref={guidesRef}>
-        <InfoSection
-          id="guides"
-          key="guides"
-          header="Guides"
-          buttons={guidesList}
-        />
+        {isMobile && (
+          <Paper className={classes.paper}>
+            <Typography variant="subtitle1">Scroll To:</Typography>
+            <Button
+              variant="outlined"
+              onClick={() => handleScroll(guidesRef)}
+              title="guides"
+            >
+              Guides
+            </Button>
+            <Button
+              variant="outlined"
+              onClick={() => handleScroll(toolsRef)}
+              title="tools"
+            >
+              Tools
+            </Button>
+            <Button
+              variant="outlined"
+              onClick={() => handleScroll(docsRef)}
+              title="docs"
+            >
+              Documentation
+            </Button>
+          </Paper>
+        )}
+        <div ref={guidesRef}>
+          <InfoSection
+            id="guides"
+            key="guides"
+            header="Guides"
+            buttons={guidesList}
+          />
+        </div>
+        <div ref={toolsRef}>
+          <InfoSection
+            id="tools"
+            key="tools"
+            header="Tools"
+            buttons={toolsList}
+          />
+        </div>
+        <div ref={docsRef}>
+          <InfoSection
+            id="docs"
+            key="docs"
+            header="Documentation"
+            buttons={docsList}
+          />
+        </div>
       </div>
-      <div ref={toolsRef}>
-        <InfoSection
-          id="tools"
-          key="tools"
-          header="Tools"
-          buttons={toolsList}
-        />
-      </div>
-      <div ref={docsRef}>
-        <InfoSection
-          id="docs"
-          key="docs"
-          header="Documentation"
-          buttons={docsList}
-        />
-      </div>
-    </>
+    </Fade>
   );
 };

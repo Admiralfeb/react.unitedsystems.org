@@ -21,7 +21,7 @@ describe('Home', () => {
   });
 
   it(`should render 'Through Hardships to the Stars' in an h6 element`, () => {
-    const tag = componentBody.getByText('Through Hardships to the Stars')
+    const tag = componentBody.getByText('Through hardships to the stars')
       .tagName;
     expect(tag).toBe('H6');
   });

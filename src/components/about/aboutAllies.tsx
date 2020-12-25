@@ -1,4 +1,5 @@
 import {
+  Fade,
   List,
   ListItem,
   ListItemText,
@@ -22,19 +23,21 @@ const useStyles = makeStyles({
 export const AboutAllies = () => {
   const classes = useStyles();
   return (
-    <div>
-      <Typography variant="h4" className={classes.header}>
-        Allies
-      </Typography>
-      <Paper className={classes.allies}>
-        <List>
-          {allies.map((rule: string, i: number) => (
-            <ListItem key={i}>
-              <ListItemText primary={`${rule}`} />
-            </ListItem>
-          ))}
-        </List>
-      </Paper>
-    </div>
+    <Fade in={true}>
+      <div>
+        <Typography variant="h4" className={classes.header}>
+          Allies
+        </Typography>
+        <Paper className={classes.allies}>
+          <List>
+            {allies.map((rule: string, i: number) => (
+              <ListItem key={i}>
+                <ListItemText primary={`${rule}`} />
+              </ListItem>
+            ))}
+          </List>
+        </Paper>
+      </div>
+    </Fade>
   );
 };
