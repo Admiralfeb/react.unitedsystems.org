@@ -1,7 +1,15 @@
-import { makeStyles } from '@material-ui/core';
+import {
+  Button,
+  Fade,
+  makeStyles,
+  useMediaQuery,
+  useTheme,
+} from '@material-ui/core';
 import { Typography, Paper } from '@material-ui/core';
 import { InfoSection } from './infoSection';
-import { useInfoButtons } from 'hooks/information/useInfoButtons';
+import { useInfoButtons } from 'hooks/useInfoButtons';
+import { MutableRefObject, useRef } from 'react';
+import React from 'react';
 
 const useStyles = makeStyles((theme) => ({
   header: {
@@ -14,6 +22,9 @@ const useStyles = makeStyles((theme) => ({
     padding: 5,
     paddingBottom: 10,
     marginBottom: 5,
+    '& button': {
+      margin: theme.spacing(1),
+    },
   },
   specialButton: {
     display: 'flex',
@@ -27,39 +38,85 @@ const useStyles = makeStyles((theme) => ({
 /** Information Landing Component */
 export const Information = () => {
   const classes = useStyles();
-  const { toolsList, docsList, guidesList, uscLinksList } = useInfoButtons();
+  const { toolsList, docsList, guidesList } = useInfoButtons();
+  const guidesRef = useRef<HTMLDivElement | null>(null);
+  const toolsRef = useRef<HTMLDivElement | null>(null);
+  const docsRef = useRef<HTMLDivElement | null>(null);
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down('md'));
+
+  const handleScroll = (ref: MutableRefObject<HTMLDivElement | null>) => {
+    if (ref.current) {
+      ref.current.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
-    <>
-      <Typography variant="h3" className={classes.header}>
-        USC Data Archive
-      </Typography>
-      <InfoSection
-        id="usc-links"
-        key="usc-links"
-        header="USC Links"
-        buttons={uscLinksList}
-      />
-      <Paper className={classes.paper}>
-        <Typography variant="subtitle1">
-          New Players look to the{' '}
-          <span className={classes.secondary}> blue buttons </span>for helpful
-          tips in getting started with the Guides, Tools, and Documentation
-          below.
+    <Fade in={true}>
+      <div>
+        <Typography variant="h3" className={classes.header}>
+          Information Archive
         </Typography>
-      </Paper>
-      <InfoSection
-        id="guides"
-        key="guides"
-        header="Guides"
-        buttons={guidesList}
-      />
-      <InfoSection id="tools" key="tools" header="Tools" buttons={toolsList} />
-      <InfoSection
-        id="docs"
-        key="docs"
-        header="Documentation"
-        buttons={docsList}
-      />
-    </>
+
+        <Paper className={classes.paper}>
+          <Typography variant="subtitle1">
+            New Players look to the{' '}
+            <span className={classes.secondary}> blue buttons </span>for helpful
+            tips in getting started with the Guides, Tools, and Documentation
+            below.
+          </Typography>
+        </Paper>
+        {isMobile && (
+          <Paper className={classes.paper}>
+            <Typography variant="subtitle1">Scroll To:</Typography>
+            <Button
+              variant="outlined"
+              onClick={() => handleScroll(guidesRef)}
+              title="guides"
+            >
+              Guides
+            </Button>
+            <Button
+              variant="outlined"
+              onClick={() => handleScroll(toolsRef)}
+              title="tools"
+            >
+              Tools
+            </Button>
+            <Button
+              variant="outlined"
+              onClick={() => handleScroll(docsRef)}
+              title="docs"
+            >
+              Documentation
+            </Button>
+          </Paper>
+        )}
+        <div ref={guidesRef}>
+          <InfoSection
+            id="guides"
+            key="guides"
+            header="Guides"
+            buttons={guidesList}
+          />
+        </div>
+        <div ref={toolsRef}>
+          <InfoSection
+            id="tools"
+            key="tools"
+            header="Tools"
+            buttons={toolsList}
+          />
+        </div>
+        <div ref={docsRef}>
+          <InfoSection
+            id="docs"
+            key="docs"
+            header="Documentation"
+            buttons={docsList}
+          />
+        </div>
+      </div>
+    </Fade>
   );
 };

@@ -1,5 +1,5 @@
 import { cleanup, render, RenderResult } from '@testing-library/react';
-import { AboutAllies } from 'components/information/aboutAllies';
+import { AboutAllies } from 'components/about';
 
 let componentBody: RenderResult;
 

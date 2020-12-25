@@ -1,14 +1,21 @@
-import { Typography } from '@material-ui/core';
+import { makeStyles, Typography } from '@material-ui/core';
 import { SetStateAction, MouseEvent, Dispatch } from 'react';
 import { EngToggleGroup } from '../engToggleGroup';
-import { useQueryStyles } from './queryStyles';
+import { useSharedStyles } from './sharedStyles';
+
+const useStyles = makeStyles({
+  engineeringQuery: {
+    gridArea: 'engineering',
+  },
+});
 
 export const QueryEngineering = (props: {
   engLevel: number | null;
   setEngLevel: Dispatch<SetStateAction<number | null>>;
 }) => {
   const { engLevel, setEngLevel } = props;
-  const classes = useQueryStyles();
+  const sharedClasses = useSharedStyles();
+  const classes = useStyles();
 
   const handleEngLevelChange = (
     _: MouseEvent<HTMLElement>,
@@ -18,9 +25,13 @@ export const QueryEngineering = (props: {
   };
 
   return (
-    <div className={`${classes.querySection} ${classes.engineeringQuery}`}>
-      <h3 className={classes.querySectionheader}>Ship Engineering Level</h3>
-      <Typography className={classes.queryExplanationText}>
+    <div
+      className={`${sharedClasses.querySection} ${classes.engineeringQuery}`}
+    >
+      <h3 className={sharedClasses.querySectionheader}>
+        Ship Engineering Level
+      </h3>
+      <Typography className={sharedClasses.queryExplanationText}>
         Select Engineering level ranging from None to Max Engineering.
       </Typography>
       <EngToggleGroup

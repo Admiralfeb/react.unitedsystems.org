@@ -1,14 +1,37 @@
 import { useEffect, useState } from 'react';
 import { IQuery, OtherFilters } from 'models/shipBuilds';
 
-import { Paper } from '@material-ui/core';
+import { makeStyles, Paper } from '@material-ui/core';
 import { QuerySpecialization } from './querySpecialities';
 import { QueryShip } from './queryShip';
 import { QueryEngineering } from './queryEngineering';
 import { QueryOther } from './queryOther';
 import { useUrlQuery } from 'hooks/useURLQuery';
-import { useQueryStyles } from './queryStyles';
 import { QueryActions } from './queryActions';
+
+const useStyles = makeStyles((theme) => ({
+  root: {
+    display: 'grid',
+    rowGap: '2px',
+    width: '99%',
+    gridTemplateAreas: `
+    'specializations'
+    'engineering'
+    'ship'
+    'other'
+    'buttons'`,
+    textAlign: 'center',
+    [theme.breakpoints.up('lg')]: {
+      gridTemplateAreas: `
+        'specializations    engineering'
+        'ship   other'
+        'buttons    buttons'`,
+      gridTemplateRows: '1fr 1fr 0.1fr',
+      rowGap: '5px',
+      columnGap: '5px',
+    },
+  },
+}));
 
 export const Query = (props: { updateQuery: (query: IQuery) => void }) => {
   const [shipType, setShipType] = useState<string | null>(null);
@@ -23,7 +46,7 @@ export const Query = (props: { updateQuery: (query: IQuery) => void }) => {
   });
   let urlQuery = useUrlQuery();
   const { updateQuery } = props;
-  const classes = useQueryStyles();
+  const classes = useStyles();
 
   useEffect(() => {
     const queryParam = urlQuery.get('beginner');

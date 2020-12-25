@@ -11,6 +11,7 @@ export const hc = [
   'Aurelius Publius',
   'Captain Smokeq',
   'Clever Ape',
+  'Luisqa',
   'Nullyti',
   'Queen Eleanor',
   'Yuting9',

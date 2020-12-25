@@ -9,13 +9,13 @@ export const uscLinksList: IInfoButton[] = [
     link: '/about/rules',
     beginner: true,
   },
-  {
-    title: 'Our Management',
-    caption: '',
-    local: true,
-    link: '/about/hc',
-    beginner: true,
-  },
+  // {
+  //   title: 'Our Management',
+  //   caption: '',
+  //   local: true,
+  //   link: '/about/hc',
+  //   beginner: true,
+  // },
   {
     title: 'Our Allies',
     caption: '',

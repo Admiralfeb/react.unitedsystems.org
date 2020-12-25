@@ -21,7 +21,7 @@ export const NavbarComponent = () => {
   }
 
   let title = useMemo(() => {
-    return navItems.find((x) => x.to === location.pathname)?.text;
+    return navItems.find((x) => location.pathname.startsWith(x.to))?.text;
   }, [location]);
 
   return (

@@ -4,8 +4,7 @@ import { MiningMap } from 'components/information';
 describe('Mining Maps', () => {
   afterEach(cleanup);
 
-  it('should match the snapshot', () => {
-    const { baseElement } = render(<MiningMap />);
-    expect(baseElement).toMatchSnapshot();
+  it('should render', () => {
+    render(<MiningMap />);
   });
 });

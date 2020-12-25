@@ -1,11 +1,11 @@
 import { Button, makeStyles, Paper, Typography } from '@material-ui/core';
-import { Link, useRouteMatch } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { IInfoButton } from 'models/information/infoButtonModel';
 
 const useStyles = makeStyles((theme) => ({
   paper: {
     textAlign: 'center',
-    width: '80%',
+    width: 'fit-content',
     margin: 'auto',
     padding: 5,
     paddingBottom: 10,
@@ -15,16 +15,12 @@ const useStyles = makeStyles((theme) => ({
     display: 'flex',
     flexDirection: 'column',
   },
-  buttonList: {
+  flex: {
     '& button': {
       margin: 5,
     },
     '& a': {
       margin: 5,
-    },
-    [theme.breakpoints.down('md')]: {
-      display: 'grid',
-      gridTemplateRows: 'auto',
     },
   },
   grid: {
@@ -50,16 +46,14 @@ interface ISectionProps {
  * Displays an info Section set of buttons
  * @param props id, header, and button array.
  */
-export const InfoSection = (props: ISectionProps) => {
+export const AboutLinks = (props: ISectionProps) => {
   const classes = useStyles();
-  const { url } = useRouteMatch();
-  const { id, header, buttons } = props;
+  const { id, buttons } = props;
 
   return (
     <Paper id={id} className={classes.paper}>
-      <Typography variant="h4">{header}</Typography>
       <div className={classes.grid}>
-        <div className={classes.buttonList}>
+        <div className={classes.flex}>
           {buttons
             .filter((x) => x.beginner === true)
             .map((guide) => {
@@ -69,7 +63,7 @@ export const InfoSection = (props: ISectionProps) => {
                     variant="outlined"
                     color={guide.beginner ? 'secondary' : 'primary'}
                     component={Link}
-                    to={`${url}${guide.link}`}
+                    to={`${guide.link}`}
                     key={guide.title}
                   >
                     <div className={classes.specialButton}>
@@ -96,7 +90,7 @@ export const InfoSection = (props: ISectionProps) => {
               }
             })}
         </div>
-        <div className={classes.buttonList}>
+        <div className={classes.flex}>
           {buttons
             .filter((x) => x.beginner === false)
             .map((guide) => {
@@ -106,7 +100,7 @@ export const InfoSection = (props: ISectionProps) => {
                     variant="outlined"
                     color={guide.beginner ? 'secondary' : 'primary'}
                     component={Link}
-                    to={`${url}${guide.link}`}
+                    to={`${guide.link}`}
                     key={guide.title}
                   >
                     <div className={classes.specialButton}>

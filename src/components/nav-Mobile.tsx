@@ -67,7 +67,7 @@ export const NavMobile = (props: {
 
   return (
     <div className={classes.root}>
-      <AppBar position="static" color="default">
+      <AppBar position="static" color="inherit">
         <Toolbar>
           <IconButton
             edge="start"

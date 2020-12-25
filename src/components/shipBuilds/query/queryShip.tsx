@@ -1,9 +1,27 @@
-import { Tooltip } from '@material-ui/core';
+import { makeStyles, Tooltip } from '@material-ui/core';
 import { ToggleButton, ToggleButtonGroup } from '@material-ui/lab';
 import { ChangeEvent, Dispatch, MouseEvent, SetStateAction } from 'react';
 import { IShipInfo } from 'models/shipBuilds';
 import { ShipAutocomplete } from '../shipAutocomplete';
-import { useQueryStyles } from './queryStyles';
+import { useSharedStyles } from './sharedStyles';
+
+const useStyles = makeStyles((theme) => ({
+  shipQueries: {
+    display: 'flex',
+    flexDirection: 'column',
+    width: '100%',
+  },
+  shipTypeQuery: {
+    [theme.breakpoints.up('lg')]: {
+      minWidth: '200px',
+      margin: '5px',
+      flex: '1 0',
+    },
+  },
+  shipSizeQuery: {
+    margin: 'auto',
+  },
+}));
 
 export const QueryShip = (props: {
   shipSize: number | null;
@@ -12,7 +30,8 @@ export const QueryShip = (props: {
   setShipType: Dispatch<SetStateAction<string | null>>;
 }) => {
   const { shipType, setShipType, shipSize, setShipSize } = props;
-  const classes = useQueryStyles();
+  const sharedClasses = useSharedStyles();
+  const classes = useStyles();
 
   const handleShipSizeChange = (
     _: MouseEvent<HTMLElement>,
@@ -29,8 +48,8 @@ export const QueryShip = (props: {
   };
 
   return (
-    <div className={classes.querySection}>
-      <h3 className={classes.querySectionheader}>Ship Type and Size</h3>
+    <div className={sharedClasses.querySection}>
+      <h3 className={sharedClasses.querySectionheader}>Ship Type and Size</h3>
       <div className={classes.shipQueries}>
         <div className={classes.shipTypeQuery}>
           <ShipAutocomplete

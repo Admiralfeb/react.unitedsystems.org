@@ -1,5 +1,5 @@
 import { cleanup, render, RenderResult } from '@testing-library/react';
-import { AboutRules } from 'components/information/aboutRules';
+import { AboutRules } from 'components/about/aboutRules';
 
 let componentBody: RenderResult;
 

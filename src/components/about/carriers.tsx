@@ -1,4 +1,4 @@
-import { Typography, makeStyles } from '@material-ui/core';
+import { Typography, makeStyles, Fade } from '@material-ui/core';
 import { EDSpinner } from '@admiralfeb/react-components';
 import {
   useFleetCarriers,
@@ -23,16 +23,17 @@ export const Carriers = () => {
   let personalCarriers = usePersonalCarriers(fleetCarriers);
   let squadCarriers = useSquadCarriers(fleetCarriers);
 
-  if (loading) {
-    return <EDSpinner />;
-  }
-
   return (
-    <div className={classes.table}>
-      <Typography variant="h4">USC Fleet Carriers</Typography>
-      <USCCarriers carriers={squadCarriers} />
-      <Typography variant="h4">Personal Fleet Carriers of USC</Typography>
-      <PersonalCarriers carriers={personalCarriers} />
-    </div>
+    <>
+      <Fade in={loading}>{loading ? <EDSpinner /> : <div></div>}</Fade>
+      <Fade in={!loading}>
+        <div className={classes.table}>
+          <Typography variant="h4">USC Fleet Carriers</Typography>
+          <USCCarriers carriers={squadCarriers} />
+          <Typography variant="h4">Personal Fleet Carriers of USC</Typography>
+          <PersonalCarriers carriers={personalCarriers} />
+        </div>
+      </Fade>
+    </>
   );
 };

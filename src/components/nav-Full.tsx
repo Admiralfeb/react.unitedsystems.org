@@ -7,30 +7,22 @@ const useStyles = makeStyles((theme) => ({
   root: {
     width: '100%',
     display: 'flex',
-    padding: '0.2rem 0.2rem',
-    backgroundColor: '#333',
+    padding: theme.spacing(1),
+    backgroundColor: '#424242',
     height: 'auto',
     minHeight: 'auto',
     justifyContent: 'initial',
     zIndex: 1500,
-    [theme.breakpoints.up('md')]: {
-      padding: '0.5rem 0.5rem',
-    },
   },
   navLink: {
     backgroundColor: 'transparent',
-    width: '25%',
     height: 'auto',
-    marginRight: '0.2em',
     color: '#f2f2f2',
     textAlign: 'center',
     textDecoration: 'none',
-    fontSize: '1rem',
-    [theme.breakpoints.up('md')]: {
-      width: theme.spacing(15),
-      marginRight: theme.spacing(1),
-      fontSize: 20,
-    },
+    // width: theme.spacing(15),
+    marginRight: theme.spacing(1),
+    fontSize: 18,
   },
   active: {
     backgroundColor: theme.palette.primary.main,
@@ -38,27 +30,19 @@ const useStyles = makeStyles((theme) => ({
   },
   navLinkJoin: {
     backgroundColor: 'transparent',
-    width: '25%',
     border: `${theme.palette.secondary.main} 0.1em solid`,
     color: 'white',
-    fontSize: '1rem',
+    fontSize: 18,
     '&:hover': {
       backgroundColor: theme.palette.secondary.main,
     },
-    [theme.breakpoints.up('md')]: {
-      width: theme.spacing(15),
-      fontSize: 20,
-    },
+    width: theme.spacing(15),
   },
   activeJoin: {
     backgroundColor: theme.palette.secondary.main,
   },
   filler: {
-    display: 'none',
     flex: '1 0',
-    [theme.breakpoints.up('md')]: {
-      display: 'block',
-    },
   },
 }));
 

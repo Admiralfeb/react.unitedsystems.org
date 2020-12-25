@@ -4,8 +4,7 @@ import { ShipReviews } from 'components/information';
 describe('Ship Reviews', () => {
   afterEach(cleanup);
 
-  it('should match the snapshot', () => {
-    const { baseElement } = render(<ShipReviews />);
-    expect(baseElement).toMatchSnapshot();
+  it('should render', () => {
+    render(<ShipReviews />);
   });
 });
