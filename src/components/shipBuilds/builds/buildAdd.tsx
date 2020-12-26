@@ -6,7 +6,7 @@ import {
   Typography,
 } from '@material-ui/core';
 import { ObjectId } from 'bson';
-import { ChangeEvent, MouseEvent, useEffect, useState } from 'react';
+import { ChangeEvent, Fragment, MouseEvent, useEffect, useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { processJSONBuild } from 'functions/shipBuilds';
 import { IShipInfo, IBuildInfoInsert } from 'models/shipBuilds';
@@ -303,7 +303,18 @@ export const BuildAdd = () => {
           bottom.
         </Typography>
         {textFields.map((field) => (
-          <BuildAddText key={field.id} {...field} />
+          <Fragment key={field.id}>
+            <BuildAddText {...field} />
+            {field.id === 'description' && (
+              <Button
+                href="https://guides.github.com/pdfs/markdown-cheatsheet-online.pdf"
+                target="_blank"
+                color="primary"
+              >
+                Markdown Cheatsheet - Opens a new tab
+              </Button>
+            )}
+          </Fragment>
         ))}
         <ShipAutocomplete
           shipType={buildInfo.shipId}
