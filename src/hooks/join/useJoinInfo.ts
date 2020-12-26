@@ -50,14 +50,18 @@ export const useAddJoinInfo = () => {
   );
 
   const addJoiner = async (joiner: IJoinInfo) => {
-    const addedJoiner = await addJoinerMutation({
-      variables: {
-        joiner: {
-          ...joiner,
+    try {
+      const addedJoiner = await addJoinerMutation({
+        variables: {
+          joiner: {
+            ...joiner,
+          },
         },
-      },
-    });
-    return addedJoiner;
+      });
+      return addedJoiner;
+    } catch (e) {
+      throw new Error(`Unable to add. ${e.message}`);
+    }
   };
 
   return addJoiner;

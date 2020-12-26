@@ -39,6 +39,7 @@ const useStyles = makeStyles((theme) => ({
 
 export const JoinList = () => {
   const joinInfo = useJoinInfo();
+
   const classes = useStyles();
   const [select, setSelect] = useState<number | null>(null);
   const theme = useTheme();

@@ -49,7 +49,7 @@ export const JoinNew = () => {
     try {
       addJoiner(newData);
       enqueueSnackbar('Successfully submitted form', { variant: 'success' });
-      setForm(null);
+      setForm(3);
     } catch (e) {
       enqueueSnackbar(`Failed to submit: ${e.message}`, { variant: 'error' });
     }
