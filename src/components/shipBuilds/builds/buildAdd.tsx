@@ -287,7 +287,7 @@ export const BuildAdd = () => {
       </Typography>
       <Paper className={classes.root}>
         <Button
-          to="/information/builds"
+          to="/builds"
           component={NavLink}
           color="secondary"
           variant="outlined"
