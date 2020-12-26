@@ -1,6 +1,7 @@
 import {
   Button,
   Divider,
+  Link,
   makeStyles,
   Paper,
   Typography,
@@ -143,7 +144,7 @@ export const BuildDetailFull = (props: {
             {foundBuild?.description && (
               <ReactMarkdown
                 plugins={[gfm]}
-                renderers={{ paragraph: Typography }}
+                renderers={{ paragraph: Typography, link: Link }}
                 children={foundBuild.description}
               />
             )}

@@ -4,6 +4,7 @@ import {
   makeStyles,
   Paper,
   Typography,
+  Link,
 } from '@material-ui/core';
 import { useLinks } from 'hooks/useLinks';
 import { IBuildInfov2, IShipInfo, ShipSize } from 'models/shipBuilds';
@@ -85,7 +86,7 @@ export const BuildDetailMobile = (props: {
       {foundBuild.description && (
         <ReactMarkdown
           plugins={[gfm]}
-          renderers={{ paragraph: Typography }}
+          renderers={{ paragraph: Typography, link: Link }}
           children={foundBuild.description}
         />
       )}
