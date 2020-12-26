@@ -5,6 +5,7 @@ import { EDSpinner } from '@admiralfeb/react-components';
 import { InformationRoutes } from './information.routes';
 import { AboutRoutes } from './about.routes';
 import { JoinRoutes } from './join.routes';
+import { Releases } from 'components/releases/releases';
 
 const ShipBuilds = lazy(() => import('routes/shipBuilds.routes'));
 
@@ -12,6 +13,9 @@ export const AppRoutes = () => {
   return (
     <Suspense fallback={<EDSpinner />}>
       <Switch>
+        <Route path="/releases/:id">
+          <Releases />
+        </Route>
         <Redirect from="/" to="/home" exact />
         <Route path="/home" exact>
           <Home />
@@ -28,6 +32,7 @@ export const AppRoutes = () => {
         <Route path="/join">
           <JoinRoutes />
         </Route>
+
         <Route path="*">
           <NotFound />
         </Route>
