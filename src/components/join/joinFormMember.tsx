@@ -1,6 +1,7 @@
 import {
   Button,
   Checkbox,
+  Collapse,
   Divider,
   FormControl,
   FormControlLabel,
@@ -16,17 +17,23 @@ import {
 import React, { ChangeEvent, useEffect, useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { Controller, useForm } from 'react-hook-form';
+import { IJoinInfo } from 'models/join/joinInfo';
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    width: 500,
-    minWidth: 400,
     margin: 'auto',
   },
   header: {
     textAlign: 'center',
   },
-  paper: { padding: theme.spacing(2) },
+  paper: {
+    padding: theme.spacing(2),
+    width: '100%',
+    margin: 'auto',
+    [theme.breakpoints.up('md')]: {
+      width: 600,
+    },
+  },
   question: {
     borderColor: theme.palette.secondary.main,
     borderWidth: 2,
@@ -37,7 +44,9 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export const JoinForm = () => {
+export const JoinFormMember = (props: {
+  onSubmit: (data: IJoinInfo, type: string) => void;
+}) => {
   const classes = useStyles();
   const {
     register,
@@ -45,7 +54,7 @@ export const JoinForm = () => {
     control,
     setValue,
     errors,
-  } = useForm<IJoinFormFields>();
+  } = useForm<IJoinInfo>();
 
   const [platforms, setPlatforms] = useState<{
     pc: boolean;
@@ -91,12 +100,12 @@ export const JoinForm = () => {
     }
   };
 
-  const onSubmit = (data: IJoinFormFields) => console.log(data);
+  const onSubmit = (data: IJoinInfo) => props.onSubmit(data, 'join');
 
   return (
     <div className={classes.root}>
       <Typography variant="h3" className={classes.header}>
-        Join USC
+        Member
       </Typography>
       <Paper className={classes.paper}>
         <Typography className={classes.header}>
@@ -261,7 +270,12 @@ export const JoinForm = () => {
                 You must select how to found us.
               </Typography>
             )}
-            {ref2Question && (
+            <Collapse
+              in={ref2Question !== ''}
+              timeout={500}
+              mountOnEnter
+              unmountOnExit
+            >
               <div>
                 <Divider />
                 <div>
@@ -277,7 +291,7 @@ export const JoinForm = () => {
                   )}
                 </div>
               </div>
-            )}
+            </Collapse>
           </div>
           <div className={classes.question}>
             <Typography>What timezone are you in?</Typography>
@@ -289,11 +303,7 @@ export const JoinForm = () => {
           <div className={classes.question}>
             <Typography>
               I have read and agree to the{' '}
-              <Link
-                component={NavLink}
-                to="/information/about/rules"
-                target="_blank"
-              >
+              <Link component={NavLink} to="/about/rules" target="_blank">
                 rules
               </Link>
               .
@@ -323,18 +333,3 @@ export const JoinForm = () => {
     </div>
   );
 };
-
-interface IJoinFormFields {
-  cmdr: string;
-  discord: string;
-  platforms: {
-    pc: boolean;
-    xbox: boolean;
-    ps: boolean;
-  };
-  playingLength: number | null;
-  reference: string | null;
-  reference2?: string;
-  rules: boolean;
-  timezone: string;
-}

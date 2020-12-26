@@ -30,10 +30,16 @@ const useStyles = makeStyles((theme) => ({
     width: 350,
     margin: 'auto',
     marginBottom: 10,
+    [theme.breakpoints.down('sm')]: {
+      width: '100%',
+    },
   },
   cursive: {
     fontFamily: 'Cinzel, serif',
     fontSize: 32,
+    [theme.breakpoints.down('sm')]: {
+      fontSize: 24,
+    },
   },
   subtitle: {
     flex: '0 0',

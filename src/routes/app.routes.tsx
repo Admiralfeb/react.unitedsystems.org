@@ -1,9 +1,11 @@
 import { Switch, Route, Redirect } from 'react-router-dom';
-import { Home, Join, JoinForm, NotFound } from 'components';
-import { InformationRoutes } from './information.routes';
+import { Home, NotFound } from 'components';
 import React, { lazy, Suspense } from 'react';
 import { EDSpinner } from '@admiralfeb/react-components';
+import { InformationRoutes } from './information.routes';
 import { AboutRoutes } from './about.routes';
+import { JoinRoutes } from './join.routes';
+
 const ShipBuilds = lazy(() => import('routes/shipBuilds.routes'));
 
 export const AppRoutes = () => {
@@ -24,10 +26,7 @@ export const AppRoutes = () => {
           <ShipBuilds />
         </Route>
         <Route path="/join">
-          <Join />
-        </Route>
-        <Route path="/joinForm1234">
-          <JoinForm />
+          <JoinRoutes />
         </Route>
         <Route path="*">
           <NotFound />

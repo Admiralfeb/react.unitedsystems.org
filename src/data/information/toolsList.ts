@@ -51,6 +51,13 @@ export const toolsList: IInfoButton[] = [
     beginner: true,
   },
   {
+    title: 'Distance Between Systems Tool',
+    caption: 'By Captain Ace Rimmer',
+    local: false,
+    link: 'http://elitedangerous.hozbase.co.uk/calc/distances',
+    beginner: true,
+  },
+  {
     title: 'Massacre Mission Tracker',
     caption: 'Created by CMDR Clever Ape',
     local: false,

@@ -46,6 +46,7 @@ export const Join = () => {
   const theme = useTheme();
   const isMedium = useMediaQuery(theme.breakpoints.up('md'));
   const { inaraSquadLink, discordLink } = useLinks();
+
   return (
     <Fade in={true}>
       <div className={classes.root}>

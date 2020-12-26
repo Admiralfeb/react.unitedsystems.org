@@ -52,7 +52,33 @@ exports[`About Allies should match the snapshot 1`] = `
               <span
                 class="MuiTypography-root MuiListItemText-primary MuiTypography-body1 MuiTypography-displayBlock"
               >
+                The Altruists
+              </span>
+            </div>
+          </li>
+          <li
+            class="MuiListItem-root MuiListItem-gutters"
+          >
+            <div
+              class="MuiListItemText-root"
+            >
+              <span
+                class="MuiTypography-root MuiListItemText-primary MuiTypography-body1 MuiTypography-displayBlock"
+              >
                 Arbor Caelum
+              </span>
+            </div>
+          </li>
+          <li
+            class="MuiListItem-root MuiListItem-gutters"
+          >
+            <div
+              class="MuiListItemText-root"
+            >
+              <span
+                class="MuiTypography-root MuiListItemText-primary MuiTypography-body1 MuiTypography-displayBlock"
+              >
+                The Coalition
               </span>
             </div>
           </li>
@@ -209,19 +235,6 @@ exports[`About Allies should match the snapshot 1`] = `
                 class="MuiTypography-root MuiListItemText-primary MuiTypography-body1 MuiTypography-displayBlock"
               >
                 Sapere Aude
-              </span>
-            </div>
-          </li>
-          <li
-            class="MuiListItem-root MuiListItem-gutters"
-          >
-            <div
-              class="MuiListItemText-root"
-            >
-              <span
-                class="MuiTypography-root MuiListItemText-primary MuiTypography-body1 MuiTypography-displayBlock"
-              >
-                The Altruists
               </span>
             </div>
           </li>
