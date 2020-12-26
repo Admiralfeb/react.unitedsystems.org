@@ -1,11 +1,11 @@
 import {
   Button,
   Checkbox,
+  Collapse,
   Divider,
   FormControl,
   FormControlLabel,
   FormGroup,
-  Grow,
   Link,
   makeStyles,
   Paper,
@@ -227,7 +227,7 @@ export const JoinFormGuest = (props: {
                 You must select how to found us.
               </Typography>
             )}
-            <Grow
+            <Collapse
               in={ref2Question !== ''}
               timeout={500}
               mountOnEnter
@@ -248,7 +248,7 @@ export const JoinFormGuest = (props: {
                   )}
                 </div>
               </div>
-            </Grow>
+            </Collapse>
           </div>
           <div className={classes.question}>
             <Typography>What timezone are you in?</Typography>
