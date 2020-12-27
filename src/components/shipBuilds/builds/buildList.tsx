@@ -5,6 +5,7 @@ import { useShipBuilds } from 'hooks/shipBuilds/useShipBuilds';
 import { IBuildInfov2, IQuery } from 'models/shipBuilds';
 import { BuildCard } from './buildCard';
 import { makeStyles } from '@material-ui/core';
+import { useSnackbar } from 'notistack';
 
 const useStyles = makeStyles({
   root: {
@@ -18,24 +19,30 @@ const useStyles = makeStyles({
 export const BuildList = (props: { buildQuery: IQuery | undefined }) => {
   const [queriedBuilds, setQueriedBuilds] = useState<IBuildInfov2[]>();
   const { buildQuery } = props;
-  const { loading, shipBuilds } = useShipBuilds();
+  const { loading, shipBuilds, error } = useShipBuilds();
+  const { enqueueSnackbar } = useSnackbar();
   const classes = useStyles();
 
   let filterBuilds = useCallback(() => {
-    if (loading) {
+    if (loading || error) {
       return;
     }
     console.log(shipBuilds);
     const filtered = filterShipBuilds(shipBuilds, buildQuery);
     setQueriedBuilds(filtered);
-  }, [loading, shipBuilds, buildQuery]);
+  }, [loading, shipBuilds, buildQuery, error]);
 
   useEffect(() => {
     if (loading) {
       return;
     }
+    if (error) {
+      enqueueSnackbar(`Failed to retrieve builds. ${error.message}`, {
+        variant: 'error',
+      });
+    }
     filterBuilds();
-  }, [loading, filterBuilds]);
+  }, [loading, filterBuilds, error, enqueueSnackbar]);
 
   return (
     <div className={classes.root}>

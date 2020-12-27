@@ -7,41 +7,38 @@ const AllJoiners = loader('../../graphql/allJoiners.gql');
 const AddJoiner = loader('../../graphql/insertOneJoiner.gql');
 
 export const useJoinInfo = () => {
-  const { allJoiners, loading } = useAllJoinInfo();
+  const { allJoiners, loading, error } = useAllJoinInfo();
   console.log(allJoiners);
 
   const joiners = useMemo(() => {
-    if (loading) {
+    if (loading || error) {
       return undefined;
     }
     return allJoiners.filter((x) => x.type === 'join');
-  }, [allJoiners, loading]);
+  }, [allJoiners, loading, error]);
   const guests = useMemo(() => {
-    if (loading) {
+    if (loading || error) {
       return undefined;
     }
     return allJoiners.filter((x) => x.type === 'guest');
-  }, [allJoiners, loading]);
+  }, [allJoiners, loading, error]);
   const ambassadors = useMemo(() => {
-    if (loading) {
+    if (loading || error) {
       return undefined;
     }
     return allJoiners.filter((x) => x.type === 'ambassador');
-  }, [allJoiners, loading]);
+  }, [allJoiners, loading, error]);
 
-  return { joiners, guests, ambassadors, loading };
+  return { joiners, guests, ambassadors, loading, error };
 };
 
 export const useAllJoinInfo = () => {
   const { data, loading, error } = useQuery<{ joiners: IJoinInfo[] }>(
     AllJoiners
   );
-  if (error) {
-    throw new Error(`Failed to fetch members: ${error.message}`);
-  }
   const allJoiners = data?.joiners ?? [];
 
-  return { allJoiners, loading };
+  return { allJoiners, loading, error };
 };
 
 export const useAddJoinInfo = () => {

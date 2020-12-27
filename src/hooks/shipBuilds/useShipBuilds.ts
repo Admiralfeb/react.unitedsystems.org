@@ -9,11 +9,12 @@ const AllShipBuildsv2s = loader('../../graphql/allShipBuildsv2s.gql');
 export const useShipBuilds = () => {
   const addRelated = useAddRelatedBuild();
   const addVariant = useAddVariantBuild();
-  const { shipBuilds, loading } = useAllShipBuilds();
+  const { shipBuilds, loading, error } = useAllShipBuilds();
   const { addBuild, replaceBuild } = useShipBuildMutations();
   return {
     loading,
     shipBuilds,
+    error,
     addBuild,
     addRelated,
     addVariant,
@@ -25,12 +26,9 @@ export const useAllShipBuilds = () => {
   const { data, loading, error } = useQuery<{
     shipBuildsv2s: IBuildInfov2[];
   }>(AllShipBuildsv2s);
-  if (error) {
-    throw new Error(`Failed to fetch ship builds: ${error.message}`);
-  }
   const shipBuilds = data?.shipBuildsv2s ?? [];
 
-  return { shipBuilds, loading };
+  return { shipBuilds, loading, error };
 };
 
 const useAddRelatedBuild = () => {

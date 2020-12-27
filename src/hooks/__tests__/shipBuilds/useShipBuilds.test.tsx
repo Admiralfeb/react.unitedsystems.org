@@ -30,7 +30,7 @@ describe('useShipBuilds', () => {
 
     await waitForNextUpdate();
 
-    expect(result.error).toBeDefined();
+    expect(result.current.error).toBeDefined();
   });
 
   it('should return data in useAllShipBuilds', async () => {

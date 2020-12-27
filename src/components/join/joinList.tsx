@@ -1,5 +1,5 @@
 import { useJoinInfo } from 'hooks/join/useJoinInfo';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import {
   Button,
   Collapse,
@@ -20,6 +20,7 @@ import {
 import FileCopyIcon from '@material-ui/icons/FileCopy';
 import { copytoClipboard } from 'functions/copytoClipboard';
 import { EDSpinner } from '@admiralfeb/react-components';
+import { useSnackbar } from 'notistack';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -44,6 +45,19 @@ export const JoinList = () => {
   const [select, setSelect] = useState<number | null>(null);
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
+  const { enqueueSnackbar } = useSnackbar();
+
+  useEffect(() => {
+    if (joinInfo.error) {
+      enqueueSnackbar(`Failed to retrieve list. ${joinInfo.error.message}`, {
+        variant: 'error',
+      });
+      return;
+    }
+    if (joinInfo.joiners && joinInfo.joiners.length > 0) {
+      enqueueSnackbar('Successfully retrieved list.', { variant: 'success' });
+    }
+  }, [joinInfo.joiners, joinInfo.error, enqueueSnackbar]);
 
   const buildPlatforms = (platforms: {
     pc: boolean;

@@ -2,6 +2,7 @@ import { cleanup, render } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
 import { ShipBuildSystemRoutes } from 'routes/shipBuilds.routes';
 import * as hooks from 'hooks/shipBuilds/useShipBuilds';
+import { SnackbarProvider } from 'notistack';
 
 describe('ShipBuildSystem Routes', () => {
   afterEach(() => {
@@ -12,6 +13,7 @@ describe('ShipBuildSystem Routes', () => {
     const spy = jest.spyOn(hooks, 'useShipBuilds');
     spy.mockReturnValue({
       loading: false,
+      error: undefined,
       shipBuilds: [],
       addBuild: jest.fn(),
       addRelated: jest.fn(),
@@ -19,9 +21,11 @@ describe('ShipBuildSystem Routes', () => {
       replaceBuild: jest.fn(),
     });
     render(
-      <MemoryRouter>
-        <ShipBuildSystemRoutes />
-      </MemoryRouter>
+      <SnackbarProvider>
+        <MemoryRouter>
+          <ShipBuildSystemRoutes />
+        </MemoryRouter>
+      </SnackbarProvider>
     );
     cb();
   });
@@ -30,6 +34,7 @@ describe('ShipBuildSystem Routes', () => {
     const spy = jest.spyOn(hooks, 'useShipBuilds');
     spy.mockReturnValue({
       loading: true,
+      error: undefined,
       shipBuilds: [],
       addBuild: jest.fn(),
       addRelated: jest.fn(),
