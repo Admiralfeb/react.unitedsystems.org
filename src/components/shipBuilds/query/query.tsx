@@ -52,11 +52,56 @@ export const Query = (props: { updateQuery: (query: IQuery) => void }) => {
   const classes = useStyles();
 
   useEffect(() => {
-    const queryParam = urlQuery.get('beginner');
-    if (queryParam === 'true') {
-      setOther({ ...other, beginner: 1 });
+    const shipParam = urlQuery.get('ship');
+    if (shipParam) {
+      setShipType(shipParam);
     }
-  }, [other, urlQuery]);
+
+    const sizeParam = urlQuery.get('size');
+    if (sizeParam) {
+      try {
+        const sizeNumber = parseInt(sizeParam);
+        setShipSize(sizeNumber);
+      } catch (e) {
+        // do nothing
+      }
+    }
+
+    const engParam = urlQuery.get('engLevel');
+    if (engParam) {
+      try {
+        const engNumber = parseInt(engParam);
+        setEngLevel(engNumber);
+      } catch (e) {
+        // do nothing
+      }
+    }
+    const specialtiesParam = urlQuery.getAll('specialties');
+    if (specialtiesParam && specialtiesParam.length > 0) {
+      setSpecialties(specialtiesParam);
+    }
+    const guardianParam = urlQuery.get('guardian');
+    const guardianValue =
+      guardianParam === '1' ? 1 : guardianParam === '0' ? 0 : null;
+    setOther((other) => ({ ...other, guardian: guardianValue }));
+
+    const powerplayParam = urlQuery.get('powerplay');
+    const powerplayValue =
+      powerplayParam === '1' ? 1 : powerplayParam === '0' ? 0 : null;
+    setOther((other) => ({ ...other, powerplay: powerplayValue }));
+
+    const beginnerParam = urlQuery.get('beginner');
+    if (beginnerParam === 'true' || beginnerParam === '1') {
+      setOther((other) => ({ ...other, beginner: 1 }));
+    } else if (beginnerParam === '0') {
+      setOther((other) => ({ ...other, beginner: 0 }));
+    }
+
+    const variantsParam = urlQuery.get('showVariants');
+    const variantValue = variantsParam === 'true' ? true : false;
+    setOther((other) => ({ ...other, showVariants: variantValue }));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   useEffect(() => {
     const query: IQuery = {
@@ -66,9 +111,7 @@ export const Query = (props: { updateQuery: (query: IQuery) => void }) => {
       specialties: selectedSpecialties,
       ...other,
     };
-    console.log(query);
     const queryString = qs.stringify(query);
-    console.log(queryString);
     history.push(`/builds/?${queryString}`);
     updateQuery(query);
   }, [
