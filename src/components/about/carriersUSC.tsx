@@ -7,6 +7,7 @@ import {
   TableRow,
   TableBody,
   makeStyles,
+  Link,
 } from '@material-ui/core';
 import { IFleetCarrier } from 'models/information/fleetCarrier';
 
@@ -44,7 +45,14 @@ export const USCCarriers = (props: {
             <TableRow key={carrier.id}>
               <TableCell>{carrier.purpose}</TableCell>
               <TableCell>{carrier.name}</TableCell>
-              <TableCell>{carrier.id}</TableCell>
+              <TableCell>
+                <Link
+                  href={`https://inara.cz/galaxy-station/?search=${carrier.id}`}
+                  target="_blank"
+                >
+                  {carrier.id}
+                </Link>
+              </TableCell>
               <TableCell>{carrier.owner}</TableCell>
             </TableRow>
           ))}
