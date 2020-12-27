@@ -8,6 +8,8 @@ import { QueryEngineering } from './queryEngineering';
 import { QueryOther } from './queryOther';
 import { useUrlQuery } from 'hooks/useURLQuery';
 import { QueryActions } from './queryActions';
+import qs from 'query-string';
+import { useHistory } from 'react-router-dom';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -44,7 +46,8 @@ export const Query = (props: { updateQuery: (query: IQuery) => void }) => {
     beginner: null,
     showVariants: null,
   });
-  let urlQuery = useUrlQuery();
+  const urlQuery = useUrlQuery();
+  const history = useHistory();
   const { updateQuery } = props;
   const classes = useStyles();
 
@@ -53,8 +56,7 @@ export const Query = (props: { updateQuery: (query: IQuery) => void }) => {
     if (queryParam === 'true') {
       setOther({ ...other, beginner: 1 });
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [other, urlQuery]);
 
   useEffect(() => {
     const query: IQuery = {
@@ -62,11 +64,22 @@ export const Query = (props: { updateQuery: (query: IQuery) => void }) => {
       size: shipSize,
       engLevel,
       specialties: selectedSpecialties,
-      other,
+      ...other,
     };
     console.log(query);
+    const queryString = qs.stringify(query);
+    console.log(queryString);
+    history.push(`/builds/?${queryString}`);
     updateQuery(query);
-  }, [shipType, shipSize, engLevel, selectedSpecialties, other, updateQuery]);
+  }, [
+    shipType,
+    shipSize,
+    engLevel,
+    selectedSpecialties,
+    other,
+    updateQuery,
+    history,
+  ]);
 
   const resetQueries = () => {
     setShipType(null);

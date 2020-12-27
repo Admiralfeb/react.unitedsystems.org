@@ -7,10 +7,7 @@ export const filterShipBuilds = (
 ) => {
   if (shipBuilds && query) {
     let newList = shipBuilds;
-    if (
-      query.other.showVariants === null ||
-      query.other.showVariants === false
-    ) {
+    if (query.showVariants === null || query.showVariants === false) {
       newList = newList.filter((build) => build.isVariant === false);
     }
     // ship type
@@ -50,18 +47,18 @@ export const filterShipBuilds = (
       newList = tempList;
     }
     // Guardian
-    if (query.other.guardian !== null) {
-      const val = query.other.guardian === 1 ? true : false;
+    if (query.guardian !== null) {
+      const val = query.guardian === 1 ? true : false;
       newList = newList.filter((build) => build.hasGuardian === val);
     }
     // PowerPlay
-    if (query.other.powerplay !== null) {
-      const val = query.other.powerplay === 1 ? true : false;
+    if (query.powerplay !== null) {
+      const val = query.powerplay === 1 ? true : false;
       newList = newList.filter((build) => build.hasPowerplay === val);
     }
     // Beginner
-    if (query.other.beginner !== null) {
-      const val = query.other.beginner === 1 ? true : false;
+    if (query.beginner !== null) {
+      const val = query.beginner === 1 ? true : false;
       newList = newList.filter((build) => build.isBeginner === val);
     }
 

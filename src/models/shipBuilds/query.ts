@@ -1,9 +1,11 @@
 import { ShipSize } from '.';
-import { OtherFilters } from './otherFilters';
-export interface IQuery {
+export type IQuery = {
   ship: string | null;
   size: ShipSize | null;
   specialties: string[];
   engLevel: number | null;
-  other: OtherFilters;
-}
+  guardian: number | null;
+  powerplay: number | null;
+  beginner: number | null;
+  showVariants: boolean | null;
+};
