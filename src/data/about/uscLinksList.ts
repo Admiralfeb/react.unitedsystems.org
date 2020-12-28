@@ -24,6 +24,13 @@ export const uscLinksList: IInfoButton[] = [
     beginner: true,
   },
   {
+    title: 'Our Faction',
+    caption: '',
+    local: true,
+    link: '/about/faction',
+    beginner: true,
+  },
+  {
     title: 'Our Fleet Carriers',
     caption: '',
     local: true,

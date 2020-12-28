@@ -2,6 +2,7 @@ import { Route, Switch, useRouteMatch } from 'react-router-dom';
 import {
   About,
   AboutAllies,
+  AboutFaction,
   AboutHC,
   AboutRules,
   Carriers,
@@ -29,6 +30,10 @@ export const AboutRoutes = () => {
         <Route path={`${path}/allies`}>
           <About />
           <AboutAllies />
+        </Route>
+        <Route path={`${path}/faction`}>
+          <About />
+          <AboutFaction />
         </Route>
         <Route path={`${path}/fc`}>
           <About />
