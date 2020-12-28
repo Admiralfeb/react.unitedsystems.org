@@ -45,6 +45,13 @@ export const uscLinksList: IInfoButton[] = [
     beginner: false,
   },
   {
+    title: 'Facebook',
+    caption: '',
+    local: false,
+    link: 'https://www.facebook.com/unitedsystemscooperative',
+    beginner: false,
+  },
+  {
     title: 'Inara USC Squadron',
     caption: '',
     local: false,
