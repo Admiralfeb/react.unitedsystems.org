@@ -82,7 +82,6 @@ export const BuildCard = (props: { shipBuild: IBuildInfov2 | undefined }) => {
               component={NavLink}
               color="primary"
               variant="contained"
-              target="_blank"
             >
               More Details
             </Button>
