@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.js": "/static/js/main.b4b2d874.chunk.js",
-    "main.js.map": "/static/js/main.b4b2d874.chunk.js.map",
+    "main.js": "/static/js/main.c87e1c31.chunk.js",
+    "main.js.map": "/static/js/main.c87e1c31.chunk.js.map",
     "runtime-main.js": "/static/js/runtime-main.3024bcbd.js",
     "runtime-main.js.map": "/static/js/runtime-main.3024bcbd.js.map",
     "static/js/2.7d18a202.chunk.js": "/static/js/2.7d18a202.chunk.js",
@@ -24,12 +24,12 @@
     "static/media/Eurostile-Roman.96125003.woff2": "/static/media/Eurostile-Roman.96125003.woff2",
     "static/media/FSS-1.78fc877c.jpg": "/static/media/FSS-1.78fc877c.jpg",
     "static/media/KBGFoam.dd62ea7b.jpg": "/static/media/KBGFoam.dd62ea7b.jpg",
-    "static/media/new-year-eve-fireworks.cc3058e7.jpg": "/static/media/new-year-eve-fireworks.cc3058e7.jpg",
+    "static/media/new-year-eve-fireworks.dbff05df.jpg": "/static/media/new-year-eve-fireworks.dbff05df.jpg",
     "static/media/radar.c9085875.png": "/static/media/radar.c9085875.png"
   },
   "entrypoints": [
     "static/js/runtime-main.3024bcbd.js",
     "static/js/2.7d18a202.chunk.js",
-    "static/js/main.b4b2d874.chunk.js"
+    "static/js/main.c87e1c31.chunk.js"
   ]
 }
