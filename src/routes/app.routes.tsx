@@ -6,6 +6,7 @@ import { InformationRoutes } from './information.routes';
 import { AboutRoutes } from './about.routes';
 import { JoinRoutes } from './join.routes';
 import { Releases } from 'components/releases/releases';
+import { MassacreKillTracker } from 'components/information/massacre/massacreKillTracker';
 
 const ShipBuilds = lazy(() => import('routes/shipBuilds.routes'));
 
@@ -28,6 +29,9 @@ export const AppRoutes = () => {
         </Route>
         <Route path="/builds">
           <ShipBuilds />
+        </Route>
+        <Route path="/massacres">
+          <MassacreKillTracker />
         </Route>
         <Route path="/join">
           <JoinRoutes />
