@@ -114,7 +114,7 @@ export const BuildDetailMobile = (props: {
         <Button
           variant="contained"
           color="secondary"
-          to={`/information/builds/add?type=variant&refID=${
+          to={`/builds/add?type=variant&refID=${
             (foundBuild!._id as unknown) as string
           }`}
           component={NavLink}
@@ -124,7 +124,7 @@ export const BuildDetailMobile = (props: {
         <Button
           variant="contained"
           color="secondary"
-          to={`/information/builds/add?type=related&refID=${
+          to={`/builds/add?type=related&refID=${
             (foundBuild!._id as unknown) as string
           }`}
           component={NavLink}

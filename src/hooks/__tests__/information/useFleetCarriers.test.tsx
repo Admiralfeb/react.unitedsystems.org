@@ -1,4 +1,3 @@
-import { loader } from 'graphql.macro';
 import {
   useFleetCarriers,
   usePersonalCarriers,
@@ -8,7 +7,7 @@ import { MockedProvider } from '@apollo/client/testing';
 import { cleanup, renderHook } from '@testing-library/react-hooks';
 import fleetCarrierData from 'data/about/fleetCarriers.json';
 
-const FleetCarriers = loader('../../../graphql/allFleetCarriers.gql');
+import { QueryAllFleetCarriers } from 'gql/queries/fleetCarriers';
 
 describe('useFleetCarriers', () => {
   afterEach(cleanup);
@@ -16,7 +15,7 @@ describe('useFleetCarriers', () => {
   it('should throw error if it fails the query', async () => {
     const errorMock = {
       request: {
-        query: FleetCarriers,
+        query: QueryAllFleetCarriers,
       },
       error: new Error('an error occurred'),
     };
