@@ -1,10 +1,8 @@
 import { useMutation, useQuery } from '@apollo/client';
-import { loader } from 'graphql.macro';
 import { IJoinInfo } from 'models/join/joinInfo';
 import { useMemo } from 'react';
-
-const AllJoiners = loader('../../graphql/allJoiners.gql');
-const AddJoiner = loader('../../graphql/insertOneJoiner.gql');
+import { QueryAllJoiners } from 'gql/queries/joiners';
+import { InsertJoiner } from 'gql/mutations/joiner.insert';
 
 export const useJoinInfo = () => {
   const { allJoiners, loading, error } = useAllJoinInfo();
@@ -34,7 +32,7 @@ export const useJoinInfo = () => {
 
 export const useAllJoinInfo = () => {
   const { data, loading, error } = useQuery<{ joiners: IJoinInfo[] }>(
-    AllJoiners
+    QueryAllJoiners
   );
   const allJoiners = data?.joiners ?? [];
 
@@ -43,7 +41,7 @@ export const useAllJoinInfo = () => {
 
 export const useAddJoinInfo = () => {
   const [addJoinerMutation] = useMutation<{ insertOneJoiner: IJoinInfo }>(
-    AddJoiner
+    InsertJoiner
   );
 
   const addJoiner = async (joiner: IJoinInfo) => {

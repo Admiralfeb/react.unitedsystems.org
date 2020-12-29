@@ -1,14 +1,12 @@
 import { useQuery } from '@apollo/client';
 import { sortItems } from 'functions/sort';
-import { loader } from 'graphql.macro';
 import { IFleetCarrier } from 'models/information/fleetCarrier';
 import { useMemo } from 'react';
-
-const FleetCarriers = loader('../../graphql/allFleetCarriers.gql');
+import { QueryAllFleetCarriers } from 'gql/queries/fleetCarriers';
 
 export const useFleetCarriers = () => {
   const { data, loading, error } = useQuery<{ fleetCarriers: IFleetCarrier[] }>(
-    FleetCarriers
+    QueryAllFleetCarriers
   );
   if (error) {
     throw new Error(`Failed to fetch carriers: ${error.message}`);

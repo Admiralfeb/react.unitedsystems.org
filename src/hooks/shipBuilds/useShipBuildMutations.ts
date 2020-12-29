@@ -1,12 +1,8 @@
 import { useMutation } from '@apollo/client';
-import { loader } from 'graphql.macro';
 import { IBuildInfoInsert } from 'models/shipBuilds/buildInfoInsert';
-
-const AddBuildMutation = loader('../../graphql/insertOneShipBuildsv2.gql');
-const ReplaceBuildMutation = loader('../../graphql/replaceOneShipBuildsv2.gql');
-const UpdateBuildMutation = loader(
-  '../../graphql/updateRelatedOneShipBuildsv2.gql'
-);
+import { InsertShipBuild } from 'gql/mutations/shipBuild.insert';
+import { ReplaceShipBuild } from 'gql/mutations/shipBuild.replace';
+import { UpdateRelatedShipBuilds } from 'gql/mutations/shipBuild.update';
 
 export const useShipBuildMutations = () => {
   return {
@@ -20,7 +16,7 @@ export const useShipBuildMutations = () => {
 const useAddBuild = () => {
   const [addBuildMutation] = useMutation<{
     insertOneShipBuildsv2: IBuildInfoInsert;
-  }>(AddBuildMutation);
+  }>(InsertShipBuild);
 
   const addShipBuild = async (build: IBuildInfoInsert) => {
     const addedBuild = await addBuildMutation({
@@ -37,7 +33,7 @@ const useAddBuild = () => {
 };
 
 const useUpdateRelatedBuilds = () => {
-  const [updateBuildMutation] = useMutation(UpdateBuildMutation);
+  const [updateBuildMutation] = useMutation(UpdateRelatedShipBuilds);
 
   const updateRelatedBuilds = async (id: string, relatedBuilds: string[]) => {
     const updatedBuild = await updateBuildMutation({
@@ -56,7 +52,7 @@ const useUpdateRelatedBuilds = () => {
 };
 
 const useUpdateVariantBuilds = () => {
-  const [updateBuildMutation] = useMutation(UpdateBuildMutation);
+  const [updateBuildMutation] = useMutation(UpdateRelatedShipBuilds);
 
   const updateVariantBuilds = async (id: string, variantBuilds: string[]) => {
     const updatedBuild = await updateBuildMutation({
@@ -76,7 +72,7 @@ const useUpdateVariantBuilds = () => {
 
 const useReplaceBuild = () => {
   const [replaceBuildMutation] = useMutation<IBuildInfoInsert>(
-    ReplaceBuildMutation
+    ReplaceShipBuild
   );
 
   const replaceShipBuild = async (build: IBuildInfoInsert) => {

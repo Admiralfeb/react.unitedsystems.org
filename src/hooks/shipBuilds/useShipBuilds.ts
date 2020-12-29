@@ -1,10 +1,8 @@
 import { useQuery } from '@apollo/client';
 import { IBuildInfov2 } from 'models/shipBuilds';
-import { loader } from 'graphql.macro';
 import { useShipBuildMutations } from './useShipBuildMutations';
 import { IBuildInfoInsert } from 'models/shipBuilds/buildInfoInsert';
-
-const AllShipBuildsv2s = loader('../../graphql/allShipBuildsv2s.gql');
+import { QueryAllShipBuilds } from 'gql/queries/shipBuilds';
 
 export const useShipBuilds = () => {
   const addRelated = useAddRelatedBuild();
@@ -25,7 +23,7 @@ export const useShipBuilds = () => {
 export const useAllShipBuilds = () => {
   const { data, loading, error } = useQuery<{
     shipBuildsv2s: IBuildInfov2[];
-  }>(AllShipBuildsv2s);
+  }>(QueryAllShipBuilds);
   const shipBuilds = data?.shipBuildsv2s ?? [];
 
   return { shipBuilds, loading, error };

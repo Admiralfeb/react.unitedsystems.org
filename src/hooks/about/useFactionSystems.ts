@@ -1,12 +1,10 @@
 import { useQuery } from '@apollo/client';
-import { loader } from 'graphql.macro';
-
-const FactionSystems = loader('../../graphql/allFactionSystems.gql');
+import { AllFactionSystems } from 'gql/queries/factionSystems';
 
 export const useFactionSystems = () => {
   const { data, loading, error } = useQuery<{
     factionSystems: { text: string; link: string }[];
-  }>(FactionSystems);
+  }>(AllFactionSystems);
   const factionSystems = data?.factionSystems ?? [];
 
   return { factionSystems, loading, error };

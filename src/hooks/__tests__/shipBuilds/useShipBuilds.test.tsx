@@ -1,11 +1,10 @@
 import { useAllShipBuilds } from 'hooks/shipBuilds/useShipBuilds';
 
-import { loader } from 'graphql.macro';
 import { MockedProvider } from '@apollo/client/testing';
 import { cleanup, renderHook } from '@testing-library/react-hooks';
 import shipBuilds from 'data/shipBuilds/builds.json';
 
-const shipBuildsQuery = loader('../../../graphql/allShipBuildsv2s.gql');
+import { QueryAllShipBuilds } from 'gql/queries/shipBuilds';
 
 describe('useShipBuilds', () => {
   afterEach(cleanup);
@@ -13,7 +12,7 @@ describe('useShipBuilds', () => {
   it('should throw error if it fails the query in useAllShipBuilds', async () => {
     const errorMock = {
       request: {
-        query: shipBuildsQuery,
+        query: QueryAllShipBuilds,
       },
       error: new Error('an error occurred'),
     };
@@ -36,7 +35,7 @@ describe('useShipBuilds', () => {
   it('should return data in useAllShipBuilds', async () => {
     const dataMock = {
       request: {
-        query: shipBuildsQuery,
+        query: QueryAllShipBuilds,
       },
       result: { data: { shipBuildsv2s: shipBuilds } },
     };
