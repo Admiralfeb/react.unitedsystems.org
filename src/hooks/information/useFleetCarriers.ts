@@ -4,8 +4,6 @@ import { IFleetCarrier } from 'models/information/fleetCarrier';
 import { useMemo } from 'react';
 import { QueryAllFleetCarriers } from 'gql/queries/fleetCarriers';
 
-// const FleetCarriers = loader('../../graphql/allFleetCarriers.gql');
-
 export const useFleetCarriers = () => {
   const { data, loading, error } = useQuery<{ fleetCarriers: IFleetCarrier[] }>(
     QueryAllFleetCarriers
