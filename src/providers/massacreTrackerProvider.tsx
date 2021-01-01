@@ -58,9 +58,10 @@ export const MassacreContextProvider = (props: { children: ReactNode }) => {
     });
   };
 
-  const deleteTracker = (index: number) => {
+  const deleteTracker = (tracker: IMassacreTrack) => {
     setTrackers((prevTrackers) => {
       if (prevTrackers) {
+        const index = prevTrackers.indexOf(tracker);
         return [
           ...prevTrackers.slice(0, index),
           ...prevTrackers.slice(index + 1),

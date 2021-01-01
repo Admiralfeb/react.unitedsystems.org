@@ -2,10 +2,9 @@ export type IMassacreTrack = {
   hazRezSystem: string;
   systemsin10LY: {
     name: string;
-    id: string;
     factions: {
       name: string;
-      id: string;
+      id: number;
       influence: number;
       removed: boolean;
     }[];
@@ -13,15 +12,19 @@ export type IMassacreTrack = {
       type: string;
       name: string;
       distance: number;
-      removed: boolean;
     }[];
-    removed: boolean;
   }[];
   factions: {
     name: string;
-    id: string;
+    id: number;
     removed: boolean;
-    missions: (number | null)[];
+    missions: Array<IFactionMission | null>;
   }[];
   current: boolean;
 };
+
+export interface IFactionMission {
+  timeStamp: Date;
+  killsforMission: number;
+  killsCompleted: number;
+}

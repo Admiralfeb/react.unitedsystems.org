@@ -5,7 +5,7 @@ export interface IMassacreContext {
   trackers: IMassacreTrack[];
   addTracker: (newTracker: IMassacreTrack) => void;
   updateTracker: (index: number, newTracker: IMassacreTrack) => void;
-  deleteTracker: (index: number) => void;
+  deleteTracker: (tracker: IMassacreTrack) => void;
   selectedTab: string;
   setSelectedTab: Dispatch<SetStateAction<string>>;
 }

@@ -18,5 +18,13 @@
   {
     "type": "Planetary Settlement",
     "maxPadSize": "Large"
+  },
+  {
+    "type": "Planetary Outpost",
+    "maxPadSize": "Large"
+  },
+  {
+    "type": "Planetary Port",
+    "maxPadSize": "Large"
   }
 ]

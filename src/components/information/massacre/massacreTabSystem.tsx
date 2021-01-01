@@ -1,4 +1,4 @@
-import { AppBar, Tab, Tabs, Typography, Fade } from '@material-ui/core';
+import { AppBar, Tab, Tabs, Typography, Collapse } from '@material-ui/core';
 import { MassacreContext } from 'providers/massacreTrackerProvider';
 import { ChangeEvent, useContext } from 'react';
 import { MassacreTabAddPanel } from './massacreTabAddPanel';
@@ -29,20 +29,22 @@ export const MassacreTabSystem = () => {
           </Tabs>
         </AppBar>
         {context.trackers.map((tracker) => (
-          <Fade
+          <Collapse
             in={tracker.hazRezSystem === context.selectedTab}
             key={tracker.hazRezSystem}
+            unmountOnExit
+            mountOnEnter
           >
             <div>
               <MassacreTabPanel system={tracker.hazRezSystem} />
             </div>
-          </Fade>
+          </Collapse>
         ))}
-        <Fade in={context.selectedTab === '+'}>
+        <Collapse in={context.selectedTab === '+'} unmountOnExit mountOnEnter>
           <div>
             <MassacreTabAddPanel />
           </div>
-        </Fade>
+        </Collapse>
       </div>
     );
   }

@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { ISystemStations } from 'models/stationsInSystem';
 
 const apiURL = 'https://www.edsm.net/api-system-v1/stations';
 
@@ -8,7 +9,7 @@ const apiURL = 'https://www.edsm.net/api-system-v1/stations';
  */
 const getStationsinSystem = async (systemName: string = 'Arugbal') => {
   try {
-    const response = await axios.get(apiURL, {
+    const response = await axios.get<ISystemStations>(apiURL, {
       params: {
         systemName,
       },
