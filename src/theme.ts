@@ -1,6 +1,7 @@
 import { createMuiTheme } from '@material-ui/core';
 // import backgroundImg from 'assets/background.png';
-import fireworksImg from 'assets/new-year-eve-fireworks.jpg';
+import background2021_1 from 'assets/img/usc-raz-2021-Jan.png';
+// import fireworksImg from 'assets/new-year-eve-fireworks.jpg';
 import euroStileWoff from 'assets/fonts/Eurostile-Roman.woff2';
 
 const euroStile = {
@@ -42,7 +43,7 @@ theme.overrides = {
     '@global': {
       body: {
         height: '100%',
-        backgroundImage: `url("${fireworksImg}")`,
+        backgroundImage: `url("${background2021_1}")`,
         backgroundRepeat: 'no-repeat',
         backgroundAttachment: 'fixed',
         backgroundSize: 'cover',
