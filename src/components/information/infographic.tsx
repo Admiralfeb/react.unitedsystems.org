@@ -1,4 +1,4 @@
-import { Fade, makeStyles, Typography } from '@material-ui/core';
+import { Container, Fade, makeStyles, Typography } from '@material-ui/core';
 import { useInfographic } from 'hooks/information/useInfographic';
 
 const useStyles = makeStyles({
@@ -16,7 +16,7 @@ export const Infographic = (props: { img: string }) => {
   const classes = useStyles();
   return (
     <Fade in={true}>
-      <div className={classes.root}>
+      <Container className={classes.root}>
         {infographic ? (
           <>
             <Typography variant="h3">{infographic.title}</Typography>
@@ -25,7 +25,7 @@ export const Infographic = (props: { img: string }) => {
         ) : (
           <Typography>Image not found</Typography>
         )}
-      </div>
+      </Container>
     </Fade>
   );
 };

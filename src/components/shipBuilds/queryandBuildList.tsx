@@ -1,4 +1,5 @@
 import {
+  Container,
   Fab,
   Fade,
   makeStyles,
@@ -18,8 +19,6 @@ const useStyles = makeStyles({
     '& p': {
       textAlign: 'center',
     },
-    width: '95%',
-    margin: 'auto',
   },
   header: { textAlign: 'center' },
   fab: {
@@ -48,7 +47,7 @@ export const QueryandBuildList = () => {
 
   return (
     <Fade in={true}>
-      <div className={classes.root}>
+      <Container maxWidth="xl" className={classes.root}>
         <Typography variant="h3" className={classes.header}>
           Ship Build Archive
         </Typography>
@@ -63,7 +62,7 @@ export const QueryandBuildList = () => {
             </Fab>
           </div>
         </Slide>
-      </div>
+      </Container>
     </Fade>
   );
 };

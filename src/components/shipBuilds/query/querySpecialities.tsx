@@ -7,12 +7,13 @@ import { useSharedStyles } from './sharedStyles';
 const useStyles = makeStyles((theme) => ({
   querySpecialtyButtons: {
     display: 'grid',
-    gridTemplate: '1fr 1fr 1fr 1fr 1fr / 1fr 1fr',
+    gridTemplate: 'repeat(5, 1fr) / repeat(2, 1fr)',
     '& button': {
-      margin: '3px',
+      marginRight: theme.spacing(1),
+      marginTop: theme.spacing(1),
     },
     [theme.breakpoints.up('lg')]: {
-      gridTemplate: '1fr 1fr / 1fr 1fr 1fr 1fr 1fr',
+      gridTemplate: 'repeat(2, 1fr) / repeat(5, 1fr)',
     },
   },
 }));

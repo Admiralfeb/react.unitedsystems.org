@@ -1,5 +1,6 @@
 import {
   Button,
+  Container,
   FormGroup,
   makeStyles,
   Paper,
@@ -20,21 +21,19 @@ import { useUrlQuery } from 'hooks/useURLQuery';
 import { EDSpinner } from '@admiralfeb/react-components';
 import { useSnackbar } from 'notistack';
 
-const useStyles = makeStyles({
+const useStyles = makeStyles((theme) => ({
   root: {
     textAlign: 'center',
     display: 'grid',
     gridTemplate: 'auto / 1fr',
     rowGap: '10px',
-    width: '90%',
-    margin: 'auto',
-    padding: 10,
+    padding: theme.spacing(1),
   },
   center: {
     textAlign: 'center',
     margin: '0 auto',
   },
-});
+}));
 
 /**
  * Add Build Screen
@@ -281,7 +280,7 @@ export const BuildAdd = () => {
   }
 
   return (
-    <>
+    <Container maxWidth="lg">
       <Typography variant="h3" className={classes.center}>
         Add Build Form
       </Typography>
@@ -343,7 +342,7 @@ export const BuildAdd = () => {
           Submit Build
         </Button>
       </Paper>
-    </>
+    </Container>
   );
 };
 

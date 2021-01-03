@@ -1,8 +1,9 @@
 import { useJoinInfo } from 'hooks/join/useJoinInfo';
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import {
   Button,
   Collapse,
+  Container,
   Fade,
   IconButton,
   makeStyles,
@@ -25,10 +26,7 @@ import { useSnackbar } from 'notistack';
 const useStyles = makeStyles((theme) => ({
   root: {
     textAlign: 'center',
-    width: '80%',
-    margin: 'auto',
     [theme.breakpoints.down('sm')]: {
-      width: '95%',
       marginTop: theme.spacing(1),
     },
   },
@@ -91,7 +89,7 @@ export const JoinList = () => {
 
   return (
     <Fade in={true}>
-      <div className={classes.root}>
+      <Container className={classes.root}>
         <Typography variant="h3">Join List</Typography>
         <div className={classes.joinTypes}>
           <Button
@@ -290,7 +288,7 @@ export const JoinList = () => {
             </TableContainer>
           </div>
         </Collapse>
-      </div>
+      </Container>
     </Fade>
   );
 };

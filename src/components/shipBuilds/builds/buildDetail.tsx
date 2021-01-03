@@ -2,6 +2,7 @@ import { useParams } from 'react-router-dom';
 import { EDSpinner } from '@admiralfeb/react-components';
 import { NotFound } from 'components';
 import {
+  Container,
   makeStyles,
   Typography,
   useMediaQuery,
@@ -34,7 +35,7 @@ export const BuildDetail = () => {
   }
 
   return (
-    <>
+    <Container maxWidth="lg">
       <Typography variant="h3" className={classes.textCenter}>
         Build Detail
       </Typography>
@@ -59,6 +60,6 @@ export const BuildDetail = () => {
           buildIDs={foundBuild.related}
         />
       ) : null}
-    </>
+    </Container>
   );
 };

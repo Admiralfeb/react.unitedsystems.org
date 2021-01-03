@@ -1,4 +1,5 @@
 import {
+  Container,
   Fade,
   List,
   ListItem,
@@ -24,7 +25,7 @@ export const AboutAllies = () => {
   const classes = useStyles();
   return (
     <Fade in={true}>
-      <div>
+      <Container maxWidth="sm">
         <Typography variant="h4" className={classes.header}>
           Allies
         </Typography>
@@ -37,7 +38,7 @@ export const AboutAllies = () => {
             ))}
           </List>
         </Paper>
-      </div>
+      </Container>
     </Fade>
   );
 };

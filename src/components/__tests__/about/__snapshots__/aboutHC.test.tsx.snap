@@ -3,7 +3,9 @@
 exports[`About High Command should match the snapshot 1`] = `
 <body>
   <div>
-    <div>
+    <div
+      class="MuiContainer-root MuiContainer-maxWidthSm"
+    >
       <h4
         class="MuiTypography-root makeStyles-header-2 MuiTypography-h4"
       >
