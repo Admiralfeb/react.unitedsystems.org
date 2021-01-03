@@ -1,6 +1,6 @@
 import { createMuiTheme } from '@material-ui/core';
 // import backgroundImg from 'assets/background.png';
-import background2021_1 from 'assets/img/usc-raz-2021-jan.png';
+import background2021_1 from 'assets/img/usc-raz-2021-01.png';
 // import background2021_1 from 'assets/img/unknown.png';
 // import fireworksImg from 'assets/new-year-eve-fireworks.jpg';
 import euroStileWoff from 'assets/fonts/Eurostile-Roman.woff2';
