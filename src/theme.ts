@@ -41,7 +41,7 @@ theme.overrides = {
   MuiCssBaseline: {
     '@global': {
       body: {
-        height: '100%',
+        height: '100vh',
         backgroundImage: `url("${fireworksImg}")`,
         backgroundRepeat: 'no-repeat',
         backgroundAttachment: 'fixed',
