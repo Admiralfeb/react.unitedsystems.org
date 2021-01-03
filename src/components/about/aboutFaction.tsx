@@ -1,5 +1,6 @@
 import { EDSpinner } from '@admiralfeb/react-components';
 import {
+  Container,
   Fade,
   Link,
   List,
@@ -43,7 +44,7 @@ export const AboutFaction = () => {
 
   return (
     <Fade in={true}>
-      <div>
+      <Container maxWidth="sm">
         <Typography variant="h3" className={classes.textCenter}>
           Faction Information
         </Typography>
@@ -73,7 +74,7 @@ export const AboutFaction = () => {
             </List>
           </List>
         </Paper>
-      </div>
+      </Container>
     </Fade>
   );
 };

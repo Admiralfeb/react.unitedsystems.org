@@ -16,10 +16,8 @@ import { EngIcons } from './engIcons';
 
 const useStyles = makeStyles((theme) => ({
   paper: {
-    width: '80%',
-    margin: 'auto',
-    padding: 10,
-    marginBottom: 5,
+    padding: theme.spacing(1),
+    marginBottom: theme.spacing(1),
   },
   img: {
     width: 300,
@@ -32,7 +30,7 @@ const useStyles = makeStyles((theme) => ({
     display: 'flex',
     flexDirection: 'column',
     '& a': {
-      margin: '5px',
+      margin: theme.spacing(1),
     },
   },
   flexAcross: {
@@ -50,7 +48,7 @@ const useStyles = makeStyles((theme) => ({
     gridTemplate: 'auto / 1fr',
   },
   margin: {
-    margin: 10,
+    margin: theme.spacing(1),
   },
   textCenter: {
     textAlign: 'center',

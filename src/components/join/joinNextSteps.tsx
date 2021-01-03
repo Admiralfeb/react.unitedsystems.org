@@ -1,4 +1,5 @@
 import {
+  Container,
   IconButton,
   List,
   ListItem,
@@ -22,11 +23,6 @@ const useStyles = makeStyles((theme) => ({
   },
   paper: {
     padding: theme.spacing(2),
-    width: '100%',
-    margin: 'auto',
-    [theme.breakpoints.up('md')]: {
-      width: 600,
-    },
   },
   nested: {
     paddingLeft: theme.spacing(4),
@@ -36,7 +32,7 @@ export const JoinNextSteps = () => {
   const classes = useStyles();
   const { inaraSquadLink, discordLink } = useLinks();
   return (
-    <div className={classes.root}>
+    <Container className={classes.root}>
       <Typography variant="h4" className={classes.header}>
         Next Steps
       </Typography>
@@ -73,6 +69,6 @@ export const JoinNextSteps = () => {
           </List>
         </List>
       </Paper>
-    </div>
+    </Container>
   );
 };

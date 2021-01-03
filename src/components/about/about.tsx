@@ -1,4 +1,4 @@
-import { makeStyles, Typography, Fade } from '@material-ui/core';
+import { makeStyles, Typography, Fade, Container } from '@material-ui/core';
 import { useInfoButtons } from 'hooks/useInfoButtons';
 import { AboutLinks } from './aboutLinks';
 
@@ -17,7 +17,7 @@ export const About = () => {
   const { uscLinksList } = useInfoButtons();
   return (
     <Fade in={true}>
-      <div>
+      <Container maxWidth="md">
         <Typography variant="h3" className={classes.header}>
           About USC
         </Typography>
@@ -27,7 +27,7 @@ export const About = () => {
           header="USC Links"
           buttons={uscLinksList}
         />
-      </div>
+      </Container>
     </Fade>
   );
 };

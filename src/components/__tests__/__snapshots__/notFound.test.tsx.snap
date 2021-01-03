@@ -4,10 +4,10 @@ exports[`Join should match the snapshot 1`] = `
 <body>
   <div>
     <div
-      class="makeStyles-root-1"
+      class="MuiContainer-root makeStyles-root-1 MuiContainer-maxWidthLg"
     >
       <div
-        class="MuiPaper-root makeStyles-paper-3 MuiPaper-elevation1 MuiPaper-rounded"
+        class="MuiPaper-root MuiPaper-elevation1 MuiPaper-rounded"
       >
         <h3
           class="MuiTypography-root MuiTypography-h3"

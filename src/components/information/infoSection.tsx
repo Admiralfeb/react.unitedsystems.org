@@ -5,26 +5,24 @@ import { IInfoButton } from 'models/information/infoButtonModel';
 const useStyles = makeStyles((theme) => ({
   paper: {
     textAlign: 'center',
-    width: '80%',
-    margin: 'auto',
-    padding: 5,
-    paddingBottom: 10,
-    marginBottom: 5,
+    marginBottom: theme.spacing(1),
+    padding: theme.spacing(1),
   },
   specialButton: {
     display: 'flex',
     flexDirection: 'column',
   },
   buttonList: {
-    '& button': {
-      margin: 5,
-    },
     '& a': {
-      margin: 5,
+      marginRight: theme.spacing(1),
+      marginBottom: theme.spacing(1),
     },
     [theme.breakpoints.down('md')]: {
       display: 'grid',
       gridTemplateRows: 'auto',
+      '& a': {
+        marginRight: theme.spacing(0),
+      },
     },
   },
   grid: {

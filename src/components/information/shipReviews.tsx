@@ -1,5 +1,6 @@
 import {
   Button,
+  Container,
   Fade,
   makeStyles,
   Paper,
@@ -15,9 +16,7 @@ import { useShipReviews } from 'hooks/information/useShipReviews';
 
 const useStyles = makeStyles({
   table: {
-    maxWidth: 650,
     textAlign: 'center',
-    margin: 'auto',
   },
 });
 
@@ -27,7 +26,7 @@ export const ShipReviews = () => {
   const shipReviews = useShipReviews();
   return (
     <Fade in={true}>
-      <div className={classes.table}>
+      <Container maxWidth="sm" className={classes.table}>
         <Typography variant="h3">Ship Reviews</Typography>
         <TableContainer component={Paper}>
           <Table className={classes.table}>
@@ -58,7 +57,7 @@ export const ShipReviews = () => {
             </TableBody>
           </Table>
         </TableContainer>
-      </div>
+      </Container>
     </Fade>
   );
 };

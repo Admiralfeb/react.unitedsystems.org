@@ -1,17 +1,17 @@
 import { Chip, makeStyles } from '@material-ui/core';
 import { IBuildInfov2 } from 'models/shipBuilds';
 
-const useStyles = makeStyles({
+const useStyles = makeStyles((theme) => ({
   chips: {
     display: 'flex',
     flexDirection: 'row',
     flexWrap: 'wrap',
-    margin: '5px',
+    margin: theme.spacing(1),
     '& div': {
-      margin: '1px',
+      marginRight: theme.spacing(1),
     },
   },
-});
+}));
 
 export const TagGroup = (props: { build: IBuildInfov2 }) => {
   const { build } = props;

@@ -1,6 +1,7 @@
 import {
   Button,
   Checkbox,
+  Container,
   FormControl,
   FormControlLabel,
   FormGroup,
@@ -16,19 +17,11 @@ import { useForm } from 'react-hook-form';
 import { IJoinInfo } from 'models/join/joinInfo';
 
 const useStyles = makeStyles((theme) => ({
-  root: {
-    margin: 'auto',
-  },
   header: {
     textAlign: 'center',
   },
   paper: {
     padding: theme.spacing(2),
-    width: '100%',
-    margin: 'auto',
-    [theme.breakpoints.up('md')]: {
-      width: 600,
-    },
   },
   question: {
     borderColor: theme.palette.secondary.main,
@@ -73,7 +66,7 @@ export const JoinFormAmbassador = (props: {
   const onSubmit = (data: IJoinInfo) => props.onSubmit(data, 'ambassador');
 
   return (
-    <div className={classes.root}>
+    <Container>
       <Typography variant="h3" className={classes.header}>
         Ambassador
       </Typography>
@@ -211,6 +204,6 @@ export const JoinFormAmbassador = (props: {
           </div>
         </form>
       </Paper>
-    </div>
+    </Container>
   );
 };

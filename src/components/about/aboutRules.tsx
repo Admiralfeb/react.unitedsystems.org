@@ -6,6 +6,7 @@ import {
   makeStyles,
   Paper,
   Fade,
+  Container,
 } from '@material-ui/core';
 import { discordRules, memberRules } from 'data/about';
 
@@ -49,7 +50,7 @@ export const AboutRules = () => {
   const classes = useStyles();
   return (
     <Fade in={true}>
-      <div className={classes.header}>
+      <Container maxWidth="lg" className={classes.header}>
         <Typography variant="h4">Rules</Typography>
         <Paper className={classes.root}>
           <div className={classes.rules}>
@@ -81,7 +82,7 @@ export const AboutRules = () => {
             </Typography>
           </div>
         </Paper>
-      </div>
+      </Container>
     </Fade>
   );
 };

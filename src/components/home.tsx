@@ -1,4 +1,10 @@
-import { Fade, makeStyles, Paper, Typography } from '@material-ui/core';
+import {
+  Container,
+  Fade,
+  makeStyles,
+  Paper,
+  Typography,
+} from '@material-ui/core';
 import { useDownloadLink } from 'hooks/useDownloadLink';
 import {
   lore,
@@ -15,13 +21,9 @@ const useStyles = makeStyles((theme) => ({
   },
   paper: {
     textAlign: 'center',
-    width: '80%',
-    margin: 'auto',
-    padding: 5,
-    paddingBottom: 10,
-    marginBottom: 5,
+    padding: theme.spacing(1),
   },
-  latin: {
+  motto: {
     display: 'flex',
     flexDirection: 'column',
     textAlign: 'center',
@@ -34,7 +36,7 @@ const useStyles = makeStyles((theme) => ({
       width: '100%',
     },
   },
-  cursive: {
+  latin: {
     fontFamily: 'Cinzel, serif',
     fontSize: 32,
     [theme.breakpoints.down('sm')]: {
@@ -58,14 +60,14 @@ export const Home = () => {
   const { getDownloadLink } = useDownloadLink();
   return (
     <Fade in={true}>
-      <div className={classes.root}>
-        <Typography variant="h3" className={classes.header}>
+      <Container maxWidth="lg">
+        <Typography component="h1" variant="h3" className={classes.header}>
           United Systems Cooperative
         </Typography>
         <Paper className={classes.paper}>
           <Typography className={classes.lore}>{lore}</Typography>
-          <div className={classes.latin}>
-            <Typography className={classes.cursive} variant="h4">
+          <div className={classes.motto}>
+            <Typography className={classes.latin} variant="h4">
               {latin}
             </Typography>
             <Typography variant="subtitle2" className={classes.subtitle}>
@@ -82,7 +84,7 @@ export const Home = () => {
             "Your browser does not support this video"
           </video>
         </Paper>
-      </div>
+      </Container>
     </Fade>
   );
 };

@@ -1,5 +1,6 @@
 import {
   Button,
+  Container,
   Fade,
   IconButton,
   Link,
@@ -21,11 +22,6 @@ import { useLinks } from 'hooks/useLinks';
 const useStyles = makeStyles((theme) => ({
   root: {
     textAlign: 'center',
-    width: '80%',
-    margin: 'auto',
-    [theme.breakpoints.down('sm')]: {
-      width: '95%',
-    },
   },
 }));
 
@@ -36,7 +32,7 @@ export const MiningMap = () => {
 
   return (
     <Fade in={true}>
-      <div className={classes.root}>
+      <Container maxWidth="md" className={classes.root}>
         <Typography variant="h3">Mining Maps</Typography>
         <Typography variant="subtitle1">Compiled by Luisqa</Typography>
         <TableContainer component={Paper}>
@@ -90,7 +86,7 @@ export const MiningMap = () => {
             </TableBody>
           </Table>
         </TableContainer>
-      </div>
+      </Container>
     </Fade>
   );
 };

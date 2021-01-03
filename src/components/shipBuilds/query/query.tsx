@@ -15,7 +15,6 @@ const useStyles = makeStyles((theme) => ({
   root: {
     display: 'grid',
     rowGap: '2px',
-    width: '99%',
     gridTemplateAreas: `
     'specializations'
     'engineering'
