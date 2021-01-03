@@ -13,7 +13,7 @@ function ImgCopyright() {
       color="textSecondary"
       style={{ textAlign: 'center' }}
     >
-      Thank you to CMDR Pablok for the background image
+      Thank you to CMDR RaZ uryel for the background image
     </Typography>
   );
 }
