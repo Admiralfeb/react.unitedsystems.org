@@ -14,14 +14,17 @@ export type IMassacreTrack = {
       distance: number;
     }[];
   }[];
-  factions: {
-    name: string;
-    id: number;
-    removed: boolean;
-    missions: Array<IFactionMission | null>;
-  }[];
+  factions: IFactionwMissions[];
   current: boolean;
 };
+
+export interface IFactionwMissions {
+  name: string;
+  id: number;
+  removed: boolean;
+  reputation: string;
+  missions: Array<IFactionMission | null>;
+}
 
 export interface IFactionMission {
   timeStamp: Date;

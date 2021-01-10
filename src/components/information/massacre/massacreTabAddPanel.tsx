@@ -11,7 +11,8 @@ import {
   getSystemsinSphere,
 } from 'functions';
 import { sortItems } from 'functions/sort';
-import { IFactionMission, IMassacreTrack } from 'models/massacreTrack';
+import { IFactionwMissions, IMassacreTrack } from 'models/massacreTrack';
+import { ReputationLevels } from 'models/reputationLevels';
 import { useSnackbar } from 'notistack';
 import { MassacreContext } from 'providers/massacreTrackerProvider';
 import React, { ChangeEvent, useContext, useState } from 'react';
@@ -52,23 +53,19 @@ export const MassacreTabAddPanel = () => {
     const result = await processHazRezSystem(system);
     console.log(result);
 
-    let factions: {
-      name: string;
-      id: number;
-      removed: boolean;
-      missions: IFactionMission[];
-    }[] = [];
+    let factions: IFactionwMissions[] = [];
 
     result.forEach((r) => {
       r.factions.forEach((f) => {
         if (factions.find((x) => x.id === f.id)) {
           // do nothing
         } else {
-          const newFaction = {
+          const newFaction: IFactionwMissions = {
             name: f.name,
             id: f.id,
             removed: false,
-            missions: [],
+            reputation: ReputationLevels.allied,
+            missions: [null, null, null, null, null],
           };
           factions = [...factions, newFaction];
         }
