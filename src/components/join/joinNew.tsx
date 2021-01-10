@@ -1,6 +1,7 @@
 import {
   Button,
   Collapse,
+  Container,
   Fade,
   makeStyles,
   Paper,
@@ -56,9 +57,9 @@ export const JoinNew = () => {
   };
 
   return (
-    <>
+    <Container maxWidth="sm">
       <Fade in={true}>
-        <div>
+        <Container maxWidth="sm">
           <Typography variant="h3" className={classes.textCenter}>
             Join Us
           </Typography>
@@ -90,7 +91,7 @@ export const JoinNew = () => {
               </Button>
             </div>
           </Paper>
-        </div>
+        </Container>
       </Fade>
       <Collapse in={form === 0} unmountOnExit mountOnEnter>
         <div>
@@ -112,6 +113,6 @@ export const JoinNew = () => {
           <JoinNextSteps />
         </div>
       </Collapse>
-    </>
+    </Container>
   );
 };

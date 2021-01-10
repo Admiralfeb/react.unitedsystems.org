@@ -13,5 +13,5 @@ export const lore = `Established in 3306, the United Systems Cooperative is a ti
 
 export const latin = 'Ad Astra Per Aspera';
 export const latinTranslation = 'Through hardships to the stars';
-export const videoID = '1xdL6nUONDruGGOUec76ea0kdsRoM4gcX';
-export const videoPosterID = '1HcQKt81OY_w6ryJWX_B3OXGIL99Q_QnT';
+export const videoID = '1F8C6S4CObwHJMtq5xkE9Gkpd3pj_lJXz';
+export const videoPosterID = '1o0VDAl_nb77bOo8Sm7k1veWs4k3ty9fh';

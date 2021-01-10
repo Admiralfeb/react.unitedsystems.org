@@ -17,14 +17,14 @@ const useStyles = makeStyles((theme) => ({
   queryOtherButtonGrids: {
     display: 'grid',
     gridTemplateRows: '0.5fr 1fr',
-    margin: '0 10px',
+    margin: theme.spacing(0, 1),
     '& div': {
       margin: 'auto',
-      padding: '5px',
+      padding: theme.spacing(1),
     },
     '& label': {
       height: '25px',
-      padding: '5px',
+      padding: theme.spacing(1),
     },
   },
   QueryOtherBeginnerButtons: {

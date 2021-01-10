@@ -13,8 +13,8 @@ const useStyles = makeStyles((theme) => ({
   },
   shipTypeQuery: {
     [theme.breakpoints.up('lg')]: {
-      minWidth: '200px',
-      margin: '5px',
+      minWidth: 200,
+      margin: theme.spacing(1),
       flex: '1 0',
     },
   },

@@ -12,7 +12,7 @@ describe('Home', () => {
 
   it(`should render 'United Systems Cooperative' in an h3 element`, () => {
     const tag = componentBody.getByText('United Systems Cooperative').tagName;
-    expect(tag).toBe('H3');
+    expect(tag).toBe('H1');
   });
 
   it(`should render 'Ad Astra per Aspera' in an h4 element`, () => {

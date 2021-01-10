@@ -1,5 +1,6 @@
 import {
   Button,
+  Container,
   Fade,
   makeStyles,
   useMediaQuery,
@@ -17,11 +18,8 @@ const useStyles = makeStyles((theme) => ({
   },
   paper: {
     textAlign: 'center',
-    width: '80%',
-    margin: 'auto',
-    padding: 5,
-    paddingBottom: 10,
-    marginBottom: 5,
+    padding: theme.spacing(1),
+    marginBottom: theme.spacing(1),
     '& button': {
       margin: theme.spacing(1),
     },
@@ -53,7 +51,7 @@ export const Information = () => {
 
   return (
     <Fade in={true}>
-      <div>
+      <Container maxWidth="lg">
         <Typography variant="h3" className={classes.header}>
           Information Archive
         </Typography>
@@ -116,7 +114,7 @@ export const Information = () => {
             buttons={docsList}
           />
         </div>
-      </div>
+      </Container>
     </Fade>
   );
 };

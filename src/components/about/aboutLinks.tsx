@@ -1,4 +1,10 @@
-import { Button, makeStyles, Paper, Typography } from '@material-ui/core';
+import {
+  Button,
+  Container,
+  makeStyles,
+  Paper,
+  Typography,
+} from '@material-ui/core';
 import { Link } from 'react-router-dom';
 import { IInfoButton } from 'models/information/infoButtonModel';
 
@@ -51,83 +57,93 @@ export const AboutLinks = (props: ISectionProps) => {
   const { id, buttons } = props;
 
   return (
-    <Paper id={id} className={classes.paper}>
-      <div className={classes.grid}>
-        <div className={classes.flex}>
-          {buttons
-            .filter((x) => x.beginner === true)
-            .map((guide) => {
-              if (guide.local === true) {
-                return (
-                  <Button
-                    variant="outlined"
-                    color={guide.beginner ? 'secondary' : 'primary'}
-                    component={Link}
-                    to={`${guide.link}`}
-                    key={guide.title}
-                  >
-                    <div className={classes.specialButton}>
-                      <Typography>{guide.title}</Typography>
-                      <Typography variant="caption">{guide.caption}</Typography>
-                    </div>
-                  </Button>
-                );
-              } else {
-                return (
-                  <Button
-                    variant="outlined"
-                    color={guide.beginner ? 'secondary' : 'primary'}
-                    href={guide.link}
-                    target="_blank"
-                    key={guide.title}
-                  >
-                    <div className={classes.specialButton}>
-                      <Typography>{guide.title}</Typography>
-                      <Typography variant="caption">{guide.caption}</Typography>
-                    </div>
-                  </Button>
-                );
-              }
-            })}
+    <Container maxWidth="sm">
+      <Paper id={id} className={classes.paper}>
+        <div className={classes.grid}>
+          <div className={classes.flex}>
+            {buttons
+              .filter((x) => x.beginner === true)
+              .map((guide) => {
+                if (guide.local === true) {
+                  return (
+                    <Button
+                      variant="outlined"
+                      color={guide.beginner ? 'secondary' : 'primary'}
+                      component={Link}
+                      to={`${guide.link}`}
+                      key={guide.title}
+                    >
+                      <div className={classes.specialButton}>
+                        <Typography>{guide.title}</Typography>
+                        <Typography variant="caption">
+                          {guide.caption}
+                        </Typography>
+                      </div>
+                    </Button>
+                  );
+                } else {
+                  return (
+                    <Button
+                      variant="outlined"
+                      color={guide.beginner ? 'secondary' : 'primary'}
+                      href={guide.link}
+                      target="_blank"
+                      key={guide.title}
+                    >
+                      <div className={classes.specialButton}>
+                        <Typography>{guide.title}</Typography>
+                        <Typography variant="caption">
+                          {guide.caption}
+                        </Typography>
+                      </div>
+                    </Button>
+                  );
+                }
+              })}
+          </div>
+          <div className={classes.flex}>
+            {buttons
+              .filter((x) => x.beginner === false)
+              .map((guide) => {
+                if (guide.local === true) {
+                  return (
+                    <Button
+                      variant="outlined"
+                      color={guide.beginner ? 'secondary' : 'primary'}
+                      component={Link}
+                      to={`${guide.link}`}
+                      key={guide.title}
+                    >
+                      <div className={classes.specialButton}>
+                        <Typography>{guide.title}</Typography>
+                        <Typography variant="caption">
+                          {guide.caption}
+                        </Typography>
+                      </div>
+                    </Button>
+                  );
+                } else {
+                  return (
+                    <Button
+                      variant="outlined"
+                      color={guide.beginner ? 'secondary' : 'primary'}
+                      href={guide.link}
+                      target="_blank"
+                      key={guide.title}
+                    >
+                      <div className={classes.specialButton}>
+                        <Typography>{guide.title}</Typography>
+                        <Typography variant="caption">
+                          {guide.caption}
+                        </Typography>
+                      </div>
+                    </Button>
+                  );
+                }
+              })}
+          </div>
         </div>
-        <div className={classes.flex}>
-          {buttons
-            .filter((x) => x.beginner === false)
-            .map((guide) => {
-              if (guide.local === true) {
-                return (
-                  <Button
-                    variant="outlined"
-                    color={guide.beginner ? 'secondary' : 'primary'}
-                    component={Link}
-                    to={`${guide.link}`}
-                    key={guide.title}
-                  >
-                    <div className={classes.specialButton}>
-                      <Typography>{guide.title}</Typography>
-                      <Typography variant="caption">{guide.caption}</Typography>
-                    </div>
-                  </Button>
-                );
-              } else {
-                return (
-                  <Button
-                    variant="outlined"
-                    color={guide.beginner ? 'secondary' : 'primary'}
-                    href={guide.link}
-                    target="_blank"
-                    key={guide.title}
-                  >
-                    <div className={classes.specialButton}>
-                      <Typography>{guide.title}</Typography>
-                      <Typography variant="caption">{guide.caption}</Typography>
-                    </div>
-                  </Button>
-                );
-              }
-            })}
-        </div>
-      </div>
-    </Paper>
+      </Paper>
+    </Container>
   );
 };

@@ -1,15 +1,15 @@
 import { Button, makeStyles } from '@material-ui/core';
 import { NavLink } from 'react-router-dom';
 
-const useStyles = makeStyles({
+const useStyles = makeStyles((theme) => ({
   root: {
     textAlign: 'center',
     gridArea: 'buttons',
     '& button': {
-      margin: '5px',
+      margin: theme.spacing(1),
     },
   },
-});
+}));
 
 export const QueryActions = (props: { resetQueries: () => void }) => {
   const classes = useStyles();

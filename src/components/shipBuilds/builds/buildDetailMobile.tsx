@@ -16,9 +16,7 @@ import { TagGroup } from './tagGroup';
 
 const useStyles = makeStyles((theme) => ({
   paper: {
-    width: '90%',
-    margin: 'auto',
-    padding: '10px',
+    padding: theme.spacing(1),
     display: 'flex',
     flexDirection: 'column',
   },
@@ -34,7 +32,7 @@ const useStyles = makeStyles((theme) => ({
     display: 'grid',
     gridTemplate: '1fr 1fr / 1fr 1fr',
     gap: 5,
-    padding: 5,
+    padding: theme.spacing(1),
   },
   spacer: {
     flexGrow: 1,

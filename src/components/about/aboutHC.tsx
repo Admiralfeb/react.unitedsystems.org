@@ -1,4 +1,5 @@
 import {
+  Container,
   List,
   ListItem,
   ListItemText,
@@ -23,7 +24,7 @@ const useStyles = makeStyles({
 export const AboutHC = () => {
   const classes = useStyles();
   return (
-    <div>
+    <Container maxWidth="sm">
       <Typography variant="h4" className={classes.header}>
         High Command
       </Typography>
@@ -36,6 +37,6 @@ export const AboutHC = () => {
           ))}
         </List>
       </Paper>
-    </div>
+    </Container>
   );
 };

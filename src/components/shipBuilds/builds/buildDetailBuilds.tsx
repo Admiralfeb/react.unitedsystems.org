@@ -5,8 +5,6 @@ import { BuildCard } from './buildCard';
 
 const useStyles = makeStyles((theme) => ({
   paper: {
-    width: '90%',
-    margin: 'auto',
     marginBottom: 5,
     display: 'flex',
     flexWrap: 'wrap',

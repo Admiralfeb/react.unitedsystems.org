@@ -2,6 +2,7 @@ import {
   Button,
   Checkbox,
   Collapse,
+  Container,
   Divider,
   FormControl,
   FormControlLabel,
@@ -20,19 +21,11 @@ import { useForm } from 'react-hook-form';
 import { IJoinInfo } from 'models/join/joinInfo';
 
 const useStyles = makeStyles((theme) => ({
-  root: {
-    margin: 'auto',
-  },
   header: {
     textAlign: 'center',
   },
   paper: {
     padding: theme.spacing(2),
-    width: '100%',
-    margin: 'auto',
-    [theme.breakpoints.up('md')]: {
-      width: 600,
-    },
   },
   question: {
     borderColor: theme.palette.secondary.main,
@@ -97,7 +90,7 @@ export const JoinFormGuest = (props: {
   const onSubmit = (data: IJoinInfo) => props.onSubmit(data, 'guest');
 
   return (
-    <div className={classes.root}>
+    <Container maxWidth="sm">
       <Typography variant="h3" className={classes.header}>
         Guest
       </Typography>
@@ -287,6 +280,6 @@ export const JoinFormGuest = (props: {
           </div>
         </form>
       </Paper>
-    </div>
+    </Container>
   );
 };

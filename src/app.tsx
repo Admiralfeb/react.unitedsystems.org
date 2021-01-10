@@ -7,6 +7,7 @@ import { NavbarComponent } from 'components/navbar';
 import { AppRoutes } from 'routes/app.routes';
 import { RealmAppProvider, RealmApolloProvider } from 'providers';
 import { SnackbarProvider } from 'notistack';
+import { Footer } from 'components';
 
 const realmID: string | undefined = process.env.REACT_APP_REALM_ID;
 
@@ -14,20 +15,22 @@ export const App = () => {
   const history = createBrowserHistory({ basename: process.env.PUBLIC_URL });
 
   return (
-    <RealmAppProvider appId={realmID}>
-      <RealmApolloProvider>
-        <SnackbarProvider maxSnack={3}>
-          <ThemeProvider theme={theme}>
-            <CssBaseline />
-            <div>
-              <Router history={history}>
+    <Router history={history}>
+      <RealmAppProvider appId={realmID}>
+        <RealmApolloProvider>
+          <SnackbarProvider maxSnack={3}>
+            <ThemeProvider theme={theme}>
+              <CssBaseline />
+              <div>
                 <NavbarComponent />
-                <AppRoutes />
-              </Router>
-            </div>
-          </ThemeProvider>
-        </SnackbarProvider>
-      </RealmApolloProvider>
-    </RealmAppProvider>
+                <Footer>
+                  <AppRoutes />
+                </Footer>
+              </div>
+            </ThemeProvider>
+          </SnackbarProvider>
+        </RealmApolloProvider>
+      </RealmAppProvider>
+    </Router>
   );
 };
