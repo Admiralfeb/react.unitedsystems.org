@@ -50,6 +50,7 @@ export const MassacreTabAddPanel = () => {
       enqueueSnackbar('Please enter a system', { variant: 'warning' });
       return;
     }
+
     const result = await processHazRezSystem(system);
     console.log(result);
 
@@ -78,7 +79,13 @@ export const MassacreTabAddPanel = () => {
       current: true,
     };
 
-    context?.addTracker(final);
+    const response = context?.addTracker(final);
+    if (response) {
+      enqueueSnackbar(response, {
+        variant: 'info',
+      });
+    }
+
     context?.setSelectedTab(final.hazRezSystem);
   };
 

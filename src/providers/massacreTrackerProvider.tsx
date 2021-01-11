@@ -35,23 +35,46 @@ export const MassacreContextProvider = (props: { children: ReactNode }) => {
 
   useEffect(() => {
     writeStorage('massacreTrackerStore', trackers);
+    console.log('wrote to storage');
   }, [trackers]);
 
   const addTracker = (newTracker: IMassacreTrack) => {
+    let response = '';
     setTrackers((prevTrackers) => {
       if (prevTrackers) {
+        const foundTracker = prevTrackers.find(
+          (x) =>
+            x.hazRezSystem.toLowerCase() ===
+            newTracker.hazRezSystem.toLowerCase()
+        );
+        if (foundTracker) {
+          response = `Tracker for ${newTracker.hazRezSystem} already exists.`;
+          return [...prevTrackers];
+        }
         return [...prevTrackers, newTracker];
       } else {
         return [newTracker];
       }
     });
+    return response;
   };
 
-  const updateTracker = (index: number, newTracker: IMassacreTrack) => {
+  const updateTracker = (hazRezSystem: string, newTracker: IMassacreTrack) => {
+    console.log('Update Tracker');
     setTrackers((prevTrackers) => {
-      if (prevTrackers) {
-        prevTrackers[index] = newTracker;
-        return prevTrackers;
+      if (prevTrackers.length > 0) {
+        const trackerIndex = prevTrackers.findIndex(
+          (x) => x.hazRezSystem === hazRezSystem
+        );
+        if (trackerIndex === -1) {
+          return [...prevTrackers, newTracker];
+        }
+        const newTrackers = [
+          ...prevTrackers.slice(0, trackerIndex),
+          newTracker,
+          ...prevTrackers.slice(trackerIndex + 1),
+        ];
+        return newTrackers;
       } else {
         return [newTracker];
       }

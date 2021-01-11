@@ -15,10 +15,22 @@ import {
   IMassacreTrack,
 } from 'models/massacreTrack';
 import { useSnackbar } from 'notistack';
-import { ChangeEvent, useState } from 'react';
+import { ChangeEvent, useEffect, useState } from 'react';
 
-export const MassacreMissions = (props: { tracker: IMassacreTrack }) => {
-  const { tracker } = props;
+export const MassacreMissions = (props: {
+  tracker: IMassacreTrack;
+  updateTracker: (hazRezSystem: string, newTracker: IMassacreTrack) => void;
+}) => {
+  const { tracker, updateTracker } = props;
+
+  const handleFactionChange = (faction: IFactionwMissions) => {
+    const index = tracker.factions.findIndex((f) => f.id === faction.id);
+    const factions = tracker.factions;
+    factions[index] = faction;
+    const newTracker: IMassacreTrack = { ...tracker, factions };
+    updateTracker(tracker.hazRezSystem, newTracker);
+  };
+
   return (
     <Container maxWidth="xl">
       <TableContainer component={Paper}>
@@ -28,14 +40,18 @@ export const MassacreMissions = (props: { tracker: IMassacreTrack }) => {
               <TableCell>Total</TableCell>
               <TableCell>Faction</TableCell>
               <TableCell>Reputation</TableCell>
-              {tracker.factions[0].missions.map((mission, index) => (
-                <TableCell key={index}>{index + 1}</TableCell>
+              {tracker.factions[0].missions.map((_, index) => (
+                <TableCell key={index}>Mission {index + 1}</TableCell>
               ))}
             </TableRow>
           </TableHead>
           <TableBody>
             {tracker.factions.map((faction) => (
-              <FactionRow key={faction.name} faction={faction} />
+              <FactionRow
+                key={faction.name}
+                faction={faction}
+                onFactionChange={handleFactionChange}
+              />
             ))}
           </TableBody>
         </Table>
@@ -44,28 +60,48 @@ export const MassacreMissions = (props: { tracker: IMassacreTrack }) => {
   );
 };
 
-const FactionRow = (props: { faction: IFactionwMissions }) => {
-  const { faction } = props;
+const FactionRow = (props: {
+  faction: IFactionwMissions;
+  onFactionChange: (faction: IFactionwMissions) => void;
+}) => {
+  const processMissions = (faction: IFactionwMissions) => {
+    const missions = faction.missions.map((mission) => {
+      if (mission === null) {
+        const newMission: IFactionMission = {
+          timeStamp: new Date(),
+          killsforMission: 0,
+          killsCompleted: 0,
+        };
+        return newMission;
+      } else {
+        return mission;
+      }
+    });
+    return missions;
+  };
+  const reduceTotalKills = (acc: number, current: IFactionMission) => {
+    return acc + current.killsforMission;
+  };
+
+  const { faction, onFactionChange } = props;
   const { enqueueSnackbar } = useSnackbar();
 
   const [totalKills, setTotalKills] = useState(0);
   const [missionKills, setMissionKills] = useState<Array<IFactionMission>>(
     () => {
-      const newMissions = faction.missions.map((mission) => {
-        if (mission === null) {
-          const newMission: IFactionMission = {
-            timeStamp: new Date(),
-            killsforMission: 0,
-            killsCompleted: 0,
-          };
-          return newMission;
-        } else {
-          return mission;
-        }
-      });
+      const newMissions = processMissions(faction);
+      const totalKillsNeeded: number = newMissions.reduce(reduceTotalKills, 0);
+      setTotalKills(totalKillsNeeded);
       return newMissions;
     }
   );
+
+  useEffect(() => {
+    const newMissions = processMissions(faction);
+    const totalKillsNeeded: number = newMissions.reduce(reduceTotalKills, 0);
+    setMissionKills(newMissions);
+    setTotalKills(totalKillsNeeded);
+  }, [faction, faction.missions]);
 
   const handleKillsforMissionChange = (
     event: ChangeEvent<HTMLInputElement>
@@ -97,6 +133,7 @@ const FactionRow = (props: { faction: IFactionwMissions }) => {
         0
       );
       setTotalKills(totalKillsNeeded);
+      onFactionChange({ ...faction, missions: previous });
       return previous;
     });
   };

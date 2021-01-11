@@ -1,4 +1,5 @@
-import { Button, makeStyles, Typography } from '@material-ui/core';
+import { Button, Container, makeStyles, Typography } from '@material-ui/core';
+import { IMassacreTrack } from 'models/massacreTrack';
 import { MassacreContext } from 'providers/massacreTrackerProvider';
 import { useContext, useMemo } from 'react';
 import { MassacreMissions } from './massacreMissions';
@@ -21,14 +22,51 @@ export const MassacreTabPanel = (props: { system: string }) => {
 
   const classes = useStyles();
 
-  if (tracker) {
+  if (context && tracker) {
+    const deleteTracker = () => {
+      const shouldDelete = window.confirm(
+        `Do you really want to delete the ${tracker.hazRezSystem} tracker?`
+      );
+      if (shouldDelete === true) {
+        context.deleteTracker(tracker);
+      }
+    };
+
+    const addMissionColumn = () => {
+      const newFactions = tracker.factions.map((faction) => {
+        faction.missions = [
+          ...faction.missions,
+          { timeStamp: new Date(), killsforMission: 0, killsCompleted: 0 },
+        ];
+        return faction;
+      });
+      const newTracker: IMassacreTrack = { ...tracker, factions: newFactions };
+      context.updateTracker(tracker.hazRezSystem, newTracker);
+    };
+
+    const deleteLastMissionColumn = () => {
+      const newFactions = tracker.factions.map((faction) => {
+        faction.missions = [
+          ...faction.missions.slice(0, faction.missions.length - 1),
+        ];
+        return faction;
+      });
+      const newTracker: IMassacreTrack = { ...tracker, factions: newFactions };
+      context.updateTracker(tracker.hazRezSystem, newTracker);
+    };
+
     return (
-      <>
-        <Button onClick={() => context?.deleteTracker(tracker)}>
-          Delete Tracker
+      <Container maxWidth="xl">
+        <Button onClick={deleteTracker}>Delete Tracker</Button>
+        <Button onClick={addMissionColumn}>Add Column to tracker</Button>
+        <Button onClick={deleteLastMissionColumn}>
+          Delete last column of tracker
         </Button>
         <div>
-          <MassacreMissions tracker={tracker} />
+          <MassacreMissions
+            tracker={tracker}
+            updateTracker={context.updateTracker}
+          />
         </div>
         <div>
           <Typography variant="h4">Stations</Typography>
@@ -42,7 +80,7 @@ export const MassacreTabPanel = (props: { system: string }) => {
             ))}
           </div>
         </div>
-      </>
+      </Container>
     );
   } else {
     return <Typography>Tracker not found</Typography>;
