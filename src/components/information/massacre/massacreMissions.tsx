@@ -1,5 +1,6 @@
 import {
   Container,
+  IconButton,
   Paper,
   Table,
   TableBody,
@@ -16,6 +17,7 @@ import {
 } from 'models/massacreTrack';
 import { useSnackbar } from 'notistack';
 import { ChangeEvent, useEffect, useState } from 'react';
+import DeleteIcon from '@material-ui/icons/Delete';
 
 export const MassacreMissions = (props: {
   tracker: IMassacreTrack;
@@ -46,13 +48,15 @@ export const MassacreMissions = (props: {
             </TableRow>
           </TableHead>
           <TableBody>
-            {tracker.factions.map((faction) => (
-              <FactionRow
-                key={faction.name}
-                faction={faction}
-                onFactionChange={handleFactionChange}
-              />
-            ))}
+            {tracker.factions.map((faction) =>
+              faction.removed ? null : (
+                <FactionRow
+                  key={faction.name}
+                  faction={faction}
+                  onFactionChange={handleFactionChange}
+                />
+              )
+            )}
           </TableBody>
         </Table>
       </TableContainer>
@@ -138,10 +142,30 @@ const FactionRow = (props: {
     });
   };
 
+  const removeFaction = () => {
+    const emptyMissions: IFactionMission[] = faction.missions.map((mission) => {
+      return { timeStamp: new Date(), killsforMission: 0, killsCompleted: 0 };
+    });
+    setMissionKills(emptyMissions);
+    setTotalKills(0);
+
+    const newFaction: IFactionwMissions = {
+      ...faction,
+      missions: emptyMissions,
+      removed: true,
+    };
+    onFactionChange(newFaction);
+  };
+
   return (
     <TableRow>
       <TableCell>{totalKills}</TableCell>
-      <TableCell>{faction.name}</TableCell>
+      <TableCell>
+        {faction.name}{' '}
+        <IconButton onClick={removeFaction}>
+          <DeleteIcon />
+        </IconButton>
+      </TableCell>
       <TableCell>{faction.reputation}</TableCell>
       {missionKills.map((mission, index) => (
         <TableCell key={index}>

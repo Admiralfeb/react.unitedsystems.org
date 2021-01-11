@@ -55,13 +55,31 @@ export const MassacreTabPanel = (props: { system: string }) => {
       context.updateTracker(tracker.hazRezSystem, newTracker);
     };
 
+    const resetFactions = () => {
+      const newFactions = tracker.factions.map((faction) => {
+        faction.removed = false;
+        faction.missions = faction.missions.map((_) => {
+          return null;
+        });
+        return faction;
+      });
+      const newTracker: IMassacreTrack = {
+        ...tracker,
+        factions: newFactions,
+      };
+      context.updateTracker(tracker.hazRezSystem, newTracker);
+    };
+
     return (
       <Container maxWidth="xl">
-        <Button onClick={deleteTracker}>Delete Tracker</Button>
-        <Button onClick={addMissionColumn}>Add Column to tracker</Button>
-        <Button onClick={deleteLastMissionColumn}>
-          Delete last column of tracker
-        </Button>
+        <div>
+          <Button onClick={deleteTracker}>Delete Tracker</Button>
+          <Button onClick={addMissionColumn}>Add Column to tracker</Button>
+          <Button onClick={deleteLastMissionColumn}>
+            Delete last column of tracker
+          </Button>
+          <Button onClick={resetFactions}>Reset Factions</Button>
+        </div>
         <div>
           <MassacreMissions
             tracker={tracker}
