@@ -3,6 +3,7 @@ import { IMassacreTrack } from 'models/massacreTrack';
 import { MassacreContext } from 'providers/massacreTrackerProvider';
 import { useContext, useMemo } from 'react';
 import { MassacreMissions } from './massacreMissions';
+import { MassacreTotals } from './massacreTotals';
 import { StationList } from './stationList';
 
 const useStyles = makeStyles((theme) => ({
@@ -10,6 +11,11 @@ const useStyles = makeStyles((theme) => ({
     display: 'flex',
     flexDirection: 'row',
     margin: theme.spacing(1),
+  },
+  buttons: {
+    '& button': {
+      margin: theme.spacing(1),
+    },
   },
 }));
 
@@ -55,9 +61,22 @@ export const MassacreTabPanel = (props: { system: string }) => {
       context.updateTracker(tracker.hazRezSystem, newTracker);
     };
 
-    const resetFactions = () => {
+    const displayAllFactions = () => {
       const newFactions = tracker.factions.map((faction) => {
         faction.removed = false;
+        faction.missions = faction.missions.map((_) => {
+          return null;
+        });
+        return faction;
+      });
+      const newTracker: IMassacreTrack = {
+        ...tracker,
+        factions: newFactions,
+      };
+      context.updateTracker(tracker.hazRezSystem, newTracker);
+    };
+    const resetCounts = () => {
+      const newFactions = tracker.factions.map((faction) => {
         faction.missions = faction.missions.map((_) => {
           return null;
         });
@@ -72,19 +91,46 @@ export const MassacreTabPanel = (props: { system: string }) => {
 
     return (
       <Container maxWidth="xl">
-        <div>
-          <Button onClick={deleteTracker}>Delete Tracker</Button>
-          <Button onClick={addMissionColumn}>Add Column to tracker</Button>
-          <Button onClick={deleteLastMissionColumn}>
+        <div className={classes.buttons}>
+          <Button onClick={deleteTracker} color="secondary" variant="contained">
+            Delete Tracker
+          </Button>
+          <Button
+            onClick={addMissionColumn}
+            color="secondary"
+            variant="contained"
+          >
+            Add Column to tracker
+          </Button>
+          <Button
+            onClick={deleteLastMissionColumn}
+            color="secondary"
+            variant="contained"
+          >
             Delete last column of tracker
           </Button>
-          <Button onClick={resetFactions}>Reset Factions</Button>
+          <Button
+            onClick={displayAllFactions}
+            color="secondary"
+            variant="contained"
+          >
+            Unhide all factions
+          </Button>
+          <Button onClick={resetCounts} color="secondary" variant="contained">
+            Reset Counts
+          </Button>
+        </div>
+        <div>
+          <MassacreTotals tracker={tracker} />
         </div>
         <div>
           <MassacreMissions
             tracker={tracker}
             updateTracker={context.updateTracker}
           />
+        </div>
+        <div>
+          <MassacreTotals tracker={tracker} />
         </div>
         <div>
           <Typography variant="h4">Stations</Typography>
