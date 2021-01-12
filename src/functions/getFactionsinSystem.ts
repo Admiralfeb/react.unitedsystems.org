@@ -17,6 +17,7 @@ const getFactionsinSystem = async (systemName: string = 'Arugbal') => {
 
     return response.data;
   } catch (err) {
+    // this can fail if the http request fails
     throw err;
   }
 };

@@ -27,6 +27,7 @@ const getSystemsinSphere = async (
 
     return systemList;
   } catch (err) {
+    // this can fail if the http request fails
     throw err;
   }
 };
