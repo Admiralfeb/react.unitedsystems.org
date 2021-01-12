@@ -6,6 +6,7 @@ import { InformationRoutes } from './information.routes';
 import { AboutRoutes } from './about.routes';
 import { JoinRoutes } from './join.routes';
 import { Releases } from 'components/releases/releases';
+import { MassacreKillTracker } from 'components/information/massacre/massacreKillTracker';
 import { PasswordReset } from 'components/auth/passwordReset';
 import { PasswordResetComplete } from 'components/auth/passwordResetComplete';
 import { LoginComplete } from 'components/auth/loginComplete';
@@ -31,6 +32,9 @@ export const AppRoutes = () => {
         </Route>
         <Route path="/builds">
           <ShipBuilds />
+        </Route>
+        <Route path="/massacres">
+          <MassacreKillTracker />
         </Route>
         <Route path="/join">
           <JoinRoutes />
