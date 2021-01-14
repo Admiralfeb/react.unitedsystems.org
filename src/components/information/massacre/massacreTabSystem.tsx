@@ -25,7 +25,7 @@ export const MassacreTabSystem = () => {
                 value={tracker.hazRezSystem}
               />
             ))}
-            <Tab label="+" value="+" />
+            {/* <Tab label="+" value="+" /> */}
           </Tabs>
         </AppBar>
         {context.trackers.map((tracker) => (

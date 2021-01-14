@@ -29,6 +29,7 @@ export const MassacreTabPanel = (props: { system: string }) => {
   const classes = useStyles();
 
   if (context && tracker) {
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const deleteTracker = () => {
       const shouldDelete = window.confirm(
         `Do you really want to delete the ${tracker.hazRezSystem} tracker?`
@@ -92,9 +93,9 @@ export const MassacreTabPanel = (props: { system: string }) => {
     return (
       <Container maxWidth="xl">
         <div className={classes.buttons}>
-          <Button onClick={deleteTracker} color="secondary" variant="contained">
+          {/* <Button onClick={deleteTracker} color="secondary" variant="contained">
             Delete Tracker
-          </Button>
+          </Button> */}
           <Button
             onClick={addMissionColumn}
             color="secondary"

@@ -2,6 +2,7 @@ import { useLocalStorage, writeStorage } from '@rehooks/local-storage';
 import { IMassacreContext } from 'models/massacreContext';
 import { IMassacreTrack } from 'models/massacreTrack';
 import { createContext, ReactNode, useEffect, useState } from 'react';
+import massacreDefaults from 'data/information/massacre/massacreDefaults.json';
 
 export const MassacreContext = createContext<IMassacreContext | null>(null);
 
@@ -16,7 +17,8 @@ export const MassacreContextProvider = (props: { children: ReactNode }) => {
       const trackers: IMassacreTrack[] = store;
       return trackers;
     } else {
-      return [];
+      const defaultTrackers: IMassacreTrack[] = massacreDefaults;
+      return defaultTrackers;
     }
   });
 
